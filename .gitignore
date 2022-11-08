@@ -6,12 +6,5 @@
 /Ante-proyecto/main.pdf
 /Ante-proyecto/main.out
 /Ante-proyecto/main.synctex.gz
-**/Ante-proyecto/Sections/Sec2.log
-**/Ante-proyecto/Sections/Sec1.log
-/Ante-proyecto/Sections/Sec3.log
-/Ante-proyecto/Sections/Sec4.log
-/Ante-proyecto/Sections/Sec5.log
-/Ante-proyecto/Sections/Sec6.log
-/Ante-proyecto/Sections/Sec7.log
-/Ante-proyecto/Sections/title.log
+/Ante-proyecto/Sections/*.log
 

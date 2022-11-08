@@ -1,0 +1,50 @@
+\section{Descripción general del proyecto}
+
+
+
+Para este proyecto se requiere repasar algunos conceptos específicos sobre álgebra lineal y los fundamentos de la mecánica cuántica. Además es necesario el entendimiento de la reformulación de los principios de la teoría cuántica en el lenguaje de las matrices de densidad, así como la comprensión del formalismo de las operaciones cuánticas.
+
+ A lo largo del proyecto se debe estudiar y entender como las operaciones cuánticas $\mathcal{E}$ que actúan sobre operadores de densidad $\rho$ de un sistema de dos partículas, tienen una representación como una suma de operadores. Asimismo se desea encontrar el conjunto de operadores que describen la operación de una medición difusa en un estado inicial, de un observable que tiene una salida específica.
+ %de la siguiente forma $\mathcal{E}(\rho)=\sum_i K_i\rho K_i^{\dagger} $, para un conjunto de operadores $\{K_i\}_i$, llamados operadores de Kraus. 
+%Se desea entender la condición de completa positividad de las transformaciones lineales que actúan sobre estados cuánticos y verificar qué subconjunto de los mapeos de nuestro interés cumplen con esta condición. Esta condición asegura que estados cuánticos físicos sean transformados en estados cuánticos físicos.
+
+
+%Para abordar este problema se necesita compresión sobre álgebra lineal, los fundamentos de la mecánica cuántica en el lenguaje del operador de densidad así como del formalismo de las operaciones cuánticas.%Se requieren conocimientos específicos de álgebra lineal para representar los postulados de la teoría cuántica con el len
+
+
+
+\subsection{Matrices de densidad}
+
+La matriz de densidad es un operador lineal, definido positivo, hermítico y de traza uno que actúa en el espacio de Hilbert del sistema, también llamado operador de densidad \cite{nielsen_chuang_2010}. Los postulados básicos de la mecánica cuántica relacionados con la medición se pueden reformular en el lenguaje de los operadores de densidad debido a que la definición anterior es matemáticamente equivalente al enfoque de vectores de estado. Es por ello que se deberá estudiar una formulación conveniente para escribir los estados del sistema de tal manera que se consiga una mejor descripción de estos. Asimismo será necesario estudiar las transformaciones que pueden actuar sobre las matrices de densidad y su representación.
+
+
+% This definition can be motivated by considering a situation where a pure state {\displaystyle |\psi _{j}\rangle }|\psi _{j}\rangle  is prepared with probability {\displaystyle p_{j}}p_{j}, known as an ensemble. The probability of obtaining projective measurement result {\displaystyle m}m when using projectors {\displaystyle \Pi _{m}}{\displaystyle \Pi _{m}} is given by[4]: 99 
+
+
+%El conjunto de las matrices de densidad es un conjunto convexo que se encuentra dentro del espacio vectorial de las matrices Hermíticas. Por ello, es necesario estudiar el espacio de Hilbert-Schmidt y algunas de sus propiedades. Habiendo conocido la estructura del espacio en el que viven las matrices de densidad se deberá  estudiar una manera conveniente de escribir la matriz de densidad de tal manera que se consiga una mejor descripción del estado cuántico. Finalmente, es de nuestro interés estudiar el tipo de transformaciones que actúan sobre las matrices de densidad tales que preservan la estructura convexa del espacio.
+\subsection{Operaciones cuánticas}
+
+Para este trabajo se estudiará el formalismo de las operaciones cuánticas, las cuales son una herramienta general que describe la evolución de los sistemas cuánticos en muchas circunstancias. Las operaciones cuánticas capturan el cambio dinámico a un estado que ocurre como resultado de un proceso físico, donde $\rho$ es el estado inicial antes de algún proceso y $\rho '=\mathcal{E}(\rho) $ es el estado cuántico después de dicho proceso. En este proyecto son de especial interés la descripción de las operaciones cuánticas puesto que el proceso de medición puede entenderse como una operación cuántica, específicamente para el caso de mediciones difusas. 
+
+
+
+
+
+%Para este proyecto son de interés los sistemas cuánticos abiertos. Estos son aquellos que interactúan con un sistema cuántico externo. Son importantes objetos de estudio ya que, en la práctica, no existen sistemas cuánticos que estén completamente aislados de su entorno. A diferencia de los sistemas cuánticos cerrados, la dinámica de los sistemas abiertos no está descrita por operadores unitarios. Sin embargo, el objeto de estudio de este proyecto son sistemas abiertos cuya dinámica puede describirse utilizando el formalismo de los canales cuánticos.
+% Para ello es ecesario describir los estados cuánticos y las transformaciones de estos estados cuánticos.en el lenguaje de las matrices de densidad   
+%La operación cuántica captura el cambio dinámico a un estado que ocurre como resultado de algún proceso físico; ρ es el estado inicial antes del proceso, y E(ρ) es el estado final después de que ocurre el proceso, posiblemente hasta algún factor de normalización
+
+\subsubsection{Operadores de Kraus}
+
+En este proyecto se estudiarán los mapeos completamente positivos y la forma elegante de representarlos conocida como la suma de operadores Kraus. Esta representación está respaldada por un teorema el cual asegura que cualquier mapeo lineal $\mathcal{E}$   completamente positivo, al espacio $\mathcal{H}$, puede ser escrito como $\mathcal{E}(\rho)=\sum_iK_i\rho K_i$, para algún conjunto de operadores $\{K_i\}_i$, llamados operadores de Kraus.
+
+Para el caso de la mediciones difusas es necesario encontrar el conjunto de operadores de Kraus correspondientes, con el fin de estudiar el efecto de la operación cuántica sobre cualquier estado inicial del sistema, y poder describir el estado de salida.
+
+
+
+
+
+
+
+
+

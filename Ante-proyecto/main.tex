@@ -1,0 +1,66 @@
+% Author - Jon Arnt Kårstad, NTNU IMT
+\documentclass{article}
+
+% Importing document settings from our file "packages.sty"
+\usepackage{packages}
+
+% Beginning of document
+\begin{document}
+
+% Inserting title page
+\import{./Sections}{title}
+
+% Defining front matter settings (Norsk: innstillinger for forord m.m.)
+\frontmatter
+
+% Inserting table of contents
+\tableofcontents
+
+
+
+
+% Inserting list of figures & list of tables
+%\listoffigures
+%\listoftables
+
+% Defining main matter settings (Norsk: innstillinger for hoveddelen av teksten)
+\mainmatter
+
+% Introduction explaining this LaTeX-template
+%\import{./Sections/}{Introduction}
+
+% Example section added from an external tex-file, here located in ./Sections/
+%\import{./Sections/}{Example_section}
+
+\import{./Sections/}{Sec1}
+%\import{./Sections/}{Sec2}
+\import{./Sections/}{Sec5}
+\import{./Sections/}{Sec3}
+\import{./Sections/}{Sec4}
+
+\import{./Sections/}{Sec6}
+\import{./Sections/}{Sec7}
+
+% Example section added directly into the main-file
+
+
+% Printing bibliography
+\newpage
+
+%otras opciones {plain}
+\nocite{gomez2010introduccion}
+
+\bibliographystyle{ieeetr}
+\bibliography{./Sections/references}
+
+
+
+
+%\printbibliography[heading = bibintoc, title = Referencias]    % 'bibintoc' inserts our bibliography into the table of contents
+
+% Inserting appendix with separate settings
+%\addappendix
+%\import{./Appendices/}{example_appendix}
+
+% End of document
+\end{document}

@@ -1,10 +1,29 @@
-/Ante-proyecto/main.aux
-/Ante-proyecto/main.bbl 
-/Ante-proyecto/main.toc
-/Ante-proyecto/main.blg
-/Ante-proyecto/main.log
-/Ante-proyecto/main.pdf
-/Ante-proyecto/main.out
-/Ante-proyecto/main.synctex.gz
-/Ante-proyecto/Sections/*.log
+# Archivos Latex que no son el .tex
+*.swp
+*.swo
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.bbl
+*.blg
+*.lof
+*.lot
+*.nlo
+*.out
+*.pdf
+*.toc
+
+#Excepto los pdfs de la bibliografia y de burocracia
+# y los de los gráficos
+!bibliografia/*
+!burocracia/*
+!graphics/**
+
+
+burocracia/esbozo_proyecto.pdf
+burocracia/indice.pdf
+burocracia/plan_maestro.pdf
 

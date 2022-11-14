@@ -1,3 +1,5 @@
+main.pdf ::
+
 -include ~/makefile
 
 

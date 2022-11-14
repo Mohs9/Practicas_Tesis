@@ -3,6 +3,10 @@
 
 % Importing document settings from our file "packages.sty"
 \usepackage{packages}
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\FXRegisterAuthor{rr}{arr}{\color{green}RR}
+
 
 \usepackage[mathlines]{lineno}  \linenumbers
 \setlength\linenumbersep{3pt}
@@ -28,6 +32,10 @@
 % Defining main matter settings 
 \mainmatter
 %would've
+
+
+\cpnote{Hola, esta es una nota}
+\rrnote{Hola, esta es la respuesta}
 
 
 \import{./Sections/}{Sec1}

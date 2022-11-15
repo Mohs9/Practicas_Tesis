@@ -1,0 +1,51 @@
+\section{Descripción general del proyecto}
+
+
+
+Para este proyecto se requiere repasar algunos conceptos específicos sobre álgebra lineal y los fundamentos de la mecánica cuántica. Además es necesario el entendimiento de la reformulación de los principios de la teoría cuántica en el lenguaje de las matrices de densidad, así como la comprensión del formalismo de las operaciones cuánticas.
+
+\rrnote{Arreglé la parte que estaba confusa}
+
+ A lo largo del proyecto se debe entender como las operaciones cuánticas $\mathcal{E}$, tienen una representación como una suma de operadores. Asimismo se desea encontrar el conjunto de operadores que describen la operación de una medición difusa sobre un estado inicial, de un observable que tiene una salida específica.
+ 
+
+
+
+\subsection{Matrices de densidad}
+
+La matriz de densidad es un operador lineal, definido positivo, hermítico y de traza uno que actúa en el espacio de Hilbert del sistema, también llamado operador de densidad \cite{nielsen_chuang_2010}. Los postulados básicos de la mecánica cuántica relacionados con la medición se pueden reformular en el lenguaje de los operadores de densidad debido a que la definición anterior es matemáticamente equivalente al enfoque de vectores de estado. Se deberá estudiar a lo operadores de densidad puesto que proporcionan una forma conveniente de representar el estado cuántico de un sitema físico y permiten describir fácilmente una medición realizada sobre algún sistema.
+
+
+\rrnote{Agregué esta parte}
+\subsection{Medida POVM }
+
+
+Una medida POVM (Positive operator-valued measurement) es un conjunto de operadores hermíticos no negativos $\{E_{m}\}$  que describen el sistema cuántico y verifican la siguiente relación de completitud $\sum _{m}E_{m}=1$, donde $m$ está asociado a los posible resultados $a_m$ que podrían obtenerse al realizar la medición de algún observable. Estas medidas POVM son los operadores más generales, puesto que tienen en cuenta  sistemas que interactúan con su entorno así sistemas que interactúan con su entorno sistemas que interactúan con su entorno. Las medidas PVM o proyectivas, son un caso particular de las medidas POVM, solo válidas para sistemas cerrados. Las medidas POVM serán espacialmente útiles en este proyecto y deberán estudiarse debido a que a través de estos operadores se puede calcular la probabilidad de obtener un resultado, así como el estado del sistema justo después de la medición.
+ 
+
+
+\subsection{Operaciones cuánticas}
+
+Para este trabajo se estudiará las transformaciones que pueden actuar sobre las matrices de densidad y su representación. Asimismo será necesario estudiar el formalismo de las operaciones cuánticas, las cuales son una herramienta general que describe la evolución de los sistemas cuánticos en muchas circunstancias. 
+
+
+Las operaciones cuánticas capturan el cambio dinámico a un estado que ocurre como resultado de un proceso físico, donde $\rho$ es el estado inicial antes de algún proceso y $\rho '=\mathcal{E}(\rho) $ es el estado cuántico después de dicho proceso. En este proyecto son de especial interés la descripción de las operaciones cuánticas puesto que el proceso de medición puede entenderse como una operación cuántica, específicamente para el caso de mediciones difusas. 
+
+
+
+
+
+\subsubsection{Operadores de Kraus}
+
+En este proyecto se estudiarán los mapeos completamente positivos y la forma elegante de representarlos conocida como la suma de operadores Kraus. Esta representación está respaldada por un teorema el cual asegura que cualquier mapeo lineal $\mathcal{E}$   completamente positivo, al espacio $\mathcal{H}$, puede ser escrito como $\mathcal{E}(\rho)=\sum_iK_i\rho K_i$, para algún conjunto de operadores $\{K_i\}_i$, llamados operadores de Kraus.
+
+Para el caso de la mediciones difusas es necesario encontrar conjuntos de operadores de Kraus correspondientes, con el fin de estudiar el efecto de la operación cuántica sobre cualquier estado inicial del sistema, y poder describir el estado de salida.
+
+
+
+
+
+
+
+
+

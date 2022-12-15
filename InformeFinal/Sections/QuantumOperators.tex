@@ -1,0 +1,37 @@
+\chapter{Operaciones cuánticas}
+
+
+Los sistemas reales tienen interacciones indeseadas con el mundo exterior, estas indeseadasinteracciones se presentan como ruido en información cuántica. Para construir sistemas de procesamiento en información cuántica útiles es necesario entender y controlar dicho ruido. Es por esto que esta sección se centra en el formalismo de las operaciones cuánticas, que son un herramienta capaz de describir ruido cuántico y el comportamiento de sistemas cuánticos abiertos. Otra de las aplicaciones de las operaciones cuánticas en información y computación cuántica  es que se adaptan a al descripción de cambios de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}.
+
+
+Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiziarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.
+
+\section{Aproximación axiomática de las operaciones cúanticas}
+En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado físicamente, por lo que se espera que las operaciones cuánticas obedezcan. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
+
+
+
+\begin{definition}[\textbf{Operación cuántica}] Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
+
+    \begin{itemize}
+        \item \textit{Axioma 1:} La traza $\tr (\mathcal{E}(\rho))$ es la probabilidad de que el proceso representado por $\mathcal{E}$ ocurra, cuando $\rho$ es el estado inicial. Consecuentemente, $0 \le \tr (\mathcal{E}(\rho)) \le 1$ para cualquier estado $\rho$.
+        \item \textit{Axioma 2:} El mapeo $\mathcal{E}$ es linealmente convexo en el conjunto de matrices de densidad, esto es, para probabilidades $\{p_i\}$,\[\mathcal{E}\left(\sum _i p_i \rho _i\right)=\sum_i p_i \mathcal{E}(\rho_i)\]
+        \item\textit{Axioma 3:} El mapeo $\E$ es completamente positivo. Esto significa que el mapeo permanece positivo\footnote{Un mapeo positivo, es aquel cuya entrada es un operador positivo y la salida también lo es.}, incluso cuando se considera que actúa solo sobre una parte de un sistema más grande. 
+    \end{itemize}
+\end{definition}
+
+En el caso de las mediciones resulta conveniente el primer axioma, se hace la convención de que $\E$ no necesariamente preserve la traza de los operades de densidad, $\tr(\rho)=1$. Para verlo mejor, suponga que se realiza una medición proyectiva en la base computacional de un solo qubit. Entonces la operación cuántica $\E$ describirá este proceso si se define el mapeo como $\E_0\equiv|0\rala0|\rho |0\rala 0|$ y $\E_1\equiv|1\rala1|\rho |1\rala 1|$. Las probabilidad de las salidas serán entonces $\tr (\E_0(\rho))$ y $\tr (\E_1(\rho))$ respectivamente.  Con esta convención la normalización corre para el estado final será \[\dfrac{\E(\rho)}{\tr (\E (\rho))}.\]
+
+En el caso que no se realice ninguna medición, esto se reduce al requisito de que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. La operación cuántica es una operación cuántica que conserva la traza, ya que por sí sola $\E$ proporciona una descripción completa del proceso cuántico. Una operación cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno {\cite{nielsen_chuang_2010}}.
+
+
+
+\section{Operadores de Kraus}
+
+
+
+\section{Canales cuánticos}
+
+
+
+\section{Proceso de tomografía cuántica}

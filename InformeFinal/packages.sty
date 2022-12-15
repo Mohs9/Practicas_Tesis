@@ -1,3 +1,4 @@
+% Author - Jon Arnt Kårstad, NTNU IV-IMT
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{packages}[2021/04/20 Packages]
@@ -139,6 +140,25 @@
 \usepackage{diagbox}
 \usepackage{fontawesome}
 \usepackage{array}
-\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
-%\usepackage[mathlines]{lineno}  \linenumbers
-%\setlength\linenumbersep{3pt}
+\usepackage{titlesec}   % in preamble
+\usepackage{dsfont}
+
+%Definitions=======================================================
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{lemma}[theorem]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[chapter]
+\theoremstyle{remark}
+\newtheorem{claim}{Claim}[section]
+
+%COMANDOS==========================================================
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\ra}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\rala}{\rangle \langle}
+\newcommand{\tr}{{\rm Tr}}
+\newcommand{\E}{\mathcal{E}}

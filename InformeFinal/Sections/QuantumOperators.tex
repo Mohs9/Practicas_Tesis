@@ -220,7 +220,7 @@ Luego \[E_i=\sum_j u_{ij}F_j.\] Conversamente, ahora se supone que $E_i$ y $F_j$
 \begin{equation}
     \begin{split}
         \E(\rho)&=\sum_i  E_i\rho E_i^\dagger\\
-            &=\sum_{ij} u_{ij}u_{ji}^*F_j\rho F_j^\dagger\\
+            &=\sum_{ij} u_{ij}u_{ij}^*F_j\rho F_j^\dagger\\
             &=\sum_j F_j\rho F_j^\dagger\\
             &=\mathcal{F}(\rho).
     \end{split}
@@ -277,4 +277,89 @@ Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación c
     \end{split}
 \end{equation}
 
-\section{Canales cuánticos}
+\section{Proceso de tomografía cuántica}
+
+Antes de describir el proceso de tomografía cuántica, vale la pena presentar la tomografía de estado cuántico. La tomografía de estado cuántico es el procedimiento experimental para determinar un estado cuántico desconocido. Es posible estimar $\rho$ si se tiene un gran número de copias de $\rho$. Por ejemplo, si $\rho$ es el estado cuántico producido por algún experimento, se puede repetir el experimento muchas veces para producir muchas copias del estado $\rho$ {\cite{nielsen_chuang_2010}}. 
+
+Suponiendo que se tiene varias copias de un operador de densidad de un qubit $\rho$. El conjunto $\mathds{1}/\sqrt{2}$, $X/\sqrt{2}$, $Y/\sqrt{2}$, $Z/\sqrt{2}$ forma una base ortonormal de matrices, tal que $\rho$  puede escribirse con \[\rho=\dfrac{\tr(\rho)\mathds{1}+\tr(X\rho)X+\tr(Y\rho)Y+\tr(Z\rho)Z}{2}.\]
+
+Por ejemplo, para estimar $\tr(Z\rho)$ se mide el observable $Z$ muchas veces, $m$, obteniendo salidas como $z_1,z_2,\ldots,z_m$, todos iguales a $+1$ o $-1$. El promedio empírico de esas cantidades, $\sum_i z_i/m$, es un estimado para el valor real de $\tr(Z\rho)$. Y usando el teorema del límite central para determinar qué tan bien se comporta esta estimación para $m$ grande, donde se vuelve aproximadamente gaussiana con media igual a $\tr(Z\rho)$ y con desviación estándar  $\Delta(Z)/ m$, donde $\Delta(Z)$ es la desviación estándar para una sola medición de $Z$, que tiene un límite superior de 1, por lo que la desviación estándar en la estimación $\sum_i z_i/m$ es como máximo $1/\sqrt{m}$ {\cite{nielsen_chuang_2010}}. 
+
+Y al generalizar el procedimiento para el caso de más de un qubit, es similar.
+\[\rho=\sum_{\vec{v}}\dfrac{\tr(\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}\rho)\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}}{2^n}\]
+
+donde la suma es sobre los vectores $\vec{v} = (v_1 ,\ldots, v_n )$ con entradas vi elegidas del conjunto $\{0, 1, 2, 3\}$. Al realizar mediciones de observables que son productos de matrices de Pauli, se puede estimar cada término en esta suma, y así obtener una estimación de $\rho$ {\cite{nielsen_chuang_2010}}.
+
+Para el proceso de tomografía cuántica, el objetivo es tener una forma de determinar una representación útil de $\E$  de los datos experimentales disponibles. El objetivos es encontrar un conjunto de operadores de Kraus $\{E_i\}$ para $\E$.
+
+
+Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan una forma de determinar los $E_i$  a partir de los parámetros medibles.
+
+Primero, se toman en cuenta una base fija de operadores $\tilde{E_i}$, tales que 
+
+\begin{equation}\label{Basefija}
+    E_i=\sum_m e_{im}\tilde{E}_m
+\end{equation}
+
+para algún conjunto de números complejos $e_{im}$. Luego, 
+\begin{equation}\label{operacionEnTerminosDeChi}
+    \E(\rho)=\sum_{mn}\tilde{E}_m\rho \tilde{E}_n^\dagger \chi_{mn},
+\end{equation}
+
+donde $\chi_{mn}\equiv \sum_i e_{im}e_{in}^*$ son las entradas de una matriz que es Hermítica por definición. Esta expresión, conocida como la \textit{representación de la matriz chi}. Esto muestra que la operación $\E$ puede ser completamente descrita por la matriz $\chi$.
+
+En general, $\chi$ tendrá $d^4-d^2$ parámetros reales independientes, puesto que un mapeo lineal general de matrices de $d$ por $d$ a matrices de $d$ por $d$ está descrito por $d^4$ parámetros independientes, pero debido a que $\rho$ es Hermítica de traza uno, se tienen $d^2$ parámetros fijos.
+
+Sea $\rho_j$, $1 \le j\le d^2$ una base fija para el espacio de matrices de $d\times d$; cualquier matriz de $d\times d$ puede ser escrita como una única combinación de $\rho_j$. Luego, es posible determinar $\E(\rho_j)$ por la tomografía de estado cuántico, para cada $\rho_j$.
+
+Luego, cada $\E(\rho_j)$ puede ser expresada como una combinación lineal de estados de la base.
+
+\begin{equation}\label{E_en_terminos_de_la_base}
+    \E(\rho_j)=\sum_k \lambda _{jk}\rho_k,
+\end{equation}
+
+ahora, $\lambda_{jk}$ puede ser determinado por aloritmos de álgebra lineal. Se puede escribir lo siguiente
+\begin{equation}
+    \tilde{E}_m\rho_j \tilde{E}_n^\dagger=\sum_k\beta_{jk}^{mn}\rho_k,
+\end{equation}
+
+donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser determinados por los algoritmos de álgebra lineal, dado los operadores $\tilde{E}_m$ y $\rho_j$.  Combinando las dos últimas expresiones con la ecuación {\ref{operacionEnTerminosDeChi}}.
+
+
+\begin{equation}
+\sum_k \sum_{mn}\chi_{mn}\beta_{jk}^{mn}\rho_k=\sum_k\lambda_{jk}\rho_k.
+\end{equation}
+
+Y debido a la independencia lineal de $\rho_k$ para cada $k$,
+
+\begin{equation}
+    \sum_{mn}\beta_{jk}^{mn}\chi_{mn}=\lambda_{jk}.
+\end{equation}
+
+Esta relación es una condición necesaria y suficiente para la matriz $\chi$ para dar la operación cuántica correcta $\E$. Y luego $\chi$ y $\lambda$ pueden verse como vectores, y $\beta$ como una matriz de $d^4\times d^4$, con las columnas nombradas por ${mn}$ y las columnas por ${jk}$. Se necesita computar la matriz inversa de $\beta_{jk}^{mn}$. Sea $\kappa$ la matriz inversa generalizada de la matriz $\beta$, que satisface \[\sum_{jk}\kappa_{jk}^{pq}\beta_{jk}^{mn}=\delta_{pm}\delta{qn},\] los elementos de $\chi$ se leen como 
+\begin{equation}
+    \chi_{mn}=\sum_{jk}\kappa_{jk}^{mn}\lambda_{jk}.
+\end{equation}
+
+Ahora que se determinó $\chi$ se puede obtener inmediatamente la representación de Kraus para $\E$ de la siguiente manera. Sea $U^\dagger$ una matriz unitaria que diagonaliza $\chi$,
+
+\begin{equation}
+    \chi_{mn}=\sum_{xy}U_{mx}d_x\delta_{xy}U_{ny}^*
+\end{equation}
+
+y de ello se puede verificar que 
+
+\begin{equation}
+    E_i=\sqrt{d_i} \sum_j U_{ji}E_j
+\end{equation}
+
+
+son elementos para $\E$. El proceso se puede resumir en determinar $\lambda$ experimentalmente usando el proceso de tomografía de estado, y luego determinar $\chi$ con $\vec{\chi}=\kappa\lambda$, la cual da una descripción completa de $\E$, incluyendo un conjunto de operadores $\{E_i\}$.
+
+
+
+
+
+
+
+

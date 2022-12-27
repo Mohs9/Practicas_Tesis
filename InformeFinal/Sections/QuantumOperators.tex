@@ -1,10 +1,10 @@
-\chapter{Operaciones cuánticas}
+\chapter{Operaciones cuánticas}\label{OpCuanticas}
 
 
 Los sistemas reales tienen interacciones indeseadas con el mundo exterior, estas indeseadasinteracciones se presentan como ruido en información cuántica. Para construir sistemas de procesamiento en información cuántica útiles es necesario entender y controlar dicho ruido. Es por esto que esta sección se centra en el formalismo de las operaciones cuánticas, que son un herramienta capaz de describir ruido cuántico y el comportamiento de sistemas cuánticos abiertos. Otra de las aplicaciones de las operaciones cuánticas en información y computación cuántica  es que se adaptan a al descripción de cambios de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}.
 
 
-Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiziarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. %En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.
+Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiziarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
 
 \section{Aproximación axiomática de las operaciones cúanticas}
 En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado físicamente, por lo que se espera que las operaciones cuánticas obedezcan. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
@@ -134,7 +134,7 @@ La representación de suma de operadores describe la dinámica del sistema princ
  La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_k E_k\rho E_k^\dagger$. Los operadores $E_k$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_k E_k^\dagger E_k=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}
 
 
-\subsection{Mediciones y representación de Kraus}
+\subsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
 
 Considere un sistema primario $Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmenteen el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $QA$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto $QA$ en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $A$,
 
@@ -163,16 +163,16 @@ con lo cual se obtiene la representación de Kraus de la operación $\E_\alpha$,
 \end{equation}
 
 
-Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) $ son claramente positivos y satisfacen la relación de completitud. Cualquier modelo de medida da lugar a un POVM que describe las estadísticas de medida. El estado normalizado del sistema posterior a la medición, condicionado al resultado $\alpha$, es {\cite{unm2014}}
+Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) $ son claramente positivos y satisfacen la relación de completitud. Cualquier modelo de medida da lugar a un POVM que describe las estadísticas de la medida. El estado normalizado del sistema posterior a la medición, condicionado al resultado $\alpha$, es {\cite{unm2014}}
 
 \begin{equation}
-    \rho_\alpha =\dfrac{\E_\alpha (\rho)}{\tr(\E_\alpha(\rho))}=\dfrac{\E_\alpha(\rho)}{p_\alpha}=\dfrac{1}{p_\alpha}\sum_{j,k}M_{\alpha,j,k}\rho M_{\alpha,j,k}.
+    \rho_\alpha =\dfrac{\E_\alpha (\rho)}{\tr(\E_\alpha(\rho))}=\dfrac{\E_\alpha(\rho)}{p_\alpha}=\dfrac{1}{p_\alpha}\sum_{j,k}M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger.
 \end{equation}
 
 Y si no se sabe el resultado de la medición en el sistema auxiliar, el estado después de la medición es obtenido promediando sobre las posibles resultados de las mediciones {\cite{unm2014}}
 
 \begin{equation}
-    \rho'=\sum_\alpha p_\alpha \rho_\alpha=\sum_\alpha \E_\alpha(\rho)=\sum_{\alpha,j,k} M_{\alpha,j,k}\rho M_{\alpha,j,k}\equiv\E(\rho).
+    \rho'=\sum_\alpha p_\alpha \rho_\alpha=\sum_\alpha \E_\alpha(\rho)=\sum_{\alpha,j,k} M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger\equiv\E(\rho).
 \end{equation}
 
 

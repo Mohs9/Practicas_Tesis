@@ -73,9 +73,7 @@ Y dado que al aplicar dos veces el operador SWAP se obtiene el mismo estado inic
 
 
 
-\section{Operadores de Kraus}
-
-
+\section{Representación de suma de operadores}
 
 Una operación cuántica también puede representarse en una forma elegante como la \textit{representación de suma de operadores}. La representación de suma de operadores de un mapeo $\E$, se puede escribir como $\E(\rho)=\sum_k E_k \rho E_k^\dagger$, para algún conjunto de operadores $\{E_k\}$ que satisfacen la condición $\sum_k E_k^\dagger E_k\le \mathds{1}$.
 
@@ -131,10 +129,12 @@ Conversamente, supongase que $\E(\rho)=\sum_i E_i \rho E_i^\dagger$. Es fácil v
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{E_k\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
 
- La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_k E_k\rho E_k^\dagger$. Los operadores $E_k$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_k E_k^\dagger E_k=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}
+\subsection{Operadores de Kraus}
+
+ La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_k E_k\rho E_k^\dagger$. Los operadores $\{E_k\}$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_k E_k^\dagger E_k=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}
 
 
-\subsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
+\subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
 
 Considere un sistema primario $Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmenteen el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $QA$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto $QA$ en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $A$,
 
@@ -163,7 +163,7 @@ con lo cual se obtiene la representación de Kraus de la operación $\E_\alpha$,
 \end{equation}
 
 
-Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) $ son claramente positivos y satisfacen la relación de completitud. Cualquier modelo de medida da lugar a un POVM que describe las estadísticas de la medida. El estado normalizado del sistema posterior a la medición, condicionado al resultado $\alpha$, es {\cite{unm2014}}
+Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) $ son claramente positivos y satisfacen la relación de completitud. El estado normalizado del sistema posterior a la medición, condicionado al resultado $\alpha$, es {\cite{unm2014}}
 
 \begin{equation}
     \rho_\alpha =\dfrac{\E_\alpha (\rho)}{\tr(\E_\alpha(\rho))}=\dfrac{\E_\alpha(\rho)}{p_\alpha}=\dfrac{1}{p_\alpha}\sum_{j,k}M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger.
@@ -176,11 +176,11 @@ Y si no se sabe el resultado de la medición en el sistema auxiliar, el estado d
 \end{equation}
 
 
-\subsection{No unicidad en la representación de Kraus}
+\subsubsection{No unicidad en la representación de Kraus}
  La representación de Kraus provee una descripción bastante general de la dinámica de los sistemas cuánticos abiertos sin embargo esta representación no es única. Es decir que distintos conjuntos de operadores $\{E_k\}$ y $\{F_i\}$ pueden generar la misma operación cuántica. Esto es importante puesto que,diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y entender la libertad de la representación es crucial para una buena comprensión de la corrección de errores cuánticos. Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen formalmente el teorema.
 
 
- \begin{theorem}[Libertad unitaria en la representación de Kraus] Sean $\{E_1,\ldots,\E_m\}$ y $\{F_1,\ldots , F_n\}$ conjuntos de operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$, respectivamente. Agregando operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$ si y solo si existe números complejos $u_{ij}$ tales que $E_i=\sum_j u_{ij}F_j$, y $u_{ij}$ es una matriz unitaria de $m$ por $m$
+ \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}Sean $\{E_1,\ldots,\E_m\}$ y $\{F_1,\ldots , F_n\}$ conjuntos de operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$, respectivamente. Agregando operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$ si y solo si existe números complejos $u_{ij}$ tales que $E_i=\sum_j u_{ij}F_j$, y $u_{ij}$ es una matriz unitaria de $m$ por $m$
     
  \end{theorem}
 

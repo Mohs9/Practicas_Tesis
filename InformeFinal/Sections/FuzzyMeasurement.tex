@@ -58,8 +58,6 @@ donde el operador \textit{difuso } $\mathcal{F}_{\text{2p}}(\rho)$ se define com
 
 
 
-
-
 Una forma útil de aproximarse a describir completamente las mediciones difusas es considerar una herramienta conocida como \textit{instrumento cuántico}, el cual es un mapeo que toma un operador de entrada y tiene como salida un ensamble que correlaciona un sistema clásico que contiene la salida de la medición y un sistema cuántico que contiene el estado posterior a la medición. 
 
 
@@ -113,6 +111,8 @@ En esta alternativa al aplicarle el operador difuso al sistema clásico se puede
 
 
 \subsubsection{Tercera alternativa}
+Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores, debido a que se vv 
+
 
 
 
@@ -127,7 +127,7 @@ Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propi
 
 Por lo que  para la primera alternativa 
 
-\begin{equation*}
+\begin{equation}\label{primer_alternativa_ejemplo}
     \begin{split}
         \mathcal{I}_1(\rho)&=\sum_{a_j,b_k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
         &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
@@ -136,11 +136,11 @@ Por lo que  para la primera alternativa
         &=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}+P_{01} \otimes P_{01}[2p/8 +(1-p)/8]\\
         &+P_{10} \otimes P_{10}[p/8+2(1-p)/8]\\
     \end{split}
-\end{equation*}
+\end{equation}
 
 
 Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles.
-\begin{equation*}
+\begin{equation}\label{traza_S1_ejemplo1}
     \begin{split}
         \tr_S(\mathcal{I}_1(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
@@ -148,11 +148,11 @@ Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabil
         &=(6/8)P_{00} + (1/8)P_{11}\\
         &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}\\
     \end{split}
-\end{equation*}
+\end{equation}
 
 Y al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición.
 
-\begin{equation*}
+\begin{equation}\label{traza_A1_ejemplo1}
     \begin{split}
         \tr_A(\mathcal{I}_1(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
         &+p P_{01}\rho P_{01}+(1-p) |01\rala 10|\rho|10\rala01|\\
@@ -160,42 +160,69 @@ Y al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto d
         &=(6/8)P_{00} + (1/8)P_{11}\\
         &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}\\
     \end{split}
-\end{equation*}
+\end{equation}
 
 
 Para la segunda alternativa se procede de forma parecida sin embargo el efecto de la medición es diferente.
 
 
-\begin{equation*}
+\begin{equation}\label{segunda_alternativa_ejemplo1}
     \begin{split}
         \mathcal{I}_2(\rho)&=\sum_{a_j,b_k}\mathcal{F}_{2p}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
         &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
         &+P_{01} \otimes [pP_{01} \la 01|\rho|01\ra+(1-p)P_{10}\la 10|\rho|10\ra]\\
         &+P_{10} \otimes [p P_{10}\la 10|\rho|10\ra+(1-p)P_{01}\la 01|\rho|01\ra]\\
         &=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}\\
-        &+   P_{01} \otimes [2p/8P_{01} +(1-p)/8P_{10}]+P_{10} \otimes[p/8 P_{10}+2(1-p)/8 P_{01}]\\
+        &+   P_{01} \otimes [2p/8P_{01} +(1-p)/8P_{10}]+P_{10} \otimes[p/8 P_{10}+2(1-p)/8 P_{01}].\\
     \end{split}
-\end{equation*}
+\end{equation}
 
 
 De nuevo, al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles.
-\begin{equation*}
+\begin{equation}\label{traza_S2_ejemplo1}
     \begin{split}
         \tr_S(\mathcal{I}_2(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
-        &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}\\
+        &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}.\\
     \end{split}
-\end{equation*}
+\end{equation}
 
 Y luego al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición sobre el estado de entrada.
 
-\begin{equation*}
+\begin{equation}\label{traza_A2_ejemplo1}
     \begin{split}
         \tr_A(\mathcal{I}_2(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+ P_{10}\rho P_{10}\\
-        &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}\\
+        &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
     \end{split}
-\end{equation*}
+\end{equation}
+
+Como se puede ver en la ecuación {\ref{traza_S1_ejemplo1}} y en la ecuación {\ref{traza_S2_ejemplo1}} los resultados son los mismos, las probabilidades de obtener cada una de las posibles salidas son iguales en las dos primeras alternativas. Sin embargo, el mapeo que se obtiene al realizar la traza parcial sobre el apuntador es distinto. 
 
 
+Para la tercera alternativa
+
+Ahora comparando estos resultados con una medida proyectiva ideal se puede obtener la diferencia entre realizar medida difusa y una ideal. Para una media proyectiva ideal, el instrumento cuántico para este ejemplo en específico estará dado por:
+
+
+\begin{equation}\label{proyectiva_ideal_ejemplo}
+    \begin{split}
+        \mathcal{I}_P(\rho)&=\sum_{a_j,b_k}P_{a_j,b_k}\otimes[P_{a_j,b_k}\rho P_{a_j,b_k}]\\
+        &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
+        &+P_{01} \otimes P_{01}\la 01|\rho|01\ra +P_{10} \otimes P_{10} \la 10|\rho|10\ra\\
+        &=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}+P_{01} \otimes (2/8)P_{01} +P_{10} \otimes (1/8)P_{10}.\\
+    \end{split}
+\end{equation}
+
+
+Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de probabilidades.
+
+\begin{equation}\label{traza_SP_ejemplo1}
+    \begin{split}
+        \tr_S(\mathcal{I}_P(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra+P_{01}\la 01|\rho|01\ra +P_{10} \la 10|\rho|10\ra\\
+        &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
+    \end{split}
+\end{equation}
+
+Claramente difiere de la ecuación {\ref{traza_S1_ejemplo1}} y por ende de {\ref{traza_S2_ejemplo1}}, incluso en este ejmplo muy simple, donde los operadores $A=\sigma _z=B$ se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.  

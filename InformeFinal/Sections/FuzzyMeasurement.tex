@@ -9,7 +9,7 @@ La estructura de este capítulo es la siguiente. En la sección 4.1 se establece
 
 \section{Mediciones difusas para dos partículas}
 
-Pineda, Davalos, Viviescas y Rosado {\cite{Pineda_2021}}, proponen el siguiente ejemplo. <<Una cadena de iomes se hace brillar  y se obtiene una señal fluorescente. Sin embargo, debido a la imperfecciones del detector, no es posible determinar
+Pineda, Davalos, Viviescas y Rosado {\cite{Pineda_2021}}, proponen el siguiente ejemplo. <<Una cadena de iones se hace brillar  y se obtiene una señal fluorescente. Sin embargo, debido a la imperfecciones del detector, no es posible determinar
 determinar el origen exacto de la señal fluorescente. La información obtenida en este caso se vuelve borrosa, pero su cuantificación aún es posible>>.
 
 Si se  realiza una  medición en un sistema de muchas partículas, pero no se está seguro en cual partícula esta medición fue aplicada, se obtiene una medición difusa. En el caso de un sistema de dos partículas, en el cual se desea realizar una medición del observable $A\otimes B$, el dispositivo de medición confunde las partículas con una probabilidad $(1-p)$, y a veces en su lugar, realiza la medición de $B\otimes A$. Luego, si $\rho$ es el estado inicial del sistema, el valor esperado para la salida de la medición difusa (FM por sus siglas en inglés), será 
@@ -84,7 +84,7 @@ donde el operador \textit{difuso } $\mathcal{F}_{\text{2p}}(\rho)$ se define com
            &=\dfrac{p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p) S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k})},
        \end{split}
     \end{equation}
-    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{P_{a_j,b_k}, S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. 
+    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. 
     
     
    
@@ -319,4 +319,5 @@ Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de proba
     \end{split}
 \end{equation}
 
-Claramente difiere de la ecuación {\ref{traza_S1_ejemplo1}} y por ende de {\ref{traza_S2_ejemplo1}}, incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$ se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.  
+Claramente difiere de la ecuación {\ref{traza_S1_ejemplo1}} y por ende de {\ref{traza_S2_ejemplo1}}, incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$ se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.
+

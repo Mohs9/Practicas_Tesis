@@ -308,4 +308,29 @@ Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de proba
 
 Claramente difiere de la ecuación {\ref{traza_S1_ejemplo1}} y por ende de {\ref{traza_S2_ejemplo1}}, incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$ se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.
 
-%Continuando con el ejemplo del observable $\sigma_z \otimes \sigma_z$, la descomposición del 
+Continuando con el ejemplo del observable $\sigma_z \otimes \sigma_z$, la medida POVM es simplemente 
+
+\[\{E_{a_j, b_k}\}= \{P_{00},p P_{01}+(1-p)P_{10},p P_{10}+(1-p)P_{01},P_{11}\}.\] 
+
+
+La descomposición de estos operadores por tanto son las siguientes 
+
+\begin{equation}
+    \begin{split}
+        K_{a_0,b_0}&=\sqrt{P_{00}}=P_{00}\\
+        K_{a_0,b_1}&=\sqrt{p P_{01}+(1-p)P_{10}}=\sqrt{p}P_{10}+\sqrt{1-p}P_{01}\\
+        K_{a_1,b_0}&=\sqrt{p P_{10}+(1-p)P_{01}}=\sqrt{p}P_{01}+\sqrt{1-p}P_{10}\\
+        K_{a_1,b_1}&=\sqrt{P_{11}}=P_{11},\\
+\end{split}
+\end{equation} 
+
+%por lo que para una medida no selectiva, la operación cuántica estará descrita por estos operadores de Kraus
+
+\[
+\begin{split}
+    \mathcal{E}(\rho)&=  P_{00}\rho P_{00}+(\sqrt{p}P_{10}+\sqrt{1-p}P_{01})\rho(\sqrt{p}P_{10}+\sqrt{1-p}P_{01})\\
+    &+ (\sqrt{p}P_{01}+\sqrt{1-p}P_{10})\rho (\sqrt{p P_{01}+(1-p)P_{10}})+P_{11}\rho P_{11}.\\
+\end{split}
+\]
+
+%físicamente este canal descibe la medición difusa.

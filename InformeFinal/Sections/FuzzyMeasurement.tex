@@ -31,67 +31,7 @@ donde el operador \textit{difuso } $\mathcal{F}_{\text{2p}}(\rho)$ se define com
 
  Primero se considera un sistema conjunto $\mathcal{H}=\mathcal{H}_1\otimes \mathcal{H}_2$, en el que se desea medir el observable $A\otimes B$. Pero el aparato de medición confunde las partículas y con una probabilidad $(1-p) $ realiza la medición del observable $B\otimes A$ (notar que en general $[A\otimes B,B\otimes A]\ne 0$). 
 
-
-% \subsection{Algunas aproximaciones} %Cambiar subtitulo 
-% \begin{comment}
-
-
-    \subsection{POVM para mediciones difusas}
-
-    En el capítulo {\ref{MedidaPOVM}} se hablo de las medidas POVM, estas pueden entenderse como un mapeo que toma dos argumentos, una salida de medición $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de la medición, y un estado cuántico.
-    \begin{equation}\begin{split}
-        \{E\}:S\times \mathcal{H}\longrightarrow [0,1]\\
-        p(\alpha,\rho)=\tr(E_\alpha\rho),
-    \end{split}\end{equation}
-    
-    donde $\mathcal{H}$ es el conjunto de los operadores de densidad. Este mapeo que proporcionan las medidas POVM es muy útil puesto que para describir completamente una medición es necesario tener un mapeo de salidas, el cual provee para cualquier estado de entrada una probabilidad de cada posible salida de medición. 
-    
-    
-    Sin embargo, el problema es que también se necesita la descripción del estado posterior a la medición y este no puede ser especificado por una medida POVM\@. Si se desea el estado posterior a la medición se debe tener más información acerca de los operadores $E_\alpha$. Es por ello que para describir el efecto de la medición difusa en un estado de entrada $\rho$, es conveniente establecer un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que 
-    
-    \begin{equation}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
-    
-    Esto se conoce como descomposición del operador de medición, claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_\alpha$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@. Debido a que $E_\alpha$ es un operador positivo se puede asumir que $K_\alpha=\sqrt{E_\alpha}$. Y luego de introducir los operadores de Kraus el estado de la medición es posterior a la medición POVM será 
-    \begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
-    
-    Las medidad POVM dan información sobre el estado de entrada, para mediciones difusas debido a que se tiene una probabilidad $p$ de medir el observable $A\otimes B$ y con una probabilidad $(1-p)$ se puede medir el operador $B\otimes A$ se puede proponer intuitivamente el siguiente conjunto de operadores
-    
-    \begin{equation}\{E_{a_j, b_k}\}= \{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\}\end{equation}
-
-    donde $P_{a_j,b_k} = |a_j, b_k\rala a_j,b_k|$ es el operador de proyección dado por los vectores propios del observable $A\otimes B$.
-
-
-
-
-
-
-
-    %  Los operadores de Kraus definen una medida POVM $\{E_\alpha\}$, con $E_\alpha=$ y con esta medida es posible obtener la probabilidad de obtener una salida en específico. Por tanto este conjunto de operadores describen completamente y de forma única la medición.%TAMBIEN SE TIENE QUE TENER PRESENTE QUE A VARIOS CONJUNTOS DE OPERADORES DE KRAUS LES PUEDE CORRESPONDER EL MISMO RESULTADO (teorema {\ref{libertad_unitaria}}).}
-    
-
-
-
-
-
-
-
-\subsection{Otra aproximación}
-    Ahora, considerando una medida proyectiva, supongase que el observable es no degenerado y la salida de la medición sobre el estado inicial $\rho $ fue el valor propio $a_j b_k$ con $j,k=0,1$ y el operador de proyección será $P_{a_j,b_k}$. Por lo que el estado después de la medición será 
-    
-    \begin{equation}
-       \begin{split}
-           \rho'&= p\dfrac{ P_{a_j,b_k}\rho P_{a_j,b_k}}{\tr(\rho P_{a_j,b_k})}+ (1-p)\dfrac{S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k} S^\dagger SP_{a_j,b_k})}\\
-           &=\dfrac{p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p) S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k})},
-       \end{split}
-    \end{equation}
-    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. 
-    
-    
    
-   
-  % \end{comment}
-
-
 \subsection{Aproximaciones utilizando instrumento cuánticos}
 
 Una forma útil de aproximarse a describir completamente las mediciones difusas es considerar una herramienta conocida como \textit{instrumento cuántico}, el cual es un mapeo que toma un operador de entrada y tiene como salida un ensamble que correlaciona un sistema clásico que contiene la salida de la medición y un sistema cuántico que contiene el estado posterior a la medición. 
@@ -161,7 +101,54 @@ El factor $(1/2)$ es la probabilidad con la que el sistema apuntador indica  que
     \mathcal{I}_3(\rho)=\sum_{a_j,b_k} q [P_{a_j,b_k}\otimes P_{a_j,b_k}]+ (1-q)[P_{a_j,b_k}\otimes \frac{1}{2} P'_{a_j,b_k}].
 \end{equation}  
 
+\subsection{POVM para mediciones difusas}
 
+En el capítulo {\ref{MedidaPOVM}} se hablo de las medidas POVM, estas pueden entenderse como un mapeo que toma dos argumentos, una salida de medición $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de la medición, y un estado cuántico.
+\begin{equation}\begin{split}
+    \{E\}:S\times \mathcal{H}\longrightarrow [0,1]\\
+    p(\alpha,\rho)=\tr(E_\alpha\rho),
+\end{split}\end{equation}
+
+donde $\mathcal{H}$ es el conjunto de los operadores de densidad. Este mapeo que proporcionan las medidas POVM es muy útil puesto que para describir completamente una medición es necesario tener un mapeo de salidas, el cual provee para cualquier estado de entrada una probabilidad de cada posible salida de medición. 
+
+
+Sin embargo, el problema es que también se necesita la descripción del estado posterior a la medición y este no puede ser especificado por una medida POVM\@. Si se desea el estado posterior a la medición se debe tener más información acerca de los operadores $E_\alpha$. Es por ello que para describir el efecto de la medición difusa en un estado de entrada $\rho$, es conveniente establecer un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que 
+
+\begin{equation}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
+
+Esto se conoce como descomposición del operador de medición. Debido a que $E_\alpha$ es un operador positivo se puede asumir que $K_\alpha=\sqrt{E_\alpha}$. Y luego de introducir los operadores de Kraus el estado de la medición es posterior a la medición POVM será 
+\begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
+
+Las medidas POVM dan información sobre el estado de entrada, para mediciones difusas debido a que se tiene una probabilidad $p$ de medir el observable $A\otimes B$ y con una probabilidad $(1-p)$ se puede medir el operador $B\otimes A$ se puede proponer intuitivamente el siguiente conjunto de operadores
+
+\begin{equation}\{E_{a_j, b_k}\}= \{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\},\end{equation}
+
+donde $P_{a_j,b_k} = |a_j, b_k\rala a_j,b_k|$ es el operador de proyección dado por los vectores propios del observable $A\otimes B$. Para esta medida POVM los operadores de Kraus en los que se puede descomponer de forma sencilla, son los siguientes 
+\begin{equation}
+K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
+\end{equation}
+
+Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@.
+
+
+
+
+
+
+%  Los operadores de Kraus definen una medida POVM $\{E_\alpha\}$, con $E_\alpha=$ y con esta medida es posible obtener la probabilidad de obtener una salida en específico. Por tanto este conjunto de operadores describen completamente y de forma única la medición.%TAMBIEN SE TIENE QUE TENER PRESENTE QUE A VARIOS CONJUNTOS DE OPERADORES DE KRAUS LES PUEDE CORRESPONDER EL MISMO RESULTADO (teorema {\ref{libertad_unitaria}}).}
+
+\subsection{Otra aproximación}
+    Ahora, considerando una medida proyectiva, supongase que el observable es no degenerado y la salida de la medición sobre el estado inicial $\rho $ fue el valor propio $a_j b_k$ con $j,k=0,1$ y el operador de proyección será $P_{a_j,b_k}$. Por lo que el estado después de la medición será 
+    
+    \begin{equation}
+       \begin{split}
+           \rho'&= p\dfrac{ P_{a_j,b_k}\rho P_{a_j,b_k}}{\tr(\rho P_{a_j,b_k})}+ (1-p)\dfrac{S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k} S^\dagger SP_{a_j,b_k})}\\
+           &=\dfrac{p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p) S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k})},
+       \end{split}
+    \end{equation}
+    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. %Para esta aproximación se realizó un  programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con esta aproximación con la que se pueden obtner varios ejemplos. EL programa se puee obtener en \href{}{este repositorio}
+
+    
 
 
 
@@ -321,3 +308,4 @@ Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de proba
 
 Claramente difiere de la ecuación {\ref{traza_S1_ejemplo1}} y por ende de {\ref{traza_S2_ejemplo1}}, incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$ se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.
 
+%Continuando con el ejemplo del observable $\sigma_z \otimes \sigma_z$, la descomposición del 

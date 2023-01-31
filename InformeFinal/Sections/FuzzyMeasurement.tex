@@ -131,9 +131,9 @@ K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
 Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@.
 
 
+%Se realizó un programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con la descomposición en operadores de Kraus de la medida POVM descrita, con el que se pueden obtner varios ejemplos. El programa se puede obtener en \href{}{este enlace}.
 
-
-
+    
 
 %  Los operadores de Kraus definen una medida POVM $\{E_\alpha\}$, con $E_\alpha=$ y con esta medida es posible obtener la probabilidad de obtener una salida en específico. Por tanto este conjunto de operadores describen completamente y de forma única la medición.%TAMBIEN SE TIENE QUE TENER PRESENTE QUE A VARIOS CONJUNTOS DE OPERADORES DE KRAUS LES PUEDE CORRESPONDER EL MISMO RESULTADO (teorema {\ref{libertad_unitaria}}).}
 
@@ -146,7 +146,7 @@ Claramente la descomposición en operadores de Kraus no es única debido a que a
            &=\dfrac{p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p) S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k})},
        \end{split}
     \end{equation}
-    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. %Para esta aproximación se realizó un  programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con esta aproximación con la que se pueden obtner varios ejemplos. EL programa se puee obtener en \href{}{este repositorio}
+    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. %Para esta aproximación se realizó un  programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con esta aproximación con la que se pueden obtner varios ejemplos. El programa se puee obtener en \href{}{este repositorio}
 
     
 
@@ -320,17 +320,29 @@ La descomposición de estos operadores por tanto son las siguientes
         K_{a_0,b_0}&=\sqrt{P_{00}}=P_{00}\\
         K_{a_0,b_1}&=\sqrt{p P_{01}+(1-p)P_{10}}=\sqrt{p}P_{10}+\sqrt{1-p}P_{01}\\
         K_{a_1,b_0}&=\sqrt{p P_{10}+(1-p)P_{01}}=\sqrt{p}P_{01}+\sqrt{1-p}P_{10}\\
-        K_{a_1,b_1}&=\sqrt{P_{11}}=P_{11},\\
+        K_{a_1,b_1}&=\sqrt{P_{11}}=P_{11}.\\
 \end{split}
 \end{equation} 
 
-%por lo que para una medida no selectiva, la operación cuántica estará descrita por estos operadores de Kraus
+Para una medida en la que se obtiene una salida determinada $a_j,b_k$, el canal que representa la medición difusa será \[\E_{a_j,b_k}(\rho)=K_{a_j,b_k}\rho K_{a_j,b_k}^\dagger,\]
+en el caso que la salida sea $a_0,b_1$, el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $|01\rala 01|$ y con una probabilidad $(1-p)$, en el espacio propio de $|10\rala10|$
+\[\E_{a_0,b_1}(\rho)=K_{a_0,b_1}\rho K_{a_0,b_1}^\dagger=\begin{bmatrix}
+    0&0&0&0\\
+    0&p/4&0&0\\
+    0&0&(1-p)/8&0\\
+    0&p&0&0\\
+\end{bmatrix},\]
+
+
+
+por lo que para una medida no selectiva, la operación cuántica estará descrita por estos operadores de Kraus
 
 \[
 \begin{split}
     \mathcal{E}(\rho)&=  P_{00}\rho P_{00}+(\sqrt{p}P_{10}+\sqrt{1-p}P_{01})\rho(\sqrt{p}P_{10}+\sqrt{1-p}P_{01})\\
-    &+ (\sqrt{p}P_{01}+\sqrt{1-p}P_{10})\rho (\sqrt{p P_{01}+(1-p)P_{10}})+P_{11}\rho P_{11}.\\
+    &+ (\sqrt{p}P_{01}+\sqrt{1-p}P_{10})\rho (\sqrt{p} P_{01}+\sqrt{1-p}P_{10})+P_{11}\rho P_{11}.\\
 \end{split}
 \]
 
-%físicamente este canal descibe la medición difusa.
+
+%Físicamente este canal describe la medición difusa.

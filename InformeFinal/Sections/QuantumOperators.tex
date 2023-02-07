@@ -4,9 +4,9 @@
 Los sistemas reales tienen interacciones indeseadas con el mundo exterior, estas indeseadas interacciones se presentan como ruido en información cuántica. Para construir sistemas de procesamiento en información cuántica útiles es necesario entender y controlar dicho ruido. Es por esto que esta sección se centra en el formalismo de las operaciones cuánticas, que son un herramienta capaz de describir ruido cuántico y el comportamiento de sistemas cuánticos abiertos. Otra de las aplicaciones de las operaciones cuánticas en información y computación cuántica  es que se adaptan a al descripción de cambios de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}.
 
 
-Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiziarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
+Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiarizarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
 
-\section{Aproximación axiomática de las operaciones cúanticas}
+\section{Aproximación axiomática de las operaciones cuánticas}
 En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado por lo que se espera que las operaciones cuánticas obedezcan físicamente. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
 
 
@@ -20,12 +20,12 @@ En esta sección se abordan las operaciones cuánticas desde un punto de vista a
     \end{itemize}
 \end{definition}
 
-En el caso de las mediciones resulta conveniente el primer axioma, se hace la convención de que $\E$ no necesariamente preserve la traza de los operades de densidad, $\tr(\rho)=1$. Para verlo mejor, suponga que se realiza una medición proyectiva en la base computacional de un solo qubit. Entonces la operación cuántica $\E$ describirá este proceso si se define el mapeo como $\E_0\equiv|0\rala0|\rho |0\rala 0|$ y $\E_1\equiv|1\rala1|\rho |1\rala 1|$. Las probabilidad de las salidas serán entonces $\tr (\E_0(\rho))$ y $\tr (\E_1(\rho))$ respectivamente.  Con esta convención la normalización corre para el estado final será \[\dfrac{\E(\rho)}{\tr (\E (\rho))}.\]
+En el caso de las mediciones resulta conveniente el primer axioma, se hace la convención de que $\E$ no necesariamente preserve la traza de los operadores de densidad, $\tr(\rho)=1$. Para verlo mejor, suponga que se realiza una medición proyectiva en la base computacional de un solo qubit. Entonces la operación cuántica $\E$ describirá este proceso si se define el mapeo como $\E_0\equiv|0\rala0|\rho |0\rala 0|$ y $\E_1\equiv|1\rala1|\rho |1\rala 1|$. Las probabilidad de las salidas serán entonces $\tr (\E_0(\rho))$ y $\tr (\E_1(\rho))$ respectivamente.  Con esta convención la normalización corre para el estado final será \[\dfrac{\E(\rho)}{\tr (\E (\rho))}.\]
 
 En el caso que no se realice ninguna medición, esto se reduce al requisito de que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. La operación cuántica es una operación cuántica que conserva la traza, ya que por sí sola $\E$ proporciona una descripción completa del proceso cuántico. Una operación cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno {\cite{nielsen_chuang_2010}}.
 
 
-Asimismo, una razón para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supongase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo que el estado final $\rho'$ evoluciona como 
+Asimismo, una razón para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo que el estado final $\rho'$ evoluciona como 
 \begin{equation}
 \rho'= \sum_i p_i \E (\rho_i).
 \end{equation}
@@ -37,7 +37,7 @@ Por otro lado, el estado inicial es descrito por $\sum_i p_i \rho$, que evolucio
 Igualando las dos ecuaciones anteriores, se tiene  que $\E$ debe actuar linealmente,  en combinaciones convexas de estados {\cite{preskill2020quantum}}.
 
 
-Además, supongase de nuevo que el estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $a$ ocurre con la probabilidad condicional $p(a|i)$, y el estado de la medición  posterior es $\E_a(\rho_i)/p(a|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
+Además, supóngase de nuevo que el estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $a$ ocurre con la probabilidad condicional $p(a|i)$, y el estado de la medición  posterior es $\E_a(\rho_i)/p(a|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
 \begin{equation}
     \rho'=\sum_i p(i|a)\dfrac{\E_a(\rho_i)}{p(a|i)}
 \end{equation}
@@ -56,7 +56,7 @@ tomando en cuenta la regla de Bayes, se ve que $\E_a$ debe ser lineal y convexo 
     \E_a\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_a(\rho_i). 
 \end{equation}
 
-La tercera propiedad se origina por un requerimienot físico. No solo $\E(\rho)$ debe ser una matriz de densidad válida siempre que $\rho$ sea válida. Si $\rho=\rho_{AA'}$ es una matriz de densidad de un sistema conjunto de $\mathcal{H}_A$ y $\mathcal{H}_{A'}$  y $\E$ actúa solamente sobre $\mathcal{H}_A$, luego $\E(\rho_{AA'})$  debe ser un operador de densidad también. No todos los mapeos positivos son completamente positivos; la completa positividad es una condición más fuerte. Un ejemplo de un operador positivo
+La tercera propiedad se origina por un requerimiento físico. No solo $\E(\rho)$ debe ser una matriz de densidad válida siempre que $\rho$ sea válida. Si $\rho=\rho_{AA'}$ es una matriz de densidad de un sistema conjunto de $\mathcal{H}_A$ y $\mathcal{H}_{A'}$  y $\E$ actúa solamente sobre $\mathcal{H}_A$, luego $\E(\rho_{AA'})$  debe ser un operador de densidad también. No todos los mapeos positivos son completamente positivos; la completa positividad es una condición más fuerte. Un ejemplo de un operador positivo
 
 
 pero no completamente positivo es la transpuesta, $T:\rho \mapsto {\rho}^T$, dado que \[\la \psi |{\rho}^T| \psi \ra=\sum_{i,j} \psi _j^* {(\rho)}^T _{ji} \psi _i=\sum _{i,j} \psi _i{(\rho)} _{ij} \psi_j^{*}=\la {\psi}^*|\rho|\psi ^*\ra,\] cumple con ser positivo para cualquier estado $| \psi \ra$. Sin embargo $ {T} $ no es completamente positivo. Tomando un estado en el espacio $AB$ \[\Phi_{AB} \equiv \sum_i |i,i\ra, \] la extensión de $T$ actuando en este estado es \[T \otimes \mathds{1}:|\Psi\rala \Psi|=\sum_{i,j}|i,i\rala j,j| \mapsto \sum_{i,j}|j,i\rala i,j|. \]
@@ -124,7 +124,7 @@ Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vec
 De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i E_i |\psi \rala \psi |E_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i E_i \rho E_i^\dagger\] en general. Y la condición $\sum_k E_k^\dagger E_k\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
 
 
-Conversamente, supongase que $\E(\rho)=\sum_i E_i \rho E_i^\dagger$. Es fácil ver que es lineal por lo que falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes E_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes E_i)\mathcal{O}(\mathds{1}_B\otimes E_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
+Conversamente, supóngase que $\E(\rho)=\sum_i E_i \rho E_i^\dagger$. Es fácil ver que es lineal por lo que falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes E_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes E_i)\mathcal{O}(\mathds{1}_B\otimes E_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
 \end{proof}
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{E_k\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
@@ -136,7 +136,7 @@ La representación de suma de operadores describe la dinámica del sistema princ
 
 \subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
 
-Considere un sistema primario $Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmenteen el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $QA$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto $QA$ en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $A$,
+Considere un sistema primario $Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmente en el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $QA$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto $QA$ en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $A$,
 
 \begin{equation}\label{measurement_model}
     \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger P_\alpha)= \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger)\equiv \E_\alpha(\rho),
@@ -198,7 +198,7 @@ Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este result
 \end{equation}
 
 
-Y también se toma el operador $\sigma$ defininido en la ecuación {\ref{sigma1}}, de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{ij}u_{ij}|f_j\ra$.
+Y también se toma el operador $\sigma$ definido en la ecuación {\ref{sigma1}}, de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{ij}u_{ij}|f_j\ra$.
 
 Para un estado arbitrario $|\psi\ra$
 
@@ -237,7 +237,7 @@ Con lo que se muestra que el conjunto de operadores $\{E_i\}$ es la misma operac
 
 \end{proof}
 
-Para ejemplificar el teorema anterior  considerese las operaciones sigientes $\E(\rho)=\sum_k E_k\rho E_k^\dagger$ y $\mathcal{F}(\rho)=\sum_k F_k\rho F_k^\dagger$, donde los conjuntos $\{E_i\}$ y $\{F_j\}$ tienen elementos defininidos por 
+Para ejemplificar el teorema anterior  considérese las operaciones siguientes $\E(\rho)=\sum_k E_k\rho E_k^\dagger$ y $\mathcal{F}(\rho)=\sum_k F_k\rho F_k^\dagger$, donde los conjuntos $\{E_i\}$ y $\{F_j\}$ tienen elementos definidos por 
 
 \begin{equation}
     \begin{array}{ccc}
@@ -318,7 +318,7 @@ Luego, cada $\E(\rho_j)$ puede ser expresada como una combinación lineal de est
     \E(\rho_j)=\sum_k \lambda _{jk}\rho_k,
 \end{equation}
 
-ahora, $\lambda_{jk}$ puede ser determinado por aloritmos de álgebra lineal. Se puede escribir lo siguiente
+ahora, $\lambda_{jk}$ puede ser determinado por algoritmos de álgebra lineal. Se puede escribir lo siguiente
 \begin{equation}
     \tilde{E}_m\rho_j \tilde{E}_n^\dagger=\sum_k\beta_{jk}^{mn}\rho_k,
 \end{equation}

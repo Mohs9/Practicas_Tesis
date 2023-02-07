@@ -1,7 +1,7 @@
 \chapter{Mediciones difusas}
 
 
-En el capítulo {\ref{MedidaPOVM}} y en la sección {\ref{Medicion_RepresentacionDeKraus}} se habló sobre medidas POVM y sobre mediciones. En este capítulo se presentan las mediciones difusas de sistemas cuánticos de dos partículas (que puede ser generalizado para más de dos partículas) en las que se puden identificar partículas individuales, sin embargo, siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. También se utiliza el lenguaje de las operaciones cuánticas por medio de los operadores de Kraus para poder describir los sistemas cuánticos de dos partículas.
+En el capítulo {\ref{MedidaPOVM}} y en la sección {\ref{Medicion_RepresentacionDeKraus}} se habló sobre medidas POVM y sobre mediciones. En este capítulo se presentan las mediciones difusas de sistemas cuánticos de dos partículas (que puede ser generalizado para más de dos partículas) en las que se pueden identificar partículas individuales, sin embargo, siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. También se utiliza el lenguaje de las operaciones cuánticas por medio de los operadores de Kraus para poder describir los sistemas cuánticos de dos partículas.
 
 La estructura de este capítulo es la siguiente. En la sección 4.1 se establece el problema de las mediciones difusas para un sistema de dos partículas. Luego, en la sección 4.2, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas, asimismo, que proporcionen la probabilidad de cada resultado de medición posible para cualquier estado inicial. Finalmente, en la sección 4.3 se presentan algunos ejemplos numéricos de las mediciones y su descripción utilizando los operadores en la sección 4.2.
 
@@ -37,7 +37,7 @@ donde el operador \textit{difuso } $\mathcal{F}_{\text{2p}}(\rho)$ se define com
 Una forma útil de aproximarse a describir completamente las mediciones difusas es considerar una herramienta conocida como \textit{instrumento cuántico}, el cual es un mapeo que toma un operador de entrada y tiene como salida un ensamble que correlaciona un sistema clásico que contiene la salida de la medición y un sistema cuántico que contiene el estado posterior a la medición. 
 
 
-Por lo que si las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala \alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección. Y $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán usados para describir  el estado posterior a la medición condicionados por la salida clásica de la medición $\alpha$. El instrumneto cuántico se define entonces:
+Por lo que si las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala \alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección. Y $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán usados para describir  el estado posterior a la medición condicionados por la salida clásica de la medición $\alpha$. El instrumento cuántico se define entonces:
 
 \begin{equation}
     \mathcal{I}(\rho)\equiv\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho),
@@ -47,7 +47,7 @@ Por lo que si las salidas de la medición se registran en un sistema clásico $\
 donde el sistema clásico servirá como un apuntador que indica que operadores aplicar al estado inicial. Esto es muy útil debido a que es una forma resumida de describir completamente la medición difusa y no es necesario considerar mediciones selectivas.
 
 
-Para obtener la salida de la medición y su repectiva probabilidad se puede realizar la traza parcial sobre el sitema cuántico y para obtener el mapeo completamente positivo y que preserva la traza para una medida no selectiva basta con trazar parcialmente sobre el sistema clásico o apuntador.
+Para obtener la salida de la medición y su respectiva probabilidad se puede realizar la traza parcial sobre el sistema cuántico y para obtener el mapeo completamente positivo y que preserva la traza para una medida no selectiva basta con trazar parcialmente sobre el sistema clásico o apuntador.
 
 
 
@@ -87,13 +87,13 @@ En esta alternativa al aplicarle el operador difuso al sistema clásico se puede
 
 
 \subsubsection{Tercera alternativa}
-Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probalidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
+Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
 Para esta alternativa se introduce un nuevo operador de proyección $P'_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|$, donde los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P'_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
 
 
 
-Con una probabilidad $q$ el instrumento cuántico es \[\sum_{a_j,b_k}P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}\] y con una probailidad $(1-q)$ es \[\sum_{a_j,b_k} P_{a_j,b_k}\otimes \frac{1}{2} P'_{a_j,b_k}\rho P'_{a_j,b_k}.\]
+Con una probabilidad $q$ el instrumento cuántico es \[\sum_{a_j,b_k}P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}\] y con una probabilidad $(1-q)$ es \[\sum_{a_j,b_k} P_{a_j,b_k}\otimes \frac{1}{2} P'_{a_j,b_k}\rho P'_{a_j,b_k}.\]
 
 El factor $(1/2)$ es la probabilidad con la que el sistema apuntador indica  que el estado está en $|a_j b_k\ra $ o en $|b_k a_j\ra$ si el estado inicial se encuentra en el subespacio de $P'_{a_j,b_k}$. Por lo que el instrumento es la suma convexa de estos dos posibilidades.
 
@@ -131,14 +131,14 @@ K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
 Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@.
 
 
-%Se realizó un programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con la descomposición en operadores de Kraus de la medida POVM descrita, con el que se pueden obtner varios ejemplos. El programa se puede obtener en \href{}{este enlace}.
+%Se realizó un programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con la descomposición en operadores de Kraus de la medida POVM descrita, con el que se pueden obtener varios ejemplos. El programa se puede obtener en \href{}{este enlace}.
 
     
 
-%  Los operadores de Kraus definen una medida POVM $\{E_\alpha\}$, con $E_\alpha=$ y con esta medida es posible obtener la probabilidad de obtener una salida en específico. Por tanto este conjunto de operadores describen completamente y de forma única la medición.%TAMBIEN SE TIENE QUE TENER PRESENTE QUE A VARIOS CONJUNTOS DE OPERADORES DE KRAUS LES PUEDE CORRESPONDER EL MISMO RESULTADO (teorema {\ref{libertad_unitaria}}).}
+%  Los operadores de Kraus definen una medida POVM $\{E_\alpha\}$, con $E_\alpha=$ y con esta medida es posible obtener la probabilidad de obtener una salida en específico. Por tanto este conjunto de operadores describen completamente y de forma única la medición.%TAMBIÉN SE TIENE QUE TENER PRESENTE QUE A VARIOS CONJUNTOS DE OPERADORES DE KRAUS LES PUEDE CORRESPONDER EL MISMO RESULTADO (teorema {\ref{libertad_unitaria}}).}
 
 \subsection{Otra aproximación}
-    Ahora, considerando una medida proyectiva, supongase que el observable es no degenerado y la salida de la medición sobre el estado inicial $\rho $ fue el valor propio $a_j b_k$ con $j,k=0,1$ y el operador de proyección será $P_{a_j,b_k}$. Por lo que el estado después de la medición será 
+    Ahora, considerando una medida proyectiva, supóngase que el observable es no degenerado y la salida de la medición sobre el estado inicial $\rho $ fue el valor propio $a_j b_k$ con $j,k=0,1$ y el operador de proyección será $P_{a_j,b_k}$. Por lo que el estado después de la medición será 
     
     \begin{equation}
        \begin{split}
@@ -146,7 +146,7 @@ Claramente la descomposición en operadores de Kraus no es única debido a que a
            &=\dfrac{p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p) S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k})},
        \end{split}
     \end{equation}
-    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. %Para esta aproximación se realizó un  programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con esta aproximación con la que se pueden obtner varios ejemplos. El programa se puee obtener en \href{}{este repositorio}
+    donde $S$ es el operador SWAP\@. Por lo que los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. %Para esta aproximación se realizó un  programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con esta aproximación con la que se pueden obtener varios ejemplos. El programa se puede obtener en \href{}{este repositorio}
 
     
 
@@ -236,7 +236,7 @@ Y luego al realizar la traza parcial sobre el sistema apuntador se obtiene el ef
 Como se puede ver en la ecuación {\ref{traza_S1_ejemplo1}} y en la ecuación {\ref{traza_S2_ejemplo1}} los resultados son los mismos, las probabilidades de obtener cada una de las posibles salidas son iguales en las dos primeras alternativas. Sin embargo, el mapeo que se obtiene al realizar la traza parcial sobre el apuntador es distinto. 
 
 
-Para la tercera alternativa tanto el efecto de la medición como el mapeo de las probabilidades es distinito al de las otras dos alternativas. Primero hay que notar que para este caso $P'_{00}=2P_{00}$,$P'_{11}= 2P_{11}$ y $P'_{10}=P'_{01}$
+Para la tercera alternativa tanto el efecto de la medición como el mapeo de las probabilidades es distinto al de las otras dos alternativas. Primero hay que notar que para este caso $P'_{00}=2P_{00}$,$P'_{11}= 2P_{11}$ y $P'_{10}=P'_{01}$
 
 
 \begin{equation}\label{tercera_alternativa_ejemplo1}

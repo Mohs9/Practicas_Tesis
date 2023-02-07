@@ -1,7 +1,7 @@
 \chapter{Operador de densidad}\label{OpDensidad}
 
 El operador de densidad es una herramienta en mecánica cuántica que describe el
-estado cúantico de un sistema físico. Este operador, también conocido como
+estado cuántico de un sistema físico. Este operador, también conocido como
 <<matriz de densidad>>, es una generalización de los vectores de estado, puesto
 que estas matrices pueden representar estados mixtos. Además permite el cálculo
 de las probabilidades de los resultados de cualquier medición realizada sobre
@@ -19,7 +19,7 @@ una pasada y luego me avisas}
 
 
 \section{Definición y motivación  del operador de densidad}
-El lenguaje de los operadores de denisdad proporciona un  medio conveniente para describir los sistemas cuánticos, tales que su estado no es completamente conocido. Al cosiderar un sistema cuántico que se encuentra en alguno de los estados $|\psi_j \rangle $ con probabilidad $p_j$. El conjunto de todos los posibles estados conforman un ensamble
+El lenguaje de los operadores de densidad proporciona un  medio conveniente para describir los sistemas cuánticos, tales que su estado no es completamente conocido. Al considerar un sistema cuántico que se encuentra en alguno de los estados $|\psi_j \rangle $ con probabilidad $p_j$. El conjunto de todos los posibles estados conforman un ensamble
 de estados puros del sistema, con lo cual se puede enunciar la siguiente definición. 
 
   \begin{definition}[\textbf{Operador de densidad}] El operador de densidad $\rho$ correspondiente al ensamble de estados puros $\{p_j,|\psi_j \rangle \}$ es definido como {\cite{wilde2011classical}}
@@ -30,9 +30,9 @@ de estados puros del sistema, con lo cual se puede enunciar la siguiente definic
   	\end{definition}
   	
 
- A menudo se utiliza el término matriz de densidad para referirse al operador de densidad, en la práctica estos dos términos se utilizan indstintamente. Esta formulación, es equivalente a la aproximación del vector de estado, sin embargo a veces es mucho más fácil acercarse a problemas desde este nuevo punto de vista.
+ A menudo se utiliza el término matriz de densidad para referirse al operador de densidad, en la práctica estos dos términos se utilizan indistintamente. Esta formulación, es equivalente a la aproximación del vector de estado, sin embargo a veces es mucho más fácil acercarse a problemas desde este nuevo punto de vista.
  
- Considerese una medición en un ensamble, de algún observable $\mathcal{O}$. Una pregunta importante sería, ¿cuál es el valor promedio de $\mathcal{O}$ cuando se reproduce un número muy grande de mediciones? La respuesta está dada por el promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por {\cite{sakurai2017modern}}
+ Considérese una medición en un ensamble, de algún observable $\mathcal{O}$. Una pregunta importante sería, ¿cuál es el valor promedio de $\mathcal{O}$ cuando se reproduce un número muy grande de mediciones? La respuesta está dada por el promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por {\cite{sakurai2017modern}}
  
  \begin{equation}
  	\label{expectationvalue}
@@ -54,7 +54,7 @@ de estados puros del sistema, con lo cual se puede enunciar la siguiente definic
  	\end{split}
  \end{equation}
 
-	Además las mediciones se pueden describir fácilmente utilizando matrices de densidad. Si se realiza una medición descrita por lo operadores $M_m$ y con unestado inicial $|\psi_i\rangle$, luego la propabilidad de obtener el resultado $m$, dado el estado $i$ es $p(m|i)=\langle \psi_i|M_m^{\dagger}M_m|\psi_i\rangle = \tr(M_m^{\dagger} M_m |\psi_i\rangle \langle\psi_i|)$. Por la ley de probabilidad total\footnote{Si  $X$ y $Y$ son dos variables aleatorias, entonces las probabilidades para $Y $ pueden expresarse en términos de las probabilidades para $X$, y las probabilidades condicionales para $ Y$ dada $X$,
+	Además las mediciones se pueden describir fácilmente utilizando matrices de densidad. Si se realiza una medición descrita por lo operadores $M_m$ y con un estado inicial $|\psi_i\rangle$, luego la probabilidad de obtener el resultado $m$, dado el estado $i$ es $p(m|i)=\langle \psi_i|M_m^{\dagger}M_m|\psi_i\rangle = \tr(M_m^{\dagger} M_m |\psi_i\rangle \langle\psi_i|)$. Por la ley de probabilidad total\footnote{Si  $X$ y $Y$ son dos variables aleatorias, entonces las probabilidades para $Y $ pueden expresarse en términos de las probabilidades para $X$, y las probabilidades condicionales para $ Y$ dada $X$,
 		\[p(y) =\sum_x p(y|x)p(x),\] donde la suma sobre los valores de $x$ que $X$ puede tomar {\cite{nielsen_chuang_2010}}.}, la probabilidad de obtener un resultado $m$ es {\cite{nielsen_chuang_2010}}
 
 
@@ -80,7 +80,7 @@ y  utilizando el teorema de Bayes, para $p(i|m)=\frac{p(m|i)p_i}{p_m}$ se obtien
 \end{equation}
 
 
-Ahora si, por alguna razón, el registro de la medición se pierde. Se tendría un sistema cuántico en el estado $\rho_m$ con probabilidad $p(m)$, pero ya no se conocería el valor real de $m$. El estado del sistema cuántico estaría descrito por el operdaor densidad siguiente
+Ahora si, por alguna razón, el registro de la medición se pierde. Se tendría un sistema cuántico en el estado $\rho_m$ con probabilidad $p(m)$, pero ya no se conocería el valor real de $m$. El estado del sistema cuántico estaría descrito por el operador densidad siguiente
 
 \begin{equation}
 	\rho'=\sum_m p(m)\rho_m=\tr(M^{\dagger}_m M_m\rho )\dfrac{M_m\rho M_m^{\dagger}}{\tr (M^{\dagger}_m M_m \rho )}=M_m\rho M_m^{\dagger}
@@ -88,15 +88,15 @@ Ahora si, por alguna razón, el registro de la medición se pierde. Se tendría 
 
 
  
- Ahora, supongase que la evolución de un sistema cerrado es descrito por el operador $U$. Si el sistema inicial se encuentra en el estado $|\psi_i\rangle$ con probabilida $p_i$ luego de la evolución, el sistema se encontrará en el estado $U|\psi_i\rangle$ con probailidad $p_i$. Luego, la evolución del operador de densidad está descrita por {\cite{nielsen_chuang_2010}} \[\rho=\sum_{i}p_i|\psi_i\rangle \langle \psi_i|\xrightarrow{U}\rho'=\sum_{i}Up_i|\psi_i\rangle \langle \psi_i|U^{\dagger}=U\rho U^{\dagger}.\]
+ Ahora, supóngase que la evolución de un sistema cerrado es descrito por el operador $U$. Si el sistema inicial se encuentra en el estado $|\psi_i\rangle$ con probabilidad $p_i$ luego de la evolución, el sistema se encontrará en el estado $U|\psi_i\rangle$ con probabilidad $p_i$. Luego, la evolución del operador de densidad está descrita por {\cite{nielsen_chuang_2010}} \[\rho=\sum_{i}p_i|\psi_i\rangle \langle \psi_i|\xrightarrow{U}\rho'=\sum_{i}Up_i|\psi_i\rangle \langle \psi_i|U^{\dagger}=U\rho U^{\dagger}.\]
 
 
-Hasta el momento se puede ver con estas motivaciones que los postulados básicos de la mecánica cuántica ralacionados con la medición y la evolución unitaria pueden ser reformulados en el lenguaje de los operadores de densidad. En la siguiente sección se profundiza esta reformulación de los postulados.
+Hasta el momento se puede ver con estas motivaciones que los postulados básicos de la mecánica cuántica relacionados con la medición y la evolución unitaria pueden ser reformulados en el lenguaje de los operadores de densidad. En la siguiente sección se profundiza esta reformulación de los postulados.
 
 
 \section{Propiedades del operador de densidad}\label{postulates}
 
-En esta sección se desarrolla algunas de las caractéristicas y propiedades de los operadores de densidad. Así como se presenta la formulación de los postulados de la mecánica cuántica. 
+En esta sección se desarrolla algunas de las características y propiedades de los operadores de densidad. Así como se presenta la formulación de los postulados de la mecánica cuántica. 
 
 Para iniciar se enuncia la siguiente proposición y el siguiente teorema. 
 
@@ -119,7 +119,7 @@ Para iniciar se enuncia la siguiente proposición y el siguiente teorema.
 
 De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}}:
 
-\begin{theorem}[\textbf{Caracterización del operador de densidad}] Un operador $\rho$ es un operador de densidad, aosciada a algún ensamble $\{p_i, |\psi_i\rangle\}$ si y solo si este satisface las siguientes condiciones:
+\begin{theorem}[\textbf{Caracterización del operador de densidad}] Un operador $\rho$ es un operador de densidad, asociado a algún ensamble $\{p_i, |\psi_i\rangle\}$ si y solo si este satisface las siguientes condiciones:
 \begin{enumerate}
 	\item $\rho$ tiene una traza igual a uno.
 	\item $\rho $ es un operador \textit{positivo semidefinido}
@@ -178,7 +178,7 @@ Este teorema  permite obtener una definición equivalente del operador de densid
 
 \setlength{\leftskip}{1cm}
 
- \textbf{Postulado 1:} Cualquier sistema físico tiene asociado un espacio de Hilbert $\mathcal{H}$, conocido como el \textit{espacio de estado} del sistema. El sistema está completamente descrito por su \textit{operador de densidad}, el cual es un operador $\rho$ positivo semidefinido con traza uno, actuando en el espacio de estado del sistema. Si un sistema cuántico está en el estado $\rho_i$ con una probabilidaf $p_i$, entonces el operador de densidad para el sistema es $\sum_{i}p_i\rho_i$.
+ \textbf{Postulado 1:} Cualquier sistema físico tiene asociado un espacio de Hilbert $\mathcal{H}$, conocido como el \textit{espacio de estado} del sistema. El sistema está completamente descrito por su \textit{operador de densidad}, el cual es un operador $\rho$ positivo semidefinido con traza uno, actuando en el espacio de estado del sistema. Si un sistema cuántico está en el estado $\rho_i$ con una probabilidad $p_i$, entonces el operador de densidad para el sistema es $\sum_{i}p_i\rho_i$.
 
 
 \textbf{Postulado 2:} La evolución de un sistema cuántico cerrado está descrita por una \textit{transformación unitaria}. Esto es, el estado $\rho$ del sistema en el tiempo $t_1$ está relacionado con el estado $\rho'$ del sistema en el tiempo $t_2$ por un operador unitario $U$ que depende solamente de $t_1$ y $t_2$, 
@@ -222,14 +222,14 @@ Los operadores de medición satisfacen la relación de completitud.
 
 \setlength{\leftskip}{0pt}
 
-Con esta reformulación de los postulados de la mecánica cuántica se tiene la ventaja que es más fácil trabajar en la descripición de sistemas cuánticos cuyo estado no se conoce y la descripción de subsistemas de un sistema cuántico compuesto.
+Con esta reformulación de los postulados de la mecánica cuántica se tiene la ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyo estado no se conoce y la descripción de subsistemas de un sistema cuántico compuesto.
 
 
 Ahora, será útil introducir algunos conceptos y hechos sobre operadores de densidad. Un sistema cuántico cuyo estado es conocido exactamente, se dice que se encuentra en \textit{estado puro}. En este caso, el operador de densidad es simplemente $\rho=|\psi \rangle \langle \psi|$. De lo contrario, $\rho$ está en un \textit{estado mixto}\footnote{En algunas referencias, se  usa el término <<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen de este uso puede ser que no se asume necesariamente que un estado es puro. Y además, el término <<estado puro>> se usa a menudo en referencia a un vector de estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$. }; se dice que es una mezcla de los diferentes estado puros en el ensamble de $\rho$ {\cite{nielsen_chuang_2010}}. 
 
 Estos términos dan pie a incluir las siguientes definiciones {\cite{wilde2011classical}}:
 
-\begin{definition}[\textbf{Estado de máxima mezcla}] El estado de máxima mezcla $\sigma$ es el operador de densidad correspondiente a un conjunto uniforme de estados ortogonales $\{\frac{1}{d},|x\ra\}$, donde $d$ es la dimensionalidad del espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
+\begin{definition}[\textbf{Estado de máxima mezcla}] El estado de máxima mezcla $\sigma$ es el operador de densidad correspondiente a un conjunto uniforme de estados ortogonales $\{\frac{1}{d},|x\ra\}$, donde $d$ es la dimensión del espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
 	
 	
 	\begin{equation}\label{maximallyMixedState}
@@ -297,7 +297,7 @@ Los conjuntos $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$, no necesariamente normalizad
 |\psi_i\ra= \sum_{j}u_{ij}|\phi_j\ra
 \end{equation}
 
-donde $u_{ij}$ es una matriz unitaria compleja, con índices $i$ y $j$. Se completa con vectores 0 adicionales en caso uno de los conjutos tenga menos elementos.
+donde $u_{ij}$ es una matriz unitaria compleja, con índices $i$ y $j$. Se completa con vectores 0 adicionales en caso uno de los conjuntos tenga menos elementos.
 \end{theorem}
 
 \begin{proof}
@@ -334,7 +334,7 @@ donde $u_{ij}$ es una matriz unitaria compleja, con índices $i$ y $j$. Se compl
 
 \section{El operador de densidad reducido}
 
-Una de las aplicaciones más importantes del operador de densidad es el operador de densidad reducido que es una herramienta descriptiva para subsistemas de un sistema cuántico. La matriz de densidad reducida es tan útil que es indispensable en el análisis de sistemas cúanticos compuestos y será discutida en esta sección.
+Una de las aplicaciones más importantes del operador de densidad es el operador de densidad reducido que es una herramienta descriptiva para subsistemas de un sistema cuántico. La matriz de densidad reducida es tan útil que es indispensable en el análisis de sistemas cuánticos compuestos y será discutida en esta sección.
 
 
 Supóngase que se tiene sistemas $A$ y $B$, cuyos estados están descritos por el operador de densidad $\rho_{AB}$. El operador de densidad reducido o local para el sistema $A$ es definido por 
@@ -356,7 +356,7 @@ donde $\tr_B$ es un mapeo de operadores conocidos como la traza parcial sobre el
 		\tr_B(\rho_{AB})\equiv\sum_{l} (\mathds{1}\otimes\la l|_B)\rho_{AB}(\mathds{1}\otimes|l\ra_B).	
 	\end{equation}
 
-Por simplicdad, no se suele escribir los operadores identidad y se escribe de la siguiente forma:
+Por simplicidad, no se suele escribir los operadores identidad y se escribe de la siguiente forma:
 
 \begin{equation}
 	\tr_B(\rho_{AB})\equiv\sum_{l} \la l|_B\rho_{AB}|l\ra_B.
@@ -385,7 +385,7 @@ la acción de la traza partial es como sigue:
 	\end{split}
 \end{equation}
 
-donde se calcula la traza del segundo sistema para obtener el operador de densidad local del primero. Esto se puede generalizar para un operador de densidad arbitrario $\rho_{AB}$, con una base ortonormal $\{|i \ra_A \otimes |j\ra_B \} _{i,j}$ para un estado conformado por dos sitemas:
+donde se calcula la traza del segundo sistema para obtener el operador de densidad local del primero. Esto se puede generalizar para un operador de densidad arbitrario $\rho_{AB}$, con una base ortonormal $\{|i \ra_A \otimes |j\ra_B \} _{i,j}$ para un estado conformado por dos sistemas:
 
 
 \begin{equation}
@@ -397,7 +397,7 @@ donde se calcula la traza del segundo sistema para obtener el operador de densid
 los coeficientes $\lambda_{i,j;k,l}$  son los elementos de la matriz $\rho_{AB}$ en la base respectiva.
 
 
-luego al comptar la traza parcial y usando la linealidad de la traza, se obtiene
+luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene
 
 
 \begin{equation}

@@ -1,0 +1,21 @@
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QY además, el término <<estado puro>> se usa a menudo en referencia a un vector de estado \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, para distinguirlo de un operador de densidad \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QCiertamente, se ha logrado avanzar en este problema, a través de los años gracias al desarrollo de las técnicas de medición y al entendimiento de los procesos de medición en mecánica cuántica \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QDebido a que la teoría de las operaciones cuánticas propone un formalismo para describir la evolución de los sistemas abiertos de manera discreta \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MAS","sentence":"^\\QEs costumbre abrir el parrafo con lo mas importante.\\E$"}
+{"rule":"ES_SIMPLE_REPLACE","sentence":"^\\QDebido a que en la naturaleza es posible obtener mediciones imperfectas no entiendo este comentario, osea, si es cierto, pero esun poco vacio, en este trabajo se trata particularmente con mediciones difusas, en las que en un sistema de varias partículas existe una posibilidad finita de identificar erróneamente las partículas.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QDebido a que en la naturaleza es posible obtener mediciones imperfectas no entiendo este comentario, osea, si es cierto, pero esun poco vacio, en este trabajo se trata particularmente con mediciones difusas, en las que en un sistema de varias partículas existe una posibilidad finita de identificar erróneamente las partículas.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QY describir el estado posterior a la medición del sistema Creo que lasdos frases anteriores deben ir unidas.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QEs costumbre abrir el parrafo con lo mas importante.\\E$"}
+{"rule":"PORQUE","sentence":"^\\QEn este caso me parece que es importante decir porqué vamos a usar el lenguaje de las operaaciones cuanticas.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QEn este caso me parece que es importante decir porqué vamos a usar el lenguaje de las operaaciones cuanticas.\\E$"}
+{"rule":"SIGLAS","sentence":"^\\QTe propongo que armes un parrafo hablando del 4, y que quizá elimines el siguiente parrafo, indicando en los parrafos anteriores donde va, por ejemplo, lo de los POVMs.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QTe propongo que armes un parrafo hablando del 4, y que quizá elimines el siguiente parrafo, indicando en los parrafos anteriores donde va, por ejemplo, lo de los POVMs.\\E$"}
+{"rule":"DIACRITICS_01","sentence":"^\\QSin embargo no hablas del capitulo 4 sino dos frases en la parte de la estructura.\\E$"}
+{"rule":"ESTAS_TILDE","sentence":"^\\QEstas pasando como por la estructura general del trabajo.\\E$"}
+{"rule":"ULTIMO","sentence":"^\\QAbre el parrafo con un refraseo de lo ultimo y adapta.\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\QAbre el parrafo con un refraseo de lo ultimo y adapta.\\E$"}
+{"rule":"DIACRITICS_VERB_N_ADJ","sentence":"^\\QUn poco como tu ultima frase.\\E$"}
+{"rule":"ES_QUESTION_MARK","sentence":"^\\QEsto los copiaste del documento anterior?\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\Q./Sections/ Objetivos ./Sections/ Justificacion ./Sections/ Introduction ./Sections/ DensityOperator ./Sections/ POVM ./Sections/ QuantumOperators ./Sections/ FuzzyMeasurement ./Sections/ Conclusiones\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\Q./Sections/ title\\E$"}
+{"rule":"MORFOLOGIK_RULE_ES","sentence":"^\\Qgomez2010introduccion\\E$"}

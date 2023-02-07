@@ -1,5 +1,0 @@
-POVM
-Kraus
-Milián
-Milián
-Samayoa

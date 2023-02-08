@@ -7,7 +7,7 @@ Los sistemas reales tienen interacciones indeseadas con el mundo exterior, estas
 Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiarizarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
 
 \section{Aproximación axiomática de las operaciones cuánticas}
-En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado por lo que se espera que las operaciones cuánticas obedezcan físicamente. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
+En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado, por ello se espera que las operaciones cuánticas obedezcan físicamente. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
 
 
 
@@ -25,7 +25,7 @@ En el caso de las mediciones resulta conveniente el primer axioma, se hace la co
 En el caso que no se realice ninguna medición, esto se reduce al requisito de que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. La operación cuántica es una operación cuántica que conserva la traza, ya que por sí sola $\E$ proporciona una descripción completa del proceso cuántico. Una operación cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno {\cite{nielsen_chuang_2010}}.
 
 
-Asimismo, una razón para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo que el estado final $\rho'$ evoluciona como 
+Asimismo, una razón para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo tanto el estado final $\rho'$ evoluciona como 
 \begin{equation}
 \rho'= \sum_i p_i \E (\rho_i).
 \end{equation}
@@ -67,7 +67,7 @@ esto es aplicar el operador SWAP, el cual intercambia los sistemas $A$ y $B$:
     \text{SWAP}:|\psi\ra_A\otimes|\phi\ra_B=\sum_{i,j}\psi_i\phi_j |i,j\ra\mapsto\sum_{i,j}\phi_j\psi_i|j,i\ra=|\phi\ra_A\otimes|\psi\ra_B
 \end{equation}
 
-Y dado que al aplicar dos veces el operador SWAP se obtiene el mismo estado inicial, por tanto el cuadrado de SWAP es la identidad y sus valores propios serán $\pm 1$. Y como SWAP tiene valores propios negativos significa que $T \otimes \mathds{1}$ no es positivo, por lo que no cumple con ser completamente positivo  {\cite{preskill2020quantum}}.
+Y dado que al aplicar dos veces el operador SWAP se obtiene el mismo estado inicial, por tanto el cuadrado de SWAP es la identidad y sus valores propios serán $\pm 1$. Y como SWAP tiene valores propios negativos significa que $T \otimes \mathds{1}$ no es positivo, en consecuencia, no cumple con ser completamente positivo  {\cite{preskill2020quantum}}.
 
 
 
@@ -124,7 +124,7 @@ Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vec
 De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i E_i |\psi \rala \psi |E_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i E_i \rho E_i^\dagger\] en general. Y la condición $\sum_k E_k^\dagger E_k\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
 
 
-Conversamente, supóngase que $\E(\rho)=\sum_i E_i \rho E_i^\dagger$. Es fácil ver que es lineal por lo que falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes E_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes E_i)\mathcal{O}(\mathds{1}_B\otimes E_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
+Conversamente, supóngase que $\E(\rho)=\sum_i E_i \rho E_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes E_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes E_i)\mathcal{O}(\mathds{1}_B\otimes E_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
 \end{proof}
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{E_k\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
@@ -283,7 +283,7 @@ Antes de describir el proceso de tomografía cuántica, vale la pena presentar l
 
 Suponiendo que se tiene varias copias de un operador de densidad de un qubit $\rho$. El conjunto $\mathds{1}/\sqrt{2}$, $X/\sqrt{2}$, $Y/\sqrt{2}$, $Z/\sqrt{2}$ forma una base ortonormal de matrices, tal que $\rho$  puede escribirse con \[\rho=\dfrac{\tr(\rho)\mathds{1}+\tr(X\rho)X+\tr(Y\rho)Y+\tr(Z\rho)Z}{2}.\]
 
-Por ejemplo, para estimar $\tr(Z\rho)$ se mide el observable $Z$ muchas veces, $m$, obteniendo salidas como $z_1,z_2,\ldots,z_m$, todos iguales a $+1$ o $-1$. El promedio empírico de esas cantidades, $\sum_i z_i/m$, es un estimado para el valor real de $\tr(Z\rho)$. Y usando el teorema del límite central para determinar qué tan bien se comporta esta estimación para $m$ grande, donde se vuelve aproximadamente gaussiana con media igual a $\tr(Z\rho)$ y con desviación estándar  $\Delta(Z)/ m$, donde $\Delta(Z)$ es la desviación estándar para una sola medición de $Z$, que tiene un límite superior de 1, por lo que la desviación estándar en la estimación $\sum_i z_i/m$ es como máximo $1/\sqrt{m}$ {\cite{nielsen_chuang_2010}}. 
+Por ejemplo, para estimar $\tr(Z\rho)$ se mide el observable $Z$ muchas veces, $m$, obteniendo salidas como $z_1,z_2,\ldots,z_m$, todos iguales a $+1$ o $-1$. El promedio empírico de esas cantidades, $\sum_i z_i/m$, es un estimado para el valor real de $\tr(Z\rho)$. Y usando el teorema del límite central para determinar qué tan bien se comporta esta estimación para $m$ grande, donde se vuelve aproximadamente gaussiana con media igual a $\tr(Z\rho)$ y con desviación estándar  $\Delta(Z)/ m$, donde $\Delta(Z)$ es la desviación estándar para una sola medición de $Z$, que tiene un límite superior de 1, por ende, la desviación estándar en la estimación $\sum_i z_i/m$ es como máximo $1/\sqrt{m}$ {\cite{nielsen_chuang_2010}}. 
 
 Y al generalizar el procedimiento para el caso de más de un qubit, es similar.
 \[\rho=\sum_{\vec{v}}\dfrac{\tr(\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}\rho)\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}}{2^n}\]

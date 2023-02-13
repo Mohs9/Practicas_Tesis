@@ -7,7 +7,7 @@ Los sistemas reales tienen interacciones indeseadas con el mundo exterior, estas
 Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiarizarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
 
 \section{Aproximación axiomática de las operaciones cuánticas}
-En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado, por ello se espera que las operaciones cuánticas obedezcan físicamente. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
+En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado por requerimientos físicos. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
 
 
 
@@ -75,16 +75,16 @@ Y dado que al aplicar dos veces el operador SWAP se obtiene el mismo estado inic
 
 \section{Representación de suma de operadores}
 
-Una operación cuántica también puede representarse en una forma elegante como la \textit{representación de suma de operadores}. La representación de suma de operadores de un mapeo $\E$, se puede escribir como $\E(\rho)=\sum_k E_k \rho E_k^\dagger$, para algún conjunto de operadores $\{E_k\}$ que satisfacen la condición $\sum_k E_k^\dagger E_k\le \mathds{1}$.
+Una operación cuántica también puede representarse en una forma elegante como la \textit{representación de suma de operadores}. La representación de suma de operadores de un mapeo $\E$, se puede escribir como $\E(\rho)=\sum_i K_i \rho K_i^\dagger$, para algún conjunto de operadores $\{K_i\}$ que satisfacen la condición $\sum_k K_i^\dagger K_i\le \mathds{1}$.
 
 Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba de que la representación de suma de operadores es equivalente a la definición de la sección anterior.
 
 \begin{theorem}
     El mapeo $\E$ satisface los axiomas de {\ref{DefE(rho)}} si y solo si 
     \begin{equation}
-        E(\rho)=\sum_k E_k \rho E_k^\dagger
+        \E(\rho)=\sum_i K_i \rho K_i^\dagger
     \end{equation}
-    para algún conjunto de operadores $\{E_k\}$ el cual mapea el espacio de Hilbert de entrada al espacio de Hilbert de salida, y $\sum_k E_k^\dagger E_k\le \mathds{1}$
+    para algún conjunto de operadores $\{K_i\}$ el cual mapea el espacio de Hilbert de entrada al espacio de Hilbert de salida, y $\sum_i K_i^\dagger K_i\le \mathds{1}$
 \end{theorem}
 
 
@@ -109,11 +109,11 @@ El truco que permite recuperar a $\E$ de $\sigma$ como sigue. Sea $|\psi\ra=\sum
 \end{equation}
 
 
-Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vectores $|s_i\ra$ no necesitan ser normalizados. Definiendo el mapeo \[E_i(|\psi\ra) \equiv \la\tilde{\psi}|s_i\ra.\] Este mapeo es lineal, tal que $E_i$ es un operador lineal en el espacio de estado $A$. Más aún, se tiene que  
+Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vectores $|s_i\ra$ no necesitan ser normalizados. Definiendo el mapeo \[K_i(|\psi\ra) \equiv \la\tilde{\psi}|s_i\ra.\] Este mapeo es lineal, tal que $K_i$ es un operador lineal en el espacio de estado $A$. Más aún, se tiene que  
 
 \begin{equation}
     \begin{split}
-       \sum_i E_i |\psi \rala \psi |E_i^\dagger&=\sum_i  \la\tilde{\psi}|s_i\ra \la s_i|\tilde{\psi}\ra\\
+       \sum_i K_i |\psi \rala \psi |K_i^\dagger&=\sum_i  \la\tilde{\psi}|s_i\ra \la s_i|\tilde{\psi}\ra\\
         &=\la \tilde \psi |\sigma |\tilde{\psi}\ra\\
         &=\E(|\psi \rala\psi|)\\
     \end{split}
@@ -121,17 +121,17 @@ Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vec
 
 
 
-De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i E_i |\psi \rala \psi |E_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i E_i \rho E_i^\dagger\] en general. Y la condición $\sum_k E_k^\dagger E_k\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
+De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger\] en general. Y la condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
 
 
-Conversamente, supóngase que $\E(\rho)=\sum_i E_i \rho E_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes E_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes E_i)\mathcal{O}(\mathds{1}_B\otimes E_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
+Conversamente, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes K_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes K_i)\mathcal{O}(\mathds{1}_B\otimes K_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
 \end{proof}
 
-La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{E_k\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
+La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
 
 \subsection{Operadores de Kraus}
 
- La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_k E_k\rho E_k^\dagger$. Los operadores $\{E_k\}$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_k E_k^\dagger E_k=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}.
+ La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_i K_i\rho K_i^\dagger$. Los operadores $\{K_i\}$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_i K_i^\dagger K_i=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}.
 
 
 \subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
@@ -177,24 +177,26 @@ Y si no se sabe el resultado de la medición en el sistema auxiliar, el estado d
 
 
 \subsubsection{No unicidad en la representación de Kraus}
- La representación de Kraus provee una descripción bastante general de la dinámica de los sistemas cuánticos abiertos sin embargo esta representación no es única. Es decir que distintos conjuntos de operadores $\{E_k\}$ y $\{F_i\}$ pueden generar la misma operación cuántica. Esto es importante puesto que,diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y entender la libertad de la representación es crucial para una buena comprensión de la corrección de errores cuánticos. Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen formalmente el teorema.
+ La representación de Kraus provee una descripción bastante general de la dinámica de los sistemas cuánticos abiertos sin embargo esta representación no es única. Es decir que distintos conjuntos de operadores $\{K_i\}$ y $\{M_j\}$ pueden generar la misma operación cuántica. Esto es importante puesto que,diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y entender la libertad de la representación es crucial para una buena comprensión de la corrección de errores cuánticos. Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen formalmente el teorema.
 
 
- \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}Sean $\{E_1,\ldots,\E_m\}$ y $\{F_1,\ldots , F_n\}$ conjuntos de operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$, respectivamente. Agregando operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$ si y solo si existe números complejos $u_{ij}$ tales que $E_i=\sum_j u_{ij}F_j$, y $u_{ij}$ es una matriz unitaria de $m$ por $m$
+ \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}
+    
+    Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$, respectivamente. Agregando operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$ si y solo si existe números complejos $u_{ij}$ tales que $K_i=\sum_j u_{ij}M_j$, y $u_{ij}$ es una matriz unitaria de $m$ por $m$
     
  \end{theorem}
 
 \begin{proof}
-Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{E_i\}$ y $\{F_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i E_i \rho E_i^\dagger= \sum_j F_j \rho F_j^\dagger$ para todo $\rho$. Definiendo los siguientes estados
+Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Definiendo los siguientes estados
 
 \begin{equation}
-    |e_i\ra\equiv \sum_k |k_B\ra(E_i|k_A\ra)
+    |e_i\ra\equiv \sum_k |k_B\ra(K_i|k_A\ra)
 \end{equation}
 
 
 
 \begin{equation}
-    |f_j\ra\equiv \sum_k |k_B\ra(F_j|k_A\ra).
+    |f_j\ra\equiv \sum_k |k_B\ra(M_j|k_A\ra).
 \end{equation}
 
 
@@ -204,29 +206,29 @@ Para un estado arbitrario $|\psi\ra$
 
 \begin{equation}
     \begin{split}
-        E_i|\psi\ra&=\sum_k \psi_k E_i|k_A\ra\\
-                   &= \sum_{lk}\psi_l\la l_B |k_B\ra(E_i|k_A\ra)\\
+        K_i|\psi\ra&=\sum_k \psi_k K_i|k_A\ra\\
+                   &= \sum_{lk}\psi_l\la l_B |k_B\ra(K_i|k_A\ra)\\
                    &=\sum_{l}\psi_l\la l_B| e_i\ra=\sum_{jl}\psi_l u_{ij}\la l_B|f_j\ra\\
-                   &=\sum_{jkl}\psi_l u_{ij}\la l_B|k_B\ra(F_j|k_A\ra)\\
-                   &=\sum_{jl}\psi_l u_{ij}F_j|l_A\ra=\sum_j u_{ij} F_j |\psi\ra\\
+                   &=\sum_{jkl}\psi_l u_{ij}\la l_B|k_B\ra(M_j|k_A\ra)\\
+                   &=\sum_{jl}\psi_l u_{ij}M_j|l_A\ra=\sum_j u_{ij} M_j |\psi\ra\\
     \end{split}
 \end{equation}
 
 
-Luego \[E_i=\sum_j u_{ij}F_j.\] Conversamente, ahora se supone que $E_i$ y $F_j$ están relacionados por la matriz unitaria $E_i=\sum_j u_{ij}F_j$. Luego se tiene que
+Luego \[K_i=\sum_j u_{ij}M_j.\] Conversamente, ahora se supone que $K_i$ y $M_j$ están relacionados por la matriz unitaria $K_i=\sum_j u_{ij}M_j$. Luego se tiene que
 
 
 
 \begin{equation}
     \begin{split}
-        \E(\rho)&=\sum_i  E_i\rho E_i^\dagger\\
-            &=\sum_{ij} u_{ij}u_{ij}^*F_j\rho F_j^\dagger\\
-            &=\sum_j F_j\rho F_j^\dagger\\
+        \E(\rho)&=\sum_i  K_i\rho K_i^\dagger\\
+            &=\sum_{ij} u_{ij}u_{ij}^*M_j\rho M_j^\dagger\\
+            &=\sum_j M_j\rho M_j^\dagger\\
             &=\mathcal{F}(\rho).
     \end{split}
 \end{equation}
 
-Con lo que se muestra que el conjunto de operadores $\{E_i\}$ es la misma operación cuántica que con el conjunto $\{F_j\}$.
+Con lo que se muestra que el conjunto de operadores $\{K_i\}$ es la misma operación cuántica que con el conjunto $\{M_j\}$.
 
 
 
@@ -237,14 +239,14 @@ Con lo que se muestra que el conjunto de operadores $\{E_i\}$ es la misma operac
 
 \end{proof}
 
-Para ejemplificar el teorema anterior  considérese las operaciones siguientes $\E(\rho)=\sum_k E_k\rho E_k^\dagger$ y $\mathcal{F}(\rho)=\sum_k F_k\rho F_k^\dagger$, donde los conjuntos $\{E_i\}$ y $\{F_j\}$ tienen elementos definidos por 
+Para ejemplificar el teorema anterior  considérese las operaciones siguientes $\E(\rho)=\sum_i K_i\rho K_i^\dagger$ y $\mathcal{F}(\rho)=\sum_i M_i\rho M_i^\dagger$, donde los conjuntos $\{K_n\}$ y $\{M_m\}$ tienen elementos definidos por 
 
 \begin{equation}
     \begin{array}{ccc}
-        E_1=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
+        K_1=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
             1&0\\
             0&1\\
-        \end{bmatrix},&&E_2=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
+        \end{bmatrix},&&K_2=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
             1&0\\
             0&-1\\
         \end{bmatrix}\\
@@ -253,10 +255,10 @@ Para ejemplificar el teorema anterior  considérese las operaciones siguientes $
 Esta operación $\E$ representa $1/2$ de probabilidad de aplicar el operador unitario y $1/2$ de probabilidad de aplicarle $Z$ al sistema cuántico y
 \begin{equation}
     \begin{array}{ccc}
-        F_1=\begin{bmatrix}
+        M_1=\begin{bmatrix}
             1&0\\
             0&0\\
-        \end{bmatrix},&&F_2=\begin{bmatrix}
+        \end{bmatrix},&&M_2=\begin{bmatrix}
             0&0\\
             0&1\\
         \end{bmatrix}\\
@@ -267,12 +269,12 @@ la segunda representación de suma de operadores para $\mathcal{F}$ corresponde 
 
 
 
-Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación cuántica. Para verlo, notar que $F_1=(E_1+E_2)/\sqrt{2}$ y $F_2=(E_1-E_2)/\sqrt{2}$
+Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación cuántica. Para verlo, notar que $M_1=(K_1+K_2)/\sqrt{2}$ y $M_2=(K_1-K_2)/\sqrt{2}$
 
 \begin{equation}
     \begin{split}
-        \mathcal{F}(\rho)&=\dfrac{(E_1+E_2)\rho(E_1^\dagger+E_2^\dagger)+(E_1-E_2)\rho(E_1^\dagger-E_2^\dagger)}{2}\\
-        &=E_1\rho E_1^\dagger+E_2\rho E_2^\dagger\\
+        \mathcal{M}(\rho)&=\dfrac{(K_1+K_2)\rho(K_1^\dagger+K_2^\dagger)+(K_1-K_2)\rho(K_1^\dagger-K_2^\dagger)}{2}\\
+        &=K_1\rho K_1^\dagger+K_2\rho K_2^\dagger\\
         &=\E(\rho).
     \end{split}
 \end{equation}
@@ -290,20 +292,20 @@ Y al generalizar el procedimiento para el caso de más de un qubit, es similar.
 
 donde la suma es sobre los vectores $\vec{v} = (v_1 ,\ldots, v_n )$ con entradas vi elegidas del conjunto $\{0, 1, 2, 3\}$. Al realizar mediciones de observables que son productos de matrices de Pauli, se puede estimar cada término en esta suma, y así obtener una estimación de $\rho$ {\cite{nielsen_chuang_2010}}.
 
-Para el proceso de tomografía cuántica, el objetivo es tener una forma de determinar una representación útil de $\E$  de los datos experimentales disponibles. El objetivos es encontrar un conjunto de operadores de Kraus $\{E_i\}$ para $\E$.
+Para el proceso de tomografía cuántica, el objetivo es tener una forma de determinar una representación útil de $\E$  de los datos experimentales disponibles. El objetivo es encontrar un conjunto de operadores de Kraus $\{K_i\}$ para $\E$.
 
 
-Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan una forma de determinar los $E_i$  a partir de los parámetros medibles.
+Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan una forma de determinar los $K_i$  a partir de los parámetros medibles.
 
-Primero, se toman en cuenta una base fija de operadores $\tilde{E_i}$, tales que 
+Primero, se toman en cuenta una base fija de operadores $\tilde{K_i}$, tales que 
 
 \begin{equation}\label{Basefija}
-    E_i=\sum_m e_{im}\tilde{E}_m
+    K_i=\sum_m e_{im}\tilde{K}_m
 \end{equation}
 
 para algún conjunto de números complejos $e_{im}$. Luego, 
 \begin{equation}\label{operacionEnTerminosDeChi}
-    \E(\rho)=\sum_{mn}\tilde{E}_m\rho \tilde{E}_n^\dagger \chi_{mn},
+    \E(\rho)=\sum_{mn}\tilde{K}_m\rho \tilde{K}_n^\dagger \chi_{mn},
 \end{equation}
 
 donde $\chi_{mn}\equiv \sum_i e_{im}e_{in}^*$ son las entradas de una matriz que es Hermítica por definición. Esta expresión, conocida como la \textit{representación de la matriz chi}. Esto muestra que la operación $\E$ puede ser completamente descrita por la matriz $\chi$.
@@ -320,10 +322,10 @@ Luego, cada $\E(\rho_j)$ puede ser expresada como una combinación lineal de est
 
 ahora, $\lambda_{jk}$ puede ser determinado por algoritmos de álgebra lineal. Se puede escribir lo siguiente
 \begin{equation}
-    \tilde{E}_m\rho_j \tilde{E}_n^\dagger=\sum_k\beta_{jk}^{mn}\rho_k,
+    \tilde{K}_m\rho_j \tilde{K}_n^\dagger=\sum_k\beta_{jk}^{mn}\rho_k,
 \end{equation}
 
-donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser determinados por los algoritmos de álgebra lineal, dado los operadores $\tilde{E}_m$ y $\rho_j$.  Combinando las dos últimas expresiones con la ecuación {\ref{operacionEnTerminosDeChi}}.
+donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser determinados por los algoritmos de álgebra lineal, dados los operadores $\tilde{K}_m$ y $\rho_j$.  Combinando las dos últimas expresiones con la ecuación {\ref{operacionEnTerminosDeChi}}.
 
 
 \begin{equation}
@@ -350,11 +352,11 @@ Ahora que se determinó $\chi$ se puede obtener inmediatamente la representació
 y de ello se puede verificar que 
 
 \begin{equation}
-    E_i=\sqrt{d_i} \sum_j U_{ji}\tilde{E}_j
+    K_i=\sqrt{d_i} \sum_j U_{ji}\tilde{K}_j
 \end{equation}
 
 
-son elementos para $\E$. El proceso se puede resumir en determinar $\lambda$ experimentalmente usando el proceso de tomografía de estado, y luego determinar $\chi$ con $\vec{\chi}=\kappa\lambda$, la cual da una descripción completa de $\E$, incluyendo un conjunto de operadores $\{E_i\}$.
+son elementos para $\E$. El proceso se puede resumir en determinar $\lambda$ experimentalmente usando el proceso de tomografía de estado, y luego determinar $\chi$ con $\vec{\chi}=\kappa\lambda$, la cual da una descripción completa de $\E$, incluyendo un conjunto de operadores $\{K_i\}$.
 
 
 

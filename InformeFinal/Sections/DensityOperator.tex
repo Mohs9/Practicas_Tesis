@@ -1,5 +1,5 @@
 \chapter{Operador de densidad}\label{OpDensidad}
-
+% Intro {{{
 El operador de densidad es una herramienta en mecánica cuántica que describe el
 estado cuántico de un sistema físico. Este operador, también conocido como
 <<matriz de densidad>>, contiene todas las propiedades estadísticas de un sistema cuántico, incluso cuando no es posible describir el sistema mediante un estado puro. El operador de densidad es una generalización de los vectores de estado, puesto que estas matrices pueden representar estados mixtos. \cpnote{Tambien el vector de estado.}.  
@@ -8,46 +8,66 @@ En la primera sección de este capítulo, se presenta esta herramienta, comenzan
 
 \cpnote{Usas corrector de ortografía? Veo algunos errores como medio obvios. Dale una pasada y luego me avisas}
 
+% }}}
+\section{Definición y motivación  del operador de densidad} % {{{
+El lenguaje de los operadores de densidad proporciona un  medio conveniente
+para describir los sistemas cuánticos, tales que su estado no es completamente
+conocido. Al considerar un sistema cuántico que se encuentra en alguno de los
+estados $|\psi_j \rangle $ con probabilidad $p_j$. El conjunto de todos los
+posibles estados conforman un ensamble de estados puros del sistema, con lo
+cual se puede enunciar la siguiente definición. 
 
-\section{Definición y motivación  del operador de densidad}
-El lenguaje de los operadores de densidad proporciona un  medio conveniente para describir los sistemas cuánticos, tales que su estado no es completamente conocido. Al considerar un sistema cuántico que se encuentra en alguno de los estados $|\psi_j \rangle $ con probabilidad $p_j$. El conjunto de todos los posibles estados conforman un ensamble
-de estados puros del sistema, con lo cual se puede enunciar la siguiente definición. 
-
-  \begin{definition}[\textbf{Operador de densidad}] El operador de densidad $\rho$ correspondiente al ensamble de estados puros $\{p_j,|\psi_j \rangle \}$ es definido como {\cite{wilde2011classical}}
+\begin{definition}[\textbf{Operador de densidad}] El operador de densidad
+$\rho$ correspondiente al ensamble de estados puros $\{p_j,|\psi_j \rangle \}$
+es definido como {\cite{wilde2011classical}}
   	\begin{equation}{\label{defdensityoperator}}
   		\rho=\sum_{j}p_j|\psi_j\rangle \langle \psi_j|
   	\end{equation}
-  
-  	\end{definition}
+\end{definition}
   	
 
- A menudo se utiliza el término matriz de densidad para referirse al operador de densidad, en la práctica estos dos términos se utilizan indistintamente. Esta formulación, es equivalente a la aproximación del vector de estado, sin embargo a veces es mucho más fácil acercarse a problemas desde este nuevo punto de vista.
+A menudo se utiliza el término matriz de densidad para referirse al operador de
+densidad, en la práctica estos dos términos se utilizan indistintamente. Esta
+formulación, es equivalente a la aproximación del vector de estado, sin embargo
+a veces es mucho más fácil acercarse a problemas desde este nuevo punto de
+vista.
  
- Considérese una medición en un ensamble, de algún observable $\mathcal{O}$. Una pregunta importante sería, ¿cuál es el valor promedio de $\mathcal{O}$ cuando se reproduce un número muy grande de mediciones? La respuesta está dada por el promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por {\cite{sakurai2017modern}}
+Considérese una medición en un ensamble, de algún observable $\mathcal{O}$. Una
+pregunta importante sería, ¿cuál es el valor promedio de $\mathcal{O}$ cuando
+se reproduce un número muy grande de mediciones? La respuesta está dada por el
+promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por
+{\cite{sakurai2017modern}}
  
- \begin{equation}
+\begin{equation}
  	\label{expectationvalue}
  	 \begin{split}
  		\langle \mathcal{O} \rangle &= \sum_{i}p_i \langle\psi_i|\mathcal{O}|\psi_i\rangle\\
  		&=\sum_i\sum_{j}\sum_k \langle\psi_i||\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle \langle \phi_k||\psi_i\rangle\\
  		&=\sum_{j}\sum_k \left(\sum_{i} p_i \langle \phi_k|\psi_i\rangle  \langle\psi_i|\phi_j\rangle\right) \langle \phi_j|\mathcal{O}|\phi_k\rangle, 
  	\end{split}
- \end{equation}
- donde $\{|\phi_j\rangle \}$ es una base más general del espacio de Hilbert del sistema. La última línea en la ecuación {\ref{expectationvalue}} es una motivación para  definir el operador de densidad  en la forma de la ecuación {\ref{defdensityoperator}}. El operador de densidad contiene toda la información físicamente importante que se puede obtener acerca del ensamble {\cite{sakurai2017modern}} 
+\end{equation}
+donde $\{|\phi_j\rangle \}$ es una base más general del espacio de Hilbert del
+sistema. La última línea en la ecuación {\ref{expectationvalue}} es una
+motivación para  definir el operador de densidad  en la forma de la ecuación
+{\ref{defdensityoperator}}. El operador de densidad contiene toda la
+información físicamente importante que se puede obtener acerca del ensamble
+{\cite{sakurai2017modern}} 
  
- 
- 
-  \begin{equation}
+ \begin{equation}
  	\label{expectationvalue_traza}
  	\begin{split}
  		\langle \mathcal{O} \rangle &=\sum_{j}\sum_k \langle \phi_k|\rho|\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle\\
  		&= \rm{tr}(\rho \mathcal{O}).
  	\end{split}
- \end{equation}
+\end{equation}
 
 	Además las mediciones se pueden describir fácilmente utilizando matrices de densidad. Si se realiza una medición descrita por lo operadores $M_m$ y con un estado inicial $|\psi_i\rangle$, luego la probabilidad de obtener el resultado $m$, dado el estado $i$ es $p(m|i)=\langle \psi_i|M_m^{\dagger}M_m|\psi_i\rangle = \tr(M_m^{\dagger} M_m |\psi_i\rangle \langle\psi_i|)$. Por la ley de probabilidad total\footnote{Si  $X$ y $Y$ son dos variables aleatorias, entonces las probabilidades para $Y $ pueden expresarse en términos de las probabilidades para $X$, y las probabilidades condicionales para $ Y$ dada $X$,
 		\[p(y) =\sum_x p(y|x)p(x),\] donde la suma sobre los valores de $x$ que $X$ puede tomar {\cite{nielsen_chuang_2010}}.}, la probabilidad de obtener un resultado $m$ es {\cite{nielsen_chuang_2010}}
 
+
+\cpnote{Hay varias ecuaciones que no tiene puntuacion. Por ejemplo la 1.1 y la
+1.3. Porfa revisa en todo el documento que todas tienen la puntuacion
+apropiada. Puede ser que no requieran nada, o una coma o un punto. Tambien quiero que notes que cuando dejas un espacio entre la ecuación y el texto, lo toma como un parrafo nuevo. Porfa arregla eso (por ejemplo en la 1.2). Tambien quiero que me contestes los comentarios, por ejemplo diciendo que ya lo atendiste, o que estas en desacuerdo. Eso aplica para este comentario y todos los anteriores. }
 
 \begin{equation}
 	\label{probabilidad_m}
@@ -85,7 +105,8 @@ Ahora si, por alguna razón, el registro de la medición se pierde. Se tendría 
 Hasta el momento se puede ver con estas motivaciones que los postulados básicos de la mecánica cuántica relacionados con la medición y la evolución unitaria pueden ser reformulados en el lenguaje de los operadores de densidad. En la siguiente sección se profundiza esta reformulación de los postulados.
 
 
-\section{Propiedades del operador de densidad}\label{postulates}
+% }}}
+\section{Propiedades del operador de densidad}\label{postulates} % {{{
 
 En esta sección se desarrolla algunas de las características y propiedades de los operadores de densidad. Así como se presenta la formulación de los postulados de la mecánica cuántica. 
 
@@ -323,7 +344,8 @@ donde $u_{ij}$ es una matriz unitaria compleja, con índices $i$ y $j$. Se compl
 	los operadores $|\tilde{k} \rala \tilde{l}|$ es fácil ver  que son linealmente independientes y debe ser que $\sum_i c_{ik}c_{il}^{*}=\delta_{kl}$. Esto asegura que se puedan agregar columnas extra a $c$ para obtener una matriz $v$ tal que $|\psi_i\ra=\sum_{k}v_{ik}|k\ra  $, donde se han agregado  vectores cero a la lista de $|\tilde{k}\ra$. Similarmente, se puede encontrar una matriz unitaria $w$ tal que $|\phi_j\ra=\sum_{k}w_{jk}|\tilde{k}\ra$. Luego $|\psi_i\ra=\sum_j u_{ij}|\phi_j\ra$, donde  $u=vw^\dagger$ es unitaria. 
 	\end{proof}
 
-\section{El operador de densidad reducido}
+% }}}
+\section{El operador de densidad reducido} % {{{
 
 Una de las aplicaciones más importantes del operador de densidad es el operador de densidad reducido que es una herramienta descriptiva para subsistemas de un sistema cuántico. La matriz de densidad reducida es tan útil que es indispensable en el análisis de sistemas cuánticos compuestos y será discutida en esta sección.
 
@@ -407,4 +429,5 @@ luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene
 Con el operador de densidad reducido se finaliza el marco teórico del lenguaje del operador de densidad necesario para el objetivo de este proyecto. En la siguiente sección, se estará hablando sobre operadores POVM que son de interés en este trabajo.
 
 
+% }}}
 

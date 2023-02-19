@@ -49,8 +49,8 @@ Utilizando instrumentos cuánticos las mediciones difusas se pueden entender com
 La primera de ellas es considerar aplicar el operador difuso definido en la ecuación {\ref{operador_difuso}} al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como un si las partículas se intercambian.
  El sistema clásico simplemente serán los operadores de proyección de las salidas de medición. \begin{equation}
     \begin{split}
-        \mathcal{I}_1(\rho)&=\sum_{a_j,b_k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2p}(\rho) P_{a_j,b_k}\\
-        &=\sum_{a_j,b_k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}],
+        \mathcal{I}_1(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2p}(\rho) P_{a_j,b_k}\\
+        &=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}],
 \end{split}
 \end{equation}
 
@@ -64,9 +64,9 @@ Notar que si el sistema apuntador indica que la salida de le medición es $a_j,b
 
 En la segunda alternativa se aplica el operador difuso al sistema clásico que se interpreta como si los resultados e la medición son los que se intercambian, y el sistema cuántico es simplemente aplicar una medición proyectiva. \begin{equation}
     \begin{split}
-        \mathcal{I}_2(\rho)&=\sum_{a_j,b_k}\mathcal{F}_{2p}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
-        &=\sum_{a_j,b_k}[pP_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger]\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
-        &=\sum_{a_j,b_k} pP_{a_j,b_k} \otimes P_{a_j,b_k} \rho P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\otimes P_{a_j,b_k} \rho P_{a_j,b_k},\\
+        \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}_{2p}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k}[pP_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger]\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k} pP_{a_j,b_k} \otimes P_{a_j,b_k} \rho P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\otimes P_{a_j,b_k} \rho P_{a_j,b_k},\\
     \end{split}
 \end{equation} 
 
@@ -78,16 +78,18 @@ En esta alternativa al aplicarle el operador difuso al sistema clásico se puede
 \subsubsection{Tercera alternativa}
 Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
-Para esta alternativa se introduce un nuevo operador de proyección $P'_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|$, donde los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P'_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
 
+Sea $S$ el conjunto de pares ordenados $(a_j,b_k)$ de valores propios tales que sus respectivos operadores de proyección $|a_j b_k \rala a_j b_k|\ne|b_k a_j \rala b_k a_j |$. Entonces se introduce un nuevo operador de proyección \[P^{s}_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|,\] además los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P^s_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
 
+Y sea $R$ el conjunto de pares ordenados $(a_i,b_l)$ de valores propios que tienen un operador de proyección respectivo tal que $|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |$, \[P^r_{a_i,b_l}=|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |.\] Luego, con una probabilidad $q$ el instrumento cuántico es \[\sum_{j,k} P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}\] y con una probabilidad $(1-q)$ es \[\sum_{(a_i,b_l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,n_l}+\sum_{(a_j,b_k)\in S}P_{a_j b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\]
 
-Con una probabilidad $q$ el instrumento cuántico es \[\sum_{a_j,b_k}P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}\] y con una probabilidad $(1-q)$ es \[\sum_{a_j,b_k} P'_{a_j,b_k}\otimes \frac{1}{2} P'_{a_j,b_k}\rho P'_{a_j,b_k}.\]
-
-El factor $(1/2)$ es la probabilidad con la que el sistema apuntador indica  que el estado está en $|a_j b_k\ra $ o en $|b_k a_j\ra$ si el estado inicial se encuentra en el subespacio de $P'_{a_j,b_k}$. El instrumento es la suma convexa de estos dos posibilidades.
+Si el estado inicial se encuentra en el subespacio de $P^{s}_{a_j,b_k}$, el factor $(1/2)$ en la segunda sumatoria es la probabilidad con la que el sistema apuntador indica  que el estado está en $|a_j b_k\ra $ o en $|b_k a_j\ra$. El instrumento es la suma convexa de estos dos posibilidades.
 
 \begin{equation}
-    \mathcal{I}_3(\rho)=\sum_{a_j,b_k} q [P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}]+ (1-q)[P'_{a_j,b_k}\otimes \frac{1}{2}P'_{a_j,b_k} \rho  P'_{a_j,b_k}].
+    \begin{split}
+        \mathcal{I}_3(\rho)&=q\sum_{a_j,b_k}  P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k} +(1-q)\sum_{(a_i,b_l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,b_l}\\
+        &+(1-q)\sum_{(a_j,b_k)\in S}P_{a_j,b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\\
+    \end{split}
 \end{equation}  
 
 \subsection{POVM para mediciones difusas}
@@ -139,7 +141,7 @@ Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propi
 Para la primera alternativa 
 \begin{equation}\label{primer_alternativa_ejemplo}
     \begin{split}
-        \mathcal{I}_1(\rho)&=\sum_{a_j,b_k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
+        \mathcal{I}_1(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
         &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
         &+P_{01} \otimes P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10} \otimes P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
@@ -171,7 +173,7 @@ Y al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto d
 
 Para la segunda alternativa se procede de forma parecida sin embargo el efecto de la medición es diferente, \begin{equation}\label{segunda_alternativa_ejemplo1}
     \begin{split}
-        \mathcal{I}_2(\rho)&=\sum_{a_j,b_k}\mathcal{F}_{2p}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}_{2p}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
         &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
         &+P_{01} \otimes [pP_{01} \la 01|\rho|01\ra+(1-p)P_{10}\la 10|\rho|10\ra]\\
         &+P_{10} \otimes [p P_{10}\la 10|\rho|10\ra+(1-p)P_{01}\la 01|\rho|01\ra]\\
@@ -202,15 +204,17 @@ Y luego al realizar la traza parcial sobre el sistema apuntador se obtiene el ef
 Como se puede ver en la ecuación {\ref{traza_S1_ejemplo1}} y en la ecuación {\ref{traza_S2_ejemplo1}} los resultados son los mismos, las probabilidades de obtener cada una de las posibles salidas son iguales en las dos primeras alternativas. Sin embargo, el mapeo que se obtiene al realizar la traza parcial sobre el apuntador es distinto. 
 
 
-Para la tercera alternativa tanto el efecto de la medición como el mapeo de las probabilidades es distinto al de las otras dos alternativas. Primero hay que notar que para este caso $P'_{00}=2P_{00}$,$P'_{11}= 2P_{11}$ y $P'_{10}=P'_{01}$ \begin{equation}\label{tercera_alternativa_ejemplo1}
+Para la tercera alternativa tanto el efecto de la medición como el mapeo de las probabilidades es distinto al de las otras dos alternativas.% Primero hay que notar que para este caso $P'_{00}=2P_{00}$,$P'_{11}= 2P_{11}$ y $P'_{10}=P'_{01}
+\begin{equation}\label{tercera_alternativa_ejemplo1}
     \begin{split}
-        \mathcal{I}_3(\rho)&=\sum_{a_j,b_k} q [P_{a_j,b_k}\otimes P_{a_j,b_k}]+ (1-q)[P_{a_j,b_k}\otimes \frac{1}{2} P'_{a_j,b_k}]\\
+        \mathcal{I}_3(\rho)&=\sum_{a_j,b_k} q [P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}]+(1-q)[P_{a_0,b_0}\otimes P_{a_0,b_0}\rho P_{a_0,b_0}+P_{a_1,b_1}\otimes P_{a_1,b_1} \rho P_{a_1,b_1}\\
+        &+ P_{a_0,b_1} \otimes \frac{1}{2} P^{s}_{a_0,b_1}\rho P^s_{a_0,b_1}+ P_{a_1,b_0} \otimes \frac{1}{2} P^{s}_{a_1,b_0}\rho P^s_{a_1,b_0}]\\
         &=P_{00}\otimes P_{00}\rho P_{00} + P_{11}\otimes P_{11} \rho P_{11}\\
         &+P_{01} \otimes qP_{01}\rho P_{01} +P_{10}\otimes q P_{10}\rho P_{10} \\
-        &+P_{01} \otimes \frac{1-q}{2}P'_{01}\rho P'_{01}+P_{10}\otimes \frac{1-q}{2}P'_{10}\rho P'_{10}\\
+        &+P_{01} \otimes \frac{1-q}{2}P^s_{01}\rho P^s_{01}+P_{10}\otimes \frac{1-q}{2}P^s_{10}\rho P^s_{10}\\
         &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
-        &+P_{01} \otimes \left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P'_{01}\rho P'_{01}\right] \\
-        &+P_{10}\otimes \left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P'_{01}\rho P'_{01}\right].\\
+        &+P_{01} \otimes \left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P^s_{01}\rho P^s_{01}\right] \\
+        &+P_{10}\otimes \left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P^s_{10}\rho P^s_{10}\right].\\
         %&=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}\\
         %&+   P_{01} \otimes [2p/8P_{01} +(1-p)/8P_{10}]+P_{10} \otimes[p/8 P_{10}+2(1-p)/8 P_{01}].\\
     \end{split}
@@ -236,12 +240,18 @@ Esta traza parcial será igual a la ecuación {\ref{traza_S1_ejemplo1}} y {\ref{
 Y finalmente el efecto que realiza esta medición en el estado entrada se calcula con la traza parcial sobre el sistema clásico \begin{equation}\label{traza_A3_ejemplo1}
     \begin{split}
         \tr_A(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}\\
-        &+\left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P'_{01}\rho P'_{01}\right] \\
-        &+\left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P'_{01}\rho P'_{01}\right]\\
-        &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]+{(1-q)} P'_{01}\rho P'_{01}.\\
+        &+\left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P^s_{01}\rho P^s_{01}\right] \\
+        &+\left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P^s_{10}\rho P^s_{10}\right]\\
+        &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]+{(1-q)} P^s_{10}\rho P^s_{10}.\\
     \end{split}
 \end{equation}
 
+\begin{equation}\label{traza_A3_ejemplo1.1}
+    \begin{split}
+        \tr_A(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]\\
+        &+{(1-q)} (|10\rala10|+|01\rala01|)\rho (|10\rala10|+|01\rala01|).\\
+    \end{split}
+\end{equation}
 
 
 Ahora comparando estos resultados con una medida proyectiva ideal se puede obtener la diferencia entre realizar medida difusa y una ideal. Para una media proyectiva ideal, el instrumento cuántico para este ejemplo en específico estará dado por: \begin{equation}\label{proyectiva_ideal_ejemplo}

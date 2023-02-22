@@ -79,16 +79,16 @@ En esta alternativa al aplicarle el operador difuso al sistema clásico se puede
 Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
 
-Sea $S$ el conjunto de pares ordenados $(a_j,b_k)$ de valores propios tales que sus respectivos operadores de proyección $|a_j b_k \rala a_j b_k|\ne|b_k a_j \rala b_k a_j |$. Entonces se introduce un nuevo operador de proyección \[P^{s}_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|,\] además los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P^s_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
+Sea $S$ el conjunto de pares ordenados $(j,k)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Y sus respectivos operadores de proyección tienen la característica que  $|a_j b_k \rala a_j b_k|\ne|b_k a_j \rala b_k a_j |$. Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. Entonces se introduce un nuevo operador de proyección \[P^{s}_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|,\] además los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P^s_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
 
-Y sea $R$ el conjunto de pares ordenados $(a_i,b_l)$ de valores propios que tienen un operador de proyección respectivo tal que $|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |$, \[P^r_{a_i,b_l}=|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |.\] Luego, con una probabilidad $q$ el instrumento cuántico es \[\sum_{j,k} P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}\] y con una probabilidad $(1-q)$ es \[\sum_{(a_i,b_l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,n_l}+\sum_{(a_j,b_k)\in S}P_{a_j b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\]
+Y sea $R$ el conjunto de pares ordenados $(i,l)$ de los índices de valores propios tales que su primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Y sus respectivos operadores de proyección tienen la característica que  $|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |$, Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. El operador de proyección asociado a los valores propios indexados por los elementos del conjunto $R$ es \[P^r_{a_i,b_l}=|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |.\] Luego, con una probabilidad $q$ el instrumento cuántico es \[\sum_{m,n} P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n},\] con $m,n=1,0$ y con una probabilidad $(1-q)$ es \[\sum_{(i,l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,n_l}+\sum_{(j,k)\in S}P_{a_j b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\]
 
 Si el estado inicial se encuentra en el subespacio de $P^{s}_{a_j,b_k}$, el factor $(1/2)$ en la segunda sumatoria es la probabilidad con la que el sistema apuntador indica  que el estado está en $|a_j b_k\ra $ o en $|b_k a_j\ra$. El instrumento es la suma convexa de estos dos posibilidades.
 
 \begin{equation}
     \begin{split}
-        \mathcal{I}_3(\rho)&=q\sum_{a_j,b_k}  P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k} +(1-q)\sum_{(a_i,b_l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,b_l}\\
-        &+(1-q)\sum_{(a_j,b_k)\in S}P_{a_j,b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\\
+        \mathcal{I}_3(\rho)&=q\sum_{m,n}  P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n} +(1-q)\sum_{(i,l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,b_l}\\
+        &+(1-q)\sum_{(j,k)\in S}P_{a_j,b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\\
     \end{split}
 \end{equation}  
 

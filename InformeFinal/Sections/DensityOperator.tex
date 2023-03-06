@@ -85,7 +85,11 @@ Hasta el momento se puede ver con estas motivaciones que los postulados básicos
 % }}}
 \section{Propiedades del operador de densidad}\label{postulates} % {{{
 
-En esta sección se desarrolla algunas de las características y propiedades de los operadores de densidad. Así como se presenta la formulación de los postulados de la mecánica cuántica. 
+En esta sección se desarrolla algunas de las características y propiedades de
+los operadores de densidad. Así como se presenta la formulación de los
+postulados de la mecánica cuántica. \cpnote{Creo qeu ya habiamos hablado de iniciar 
+con ``Así como''. Creo qeu no se usa en español formal al iniciar un frase. Corrige
+este y por ahí busca en lo que sigue a ver si lo vuelves a usar al inicio de una frase.}
 
 Para iniciar se enuncia la siguiente proposición y el siguiente teorema. 
 
@@ -182,12 +186,35 @@ Los operadores de medición satisfacen la relación de completitud \begin{equati
 
 \setlength{\leftskip}{0pt}
 
-Con esta reformulación de los postulados de la mecánica cuántica se tiene la ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyo estado no se conoce y la descripción de subsistemas de un sistema cuántico compuesto.
+Con esta reformulación de los postulados de la mecánica cuántica se tiene la
+ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyo
+estado no se conoce y la descripción de subsistemas de un sistema cuántico
+compuesto\cpnote{Acá hay como una contradiccion. Dice que el estado no se conoce, pero en la linea 
+anterior hablas del estado del sistema. Ese es un punto delicado. Si uieres intenta iterar y 
+si no, hablamos un poco al respecto. Ahora ya lei el parrafo siguiente y tienes una solucion 
+simple. Decir que puedes formular la cuantiva para estados mixtos, pero luego de discutir los 
+conceptos. }.
 
 
-Ahora, será útil introducir algunos conceptos y hechos sobre operadores de densidad. Un sistema cuántico cuyo estado es conocido exactamente, se dice que se encuentra en \textit{estado puro}. En este caso, el operador de densidad es simplemente $\rho=|\psi \rangle \langle \psi|$. De lo contrario, $\rho$ está en un \textit{estado mixto}\footnote{En algunas referencias, se  usa el término <<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen de este uso puede ser que no se asume necesariamente que un estado es puro. Y además, el término <<estado puro>> se usa a menudo en referencia a un vector de estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$. }; se dice que es una mezcla de los diferentes estado puros en el ensamble de $\rho$ {\cite{nielsen_chuang_2010}}. 
+Ahora, será útil introducir algunos conceptos y hechos sobre operadores de
+densidad. Un sistema cuántico cuyo estado es conocido exactamente, se dice que
+se encuentra en \textit{estado puro}. En este caso, el operador de densidad es
+simplemente $\rho=|\psi \rangle \langle \psi|$. De lo contrario, $\rho$ está en
+un \textit{estado mixto}\footnote{En algunas referencias, se  usa el término
+<<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen
+de este uso puede ser que no se asume necesariamente que un estado es puro. Y
+además, el término <<estado puro>> se usa a menudo en referencia a un vector de
+estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$.
+}; se dice que es una mezcla de los diferentes estado puros en el ensamble de
+$\rho$ {\cite{nielsen_chuang_2010}}. 
 
-Estos términos dan pie a incluir las siguientes definiciones {\cite{wilde2011classical}}: \begin{definition}[\textbf{Estado de máxima mezcla}] El estado de máxima mezcla $\sigma$ es el operador de densidad correspondiente a un conjunto uniforme de estados ortogonales $\{\frac{1}{d},|x\ra\}$, donde $d$ es la dimensión del espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a 	\begin{equation}\label{maximallyMixedState}
+Estos términos dan pie a incluir las siguientes definiciones {\cite{wilde2011classical}}: 
+\begin{definition}[\textbf{Estado de máxima mezcla} \cpnote{Normalmente se le dice 
+estado máximamente mezclado. O donde lo viste asi?}] El estado de máxima mezcla
+$\sigma$ es el operador de densidad correspondiente a un conjunto uniforme de
+estados ortogonales $\{\frac{1}{d},|x\ra\}$, donde $d$ es la dimensión del
+espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
+\begin{equation}\label{maximallyMixedState}
 		\sigma \equiv \dfrac{1}{d}\sum_x|x\rala x|=\dfrac{\mathds{1}}{d}.
 	\end{equation}
 \end{definition}
@@ -199,7 +226,7 @@ Estos términos dan pie a incluir las siguientes definiciones {\cite{wilde2011cl
 
 	\end{definition}
 
-La pureza es una medida particular del ruido de un estado cuántico.
+La pureza es una medida particular del ruido de un estado cuántico. \cpnote{Esta frase está muy rara. De donde la sacas? Que es el ruido de un estado?}
 
 \begin{proposition}
 	La pureza de un operador de densidad es igual a uno si y solo si es un estado puro, y la pureza de un operador de densidad es estrictamente menor que uno si y solo si es un estado mixto.
@@ -220,17 +247,42 @@ La pureza es una medida particular del ruido de un estado cuántico.
 	
 	Ahora, dado que $p_i^2 \le p_i $ puesto que $0 \le p_i \le 1$. Luego, se tiene \[\sum_i p_i^2\le\sum_i p_i=1.\]
 	
-   Y dado que $p_i^2<p_i$ para todo $p_i<1$, la igualdad se mantiene si y solo si la sumatoria tiene un único $p_i$ que debe ser igual a 1. Luego 	$\tr(\rho^2)=\sum_{i}p_i^2=\sum_i p_i= p_i=1$ entonces $\rho=|\psi_i\rala\psi_i|$ es puro. Y la pureza entonces será estrictamente menor a uno  $\tr(\rho^2)=\sum_{i}p_i^2<\sum_i p_i=1$, si todo $p_i<1$ y $\rho=\sum_i p_i |\psi_i\rangle \langle \psi_i|$ es mixto.
+Y \cpnote{Creo que sobra el ``Y''} dado que $p_i^2<p_i$ para todo $p_i<1$ \cpnote{para $p_i=0$ 
+se cumple la igualdad...}, la
+igualdad se mantiene si y solo si
+la sumatoria tiene un único $p_i$ que debe ser igual a 1. Luego
+$\tr(\rho^2)=\sum_{i}p_i^2=\sum_i p_i= p_i=1$ entonces
+$\rho=|\psi_i\rala\psi_i|$ es puro \cpnote{Preferira quitar la ecuacion. Es confuso, 
+porque es solo para este caso}. Y \cpnote{También esta raro 
+comenzar la frase con Y en este caso} la pureza entonces será estrictamente
+menor a uno  $\tr(\rho^2)=\sum_{i}p_i^2<\sum_i p_i=1$, si todo $p_i<1$ y
+$\rho=\sum_i p_i |\psi_i\rangle \langle \psi_i|$ es mixto.
+\cpnote{Porfa arregla este parrafo. Creo qe lo escribiste cansada. }
     
      
-	Conversamente si $\rho $ es puro, luego $\rho=|\psi\rala \psi|$ \[\tr(\rho^2)=\tr(|\psi\rala \psi|\psi\rala \psi|)=\tr(|\psi\rala \psi|)=\la\psi|\psi\ra=1.\]	
-	Y si $\rho $ es mixto, luego $\rho=\sum_i p_i|\psi_i\rangle \langle \psi_i|$, con todo $p_i<1$ \[\tr(\rho^2)=\sum_i p_i^2 \tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2<\sum_i p_i=1.\]
+Conversamente \cpnote{Esta palabra no existe en español, segun la RAE} si $\rho
+$ es puro, luego $\rho=|\psi\rala \psi|$
+\[\tr(\rho^2)=\tr(|\psi\rala \psi|\psi\rala \psi|)=\tr(|\psi\rala
+\psi|)=\la\psi|\psi\ra=1.\]
+Y \cpnote{Trata de quitar todas las fraces que comiences con ``Y'' mas bien ver si 
+lo upuedes uitar o substituir.} si $\rho $ es mixto, luego $\rho=\sum_i
+p_i|\psi_i\rangle \langle \psi_i|$, con todo $p_i<1$ \[\tr(\rho^2)=\sum_i p_i^2
+\tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2<\sum_i p_i=1.\]
 	\end{proof}
 
 
 
-Antes de pasar a la siguiente sección, es indispensable discutir qué clase de ensambles pueden dar una matriz de densidad particular y cuándo dos conjuntos de vectores $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador de densidad. La respuesta a estas interrogantes tiene muchas aplicaciones en información y computación cuántica. Y para ello se presenta el siguiente teorema y su demostración que enuncian Nielsen y Chuang {\cite{nielsen_chuang_2010}}. \begin{theorem}[\textbf{Libertad unitaria en el ensamble para matrices de densidad}]
-Los conjuntos $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$, no necesariamente normalizados, generan la misma matriz de densidad si y solo si \begin{equation}\label{teorema2.4}
+Antes de pasar a la siguiente sección, es indispensable discutir qué clase de
+ensambles pueden dar una matriz de densidad particular y cuándo dos conjuntos
+de vectores $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador de
+densidad. La respuesta a estas interrogantes tiene muchas aplicaciones en
+información y computación cuántica. Y para ello se presenta el siguiente
+teorema y su demostración que enuncian Nielsen y Chuang
+{\cite{nielsen_chuang_2010}}. 
+\begin{theorem}[\textbf{Libertad unitaria en el ensamble para matrices de densidad}]
+Los conjuntos $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$, no necesariamente
+normalizados, generan la misma matriz de densidad si y solo si
+\begin{equation}\label{teorema2.4}
 |\psi_i\ra= \sum_{j}u_{ij}|\phi_j\ra,
 \end{equation} donde $u_{ij}$ es una matriz unitaria compleja, con índices $i$ y $j$. Se completa con vectores 0 adicionales en caso uno de los conjuntos tenga menos elementos.
 \end{theorem}
@@ -246,56 +298,91 @@ Los conjuntos $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$, no necesariamente normalizad
 	\end{split}
 	\end{equation*}	
 	con lo que se prueba que $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador.
+\cpnote{Creo que es importante acá mencionar que pasa con las probabilidades. Pirque no las
+tienes ahi, pero si estan ahi de manera implicita.}
 	
-	Conversamente, se supone que ambos conjuntos generan el mismo operador 	\[Q=\sum_{i}|\psi_i\ra \la \psi_i|=\sum_{j} |\phi_j\ra \la \phi_j|.\]
+Conversamente, \cpnote{revisa en todo el documento donde usas esa palabra} se supone que ambos conjuntos generan el mismo operador
+\[Q=\sum_{i}|\psi_i\ra \la \psi_i|=\sum_{j} |\phi_j\ra \la \phi_j|.\]
 	
-	Luego la  descomposición espectral del operador es $Q = \sum_k \lambda_k |k \rala k|$ tal que los vectores $ |k\ra$ son ortonormales, y $\lambda_k$ son estrictamente  positivos. Sea $|\psi\ra$  un vector ortonormal al espacio generado por $|\tilde{k}\ra=\sqrt{\lambda_k}|k\ra$, de ello $\la \psi|\tilde{k}\ra \la \tilde{k}|\psi\ra=0$ para todo $ k$, y luego se ve que 	\[0=\la \psi |Q|\psi\ra=\sum_{i}\la\psi|\psi_i\rala \psi_i|\psi \ra =\sum_i |\la\psi|\psi_i\ra|^2 \] y $\la\psi|\psi_i\ra=0$ para todo $i$ y todo $|\psi \ra$ ortonormal al espacio generado  por el $|\tilde{k}\ra$. Esto se sigue que cada $|\psi_i\ra $ puede expresarse como una combinación lineal de los vectores  $|\tilde{k}\ra$, $|\psi_i\ra=\sum_k c_{ik} |\tilde{k}\ra$. 
+Luego la  descomposición espectral del operador es $Q = \sum_k \lambda_k |k \rala k|$ tal que los vectores $ |k\ra$ son ortonormales, y $\lambda_k$ son estrictamente  positivos. Sea $|\psi\ra$  un vector ortonormal al espacio generado por $|\tilde{k}\ra=\sqrt{\lambda_k}|k\ra$, de ello $\la \psi|\tilde{k}\ra \la \tilde{k}|\psi\ra=0$ para todo $ k$, y luego se ve que 	\[0=\la \psi |Q|\psi\ra=\sum_{i}\la\psi|\psi_i\rala \psi_i|\psi \ra =\sum_i |\la\psi|\psi_i\ra|^2 \] y $\la\psi|\psi_i\ra=0$ para todo $i$ y todo $|\psi \ra$ ortonormal al espacio generado  por el $|\tilde{k}\ra$. Esto se sigue que cada $|\psi_i\ra $ puede expresarse como una combinación lineal de los vectores  $|\tilde{k}\ra$, $|\psi_i\ra=\sum_k c_{ik} |\tilde{k}\ra$. 
 	
-	Como  $Q=\sum_k  |\tilde{k}\rala \tilde{k}|=\sum_{i}|\psi_i\rala\psi_i|$, se ve que \[\sum_k |\tilde{k}\rala \tilde{k}|=\sum_{kl} \left(\sum_i c_{ik}c_{il}^{*}\right)|\tilde{k}\rala \tilde{l}|,\] los operadores $|\tilde{k} \rala \tilde{l}|$ es fácil ver  que son linealmente independientes y debe ser que $\sum_i c_{ik}c_{il}^{*}=\delta_{kl}$. Esto asegura que se puedan agregar columnas extra a $c$ para obtener una matriz $v$ tal que $|\psi_i\ra=\sum_{k}v_{ik}|k\ra  $, donde se han agregado  vectores cero a la lista de $|\tilde{k}\ra$. Similarmente, se puede encontrar una matriz unitaria $w$ tal que $|\phi_j\ra=\sum_{k}w_{jk}|\tilde{k}\ra$. Luego $|\psi_i\ra=\sum_j u_{ij}|\phi_j\ra$, donde  $u=vw^\dagger$ es unitaria. 
-	\end{proof}
+Como  $Q=\sum_k  |\tilde{k}\rala \tilde{k}|=\sum_{i}|\psi_i\rala\psi_i|$, se ve
+que \[\sum_k |\tilde{k}\rala \tilde{k}|=\sum_{kl} \left(\sum_i
+c_{ik}c_{il}^{*}\right)|\tilde{k}\rala \tilde{l}|,\] los operadores $|\tilde{k}
+\rala \tilde{l}|$ es fácil ver  que son linealmente independientes y debe ser
+que $\sum_i c_{ik}c_{il}^{*}=\delta_{kl}$. Esto asegura que se puedan agregar
+columnas extra a $c$ para obtener una matriz $v$ tal que
+$|\psi_i\ra=\sum_{k}v_{ik}|k\ra  $, donde se han agregado  vectores cero a la
+lista de $|\tilde{k}\ra$. Similarmente, se puede encontrar una matriz unitaria
+$w$ tal que $|\phi_j\ra=\sum_{k}w_{jk}|\tilde{k}\ra$. Luego $|\psi_i\ra=\sum_j
+u_{ij}|\phi_j\ra$, donde  $u=vw^\dagger$ es unitaria. 
+\end{proof}
+\cpnote{Veo muy complicada esta prueba. De donde la sacaste? Porque así de larga?}
 
 % }}}
 \section{El operador de densidad reducido} % {{{
 
-Una de las aplicaciones más importantes del operador de densidad es el operador de densidad reducido que es una herramienta descriptiva para subsistemas de un sistema cuántico. La matriz de densidad reducida es tan útil que es indispensable en el análisis de sistemas cuánticos compuestos y será discutida en esta sección.
+Una de las aplicaciones más importantes del operador de densidad es el operador
+de densidad reducido, que es una herramienta descriptiva para subsistemas de un
+sistema cuántico. La matriz de densidad reducida es útil es
+para el análisis de sistemas cuánticos compuestos y será discutida
+en esta sección.
 
 
-Supóngase que se tiene sistemas $A$ y $B$, cuyos estados están descritos por el operador de densidad $\rho_{AB}$. El operador de densidad reducido o local para el sistema $A$ es definido por  \begin{equation}
+Supóngase que se tiene sistemas $A$ y $B$, cuyos estados están descritos por el
+operador de densidad $\rho_{AB}$. El operador de densidad reducido o local para
+el sistema $A$ es definido por  
+\begin{equation}
 	\rho_A=\tr_B(\rho_{AB}),
-\end{equation} donde $\tr_B$ es un mapeo de operadores conocidos como la traza parcial sobre el sistema $B$. Y la traza parcial tiene la siguiente definición, presentada por Wilde {\cite{wilde2011classical}}.
+\end{equation} 
+donde $\tr_B$ es un mapeo de operadores conocidos como la traza parcial sobre
+el sistema $B$. Y \cpnote{``Y''} la traza parcial tiene la siguiente definición, presentada
+por Wilde {\cite{wilde2011classical}}.
 
 \begin{definition}[\textbf{Traza parcial}]
-	
-	Sea  $ \rho_{AB}$ un operador cuadrado actuando en un producto tensorial del espacio de Hilbert $\mathcal{H}_A \otimes \mathcal{ H}_B$ y sea $\{|l\ra_b\}$ una base ortonormal para el espacio $\mathcal{H}_B$. Luego la traza parcial sobre el sistema $\mathcal{H}_B$ está definida como sigue: \begin{equation}
+Sea  $ \rho_{AB}$ un operador cuadrado actuando en un producto tensorial del
+espacio de Hilbert $\mathcal{H}_A \otimes \mathcal{ H}_B$ y sea $\{|l\ra_b\}$
+una base ortonormal para el espacio $\mathcal{H}_B$. Luego la traza parcial
+sobre el sistema $\mathcal{H}_B$ está definida como sigue: 
+\begin{equation}
 		\tr_B(\rho_{AB})\equiv\sum_{l} (\mathds{1}\otimes\la l|_B)\rho_{AB}(\mathds{1}\otimes|l\ra_B).	
-	\end{equation} Por simplicidad, no se suele escribir los operadores identidad y se escribe de la siguiente forma:
+\end{equation} 
+Por simplicidad, no se suele escribir los operadores identidad y se escribe de la siguiente forma:
 \begin{equation}
 	\tr_B(\rho_{AB})\equiv\sum_{l} \la l|_B\rho_{AB}|l\ra_B.
 \end{equation}
+\end{definition}
 
-	\end{definition}
+Por la misma razón que la definición de la traza es invariante bajo la elección
+de una base ortonormal, lo mismo es cierto para la operación de traza parcial.
+También se observa, a partir de la definición anterior, que la traza parcial es
+una operación lineal.
+
+En conclusión, dado un operador $\rho_{AB}$ que describe un estado conjunto de
+los sistemas $A$ y $B$, es posible calcular un operador de densidad local
+$\rho_A$, que describe el estado local de $A$ si el sistema $B$ es inaccesible
+para $A$.
 
 
-Por la misma razón que la definición de la traza es invariante bajo la elección de una base ortonormal, lo mismo es cierto para la operación de traza parcial. También se observa, a partir de la definición anterior, que la traza parcial es una operación lineal.
-
-
-En conclusión, dado un operador $\rho_{AB}$ que describe un estado conjunto de los sistemas $A$ y $B$, es posible calcular un operador de densidad local $\rho_A$, que describe el estado local de $A$ si el sistema $B$ es inaccesible para $A$.
-
-
-Según Wilde {\cite{wilde2011classical}}, existe una forma alternativa de describir la traza parcial, la cual es útil estar consciente. Para un estado simple de la forma  \begin{equation}
+Según Wilde {\cite{wilde2011classical}}, existe una forma alternativa de
+describir la traza parcial, la cual es útil estar consciente. Para un estado
+simple de la forma  
+\begin{equation}
 	|x_1\rala x_2|_A\otimes|y_1\rala y_2|_B,
-\end{equation} la acción de la traza partial es como sigue: \begin{equation}
+\end{equation} 
+la acción de la traza partial es como sigue: 
+\begin{equation}
 	\begin{split}
 	\tr_B(	|x_1\rala x_2|_A\otimes|y_1\rala y_2|_B)&=|x_1\rala x_2|_A\tr(|y_1\rala y_2|_B)\\
 	&=|x_1\rala x_2|_A \la y_2|y_1\ra,
 	\end{split}
 \end{equation}
+donde se calcula la traza del segundo sistema para obtener el operador de
+densidad local del primero.
 
-donde se calcula la traza del segundo sistema para obtener el operador de densidad local del primero.
-
-Esto se puede generalizar para un operador de densidad arbitrario $\rho_{AB}$, con una base ortonormal $\{|i \ra_A \otimes |j\ra_B \} _{i,j}$ para un estado conformado por dos sistemas:
-
-
+Esto se puede generalizar para un operador de densidad arbitrario $\rho_{AB}$,
+con una base ortonormal $\{|i \ra_A \otimes |j\ra_B \} _{i,j}$ para un estado
+conformado por dos sistemas:
 \begin{equation}
 	\begin{split}
 	\rho_{AB}&=\sum_{i,j,k,l}\lambda_{i,j;k,l}(|i\ra_A \otimes|j\ra_B)(\la k|_A\otimes \la l|_B)\\
@@ -305,7 +392,8 @@ Esto se puede generalizar para un operador de densidad arbitrario $\rho_{AB}$, c
 los coeficientes $\lambda_{i,j;k,l}$  son los elementos de la matriz $\rho_{AB}$ en la base respectiva.
 
 
-Luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene \begin{equation}
+Luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene 
+\begin{equation}
 	\begin{split}
 		\rho_A&=\tr_B\left(\sum_{i,j,k,l}\lambda_{i,j;k,l} |i\rala k|_A\otimes|j\rala l|_B\right)\\
 		&=\sum_{i,j,k,l}\lambda_{i,j;k,l} \tr_B(|i\rala k|_A\otimes|j\rala l|_B)\\
@@ -316,10 +404,13 @@ Luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene
 	\end{split}
 \end{equation}
 
+Con el operador de densidad reducido se finaliza el marco teórico del lenguaje
+del operador de densidad necesario para el objetivo de este proyecto. En la
+siguiente sección, se estará hablando sobre operadores POVM que son de interés
+en este trabajo.
 
-
-Con el operador de densidad reducido se finaliza el marco teórico del lenguaje del operador de densidad necesario para el objetivo de este proyecto. En la siguiente sección, se estará hablando sobre operadores POVM que son de interés en este trabajo.
-
+\cpnote{Aca falta algo importante. Porque es razonable usar justo esta deifinción de traza parcial? 
+Hay un ``box'' en el chuang donde discuten eso. Porfa incluye, en tu lenguaje y citando apropiadamente, esa discusión. }
 
 % }}}
 

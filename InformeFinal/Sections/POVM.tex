@@ -1,5 +1,5 @@
 \chapter{Medidas POVM}\label{MedidaPOVM}
-Hasta ahora, se ha descrito el espacio de estados cuánticos. Ahora, se abordará el tema del proceso de medición cuántica. Aunque el proceso de medición  sigue siendo algo enigmático, aquí simplemente, se toma como cierto, sin prueba, el postulado relativo al colapso de la función de onda, mencionado en el capítulo anterior (sección {\ref{postulates}}). Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, el postulado de la medición cuántica, involucra dos elementos. El primero, proporciona una regla que describe las estadísticas de medición, es decir, las probabilidades respectivas de los diferentes resultados de medición posibles. En segundo lugar, da una regla que describe el estado posterior a la medición del sistema.  En la primera sección, se hablará de un caso particular de las mediciones, las mediciones proyectivas. En la segunda sección de este capítulo, se discutirá acerca de los operadores POVM\@. Y finalmente, en la tercera sección se presenta el teorema de dilatación de Naimark. 
+Hasta ahora, se ha descrito el espacio de estados cuánticos. Ahora, se abordará el tema del proceso de medición cuántica. Aunque el proceso de medición  sigue siendo algo enigmático, aquí simplemente, se toma como cierto, sin prueba, el postulado relativo al colapso de la función de onda, mencionado en el capítulo anterior (sección {\ref{postulates}}). Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, el postulado de la medición cuántica, involucra dos elementos. El primero, proporciona una regla que describe las estadísticas de medición, es decir, las probabilidades respectivas de los diferentes resultados de medición posibles. En segundo lugar, da una regla que describe el estado posterior a la medición del sistema.  En la primera sección, se hablará de un caso particular de las mediciones, las mediciones proyectivas. En la segunda sección de este capítulo, se discutirá acerca de los operadores POVM\@. Finalmente, en la tercera sección se presenta el teorema de dilatación de Naimark. 
 
 %El postulado de la medición tiene la virtud de la generalidad, mas no de la precisión, sin embargo presenta algunas ventajas como una estructura matemáticamente más simple y además que muchos problemas en información cuántica implican medidas generales
 
@@ -31,7 +31,7 @@ En una medición proyectiva selectiva la salida etiquetada por $\lambda_m$ ocurr
 	\rho\to	\rho_m=\dfrac{P_m\rho P_m}{\tr(P_m \rho)}.
 \end{equation}
 
- Y en una medición proyectiva no selectiva, el estado inicial es transformado en una mezcla  \begin{equation}
+ En una medición proyectiva no selectiva, el estado inicial es transformado en una mezcla  \begin{equation}
 	\rho \to \rho'=\sum_m P_m \rho P_m.
 \end{equation} 
 
@@ -63,21 +63,21 @@ Un conjunto de $k$ estados puros $\phi_m$ definen un POVM puro si y solo si el e
 	\sum_{m=1}^{k} p_m\rho _{m}=\sum_{m=1}^k \dfrac{1}{d}E_m=\dfrac{\mathds{1}}{d}=\sigma.
 \end{equation}
 
-Conversamente, cualquier ensamble de matrices de densidad definen un POVM {\cite{2007geometry}}.
+Por otro lado, cualquier ensamble de matrices de densidad definen un POVM {\cite{2007geometry}}.
 
 
 Para mostrar la utilidad del formalismo POVM como una forma intuitiva de obtener información sobre las mediciones cuánticas en problemas en las que solo importan las estadísticas de medición, Nielsen y Chuang {\cite{nielsen_chuang_2010}}, proponen un ejemplo sencillo e intuitivo.
 
-Antes de presentar el ejemplo, vale la pena demostrar la siguiente proposición.
+Antes de presentar el ejemplo, vale la pena mostrar la siguiente proposición propuesta y demostrada por Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
 
-\begin{proposition}Los estados no ortogonales no pueden ser distinguibles de forma fiable por ninguna medida {\cite{nielsen_chuang_2010}}.
+\begin{proposition}Los estados no ortogonales no pueden ser distinguibles de forma fiable por alguna medida.
 \end{proposition}
 
 \begin{proof}
-Supóngase que existe una medición que pueda distinguir estados ortogonales.
+Se demostrará por reducción al absurdo. Supóngase que existe una medición que pueda distinguir estados ortogonales.
 
 Si el estado $|\psi_1\ra $ ($|\psi_2\ra $) se prepara, entonces la
-probabilidad de medir $j$, $f(j) =1$ $(f(j)=2)$ debe ser 1, donde $f(\cdot)$ representa
+probabilidad de medir $j$ debe ser 1, tal que  $f(j) =1$ $(f(j)=2)$, donde $f(\cdot)$ representa
 la regla que se usa para adivinar cuál es el índice $i$ de la salida, $f(j)=i$. 
 Definiendo $E_i\equiv \sum_{j:f(j)=i}M_j^\dagger M_j$, estas observaciones pueden ser escritas como 
 \begin{align}
@@ -91,15 +91,15 @@ y luego $\sqrt{E_2}|\psi_1\ra=0$.
 
 
 Además se puede descomponer  
-$|\psi_2\ra=\alpha|\psi_1\ra +\beta|\phi\ra$ donde $|\phi\ra$ sí es ortonormal
+$|\psi_2\ra=\alpha|\psi_1\ra +\beta|\phi\ra$, donde $|\phi\ra$ sí es ortonormal
 a $|\psi_1\ra $, $|\alpha|^2+|\beta|^2=1$, y $|\beta|<1$ debido a que $|\psi_1\ra$
 y $|\psi_2\ra$ no son ortogonales. Luego $\sqrt{E_2}|\psi_2\ra=\beta \sqrt{E_2}|\phi\ra$, Lo
 cual implica una contradicción, con {\ref{E2psi2}}, puesto que \begin{equation}
 	\la \psi_2|E_2|\psi_2\ra=|\beta|^2 \la\phi|E_2|\phi\ra \le |\beta|^2<1,
 \end{equation} 
-donde la segunda inecuación se obtiene de la observación \[ \la \phi|E_2|\phi\ra \le \sum_i\la \phi|E_i|\phi\ra= \la\phi|\phi\ra. \]
+donde la segunda inecuación se obtiene de la observación \[ \la \phi|E_2|\phi\ra \le \sum_i\la \phi|E_i|\phi\ra= \la\phi|\phi\ra=1. \]
 \end{proof}
-Ahora se puede proceder con el ejemplo sobre POVM\@. Supóngase que se tienen dos intermediarios \textit{A} y \textit{B}, el intermediario \textit{A} prepara un conjunto de estados $\{|\psi_1\ra=|0\ra\}$ y $|\psi_2\ra=(|0\ra +|1\ra)/\sqrt{2}$. El intermediario \textit{A} le da a \textit{B} uno de los dos qubits. Debido a que estos dos qubit no son ortogonales, es imposible que \textit{B} pueda determinar cual de los dos le han dado con perfecta fiabilidad. Sin embargo, es posible que $B$ realice una medición la cual distinga los estados algunas veces, pero nunca cometa un error de identificación errónea. Considérese un POVM conteniendo los siguientes tres elementos 
+Ahora se puede proceder con el ejemplo sobre POVM\@. Supóngase que se tienen dos intermediarios \textit{A} y \textit{B}, el intermediario \textit{A} prepara un conjunto de estados $\{|\psi_1\ra=|0\ra\}$ y $|\psi_2\ra=(|0\ra +|1\ra)/\sqrt{2}$. El intermediario \textit{A} le da a \textit{B} uno de los dos qubits. Debido a que estos dos qubit no son ortogonales, es imposible que \textit{B} pueda determinar cual de los dos le han dado con perfecta fiabilidad. Sin embargo, es posible que $B$ realice una medición la cual distinga los estados algunas veces, pero nunca cometa un error de identificación. Considérese un POVM conteniendo los siguientes tres elementos 
 
 	\begin{align}
 		E_1 & \equiv \dfrac{\sqrt{2}}{1+\sqrt{2}} |1\rala1|, \label{eq11} \\
@@ -109,7 +109,7 @@ Ahora se puede proceder con el ejemplo sobre POVM\@. Supóngase que se tienen do
 
 
 
-Es fácil ver que los tres operadores son hermíticos, positivos y debido a como se construye el tercer operador se satisface las relaciones de completitud. Los operadores cumplen con ser POVM\@. Ahora, supóngase que $B$ recibió el estado $|\psi_1\ra=|0\ra$, y realiza una medición descrita por el POVM $\{E_1,E_2,E_3\}$. Hay una probabilidad cero de que observe el resultado $E_1$, debido a que $E_1$ ha sido construido sabiamente para asegurar que $p(1)=\la\psi_1|E_1|\psi_1\ra=0$. Luego, si el resultado de su medición es $E_1$ luego $B$ puede concluir con seguridad que el estado que recibió, fue $|\psi_2\ra $. Un pensamiento similar conduce a mostrar que si la salida de la medición $E_2$ ocurre, el estado que $B$ recibió sería $|\psi_1\ra$. Algunas veces, sin embargo, $B$ obtendrá el resultado de la medición $E_3$ y no podrá inferir nada acerca de la identidad del estado que se le dio. Mas el punto clave, es que $B$ nunca comete un error al identificar el estado que se le ha dado. Esta infalibilidad tiene el precio de que, a veces, $B$ no obtiene información sobre la identidad del estado.
+Es fácil ver que los tres operadores son hermíticos, positivos y debido a como se construye el tercer operador se satisface las relaciones de completitud. Los operadores cumplen con ser POVM\@. Ahora, supóngase que $B$ recibió el estado $|\psi_1\ra=|0\ra$, y realiza una medición descrita por el POVM $\{E_1,E_2,E_3\}$. Hay una probabilidad cero de que observe el resultado $E_1$, debido a que $E_1$ ha sido construido sabiamente para asegurar que $p(1)=\la\psi_1|E_1|\psi_1\ra=0$. Luego, si el resultado de su medición es $E_1$, $B$ puede concluir con seguridad que el estado que recibió, fue $|\psi_2\ra $. Un pensamiento similar conduce a mostrar que si la salida de la medición $E_2$ ocurre, el estado que $B$ recibió sería $|\psi_1\ra$. Algunas veces, sin embargo, $B$ obtendrá el resultado de la medición $E_3$ y no podrá inferir nada acerca de la identidad del estado que se le dio. Mas el punto clave, es que $B$ nunca comete un error al identificar el estado que se le ha dado. Esta infalibilidad tiene el precio que, a veces, $B$ no obtiene información sobre la identidad del estado.
 
 
 

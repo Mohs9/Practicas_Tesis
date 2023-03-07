@@ -32,7 +32,7 @@ $S_{ij}$ es la operación de intercambio \textit{SWAP} con respecto a las partí
 Una forma útil de aproximarse a describir completamente las mediciones difusas es considerar una herramienta conocida como \textit{instrumento cuántico}, el cual es un mapeo que toma un operador de entrada y tiene como salida un ensamble que correlaciona un sistema clásico que contiene la salida de la medición y un sistema cuántico que contiene el estado posterior a la medición. 
 
 
-Las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala \alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección. Y $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán usados para describir  el estado posterior a la medición condicionados por la salida clásica de la medición $\alpha$. El instrumento cuántico se define entonces:
+Las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala \alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección. Además $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán usados para describir  el estado posterior a la medición condicionados por la salida clásica de la medición $\alpha$. El instrumento cuántico se define entonces:
 \begin{equation}
     \mathcal{I}(\rho)\equiv\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho),
 \end{equation}
@@ -79,9 +79,9 @@ En esta alternativa al aplicarle el operador difuso al sistema clásico se puede
 Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
 
-Sea $S$ el conjunto de pares ordenados $(j,k)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Y sus respectivos operadores de proyección tienen la característica que  $|a_j b_k \rala a_j b_k|\ne|b_k a_j \rala b_k a_j |$. Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. Entonces se introduce un nuevo operador de proyección \[P^{s}_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|,\] además los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P^s_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
+Sea $S$ el conjunto de pares ordenados $(j,k)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus respectivos operadores de proyección tienen la característica que  $|a_j b_k \rala a_j b_k|\ne|b_k a_j \rala b_k a_j |$. Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. Entonces se introduce un nuevo operador de proyección \[P^{s}_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|,\] además los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P^s_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
 
-Y sea $R$ el conjunto de pares ordenados $(i,l)$ de los índices de valores propios tales que su primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Y sus respectivos operadores de proyección tienen la característica que  $|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |$, Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. El operador de proyección asociado a los valores propios indexados por los elementos del conjunto $R$ es \[P^r_{a_i,b_l}=|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |.\] Luego, con una probabilidad $q$ el instrumento cuántico es \[\sum_{m,n} P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n},\] con $m,n=1,0$ y con una probabilidad $(1-q)$ es \[\sum_{(i,l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,n_l}+\sum_{(j,k)\in S}P_{a_j b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\]
+De igual forma, sea $R$ el conjunto de pares ordenados $(i,l)$ de los índices de valores propios tales que su primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus respectivos operadores de proyección tienen la característica que  $|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |$, Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. El operador de proyección asociado a los valores propios indexados por los elementos del conjunto $R$ es \[P^r_{a_i,b_l}=|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |.\] Luego, con una probabilidad $q$ el instrumento cuántico es \[\sum_{m,n} P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n},\] con $m,n=1,0$ y con una probabilidad $(1-q)$ es \[\sum_{(i,l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,n_l}+\sum_{(j,k)\in S}P_{a_j b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\]
 
 Si el estado inicial se encuentra en el subespacio de $P^{s}_{a_j,b_k}$, el factor $(1/2)$ en la segunda sumatoria es la probabilidad con la que el sistema apuntador indica  que el estado está en $|a_j b_k\ra $ o en $|b_k a_j\ra$. El instrumento es la suma convexa de estos dos posibilidades.
 
@@ -103,13 +103,13 @@ donde $\mathcal{H}$ es el conjunto de los operadores de densidad. Este mapeo que
 
 Sin embargo, el problema es que también se necesita la descripción del estado posterior a la medición y este no puede ser especificado por una medida POVM\@. Si se desea el estado posterior a la medición se debe tener más información acerca de los operadores $E_\alpha$. Es por ello que para describir el efecto de la medición difusa en un estado de entrada $\rho$, es conveniente establecer un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que \begin{equation}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
 
-Esto se conoce como descomposición del operador de medición. Debido a que $E_\alpha$ es un operador positivo se puede asumir que $K_\alpha=\sqrt{E_\alpha}$. Y luego de introducir los operadores de Kraus el estado de la medición es posterior a la medición POVM será \begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
+Esto se conoce como descomposición del operador de medición. Debido a que $E_\alpha$ es un operador positivo se puede asumir que $K_\alpha=\sqrt{E_\alpha}$. Luego de introducir los operadores de Kraus el estado de la medición es posterior a la medición POVM será \begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
 
 Las medidas POVM dan información sobre el estado de entrada, para mediciones difusas debido a que se tiene una probabilidad $p$ de medir el observable $A\otimes B$ y con una probabilidad $(1-p)$ se puede medir el operador $B\otimes A$ se puede proponer intuitivamente el siguiente conjunto de operadores \begin{equation}\{E_{a_j, b_k}\}= \{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\},\end{equation} donde $P_{a_j,b_k} = |a_j, b_k\rala a_j,b_k|$ es el operador de proyección dado por los vectores propios del observable $A\otimes B$. Para esta medida POVM los operadores de Kraus en los que se puede descomponer de forma sencilla, son los siguientes \begin{equation}
 K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
 \end{equation}
 
-Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@. Y como se dijo anteriormente, cuando se realiza una medición, lo que pasa con el estado exactamente depende en como los POVM son implementados en el laboratorio.
+Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@. Como se mencionó anteriormente, cuando se realiza una medición, lo que pasa con el estado exactamente depende en como los POVM son implementados en el laboratorio.
 
 Se realizó un programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con la descomposición en operadores de Kraus de la medida POVM descrita, con el que se pueden obtener varios ejemplos. El programa se puede obtener en \href{https://github.com/Mohs9/Practicas_Tesis/blob/d751cf4a3b187f124057c927433b29aa6d918ef1/InformeFinal/Code/POVM.nb}{\textit{este enlace}
 }.
@@ -134,7 +134,7 @@ Se realizó un programa que mapea un operador de estado inicial a un estado fina
 
 En esta sección se explorarán algunos ejemplos numéricos, con operadores particulares y utilizando instrumentos cuánticos con las tres alternativas presentadas en a sección anterior.
 
-Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propios: $\{|00\ra, |01\ra, |10\ra, |11\ra\}$. Y sea $\rho $ el estado inicial
+Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propios: $\{|00\ra, |01\ra, |10\ra, |11\ra\}$. Sea $\rho $ el estado inicial
 \[\rho={\begin{pmatrix}6/8&0&0 &1/8\\0&2/8&0 &0\\0 &0 &1/8 &0 \\1/8&0&0&1/8\\\end{pmatrix}}.\]
 
 Para la primera alternativa 
@@ -160,7 +160,7 @@ Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabil
     \end{split}
 \end{equation}
 
-Y al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición, \begin{equation}\label{traza_A1_ejemplo1}
+Al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición, \begin{equation}\label{traza_A1_ejemplo1}
     \begin{split}
         \tr_A(\mathcal{I}_1(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
         &+p P_{01}\rho P_{01}+(1-p) |01\rala 10|\rho|10\rala01|\\
@@ -192,7 +192,7 @@ De nuevo, al realizar la traza parcial sobre le sistema cuántico se obtendrá l
     \end{split}
 \end{equation}
 
-Y luego al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición sobre el estado de entrada,
+Luego al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición sobre el estado de entrada,
 \begin{equation}\label{traza_A2_ejemplo1}
     \begin{split}
         \tr_A(\mathcal{I}_2(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+ P_{10}\rho P_{10}\\
@@ -236,7 +236,7 @@ Ahora, al realizar la traza parcial sobre le sistema cuántico se obtiene lo sig
 
 Esta traza parcial será igual a la ecuación {\ref{traza_S1_ejemplo1}} y {\ref{traza_S2_ejemplo1}}, solo cuando $q=2p-1$ y $1/2<p<1$. En caso contrario las ecuaciones no son equivalentes. 
 
-Y finalmente el efecto que realiza esta medición en el estado entrada se calcula con la traza parcial sobre el sistema clásico \begin{equation}\label{traza_A3_ejemplo1}
+Finalmente el efecto que realiza esta medición en el estado entrada se calcula con la traza parcial sobre el sistema clásico \begin{equation}\label{traza_A3_ejemplo1}
     \begin{split}
         \tr_A(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}\\
         &+\left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P^s_{01}\rho P^s_{01}\right] \\

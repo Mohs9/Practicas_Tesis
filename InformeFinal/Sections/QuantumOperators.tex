@@ -55,7 +55,7 @@ La tercera propiedad se origina por un requerimiento físico. No solo $\E(\rho)$
 Esto es aplicar el operador SWAP, el cual intercambia los sistemas $A$ y $B$:
 \begin{equation}
     \text{SWAP}:|\psi\ra_A\otimes|\phi\ra_B=\sum_{i,j}\psi_i\phi_j |i,j\ra\mapsto\sum_{i,j}\phi_j\psi_i|j,i\ra=|\phi\ra_A\otimes|\psi\ra_B.
-\end{equation} Y dado que al aplicar dos veces el operador SWAP se obtiene el mismo estado inicial, por tanto el cuadrado de SWAP es la identidad y sus valores propios serán $\pm 1$. Y como SWAP tiene valores propios negativos significa que $T \otimes \mathds{1}$ no es positivo, en consecuencia, no cumple con ser completamente positivo  {\cite{preskill2020quantum}}.
+\end{equation} Al aplicar dos veces el operador SWAP se obtiene el mismo estado inicial, por tanto el cuadrado de SWAP es la identidad y sus valores propios serán $\pm 1$. El operador SWAP tiene valores propios negativos significa que $T \otimes \mathds{1}$ no es positivo, en consecuencia, no cumple con ser completamente positivo  {\cite{preskill2020quantum}}.
 
 
 
@@ -77,7 +77,7 @@ Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba 
 
 
 \begin{proof}
-Suponiendo que $\E$ satisface {\ref{DefE(rho)}}. Se introduce un sistema $B$, con las mismas dimensiones del sistema cuántico original $A$. Sea $|k_B\ra$ y $|k_A\ra$ bases ortonormales para $A$ y $B$. Y se define un estado conjunto del sistema $BA$ como \[|\alpha\ra \equiv \sum_k |k_B\ra |k_A\ra.\] El estado $|\alpha\ra $ es un estado máximamente entrelazado de los sistemas $B$ y $A$. Y también se define un operador $\sigma$ en espacio de estado de $BA$ dado por 
+Suponiendo que $\E$ satisface {\ref{DefE(rho)}}. Se introduce un sistema $B$, con las mismas dimensiones del sistema cuántico original $A$. Sea $|k_B\ra$ y $|k_A\ra$ bases ortonormales para $A$ y $B$. Se define un estado conjunto del sistema $BA$ como \[|\alpha\ra \equiv \sum_k |k_B\ra |k_A\ra.\] El estado $|\alpha\ra $ es un estado máximamente entrelazado de los sistemas $B$ y $A$.También se define un operador $\sigma$ en espacio de estado de $BA$ dado por 
 \begin{equation}\label{sigma1}
     \sigma \equiv (\mathds{1}_B\otimes\E)(|\alpha\rala \alpha|).
 \end{equation}
@@ -106,7 +106,7 @@ Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vec
 
 
 
-De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger,\] en general. Y la condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
+De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger,\] en general. La condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
 
 
 Conversamente, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes K_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes K_i)\mathcal{O}(\mathds{1}_B\otimes K_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
@@ -149,7 +149,7 @@ Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,
     \rho_\alpha =\dfrac{\E_\alpha (\rho)}{\tr(\E_\alpha(\rho))}=\dfrac{\E_\alpha(\rho)}{p_\alpha}=\dfrac{1}{p_\alpha}\sum_{j,k}M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger.
 \end{equation}
 
-Y si no se sabe el resultado de la medición en el sistema auxiliar, el estado después de la medición es obtenido promediando sobre las posibles resultados de las mediciones {\cite{unm2014}}
+Si no se sabe el resultado de la medición en el sistema auxiliar, el estado después de la medición es obtenido promediando sobre las posibles resultados de las mediciones {\cite{unm2014}}
 \begin{equation}
     \rho'=\sum_\alpha p_\alpha \rho_\alpha=\sum_\alpha \E_\alpha(\rho)=\sum_{\alpha,j,k} M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger\equiv\E(\rho).
 \end{equation}
@@ -175,7 +175,7 @@ Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este result
 \end{equation}
 
 
-Y también se toma el operador $\sigma$ definido en la ecuación {\ref{sigma1}}, de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{ij}u_{ij}|f_j\ra$.
+También se toma el operador $\sigma$ definido en la ecuación {\ref{sigma1}}, de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{ij}u_{ij}|f_j\ra$.
 
 Para un estado arbitrario $|\psi\ra$ 
 \begin{equation}
@@ -247,9 +247,9 @@ Antes de describir el proceso de tomografía cuántica, vale la pena presentar l
 
 Suponiendo que se tiene varias copias de un operador de densidad de un qubit $\rho$. El conjunto $\mathds{1}/\sqrt{2}$, $X/\sqrt{2}$, $Y/\sqrt{2}$, $Z/\sqrt{2}$ forma una base ortonormal de matrices, tal que $\rho$  puede escribirse con \[\rho=\dfrac{\tr(\rho)\mathds{1}+\tr(X\rho)X+\tr(Y\rho)Y+\tr(Z\rho)Z}{2}.\]
 
-Por ejemplo, para estimar $\tr(Z\rho)$ se mide el observable $Z$ muchas veces, $m$, obteniendo salidas como $z_1,z_2,\ldots,z_m$, todos iguales a $+1$ o $-1$. El promedio empírico de esas cantidades, $\sum_i z_i/m$, es un estimado para el valor real de $\tr(Z\rho)$. Y usando el teorema del límite central para determinar qué tan bien se comporta esta estimación para $m$ grande, donde se vuelve aproximadamente gaussiana con media igual a $\tr(Z\rho)$ y con desviación estándar  $\Delta(Z)/ m$, donde $\Delta(Z)$ es la desviación estándar para una sola medición de $Z$, que tiene un límite superior de 1, por ende, la desviación estándar en la estimación $\sum_i z_i/m$ es como máximo $1/\sqrt{m}$ {\cite{nielsen_chuang_2010}}. 
+Por ejemplo, para estimar $\tr(Z\rho)$ se mide el observable $Z$ muchas veces, $m$, obteniendo salidas como $z_1,z_2,\ldots,z_m$, todos iguales a $+1$ o $-1$. El promedio empírico de esas cantidades, $\sum_i z_i/m$, es un estimado para el valor real de $\tr(Z\rho)$. Usando el teorema del límite central para determinar qué tan bien se comporta esta estimación para $m$ grande, donde se vuelve aproximadamente gaussiana con media igual a $\tr(Z\rho)$ y con desviación estándar  $\Delta(Z)/ m$, donde $\Delta(Z)$ es la desviación estándar para una sola medición de $Z$, que tiene un límite superior de 1, por ende, la desviación estándar en la estimación $\sum_i z_i/m$ es como máximo $1/\sqrt{m}$ {\cite{nielsen_chuang_2010}}. 
 
-Y al generalizar el procedimiento para el caso de más de un qubit es similar,
+Al generalizar el procedimiento para el caso de más de un qubit es similar,
 \[\rho=\sum_{\vec{v}}\dfrac{\tr(\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}\rho)\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}}{2^n},\] donde la suma es sobre los vectores $\vec{v} = (v_1 ,\ldots, v_n )$ con entradas vi elegidas del conjunto $\{0, 1, 2, 3\}$. Al realizar mediciones de observables que son productos de matrices de Pauli, se puede estimar cada término en esta suma, y así obtener una estimación de $\rho$ {\cite{nielsen_chuang_2010}}.
 
 Para el proceso de tomografía cuántica, el objetivo es tener una forma de determinar una representación útil de $\E$  de los datos experimentales disponibles. El objetivo es encontrar un conjunto de operadores de Kraus $\{K_i\}$ para $\E$.
@@ -283,12 +283,12 @@ donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser det
 \sum_k \sum_{mn}\chi_{mn}\beta_{jk}^{mn}\rho_k=\sum_k\lambda_{jk}\rho_k.
 \end{equation}
 
-Y debido a la independencia lineal de $\rho_k$ para cada $k$, 
+Debido a la independencia lineal de $\rho_k$ para cada $k$, 
 \begin{equation}
     \sum_{mn}\beta_{jk}^{mn}\chi_{mn}=\lambda_{jk}.
 \end{equation}
 
-Esta relación es una condición necesaria y suficiente para la matriz $\chi$ para dar la operación cuántica correcta $\E$. Y luego $\chi$ y $\lambda$ pueden verse como vectores, y $\beta$ como una matriz de $d^4\times d^4$, con las columnas nombradas por ${mn}$ y las columnas por ${jk}$. Se necesita computar la matriz inversa de $\beta_{jk}^{mn}$. Sea $\kappa$ la matriz inversa generalizada de la matriz $\beta$, que satisface \[\sum_{jk}\kappa_{jk}^{pq}\beta_{jk}^{mn}=\delta_{pm}\delta{qn},\] los elementos de $\chi$ se leen como 
+Esta relación es una condición necesaria y suficiente para la matriz $\chi$ para dar la operación cuántica correcta $\E$. Luego $\chi$ y $\lambda$ pueden verse como vectores, y $\beta$ como una matriz de $d^4\times d^4$, con las columnas nombradas por ${mn}$ y las columnas por ${jk}$. Se necesita computar la matriz inversa de $\beta_{jk}^{mn}$. Sea $\kappa$ la matriz inversa generalizada de la matriz $\beta$, que satisface \[\sum_{jk}\kappa_{jk}^{pq}\beta_{jk}^{mn}=\delta_{pm}\delta{qn},\] los elementos de $\chi$ se leen como 
 \begin{equation}
     \chi_{mn}=\sum_{jk}\kappa_{jk}^{mn}\lambda_{jk}.
 \end{equation}

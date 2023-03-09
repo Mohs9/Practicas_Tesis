@@ -152,7 +152,7 @@ Para la primera alternativa
 
 Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles, \begin{equation}\label{traza_S1_ejemplo1}
     \begin{split}
-        \tr_S(\mathcal{I}_1(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        \tr_Q(\mathcal{I}_1(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
@@ -160,9 +160,9 @@ Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabil
     \end{split}
 \end{equation}
 
-Al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición, \begin{equation}\label{traza_A1_ejemplo1}
+Al realizar la traza parcial sobre el sistema apuntador o clásico se obtiene el efecto de la medición, \begin{equation}\label{traza_A1_ejemplo1}
     \begin{split}
-        \tr_A(\mathcal{I}_1(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
+        \tr_C(\mathcal{I}_1(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
         &+p P_{01}\rho P_{01}+(1-p) |01\rala 10|\rho|10\rala01|\\
         &+p P_{10}\rho P_{10}+(1-p) |10\rala 01|\rho|01\rala10|\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
@@ -184,7 +184,7 @@ Para la segunda alternativa se procede de forma parecida sin embargo el efecto d
 
 De nuevo, al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles \begin{equation}\label{traza_S2_ejemplo1}
     \begin{split}
-        \tr_S(\mathcal{I}_2(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        \tr_Q(\mathcal{I}_2(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
@@ -192,10 +192,10 @@ De nuevo, al realizar la traza parcial sobre le sistema cuántico se obtendrá l
     \end{split}
 \end{equation}
 
-Luego al realizar la traza parcial sobre el sistema apuntador se obtiene el efecto de la medición sobre el estado de entrada,
+Luego al realizar la traza parcial sobre el sistema apuntador  o clásico se obtiene el efecto de la medición sobre el estado de entrada,
 \begin{equation}\label{traza_A2_ejemplo1}
     \begin{split}
-        \tr_A(\mathcal{I}_2(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+ P_{10}\rho P_{10}\\
+        \tr_C(\mathcal{I}_2(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+ P_{10}\rho P_{10}\\
         &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
     \end{split}
 \end{equation}
@@ -222,7 +222,7 @@ Para la tercera alternativa tanto el efecto de la medición como el mapeo de las
 Ahora, al realizar la traza parcial sobre le sistema cuántico se obtiene lo siguiente
 \begin{equation}\label{traza_S3_ejemplo1}
     \begin{split}
-        \tr_S(\mathcal{I}_3(\rho)) 
+        \tr_Q(\mathcal{I}_3(\rho)) 
         &=P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}  \left[q \la 01|\rho| 01\ra+ \frac{(1-q)}{2} (\la 01|\rho |01\ra +\la 10 |\rho |10\ra)\right] \\
         &+P_{10}  \left[q \la 10|\rho| 10\ra+ \frac{(1-q)}{2} (\la 01|\rho| 01\ra +\la 10 |\rho |10\ra)\right] \\
@@ -238,7 +238,7 @@ Esta traza parcial será igual a la ecuación {\ref{traza_S1_ejemplo1}} y {\ref{
 
 Finalmente el efecto que realiza esta medición en el estado entrada se calcula con la traza parcial sobre el sistema clásico \begin{equation}\label{traza_A3_ejemplo1}
     \begin{split}
-        \tr_A(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}\\
+        \tr_C(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}\\
         &+\left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P^s_{01}\rho P^s_{01}\right] \\
         &+\left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P^s_{10}\rho P^s_{10}\right]\\
         &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]+{(1-q)} P^s_{10}\rho P^s_{10}.\\
@@ -247,7 +247,7 @@ Finalmente el efecto que realiza esta medición en el estado entrada se calcula 
 
 \begin{equation}\label{traza_A3_ejemplo1.1}
     \begin{split}
-        \tr_A(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]\\
+        \tr_C(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]\\
         &+{(1-q)} (|10\rala10|+|01\rala01|)\rho (|10\rala10|+|01\rala01|).\\
     \end{split}
 \end{equation}
@@ -265,7 +265,7 @@ Ahora comparando estos resultados con una medida proyectiva ideal se puede obten
 
 Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de probabilidades \begin{equation}\label{traza_SP_ejemplo1}
     \begin{split}
-        \tr_S(\mathcal{I}_P(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra+P_{01}\la 01|\rho|01\ra +P_{10} \la 10|\rho|10\ra\\
+        \tr_Q(\mathcal{I}_P(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra+P_{01}\la 01|\rho|01\ra +P_{10} \la 10|\rho|10\ra\\
         &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
     \end{split}
 \end{equation}

@@ -2,10 +2,10 @@
 % Intro {{{
 Hasta ahora, se ha descrito el espacio de estados cuánticos. Ahora, se abordará
 el tema del proceso de medición cuántica. Aunque el proceso de medición  sigue
-siendo algo enigmático, aquí simplemente, se toma como cierto, sin prueba, el
-postulado relativo al colapso de la función de onda, mencionado en el capítulo
+siendo algo enigmático, aquí simplemente se toma como cierto el
+postulado relacionado al colapso de la función de onda, mencionado en el capítulo
 anterior (sección {\ref{postulates}}) \cpnote{Esta frase está innecesariamente compilcada larga
-y con muchas comas.}. Según Nielsen y Chuang
+y con muchas comas.}\rrnote{Ya simplifiqué la oración.}. Según Nielsen y Chuang
 {\cite{nielsen_chuang_2010}}, el postulado de la medición cuántica, involucra
 dos elementos. El primero, proporciona una regla que describe las estadísticas
 de medición, es decir, las probabilidades respectivas de los diferentes
@@ -22,10 +22,10 @@ Naimark.
 %cuántica implican medidas generales
 % }}}
 \section{Medidas proyectivas PVM} % {{{
-La medición cuántica realizada en un sistema inicial $\rho$ \cpnote{seria estado y no sistema. 
+La medición cuántica realizada en un estado $\rho$ \cpnote{seria estado y no sistema. 
 creo qeu ya te has equivocado un par de veces con esos conceptos. Ojo con eso. También no 
-hay necesidad de decir inicial acá. } produce  la m-ésima \cpnote{En este caso, como nos 
-referimos a la variable ``m'' se escribe $m$-ésima y no m-ésima. }
+hay necesidad de decir inicial acá. } produce  la $m$-ésima \cpnote{En este caso, como nos 
+referimos a la variable ``m'' se escribe $m$-ésima y no m-ésima. }\rrnote{Ya he corregido lo de las variables $m$}
 salida con una probabilidad $p(m)$ dada por la ecuación
 (\ref{probaility3postulate}) y transforma a $\rho $ en $\rho_m$ descrito por la
 ecuación (\ref{state3postulate}). En tales mediciones, se registran resultados
@@ -34,14 +34,10 @@ Si no se realiza una selección basada en la salida de la medición, el estado
 inicial es transformado en una combinación convexa de todas las salidas
 posibles, dado por 
 \begin{equation}\label{non-selective-measure}
-	\rho'=\sum_m M_m\rho M_m^\dagger,
+	\rho'=\sum_m M_m\rho M_m^\dagger.
 \end{equation}
-esto describe una medición cuántica \textit{no selectiva}, esto es un estado
-mixto, incluso si el estado inicial $\rho$ es puro \cpnote{Esta frase está muy
-larga}. En general, no se puede
-recibir ninguna información sobre el destino de un sistema cuántico sin
-realizar una medida que perturbe su evolución temporal unitaria \cpnote{porque 
-hablanmos aca de evolucion temporal unitaria?}
+Esto es un estado mixto que  describe una medición cuántica \textit{no selectiva}, incluso si el estado inicial $\rho$ es puro \cpnote{Esta frase está muy
+larga}.\rrnote{acorté la frase}% En general, no se puede recibir ninguna información sobre el destino de un sistema cuántico sin realizar una medida que perturbe su evolución temporal unitaria \cpnote{porque hablanmos aca de evolucion temporal unitaria?}
 {\cite{2007geometry}}.
 
 En una medida proyectiva PVM (por sus siglas en inglés, projection-valued
@@ -85,12 +81,8 @@ repetibilidad. Esto significa que si la medición es repetida, el estado en
 {\cite{2007geometry}}.
 % }}}
 \section{Operadores POVM}\label{operadoresPOVM} % {{{
-
-Muchas de las mediciones no son repetibles, por ejemplo, en un experimento que
-se mide el sistema solo una vez al finalizar éste \cpnote{no entiendo 
-a que te refieres o quizá no entiendes lo es uqe una medicion no sea
-repetible}. Para algunas aplicaciones,
-el estado posterior a la medición del sistema es de poco interés, siendo el
+\cpnote{no entiendo a que te refieres o quizá no entiendes lo es uqe una medicion no sea repetible.}\rrnote{Quité la frase anterior porque releyendola, pienso que es innecesaria y estaba mal planteada.}
+Para algunas aplicaciones, el estado posterior a la medición del sistema es de poco interés, siendo el
 principal elemento de interés las probabilidades de los respectivos resultados
 de medición. En tales casos, existe una herramienta matemática conocida como
 formalismo POVM que es especialmente bien adaptado al análisis de las medidas

@@ -77,15 +77,15 @@ Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba 
 
 
 \begin{proof}
-Suponiendo que $\E$ satisface {\ref{DefE(rho)}}. Se introduce un sistema $B$, con las mismas dimensiones del sistema cuántico original $A$. Sea $|k_B\ra$ y $|k_A\ra$ bases ortonormales para $A$ y $B$. Se define un estado conjunto del sistema $BA$ como \[|\alpha\ra \equiv \sum_k |k_B\ra |k_A\ra.\] El estado $|\alpha\ra $ es un estado máximamente entrelazado de los sistemas $B$ y $A$.También se define un operador $\sigma$ en espacio de estado de $BA$ dado por 
+Suponiendo que $\E$ satisface {\ref{DefE(rho)}}. Se introduce un sistema $\mathcal{H}_B$, con las mismas dimensiones del sistema cuántico original $\mathcal{H}_A$. Sea $|k_B\ra$ y $|k_A\ra$ bases ortonormales para $A$ y $B$. Se define un estado conjunto del sistema $\mathcal{H}_B\otimes \mathcal{H}_A$ como \[|\alpha\ra \equiv \sum_k |k_B\ra |k_A\ra.\] El estado $|\alpha\ra $ es un estado máximamente entrelazado de los sistemas $\mathcal{H}_B$ y $\mathcal{H}_A$.También se define un operador $\sigma$ en espacio de estado de $\mathcal{H}_B\otimes \mathcal{H}_A$ dado por 
 \begin{equation}\label{sigma1}
     \sigma \equiv (\mathds{1}_B\otimes\E)(|\alpha\rala \alpha|).
 \end{equation}
 
 
-Se puede pensar en esto como un resultado de aplicar la operación cuántica $\E$ a la mitad de un estado de máxima entrelazamiento del sistema $BA$. Para saber como actúa $\E$ en un estado arbitrario de $A$, es suficiente con saber cómo este actúa en un solo estado máximamente entrelazado de $A$ con otro sistema.
+Se puede pensar en esto como un resultado de aplicar la operación cuántica $\E$ a la mitad de un estado de máxima entrelazamiento del sistema $\mathcal{H}_B\otimes \mathcal{H}_A$. Para saber como actúa $\E$ en un estado arbitrario de $\mathcal{H}_A$, es suficiente con saber cómo este actúa en un solo estado máximamente entrelazado de $\mathcal{H}_A$ con otro sistema.
 
-El truco que permite recuperar a $\E$ de $\sigma$ como sigue. Sea $|\psi\ra=\sum_j \psi_j |j_A\ra$ algún estado del sistema $A$. Definiendo un estado correspondiente $|\tilde{\psi}\ra$ del sistema $B$ por $|\tilde{\psi}\ra \equiv \sum_j \psi_j^*|j_B\ra$. Notar que
+El truco que permite recuperar a $\E$ de $\sigma$ como sigue. Sea $|\psi\ra=\sum_j \psi_j |j_A\ra$ algún estado del sistema $\mathcal{H}_A$. Definiendo un estado correspondiente $|\tilde{\psi}\ra$ del sistema $\mathcal{H}_B$ por $|\tilde{\psi}\ra \equiv \sum_j \psi_j^*|j_B\ra$. Notar que
 \begin{equation}
     \begin{split}
         \la \tilde \psi |\sigma |\tilde{\psi}\ra&= \la \tilde \psi |\left(\sum_{kj} |k_B\rala j_B|\otimes\E (|k_A \rala j_A|)\right) |\tilde{\psi}\ra\\
@@ -95,7 +95,7 @@ El truco que permite recuperar a $\E$ de $\sigma$ como sigue. Sea $|\psi\ra=\sum
 \end{equation}
 
 
-Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vectores $|s_i\ra$ no necesitan ser normalizados. Definiendo el mapeo \[K_i(|\psi\ra) \equiv \la\tilde{\psi}|s_i\ra.\] Este mapeo es lineal, tal que $K_i$ es un operador lineal en el espacio de estado $A$. Más aún, se tiene que 
+Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vectores $|s_i\ra$ no necesitan ser normalizados. Definiendo el mapeo \[K_i(|\psi\ra) \equiv \la\tilde{\psi}|s_i\ra.\] Este mapeo es lineal, tal que $K_i$ es un operador lineal en el espacio de estado $\mathcal{H}_A$. Más aún, se tiene que 
 \begin{equation}
     \begin{split}
        \sum_i K_i |\psi \rala \psi |K_i^\dagger&=\sum_i  \la\tilde{\psi}|s_i\ra \la s_i|\tilde{\psi}\ra\\
@@ -106,10 +106,10 @@ Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vec
 
 
 
-De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estado $|\psi\ra$, de $A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger,\] en general. La condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
+De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estado $|\psi\ra$, de $\mathcal{H}_A$. Por el segundo axioma se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger,\] en general. La condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
 
 
-Conversamente, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $BA$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes K_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes K_i)\mathcal{O}(\mathds{1}_B\otimes K_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
+Por otro lado, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $BA$, y sea $|\psi \ra$ algún estado del sistema $\mathcal{H}_B\otimes \mathcal{H}_A$. Definiendo $|\psi_i\ra \equiv (\mathds{1}\otimes K_i^\dagger)|\psi\ra$, se tiene que \[\la \psi |(\mathds{1}_B\otimes K_i)\mathcal{O}(\mathds{1}_B\otimes K_i^\dagger)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\mathds{1}\otimes\E)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
 \end{proof}
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
@@ -121,7 +121,7 @@ La representación de suma de operadores describe la dinámica del sistema princ
 
 \subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
 
-Considere un sistema primario $Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmente en el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $QA$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto $QA$ en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $A$,
+Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $\mathcal{H}_A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmente en el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $\mathcal{H}_A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $\mathcal{H}_Q\otimes \mathcal{H}_A$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $\mathcal{H}_A$,
 
 \begin{equation}\label{measurement_model}
     \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger P_\alpha)= \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger)\equiv \E_\alpha(\rho),

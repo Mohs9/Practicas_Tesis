@@ -92,9 +92,9 @@ introducidas en el Postulado 3, pero la teoría de es bastante elegante y
 ampliamente utilizada que se discutirá en esta sección
 {\cite{nielsen_chuang_2010}}. Se procede a dar una definición de las medidas
 POVM\@. \cpnote{Siento que acá bajo la calidad del escrito. Dale una mirada a esta
-seccion (o mas bien de aca al final) y luego ya la veo}
+seccion (o mas bien de aca al final) y luego ya la veo}\rrnote{He agregado algunos párrafos más y quitado otros, sin embargo no he encontrado más información relevante.}
 
-\begin{definition}[\textbf{POVM}] Una medida POVM (positive operator-valued measure) es un conjunto $\{E_{m}\} _{m}$ de operadores llamados <<efectos>> que satisfacen las siguientes condiciones:
+\begin{definition}[\textbf{POVM}] Una medida POVM (positive operator-valued measure) es un conjunto $\{E_{m}\} _{m}$ de operadores llamados <<efectos>> que satisfacen las siguientes condiciones {\cite{2007geometry}}:
 	\begin{enumerate}
 		\item Positividad. $\la \psi |E_m|\psi \ra \ge 0 $ para cualquier vector $|\psi\ra$.
 		\item Hermiticidad. $E_m=E_{m}^\dagger$.
@@ -102,42 +102,39 @@ seccion (o mas bien de aca al final) y luego ya la veo}
 	\end{enumerate}
 \end{definition}
 
-Una medida POVM aplicada al estado $\rho$ produce la m-ésima salida, con una
-probabilidad $p(m)=\tr(E_m \rho)$. Notar que los elementos $E_m$ del conjunto
-de operadores hermíticos no necesariamente conmutan. El nombre POVM sugiere
-correctamente que la suma discreta puede ser reeplazada por una integral sobre
-un conjunto de índices continuos. Los POVM se ajustan en el marco general del
+Una medida POVM aplicada al estado $\rho$ produce la $m$-ésima salida, con una
+probabilidad $p(m)=\tr(E_m \rho)$. Un ejemplo de medida POVM son las ya discutidas medidas proyectivas descritas por los operadores de proyección, tales que $P_m P_n=\delta_{mn}P_{m}$ y $\sum_m Pm = \mathds{1}$. Solo en este caso todos los elementos POVM son los mismos que los propios operadores de medición,$E_m=P_m P_m^\dagger=P_m$ {\cite{nielsen_chuang_2010}}.
+
+
+Notar que los elementos $E_m$ del conjunto de operadores hermíticos no necesariamente conmutan. Los POVM se ajustan en el marco general del
 postulado de la medición cuántica, ya que se puede elegir $E_m=M_m
 M_m^{\dagger}$. Sin embargo es importante notar que los POVM no determinan los
-operadores de medición $M_m$ de manera única, a excepoión del caso particular
+operadores de medición $M_m$ de manera única, a excepción del caso particular
 de las mediciones proyectivas. Lo que sucede con el estado exactamente, cuando
 una medición es realizada depende en como los POVM son implementados en el
 laboratorio {\cite{2007geometry}}.   
 
-Según Bengtsson y Zyczkowski {\cite{2007geometry}}, un POVM es llamado
-informacionalmente completo si las estadísticas del POVM determinan de forma
-única la matriz de densidad. Esto requiee que el POVM tenga $d^2$ elementos,
-donde $d$ es la dimensión del espacio de Hilbert, una medida proyectiva no es
-suficiente. Un POVM es llamado \textit{puro} si cada operadores $E_m$ es de
-rango uno, tales que existe un estado puro $|\phi_m\ra$ tal que $E_m$ es
-proporcional a $|\phi_m\rala\phi_m|$. Un POVM que es impuro puede siempre
-volverse en un estado puro, reemplazando cada operador $E_m$ por su
-descomposición espectral. 
+Según Bengtsson y Zyczkowski {\cite{2007geometry}}, un POVM es llamado \textit{puro} si cada operadores $E_m$ es de rango uno, tales que existe un estado puro $|\phi_m\ra$ tal que $E_m$ es proporcional a $|\phi_m\rala\phi_m|$. Un POVM que es impuro puede siempre volverse en un estado puro, reemplazando cada operador $E_m$ por su descomposición espectral. 
 
-Un conjunto de $k$ estados puros $\phi_m$ definen un POVM puro si y solo si el
-estado de máxima  mezcla (\ref{maximallyMixedState}) puede ser descompuesto
-como  $\sigma=\sum_{m=1}^{k}p_m|\phi_m\rala\phi_m|$, donde $\{p_m\}$ forma un
-conjunto adecuado de coeficientes positivos. De hecho cualquier ensamble de
-estados puros o mixtos representando a $\sigma$ definen un POVM\@. Para
-cualquier conjunto de operadores $E_m$ definiendo un POVM se toman estados
+Un conjunto de $k$ estados puros $|\phi_m \ra$ definen un POVM puro si y solo si el estado máximamente mezclado (\ref{maximallyMixedState}) puede ser descompuesto como  $\sigma=\sum_{m=1}^{k}p_m|\phi_m\rala\phi_m|$, donde $\{p_m\}$ forma un conjunto adecuado de coeficientes positivos. De hecho cualquier ensamble de estados puros o mixtos representando a $\sigma$ definen un POVM\@. Para cualquier conjunto de operadores $E_m$ definiendo un POVM se toman estados
 cuánticos $\rho_m=E_m/\tr(E_m)$ y una probabilidad $p_m=\tr E_m/d$ para obtener
-el estado de mezcla máxima: 
+el estado máximamente mezclado: 
 \begin{equation}
 	\sum_{m=1}^{k} p_m\rho _{m}=\sum_{m=1}^k \dfrac{1}{d}E_m=\dfrac{\mathds{1}}{d}=\sigma.
 \end{equation}
 
 Por otro lado, cualquier ensamble de matrices de densidad definen un POVM
 {\cite{2007geometry}}.
+
+
+Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, por lo general los textos introductorios a la mecánica cuántica describen solamente la medidas proyectivas y en consecuencia el formalismo de las medidas POVM y la descripción del tercer postulado no es tan conocido. Esto se debe a que la mayoría de los sistemas físicos solo pueden medirse de manera tosca. En computación e información cuántica, el objetivo es lograr un buen nivel de control sobre las mediciones que se pueden realizar, por consiguiente utilizar un formalismo más completo para la descripción de las mediciones es de gran ayuda. Por supuesto, las medidas proyectivas son completamente equivalentes a las mediciones más generales cuando se toman en cuenta los demás axiomas.
+
+
+Existen varias razones para utilizar el formalismo general de las mediciones. La primera es que matemáticamente las mediciones generales son menos restrictivas y simples que las medidas proyectivas. Por ejemplo, estas mediciones generales no necesariamente exigen la condición de idempotencia $P^2=P$ como si lo hacen las medidas proyectivas. Otra razón para utilizarlas es que existen muchos problemas en información y computación cuántica tales como la forma óptima de distinguir un conjunto de estados cuánticos cuya respuesta implica una medición general, en lugar de una medición proyectiva {\cite{nielsen_chuang_2010}}.
+
+
+Una tercera razón para utilizar las mediciones generales esta relacionada con la propiedad de repetibilidad de las mediciones proyectivas. Las medidas proyectivas son repetibles en el sentido que si se realiza una medición proyectiva una vez y se obtiene un resultado $m$, al repetir la medición el resultado será nuevamente $m$ y el estado también será el mismo. Este hecho indica que muchas medidas importantes en mecánica cuántica no son medidas proyectivas.  Para tales mediciones, debe emplearse el postulado general de medición. Y en este contexto las medidas POVM son un caso especial del formalismo de la medición general, que proporciona el medio más simple en el que se pueden estudiar las estadísticas generales de medición, sin necesidad de conocer el estado posterior a la medición. Son una conveniencia matemática que a veces brinda información adicional sobre las mediciones cuánticas {\cite{nielsen_chuang_2010}}.
+
 
 Para mostrar la utilidad del formalismo POVM como una forma intuitiva de
 obtener información sobre las mediciones cuánticas en problemas en las que solo

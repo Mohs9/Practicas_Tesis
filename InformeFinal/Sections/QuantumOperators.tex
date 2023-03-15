@@ -1,13 +1,42 @@
 \chapter{Operaciones cuánticas}\label{OpCuanticas}
+% Intro {{{
+
+Los sistemas reales tienen interacciones indeseadas con el mundo exterior,
+estas indeseadas interacciones se presentan como ruido en información cuántica\cpnote{No
+es buen estilo repetir palabras sin un buen motivo. Puedes partir esta frase en 
+dos y decir ``... exterior. Éstas se presentan...'' es mas, no diría ``presentan''
+pues creo que no es lo que quieres decir}.
+Para construir sistemas de procesamiento en información cuántica útiles es
+necesario entender y controlar dicho ruido. Es por esto que esta sección se
+centra en el formalismo de las operaciones cuánticas, que son un herramienta
+capaz de describir ruido cuántico y el comportamiento de sistemas cuánticos
+abiertos \cpnote{nop, ese no es el motivo...}. Otra de las aplicaciones de las operaciones cuánticas en información
+y computación cuántica  es que se adaptan a al descripción de cambios de
+estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el
+estado final $\rho'$, sin necesidad de referenciar al paso del tiempo
+\cite{nielsen_chuang_2010}. \cpnote{Este ultimo mensaje me parece valioso, pero trata
+de hacer mas lógico y sincero este parrafo}
 
 
-Los sistemas reales tienen interacciones indeseadas con el mundo exterior, estas indeseadas interacciones se presentan como ruido en información cuántica. Para construir sistemas de procesamiento en información cuántica útiles es necesario entender y controlar dicho ruido. Es por esto que esta sección se centra en el formalismo de las operaciones cuánticas, que son un herramienta capaz de describir ruido cuántico y el comportamiento de sistemas cuánticos abiertos. Otra de las aplicaciones de las operaciones cuánticas en información y computación cuántica  es que se adaptan a al descripción de cambios de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}.
-
-
-Este capítulo tiene la siguiente estructura. En la primer sección, se discute el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En la segunda sección se aborda las operaciones cuánticas desde un punto de vista diferente, que permitirá familiarizarse con la teoría básica de las operaciones cuánticas e involucra a los operadores conocidos como operadores de Kraus. En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico.%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
-
-\section{Aproximación axiomática de las operaciones cuánticas}
-En esta sección se abordan las operaciones cuánticas desde un punto de vista axiomático el cual será motivado por requerimientos físicos. Por lo tanto se dará la siguiente definición de operación cuántica que presenta Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
+Este capítulo tiene la siguiente estructura. En la primer sección, se discute
+el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En
+la segunda sección se aborda las operaciones cuánticas desde un punto de vista
+diferente, que permitirá familiarizarse con la teoría básica de las operaciones
+cuánticas e involucra a los operadores conocidos como operadores de Kraus. En
+la última sección se habla sobre el procedimiento de tomografía cuántica con el
+que se puede determinar experimentalmente la dinámica a la que se somete un
+sistema cuántico. \cpnote{De como viene el escrito, parece qeu esta tercera
+sección está fuera de contexto. Trata de hilar mejor esta idea. De hecho no se porque 
+la vas a discutir... }
+%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
+% }}}
+\section{Aproximación axiomática de las operaciones cuánticas} % {{{
+En esta sección se abordan las operaciones cuánticas desde un punto de vista
+axiomático el cual será motivado por requerimientos físicos. Por lo tanto
+\cpnote{porque ``por lo tanto''? no veo porque... quizá escribiste esta seccion un poco cansada
+porfa revisa.} se
+dará la siguiente definición de operación cuántica que presenta Nielsen y
+Chuang {\cite{nielsen_chuang_2010}}.
 
 
 
@@ -60,8 +89,8 @@ Esto es aplicar el operador SWAP, el cual intercambia los sistemas $A$ y $B$:
 
 
 
-
-\section{Representación de suma de operadores}
+% }}}
+\section{Representación de suma de operadores} % {{{
 
 Una operación cuántica también puede representarse en una forma elegante como la \textit{representación de suma de operadores}. La representación de suma de operadores de un mapeo $\E$, se puede escribir como $\E(\rho)=\sum_i K_i \rho K_i^\dagger$, para algún conjunto de operadores $\{K_i\}$ que satisfacen la condición $\sum_k K_i^\dagger K_i\le \mathds{1}$.
 
@@ -240,8 +269,8 @@ Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación c
         &=\E(\rho).
     \end{split}
 \end{equation}
-
-\section{Proceso de tomografía cuántica}
+% }}}
+\section{Proceso de tomografía cuántica} % {{{
 
 Antes de describir el proceso de tomografía cuántica, vale la pena presentar la tomografía de estado cuántico. La tomografía de estado cuántico es el procedimiento experimental para determinar un estado cuántico desconocido. Es posible estimar $\rho$ si se tiene un gran número de copias de $\rho$. Por ejemplo, si $\rho$ es el estado cuántico producido por algún experimento, se puede repetir el experimento muchas veces para producir muchas copias del estado $\rho$ {\cite{nielsen_chuang_2010}}. 
 
@@ -305,7 +334,7 @@ y de ello se puede verificar que  \begin{equation}
 
 
 
-
+% }}}
 
 
 

@@ -24,13 +24,13 @@ la vas a discutir\ldots }\rrnote{La iba a discutir porque pensé que podría ser
 En esta sección se abordan las operaciones cuánticas desde un punto de vista
 axiomático el cual será motivado por requerimientos físicos. \cpnote{porque ``por lo tanto''? no veo porque\ldots quizá escribiste esta seccion un poco cansada
 porfa revisa.}Nielsen y
-Chuang {\cite{nielsen_chuang_2010}}.
+Chuang {\cite{nielsen_chuang_2010}}
 presentan la siguiente definición de operación cuántica \begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
 
     \begin{itemize}
         \item \textit{Axioma 1:} La traza $\tr (\mathcal{E}(\rho))$ es la probabilidad de que el proceso representado por $\mathcal{E}$ ocurra, cuando $\rho$ es el estado inicial. Consecuentemente, $0 \le \tr (\mathcal{E}(\rho)) \le 1$ para cualquier estado $\rho$.
         \item \textit{Axioma 2:} El mapeo $\mathcal{E}$ es linealmente convexo en el conjunto de matrices de densidad, esto es, para probabilidades $\{p_i\}$, \[\mathcal{E}\left(\sum _i p_i \rho _i\right)=\sum_i p_i \mathcal{E}(\rho_i).\]
-        \item\textit{Axioma 3:} El mapeo $\E$ es completamente positivo. Esto significa que $\E$ mapea a operadores en el espacio de Hilbert $\mathcal{H}_{A}$  a operadores en el espacio de Hilbert $\mathcal{H}_B$ y se extiende el espacio de Hilbert de entrada a $\mathcal{H}_A\otimes\mathcal{H}_{A'}$ y se considera el mapeo extendido $\E \otimes \mathds{1}$ que mapea de $\mathcal{H}_A \otimes \mathcal{H}_{A'} $ a $\mathcal{H}_B \otimes \mathcal{H}_{A'}$. Entonces  $\E$ será completamente positivo si la extensión es positiva también.
+        \item\textit{Axioma 3:} El mapeo $\E$ es completamente positivo. Esto significa que $\E$ mapea a operadores en el espacio de Hilbert $\mathcal{H}_{A}$  a operadores en el espacio de Hilbert $\mathcal{H}_B$ y si se extiende el espacio de Hilbert de entrada a $\mathcal{H}_A\otimes\mathcal{H}_{A'}$ y se considera el mapeo extendido $\E \otimes \mathds{1}$ que mapea de $\mathcal{H}_A \otimes \mathcal{H}_{A'} $ a $\mathcal{H}_B \otimes \mathcal{H}_{A'}$, entonces tal  extensión es positiva también.
     \end{itemize}
 \end{definition}
 
@@ -39,7 +39,7 @@ En el caso de las mediciones resulta conveniente el primer axioma, se hace la co
 En el caso que no se realice ninguna medición, esto se reduce al requisito de que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. La operación cuántica $\E$ conserva la traza, ya que por sí sola proporciona una descripción completa del proceso cuántico. Una operación cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno {\cite{nielsen_chuang_2010}}.
 
 \begin{comment}
-Asimismo, una razón para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo tanto el estado final $\rho'$ evoluciona como \begin{equation}
+Asimismo, una razón física para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo tanto el estado final $\rho'$ evoluciona como \begin{equation}
 \rho'= \sum_i p_i \E (\rho_i).
 \end{equation}
 
@@ -49,7 +49,7 @@ Por otro lado, el estado inicial es descrito por $\sum_i p_i \rho$, que evolucio
 \end{equation} Igualando las dos ecuaciones anteriores, se tiene  que $\E$ debe actuar linealmente, en combinaciones convexas de estados {\cite{preskill2020quantum}}.
 \end{comment}
 
-Asimismo, para ver una razón para proponer el segundo axioma, supóngase que el estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $\alpha$ ocurre con la probabilidad condicional $p(\alpha|i)$, y el estado de la medición  posterior es $\E_\alpha(\rho_i)/p(\alpha|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
+Asimismo, para ver una razón física para proponer el segundo axioma, supóngase que un estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $\alpha$ ocurre con la probabilidad condicional $p(\alpha|i)$, y el estado de la medición  posterior es $\E_\alpha(\rho_i)/p(\alpha|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
 \begin{equation}\label{lineal_y_convexo}
     \rho'=\sum_i p(i|\alpha)\dfrac{\E_\alpha(\rho_i)}{p(\alpha|i)},
 \end{equation}
@@ -62,7 +62,9 @@ Por otro lado, aplicando la operación $\E_\alpha$  a la combinación convexa de
     \E_\alpha\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_\alpha(\rho_i). 
 \end{equation}
 
-La tercera propiedad se origina por un requerimiento físico. No solo $\E(\rho)$ debe ser una matriz de densidad válida siempre que $\rho$ sea válida. Si $\rho=\rho_{AA'}$ es una matriz de densidad de un sistema conjunto de $\mathcal{H}_A$ y $\mathcal{H}_{A'}$  y $\E$ actúa solamente sobre $\mathcal{H}_A$, luego $\E(\rho_{AA'})$  debe ser un operador de densidad también. No todos los mapeos positivos son completamente positivos; la completa positividad es una condición más fuerte. Un ejemplo de un operador positivo pero no completamente positivo es la transpuesta, $T:\rho \mapsto {\rho}^T$, dado que \[\la \psi |{\rho}^T| \psi \ra=\sum_{i,j} \psi _j^* {(\rho)}^T _{ji} \psi _i=\sum _{i,j} \psi _i{(\rho)} _{ij} \psi_j^{*}=\la {\psi}^*|\rho|\psi ^*\ra,\] cumple con ser positivo para cualquier estado $| \psi \ra$. Sin embargo $ {T} $ no es completamente positivo. Tomando un estado en el espacio $AB$ \[\Phi_{AB} \equiv \sum_i |i,i\ra, \] la extensión de $T$ actuando en este estado es \[T \otimes \mathds{1}:|\Psi\rala \Psi|=\sum_{i,j}|i,i\rala j,j| \mapsto \sum_{i,j}|j,i\rala i,j|.\]
+La tercera propiedad también se origina por un requerimiento físico. Es razonable requerir que un mapeo sea completamente positivo si se va a describir la evolución temporal de un sistema cuántico. Aunque el mapeo actúa solo en una parte del sistema, debe representar un estado inicial de todo el sistema hacia un estado final del sistema entero. Si $\rho_{AA'}$ es una matriz de densidad de un sistema conjunto de $\mathcal{H}_A$ y $\mathcal{H}_{A'}$  y $\E$ actúa solamente sobre $\mathcal{H}_A$, entonces $\E(\rho_{AA'})$  debe ser un operador de densidad también. Formalmente, supongamos que introducimos un segundo sistema $A'$ (de dimensión finita). Sea $\mathds{1}_{A'}$ el mapa identidad del sistema $A'$. Entonces el mapa $\E\otimes \mathds{1}_{A'}$ debe llevar operadores positivos a operadores positivos {\cite{nielsen_chuang_2010}}, {\cite{preskill2020quantum}}. 
+
+Es importante tener en cuenta que no todos los mapas positivos son completamente positivos; la positividad completa es una condición más fuerte. Un ejemplo de un operador positivo pero no completamente positivo es la transpuesta, $T:\rho \mapsto {\rho}^T$, dado que \[\la \psi |{\rho}^T| \psi \ra=\sum_{i,j} \psi _j^* {(\rho)}^T _{ji} \psi _i=\sum _{i,j} \psi _i{(\rho)} _{ij} \psi_j^{*}=\la {\psi}^*|\rho|\psi ^*\ra,\] cumple con ser positivo para cualquier estado $| \psi \ra$. Sin embargo $ {T} $ no es completamente positivo. Tomando un estado en el espacio $AB$ \[\Phi_{AB} \equiv \sum_i |i,i\ra, \] la extensión de $T$ actuando en este estado es \[T \otimes \mathds{1}:|\Psi\rala \Psi|=\sum_{i,j}|i,i\rala j,j| \mapsto \sum_{i,j}|j,i\rala i,j|.\]
 
 Esto es aplicar el operador SWAP, el cual intercambia los sistemas $A$ y $B$:
 \begin{equation}
@@ -73,7 +75,7 @@ Esto es aplicar el operador SWAP, el cual intercambia los sistemas $A$ y $B$:
 
 
 % }}}
-\section{Representación de suma de operadores} % {{{
+\section{Representación de suma de operadores y operadores de Kraus} % {{{
 
 Una operación cuántica también puede representarse en una forma elegante como la \textit{representación de suma de operadores}. La representación de suma de operadores de un mapeo $\E$, se puede escribir como $\E(\rho)=\sum_i K_i \rho K_i^\dagger$, para algún conjunto de operadores $\{K_i\}$ que satisfacen la condición $\sum_k K_i^\dagger K_i\le \mathds{1}$.
 
@@ -126,7 +128,7 @@ Por otro lado, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil 
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
 
-\subsection{Operadores de Kraus}
+
 
  La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_i K_i\rho K_i^\dagger$. Los operadores $\{K_i\}$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_i K_i^\dagger K_i=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}.
 

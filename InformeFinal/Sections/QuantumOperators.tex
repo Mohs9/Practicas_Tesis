@@ -1,46 +1,31 @@
 \chapter{Operaciones cuánticas}\label{OpCuanticas}
 % Intro {{{
 
-Los sistemas reales tienen interacciones indeseadas con el mundo exterior,
-estas indeseadas interacciones se presentan como ruido en información cuántica\cpnote{No
-es buen estilo repetir palabras sin un buen motivo. Puedes partir esta frase en 
-dos y decir ``... exterior. Éstas se presentan...'' es mas, no diría ``presentan''
-pues creo que no es lo que quieres decir}.
-Para construir sistemas de procesamiento en información cuántica útiles es
-necesario entender y controlar dicho ruido. Es por esto que esta sección se
-centra en el formalismo de las operaciones cuánticas, que son un herramienta
-capaz de describir ruido cuántico y el comportamiento de sistemas cuánticos
-abiertos \cpnote{nop, ese no es el motivo...}. Otra de las aplicaciones de las operaciones cuánticas en información
-y computación cuántica  es que se adaptan a al descripción de cambios de
-estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el
-estado final $\rho'$, sin necesidad de referenciar al paso del tiempo
-\cite{nielsen_chuang_2010}. \cpnote{Este ultimo mensaje me parece valioso, pero trata
-de hacer mas lógico y sincero este parrafo}
+
+Los sistemas reales sufren interacciones indeseadas con el mundo exterior, éstas aparecen como ruido en información cuántica. \cpnote{No es buen estilo repetir palabras sin un buen motivo. Puedes partir esta frase en dos y decir ``\ldots exterior. Éstas se presentan\ldots'' es mas, no diría ``presentan'' pues creo que no es lo que quieres decir}\rrnote{Ya lo he corregido.}  
+ %Para construir sistemas de procesamiento en información cuántica útiles es necesario entender y controlar dicho ruido.
+ Las operaciones cuánticas son un herramienta capaz de describir dicho ruido cuántico y el comportamiento de sistemas cuánticos abiertos. %\cpnote{nop, ese no es el motivo\ldots}  
+ Adicionalmente, el formalismo de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y representa la descripción de los cambios
+ %Otra de las aplicaciones de las operaciones cuánticas es que se adaptan a la descripción de
+ de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}.\cpnote{Este ultimo mensaje me parece valioso, pero trata de hacer mas lógico y sincero este parrafo} \rrnote{He tratado de hacer que el párrafo lleve una mejor secuencia.}
 
 
 Este capítulo tiene la siguiente estructura. En la primer sección, se discute
 el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En
 la segunda sección se aborda las operaciones cuánticas desde un punto de vista
 diferente, que permitirá familiarizarse con la teoría básica de las operaciones
-cuánticas e involucra a los operadores conocidos como operadores de Kraus. En
-la última sección se habla sobre el procedimiento de tomografía cuántica con el
-que se puede determinar experimentalmente la dinámica a la que se somete un
-sistema cuántico. \cpnote{De como viene el escrito, parece qeu esta tercera
-sección está fuera de contexto. Trata de hilar mejor esta idea. De hecho no se porque 
-la vas a discutir... }
+cuánticas e involucra a los operadores conocidos como operadores de Kraus. Además se discute sobre las mediciones y su representación como suma de operadores. Y finalmente se presenta un teorema importante sobre la libertad unitaria en la representación de suma de operadores para una operación cuántica.
+ %En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico. 
+ \cpnote{De como viene el escrito, parece qeu esta tercera sección está fuera de contexto. Trata de hilar mejor esta idea. De hecho no se porque 
+la vas a discutir\ldots }\rrnote{La iba a discutir porque pensé que podría servir en algún momento pero creo que no será necesario para este proyecto.}
 %En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
 % }}}
 \section{Aproximación axiomática de las operaciones cuánticas} % {{{
 En esta sección se abordan las operaciones cuánticas desde un punto de vista
-axiomático el cual será motivado por requerimientos físicos. Por lo tanto
-\cpnote{porque ``por lo tanto''? no veo porque... quizá escribiste esta seccion un poco cansada
-porfa revisa.} se
-dará la siguiente definición de operación cuántica que presenta Nielsen y
+axiomático el cual será motivado por requerimientos físicos. \cpnote{porque ``por lo tanto''? no veo porque\ldots quizá escribiste esta seccion un poco cansada
+porfa revisa.}Nielsen y
 Chuang {\cite{nielsen_chuang_2010}}.
-
-
-
-\begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
+presentan la siguiente definición de operación cuántica \begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
 
     \begin{itemize}
         \item \textit{Axioma 1:} La traza $\tr (\mathcal{E}(\rho))$ es la probabilidad de que el proceso representado por $\mathcal{E}$ ocurra, cuando $\rho$ es el estado inicial. Consecuentemente, $0 \le \tr (\mathcal{E}(\rho)) \le 1$ para cualquier estado $\rho$.
@@ -51,9 +36,9 @@ Chuang {\cite{nielsen_chuang_2010}}.
 
 En el caso de las mediciones resulta conveniente el primer axioma, se hace la convención de que $\E$ no necesariamente preserve la traza de los operadores de densidad, $\tr(\rho)=1$. Para verlo mejor, suponga que se realiza una medición proyectiva en la base computacional de un solo qubit. Entonces la operación cuántica $\E$ describirá este proceso si se define el mapeo como $\E_0\equiv|0\rala0|\rho |0\rala 0|$ y $\E_1\equiv|1\rala1|\rho |1\rala 1|$. Las probabilidad de las salidas serán entonces $\tr (\E_0(\rho))$ y $\tr (\E_1(\rho))$ respectivamente.  Con esta convención la normalización corre para el estado final será \[\dfrac{\E(\rho)}{\tr (\E (\rho))}.\]
 
-En el caso que no se realice ninguna medición, esto se reduce al requisito de que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. La operación cuántica es una operación cuántica que conserva la traza, ya que por sí sola $\E$ proporciona una descripción completa del proceso cuántico. Una operación cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno {\cite{nielsen_chuang_2010}}.
+En el caso que no se realice ninguna medición, esto se reduce al requisito de que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. La operación cuántica $\E$ conserva la traza, ya que por sí sola proporciona una descripción completa del proceso cuántico. Una operación cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno {\cite{nielsen_chuang_2010}}.
 
-
+\begin{comment}
 Asimismo, una razón para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo tanto el estado final $\rho'$ evoluciona como \begin{equation}
 \rho'= \sum_i p_i \E (\rho_i).
 \end{equation}
@@ -62,21 +47,19 @@ Por otro lado, el estado inicial es descrito por $\sum_i p_i \rho$, que evolucio
 \begin{equation}
     \rho'= \E\left(\sum_i p_i \rho_i\right).
 \end{equation} Igualando las dos ecuaciones anteriores, se tiene  que $\E$ debe actuar linealmente, en combinaciones convexas de estados {\cite{preskill2020quantum}}.
+\end{comment}
 
-
-Además, supóngase de nuevo que el estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $a$ ocurre con la probabilidad condicional $p(a|i)$, y el estado de la medición  posterior es $\E_a(\rho_i)/p(a|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
-\begin{equation}
-    \rho'=\sum_i p(i|a)\dfrac{\E_a(\rho_i)}{p(a|i)},
+Asimismo, para ver una razón para proponer el segundo axioma, supóngase que el estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $\alpha$ ocurre con la probabilidad condicional $p(\alpha|i)$, y el estado de la medición  posterior es $\E_\alpha(\rho_i)/p(\alpha|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
+\begin{equation}\label{lineal_y_convexo}
+    \rho'=\sum_i p(i|\alpha)\dfrac{\E_\alpha(\rho_i)}{p(\alpha|i)},
 \end{equation}
 
-donde $p(i|a)$ es la probabilidad a posteriori de que el estado $\rho_i$ fuera preparado, tomando en cuenta la información obtenida haciendo la medición {\cite{preskill2020quantum}}. 
+donde $p(i|\alpha)$ es la probabilidad a posteriori que el estado $\rho_i$ fuera preparado, tomando en cuenta la información obtenida haciendo la medición {\cite{preskill2020quantum}}. 
 
-Por otro lado aplicando la operación $\E_a$  a la combinación convexa del estado inicial $\{\rho_i\}$ dejando \begin{equation}
-    \rho'=\dfrac{\E_a\left(\sum_i p_i \rho_i\right)}{p_a},
-\end{equation}
-
-tomando en cuenta la regla de Bayes, se ve que $\E_a$ debe ser lineal y convexo {\cite{preskill2020quantum}} \begin{equation}
-    \E_a\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_a(\rho_i). 
+Por otro lado, aplicando la operación $\E_\alpha$  a la combinación convexa del estado inicial $\{\rho_i\}$ \begin{equation}
+    \rho'=\dfrac{\E_\alpha\left(\sum_i p_i \rho_i\right)}{p_\alpha},
+\end{equation} tomando en cuenta la regla de Bayes  $p(i|\alpha)=\dfrac{p_i p(\alpha|i)}{ p_\alpha} $ a la ecuación {\ref{lineal_y_convexo}},  se ve que $\E_\alpha$ debe ser lineal y convexo {\cite{preskill2020quantum}} \begin{equation}
+    \E_\alpha\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_\alpha(\rho_i). 
 \end{equation}
 
 La tercera propiedad se origina por un requerimiento físico. No solo $\E(\rho)$ debe ser una matriz de densidad válida siempre que $\rho$ sea válida. Si $\rho=\rho_{AA'}$ es una matriz de densidad de un sistema conjunto de $\mathcal{H}_A$ y $\mathcal{H}_{A'}$  y $\E$ actúa solamente sobre $\mathcal{H}_A$, luego $\E(\rho_{AA'})$  debe ser un operador de densidad también. No todos los mapeos positivos son completamente positivos; la completa positividad es una condición más fuerte. Un ejemplo de un operador positivo pero no completamente positivo es la transpuesta, $T:\rho \mapsto {\rho}^T$, dado que \[\la \psi |{\rho}^T| \psi \ra=\sum_{i,j} \psi _j^* {(\rho)}^T _{ji} \psi _i=\sum _{i,j} \psi _i{(\rho)} _{ij} \psi_j^{*}=\la {\psi}^*|\rho|\psi ^*\ra,\] cumple con ser positivo para cualquier estado $| \psi \ra$. Sin embargo $ {T} $ no es completamente positivo. Tomando un estado en el espacio $AB$ \[\Phi_{AB} \equiv \sum_i |i,i\ra, \] la extensión de $T$ actuando en este estado es \[T \otimes \mathds{1}:|\Psi\rala \Psi|=\sum_{i,j}|i,i\rala j,j| \mapsto \sum_{i,j}|j,i\rala i,j|.\]
@@ -148,7 +131,7 @@ La representación de suma de operadores describe la dinámica del sistema princ
  La \textit{representación de Kraus} es un mapeo lineal $\E$ que es completamente positivo de la forma $\rho \mapsto \rho'=\sum_i K_i\rho K_i^\dagger$. Los operadores $\{K_i\}$ son conocidos como los \textit{operadores de Kraus} y cumplen con la relación de completitud $\sum_i K_i^\dagger K_i=\mathds{1}_N$. La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring. Los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas o propias, canales cuánticos o mapas estocásticos} {\cite{2007geometry}}.
 
 
-\subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
+\subsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus}
 
 Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $\mathcal{H}_A$ (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición), inicialmente en el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $\mathcal{H}_A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, interacción descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $\mathcal{H}_Q\otimes \mathcal{H}_A$. El estado no normalizado del sistema después de la medición es obtenido proyectando el estado conjunto en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $\mathcal{H}_A$,
 
@@ -184,7 +167,7 @@ Si no se sabe el resultado de la medición en el sistema auxiliar, el estado des
 \end{equation}
 
 
-\subsubsection{No unicidad en la representación de Kraus}
+\subsection{No unicidad en la representación de Kraus}
  La representación de Kraus provee una descripción bastante general de la dinámica de los sistemas cuánticos abiertos sin embargo esta representación no es única. Es decir que distintos conjuntos de operadores $\{K_i\}$ y $\{M_j\}$ pueden generar la misma operación cuántica. Esto es importante puesto que,diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y entender la libertad de la representación es crucial para una buena comprensión de la corrección de errores cuánticos. Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen formalmente el teorema.
 
 
@@ -218,7 +201,7 @@ Para un estado arbitrario $|\psi\ra$
 \end{equation}
 
 
-Luego \[K_i=\sum_j u_{ij}M_j.\] Conversamente, ahora se supone que $K_i$ y $M_j$ están relacionados por la matriz unitaria $K_i=\sum_j u_{ij}M_j$.Entonces, se tiene que
+Luego \[K_i=\sum_j u_{ij}M_j.\]Por otra parte, se supone que $K_i$ y $M_j$ están relacionados por la matriz unitaria $K_i=\sum_j u_{ij}M_j$. Entonces, se tiene que
 \begin{equation}
     \begin{split}
         \E(\rho)&=\sum_i  K_i\rho K_i^\dagger\\
@@ -231,7 +214,7 @@ Luego \[K_i=\sum_j u_{ij}M_j.\] Conversamente, ahora se supone que $K_i$ y $M_j$
 Con lo que se muestra que el conjunto de operadores $\{K_i\}$ es la misma operación cuántica que con el conjunto $\{M_j\}$.
 \end{proof}
 
-Para ejemplificar el teorema anterior  considérese las operaciones siguientes $\E(\rho)=\sum_i K_i\rho K_i^\dagger$ y $\mathcal{F}(\rho)=\sum_i M_i\rho M_i^\dagger$, donde los conjuntos $\{K_n\}$ y $\{M_m\}$ tienen elementos definidos por 
+Para ejemplificar el teorema anterior Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen las siguientes operaciones $\E(\rho)=\sum_i K_i\rho K_i^\dagger$ y $\mathcal{F}(\rho)=\sum_i M_i\rho M_i^\dagger$, donde los conjuntos $\{K_n\}$ y $\{M_m\}$ tienen elementos definidos por 
 \begin{equation}
     \begin{array}{ccc}
         K_1=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
@@ -270,6 +253,9 @@ Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación c
     \end{split}
 \end{equation}
 % }}}
+
+\begin{comment}
+
 \section{Proceso de tomografía cuántica} % {{{
 
 Antes de describir el proceso de tomografía cuántica, vale la pena presentar la tomografía de estado cuántico. La tomografía de estado cuántico es el procedimiento experimental para determinar un estado cuántico desconocido. Es posible estimar $\rho$ si se tiene un gran número de copias de $\rho$. Por ejemplo, si $\rho$ es el estado cuántico producido por algún experimento, se puede repetir el experimento muchas veces para producir muchas copias del estado $\rho$ {\cite{nielsen_chuang_2010}}. 
@@ -330,7 +316,7 @@ Ahora que se determinó $\chi$ se puede obtener inmediatamente la representació
 y de ello se puede verificar que  \begin{equation}
     K_i=\sqrt{d_i} \sum_j U_{ji}\tilde{K}_j
 \end{equation} son elementos para $\E$. El proceso se puede resumir en determinar $\lambda$ experimentalmente usando el proceso de tomografía de estado, y luego determinar $\chi$ con $\vec{\chi}=\kappa\lambda$, la cual da una descripción completa de $\E$, incluyendo un conjunto de operadores $\{K_i\}$.
-
+\end{comment}
 
 
 

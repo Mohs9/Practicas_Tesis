@@ -23,7 +23,7 @@ la vas a discutir\ldots }\rrnote{La iba a discutir porque pensé que podría ser
 \section{Aproximación axiomática de las operaciones cuánticas} % {{{
 En esta sección se abordan las operaciones cuánticas desde un punto de vista
 axiomático el cual será motivado por requerimientos físicos. \cpnote{porque ``por lo tanto''? no veo porque\ldots quizá escribiste esta seccion un poco cansada
-porfa revisa.}Nielsen y
+porfa revisa.}\rrnote{Ya he revisado esta y la siguiente sección y ya he hecho algunas correcciones.}Nielsen y
 Chuang {\cite{nielsen_chuang_2010}}
 presentan la siguiente definición de operación cuántica \begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
 
@@ -123,7 +123,7 @@ Sea $\sigma=\sum_i|s_i\rala s_i|$ una descomposición de $\sigma$, donde los vec
 De ello se tiene que  \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estado $|\psi\ra$, de $\mathcal{H}_A$. Por el segundo axioma, en general se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger.\] La condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se sigue del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad.
 
 
-Por otro lado, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $\mathcal{H}_A\otimes \mathcal{H}_B$, y sea $|\psi \ra$ algún estado del sistema $\mathcal{H}_A\otimes \mathcal{H}_B$. Definiendo $|\varphi_i\ra \equiv (K_i^\dagger \otimes \mathds{1}_B)|\psi\ra$, se tiene que \[\la \psi |(K_i \otimes \mathds{1}_B)\mathcal{O}(K_i^\dagger \otimes \mathds{1}_B)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\E \otimes \mathds{1}_B)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\mathds{1}\otimes \E)(\mathcal{O})$ es positivo como se requiere.
+Por otro lado, supóngase que $\E(\rho)=\sum_i K_i \rho K_i^\dagger$. Es fácil ver que es lineal, pero falta chequear la completa positividad. Sea $\mathcal{O}$ sea un operador positivo actuando en el espacio de estado del sistema extendido, $\mathcal{H}_A\otimes \mathcal{H}_B$, y sea $|\psi \ra$ algún estado del sistema $\mathcal{H}_A\otimes \mathcal{H}_B$. Definiendo $|\varphi_i\ra \equiv (K_i^\dagger \otimes \mathds{1}_B)|\psi\ra$, se tiene que \[\la \psi |(K_i \otimes \mathds{1}_B)\mathcal{O}(K_i^\dagger \otimes \mathds{1}_B)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Se sigue que $\la \psi| (\E \otimes \mathds{1}_B)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0$, y esto para cualquier operador positivo $\mathcal{O}$, el operador $(\E\otimes \mathds{1}_B)(\mathcal{O})$ es positivo como se requiere.
 \end{proof}
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
@@ -243,7 +243,7 @@ la segunda operación $\mathcal{F}$ corresponde a realizar una medición proyect
 
 
 
-Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación cuántica. Para verlo, notar que existe la matriz unitaria \[U=\begin{bmatrix}u_{11}&u_{12} \\u_{21}&u_{22}\end{bmatrix}=\dfrac{1}{\sqrt{2}}\begin{bmatrix}1&1 \\1&-1\end{bmatrix}\]tal que  \[M_1=\sum_{j} u_{1j}K_j=(K_1+K_2)/\sqrt{2}\] y \[M_2=\sum_j u_{2j}K_j=(K_1-K_2)/\sqrt{2}\]
+Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación cuántica. Para verlo, notar que existe la matriz unitaria \[U=\begin{bmatrix}u_{11}&u_{12} \\u_{21}&u_{22}\end{bmatrix}=\dfrac{1}{\sqrt{2}}\begin{bmatrix}1&1 \\1&-1\end{bmatrix}\]tal que \[M_1=\sum_{j} u_{1j}K_j=(K_1+K_2)/\sqrt{2}\] y \[M_2=\sum_j u_{2j}K_j=(K_1-K_2)/\sqrt{2}\] luego,
 \begin{equation} 
     \begin{split}
         \mathcal{F}(\rho)&=\dfrac{(K_1+K_2)\rho(K_1^\dagger+K_2^\dagger)+(K_1-K_2)\rho(K_1^\dagger-K_2^\dagger)}{2}\\

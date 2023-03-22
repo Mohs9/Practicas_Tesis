@@ -92,9 +92,7 @@ Hasta el momento se puede ver con estas motivaciones que los postulados básicos
 
 En esta sección se desarrolla algunas de las características y propiedades de
 los operadores de densidad. Asimismo se presenta la formulación de los
-postulados de la mecánica cuántica. \cpnote{Creo qeu ya habiamos hablado de iniciar 
-con ``Así como''. Creo qeu no se usa en español formal al iniciar un frase. Corrige
-este y por ahí busca en lo que sigue a ver si lo vuelves a usar al inicio de una frase.}\rrnote{Ya he corregido la frase ``Así como'', en este párrafo y en el documento restante.}
+postulados de la mecánica cuántica. 
 
 Para iniciar se enuncia la siguiente proposición y el siguiente teorema. 
 
@@ -192,11 +190,7 @@ Los operadores de medición satisfacen la relación de completitud \begin{equati
 \setlength{\leftskip}{0pt}
 
 Con esta reformulación de los postulados de la mecánica cuántica se tiene la
-ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyos estados son mixtos y la descripción de subsistemas de un sistema cuántico compuesto. Ahora, es necesario discutir estos conceptos, nuevas definiciones y hechos sobre operadores de densidad. \cpnote{Acá hay como una contradiccion. Dice que el estado no se conoce, pero en la linea 
-anterior hablas del estado del sistema. Ese es un punto delicado. Si uieres intenta iterar y 
-si no, hablamos un poco al respecto. Ahora ya lei el parrafo siguiente y tienes una solucion 
-simple. Decir que puedes formular la cuantiva para estados mixtos, pero luego de discutir los 
-conceptos. }\rrnote{Ya arregle la contradicción que había.}
+ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyos estados son mixtos y la descripción de subsistemas de un sistema cuántico compuesto. Ahora, es necesario discutir estos conceptos, nuevas definiciones y hechos sobre operadores de densidad. 
 
 Un sistema cuántico cuyo estado es conocido exactamente, se dice que
 se encuentra en \textit{estado puro}. En este caso, el operador de densidad es
@@ -209,8 +203,7 @@ estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$.
 $\rho$ {\cite{nielsen_chuang_2010}}. 
 
 Estos conceptos dan pie a incluir las siguientes definiciones {\cite{wilde2011classical}}: 
-\begin{definition}[\textbf{Estado máximamente mezclado} \cpnote{Normalmente se le dice 
-estado máximamente mezclado. O donde lo viste asi?}\rrnote{ya corregí la traducción.}] El estado de máxima mezcla
+\begin{definition}[\textbf{Estado máximamente mezclado}] El estado máximamente mezclado
 $\sigma$ es el operador de densidad correspondiente a un conjunto uniforme de
 estados ortogonales $\{\frac{1}{d},|x\ra\}$, donde $d$ es la dimensión del
 espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
@@ -226,7 +219,6 @@ espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
 
 	\end{definition}
 
- %\cpnote{Esta frase está muy rara. De donde la sacas? Que es el ruido de un estado?}
 
 \begin{proposition}
 	La pureza de un operador de densidad es igual a uno si y solo si es un estado puro, y la pureza de un operador de densidad es estrictamente menor que uno si y solo si es un estado mixto.
@@ -243,24 +235,17 @@ espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
 			&=\sum_i p_i^2|\psi_i \rala \psi_i|.
 			\end{split}
 	\end{equation*}
-	Luego se obtiene la pureza, \[\tr(\rho^2)=\tr{\left(\sum_i p_i^2|\psi_i \rala \psi_i|\right)}=\sum_i p_i^2 \tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2.\]
+Luego se obtiene la pureza, \[\tr(\rho^2)=\tr{\left(\sum_i p_i^2|\psi_i \rala \psi_i|\right)}=\sum_i p_i^2 \tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2.\]
 	
-	Ahora, dado que $p_i^2 \le p_i $ puesto que $0 \le p_i \le 1$. Luego, se tiene \[\sum_i p_i^2\le\sum_i p_i=1.\]
+Ahora, dado que $p_i^2 \le p_i $ puesto que $0 \le p_i \le 1$. Luego, se tiene \[\sum_i p_i^2\le\sum_i p_i=1.\]
 	
-	Suponiendo que $\tr(\rho^2)=1$, entonces $\sum_i p_i^{2}=1$. Para $0<p_i<1$ se tiene que  $p_i^2<p_i$ y solamente una $p_i$ debe ser 1. Por lo tanto, $\rho=|\psi_i\rala\psi_i|$ es un estado puro.
-	 \cpnote{Creo que sobra el ``Y''}\cpnote{para $p_i=0$ 
-se cumple la igualdad\ldots} \cpnote{Preferira quitar la ecuacion. Es confuso, 
-porque es solo para este caso}. \cpnote{También esta raro 
-comenzar la frase con Y en este caso} 
-\cpnote{Porfa arregla este parrafo. Creo qe lo escribiste cansada. }\rrnote{He quitado los ``Y'' del inicio y simplificado el párrafo }  
-    
-     
- \cpnote{Esta palabra no existe en español, segun la RAE} \rrnote{Ya he cambiado esta frase} Por otro lado, suponiendo que $\rho
+Suponiendo que $\tr(\rho^2)=1$, entonces $\sum_i p_i^{2}=1$. Para $0<p_i<1$ se tiene que  $p_i^2<p_i$ y solamente una $p_i$ debe ser 1. Por lo tanto, $\rho=|\psi_i\rala\psi_i|$ es un estado puro.
+	 
+Por otro lado, suponiendo que $\rho
 $ es puro, $\rho=|\psi\rala \psi|$
 \[\tr(\rho^2)=\tr(|\psi\rala \psi|\psi\rala \psi|)=\tr(|\psi\rala
 \psi|)=\la\psi|\psi\ra=1.\]
- \cpnote{Trata de quitar todas las fraces que comiences con ``Y'' mas bien ver si 
-lo upuedes uitar o substituir.}\rrnote{Ya he revisado del resto y quitado los ``Y'' del inicio.} Por otro lado, si $\rho $ es mixto, luego $\rho=\sum_i
+Por otro lado, si $\rho $ es mixto, luego $\rho=\sum_i
 p_i|\psi_i\rangle \langle \psi_i|$, con todo $p_i<1$ \[\tr(\rho^2)=\sum_i p_i^2
 \tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2<\sum_i p_i=1.\]
 	\end{proof}
@@ -293,10 +278,9 @@ normalizados, generan la misma matriz de densidad si y solo si
 	\end{split}
 	\end{equation*}	
 	con lo que se prueba que $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador. Notar que para estado normalizados $\{|\tilde{\psi}_i\ra\}$ y$ \{|\tilde{\phi}_j\ra \}$ y distribuciones de probabilidad $p_i$ y $q_j$, si $\sqrt{p_i}|\tilde{\psi}_i\ra=\sum_{j} u_{ij} \sqrt{q_j}|\tilde{\phi}_j\ra$ se obtendrá el mismo operador de densidad $\rho=\sum_i p_i |\tilde{\phi}_i\rala\tilde{\phi}_i|= \sum_j q_j|\tilde{\phi}_j \rala\tilde{\phi}_j| $.
-\cpnote{Creo que es importante acá mencionar que pasa con las probabilidades. Pirque no las
-tienes ahi, pero si estan ahi de manera implicita.}\rrnote{Mencioné lo de las probabilidades.}
 	
-Por otro lado, \cpnote{revisa en todo el documento donde usas esa palabra}\rrnote{Ya quité la palabra conversamente del documento} se supone que ambos conjuntos generan el mismo operador
+Por otro lado, se supone que
+ambos conjuntos generan el mismo operador
 \[Q=\sum_{i}|\psi_i\ra \la \psi_i|=\sum_{j} |\phi_j\ra \la \phi_j|.\]
 	
 Luego la  descomposición espectral del operador es $Q = \sum_k \lambda_k |k \rala k|$ tal que los vectores $ |k\ra$ son ortonormales, y $\lambda_k$ son estrictamente  positivos. Sea $|\psi\ra$  un vector ortonormal al espacio generado por $|\tilde{k}\ra=\sqrt{\lambda_k}|k\ra$, de ello $\la \psi|\tilde{k}\ra \la \tilde{k}|\psi\ra=0$ para todo $ k$, y luego se ve que 	\[0=\la \psi |Q|\psi\ra=\sum_{i}\la\psi|\psi_i\rala \psi_i|\psi \ra =\sum_i |\la\psi|\psi_i\ra|^2 \] y $\la\psi|\psi_i\ra=0$ para todo $i$ y todo $|\psi \ra$ ortonormal al espacio generado  por el $|\tilde{k}\ra$. Esto se sigue que cada $|\psi_i\ra $ puede expresarse como una combinación lineal de los vectores  $|\tilde{k}\ra$, $|\psi_i\ra=\sum_k c_{ik} |\tilde{k}\ra$. 
@@ -312,7 +296,6 @@ lista de $|\tilde{k}\ra$. Similarmente, se puede encontrar una matriz unitaria
 $w$ tal que $|\phi_j\ra=\sum_{k}w_{jk}|\tilde{k}\ra$. Luego $|\psi_i\ra=\sum_j
 u_{ij}|\phi_j\ra$, donde  $u=vw^\dagger$ es unitaria. De manera similar se concluye que para ensambles que generan el mismo operador de densidad $\rho=\sum_i p_i |\tilde{\phi}_i\rala\tilde{\phi}_i|= \sum_j q_j|\tilde{\phi}_j \rala\tilde{\phi}_j| $ entonces se tiene una matriz unitaria $u$ tal que  $\sqrt{p_i}|\tilde{\psi}_i\ra=\sum_{j} u_{ij} \sqrt{q_j}|\tilde{\phi}_j\ra$.
 \end{proof}
-\cpnote{Veo muy complicada esta prueba. De donde la sacaste? Porque así de larga?}\rrnote{De Nielsen y Chuang en la página 104$-$105.}
 
 % }}}
 \section{El operador de densidad reducido} % {{{
@@ -331,7 +314,7 @@ el sistema $A$ es definido por
 	\rho_A=\tr_B(\rho_{AB}),
 \end{equation} 
 donde $\tr_B$ es un mapeo de operadores conocidos como la traza parcial sobre
-el sistema $B$.\cpnote{``Y''}\rrnote{ya lo corregí.}La traza parcial tiene la siguiente definición, presentada
+el sistema $B$. La traza parcial tiene la siguiente definición, presentada
 por Wilde {\cite{wilde2011classical}}.
 
 \begin{definition}[\textbf{Traza parcial}]
@@ -401,16 +384,54 @@ Luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene
 
 La razón principal para estudiar el operador de densidad reducido es que es la única operación que proporciona la descripción correcta de observables para subsistemas de un sistema compuesto. 
 
-Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, si  $\mathcal{M}$ es un observable en el sistema descrito en el sistema de Hilbert $\mathcal{H}_A$, y se tiene algún dispositivo de medición, el cual es capaz de realizar la medición de $\mathcal{M}$. Sea $\tilde{\mathcal{M}}$ un observable para la misma medición, realizada en el sistema compuesto $\mathcal{H}_A\otimes \mathcal{H}_B$. Entonces, es necesario mostrar que $\tilde{\mathcal{M}}$ debe ser igual a $\mathcal{M}\otimes \mathds{1}_B$. Notar que si el sistema $\mathcal{H}_A\otimes \mathcal{H}_B$ está preparado en el estado $|m \ra \otimes|\psi\ra $, donde $|m\ra $ es un vector propio de $\mathcal{M}$ con valor propio $m$ y $|\psi\ra$ es un estado de $\mathcal{H}_B$, luego el dispositivo de medición debe proporcionar  el resultado $m$ para la medición, con probabilidad uno. En consecuencia, si $P_m$ es el operador de proyección al espacio propio de $m$ del observable $\mathcal{M}$, entonces el operador de proyector correspondiente para $\tilde{\mathcal{M}}$ es $P_m\otimes \mathds{1}_B$. Luego, se tiene que \[\mathcal{\tilde{M}}=\sum_m mP_m\otimes \mathds{1}_B=\mathcal{M}\otimes \mathds{1}_B.\]
+Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, si  $\mathcal{M}$ es un
+observable en el sistema descrito en el sistema de Hilbert $\mathcal{H}_A$, y
+se tiene algún dispositivo de medición, el cual es capaz de realizar la
+medición de $\mathcal{M}$\cpnote{Frase inconclusa}. Sea $\tilde{\mathcal{M}}$ un observable para la
+misma medición, realizada en el sistema compuesto $\mathcal{H}_A\otimes
+\mathcal{H}_B$. Entonces, es necesario mostrar que $\tilde{\mathcal{M}}$ debe
+ser igual a $\mathcal{M}\otimes \mathds{1}_B$. Notar que si el sistema
+$\mathcal{H}_A\otimes \mathcal{H}_B$ está preparado en el estado $|m \ra
+\otimes|\psi\ra $, donde $|m\ra $ es un vector propio de $\mathcal{M}$ con
+valor propio $m$ y $|\psi\ra$ es un estado de $\mathcal{H}_B$, luego el
+dispositivo de medición debe proporcionar  el resultado $m$ para la medición,
+con probabilidad uno\cpnote{Esta frase tambien esta rara. Porfa checa de aca en adelante
+y pule}. En consecuencia, si $P_m$ es el operador de proyección al
+espacio propio de $m$ del observable $\mathcal{M}$, entonces el operador de
+proyector correspondiente para $\tilde{\mathcal{M}}$ es $P_m\otimes
+\mathds{1}_B$. Luego, se tiene que \[\mathcal{\tilde{M}}=\sum_m mP_m\otimes
+\mathds{1}_B=\mathcal{M}\otimes \mathds{1}_B.\]
 
-La traza parcial da como resultado las estadísticas de medición correctas para las observaciones en una parte del sistema. Para verlo, suponga que se realiza una medición en el sistema $\mathcal{H}_A$ descrito por el observable $\mathcal{M}$. La consistencia física requiere que  para asociar un \textit{estado}, $\rho_A$, al sistema $\mathcal{H}_A$, debe tener la propiedad que los valores esperados de la medición sean los mismos ya sea que se calculen a través de $\rho_A$ o $\rho_{AB}$, {\cite{nielsen_chuang_2010}} \begin{equation}\label{promedioDeMedicion}\tr(\mathcal{M}\rho_A)=\tr(\mathcal{\tilde{M}}\rho_{AB})=\tr((\mathcal{\tilde{M}}\otimes \mathds{1}_B)\rho_{AB}).\end{equation} 
+La traza parcial da como resultado las estadísticas de medición correctas para
+las observaciones en una parte del sistema. Para verlo, suponga que se realiza
+una medición en el sistema $\mathcal{H}_A$ descrito por el observable
+$\mathcal{M}$. La consistencia física requiere que  para asociar un
+\textit{estado}, $\rho_A$, al sistema $\mathcal{H}_A$, debe tener la propiedad
+que los valores esperados de la medición sean los mismos ya sea que se calculen
+a través de $\rho_A$ o $\rho_{AB}$, {\cite{nielsen_chuang_2010}}
+\begin{equation}\label{promedioDeMedicion}\tr(\mathcal{M}\rho_A)=\tr(\mathcal{\tilde{M}}\rho_{AB})=\tr((\mathcal{\tilde{M}}\otimes
+\mathds{1}_B)\rho_{AB}).\end{equation} 
 
-De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}} la ecuación {\ref{promedioDeMedicion}} es satisfecha si se escoge $\rho_A\equiv \tr_B(\rho _{AB})$. De hecho, la traza parcial debe ser la única función que cumpla esta propiedad. Para comprobar la propiedad de unicidad, se toma  $f(\cdot)$ como algún mapeo de operadores de densidad en $\mathcal{H}_A\otimes \mathcal{H}_B$ a los operadores de densidad en $\mathcal{H}_A$ tal que \[\tr(\mathcal{M} f(\rho_{AB} )) = \tr((\mathcal{M}\otimes \mathds{1}_B )\rho_{AB} ),\] para todos los observables $\mathcal{M}$. 
+De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}} la ecuación
+{\ref{promedioDeMedicion}} es satisfecha si se escoge $\rho_A\equiv \tr_B(\rho
+_{AB})$. De hecho, la traza parcial debe ser la única función que cumpla esta
+propiedad. Para comprobar la propiedad de unicidad, se toma  $f(\cdot)$ como
+algún mapeo de operadores de densidad en $\mathcal{H}_A\otimes \mathcal{H}_B$ a
+los operadores de densidad en $\mathcal{H}_A$ tal que \[\tr(\mathcal{M}
+f(\rho_{AB} )) = \tr((\mathcal{M}\otimes \mathds{1}_B )\rho_{AB} ),\] para
+todos los observables $\mathcal{M}$. 
 
-Sea $\mathcal{M}_i$ una base ortonormal de operadores para el espacio de operadores Hermíticos con respecto al producto internos $(X,Y) \equiv \tr(XY )$. Luego la expansión $f (\rho_{AB} )$ en esta base resulta que\[\begin{split}
+Sea $\mathcal{M}_i$ una base ortonormal de operadores para el espacio de
+operadores Hermíticos con respecto al producto internos $(X,Y) \equiv \tr(XY
+)$. Luego la expansión $f (\rho_{AB} )$ en esta base resulta que
+\[\begin{split}
 	f(\rho_{AB})=&\sum_{i}\mathcal{M}_i\tr(\mathcal{M}_i f(\rho_{AB}))\\
 	=&\sum_{i}\mathcal{M}_i \tr((\mathcal{M}_i\otimes \mathds{1}_B)\rho_{AB}),\\
-\end{split}\] de ello se sigue que $f$ está únicamente determinada por la ecuación {\ref{promedioDeMedicion}}. Más aún, la traza parcial satisface {\ref{promedioDeMedicion}}, entonces es la única función que tiene esta propiedad {\cite{nielsen_chuang_2010}}.
+\end{split}\] 
+de ello se sigue que $f$ está únicamente determinada por la ecuación
+{\ref{promedioDeMedicion}}. Más aún, la traza parcial satisface
+{\ref{promedioDeMedicion}}, entonces es la única función que tiene esta
+propiedad {\cite{nielsen_chuang_2010}}.
 
 Con el operador de densidad reducido se finaliza el marco teórico del lenguaje
 del operador de densidad necesario para el objetivo de este proyecto. En la

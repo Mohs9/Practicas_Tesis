@@ -8,7 +8,6 @@ medición y al entendimiento de los procesos de medición en mecánica cuántica
 {\cite{Pineda_2021}}. 
 
 %Debido a que en la naturaleza es posible obtener mediciones imperfectas
- \cpnote{no entiendo este comentario, osea, si es cierto, pero esun poco vacio},\rrnote{Borré el comentario que estaba demás.} 
 En este trabajo se trata particularmente con \textit{mediciones difusas}, en las
 que en un sistema de varias partículas existe una posibilidad finita de
 identificar erróneamente las partículas. Durante el proyecto de prácticas se
@@ -18,22 +17,39 @@ que el sistema solo cuenta con dos partículas.
 Para poder abordar el problema es necesario estudiar un marco conceptual previo, iniciando por la reformulación de los postulados de la mecánica cuántica en el lenguaje de la matriz de densidad. La matriz de densidad es una herramienta utilizada para describir al estado de un sistema cuántico que será útil en el desarrollo de todo el trabajo. En el primer capítulo  se presenta la revisión y estudio bibliográfico que se realizó sobre el formalismo de la matriz de densidad en mecánica cuántica. 
 
 Una descripción completa de una medición debe proporcionar las probabilidades
-respectivas de los diferentes resultados posibles de la medición, además debe  especificar el estado posterior a la medición del sistema. 
- \cpnote{Creo que las dos frases anterioresdeben ir unidas}. \rrnote{uní las frases.}
-En este contexto es necesario estudiar las medidas cuyos valores son operadores positivos (POVM por sus siglas en inglés) las cuales son una herramienta que generaliza las medidas proyectivas y que permiten un efecto más suave en el sistema medido. En el segundo capítulo se expone el estudio del formalismo de las medidas POVM\@. Se introduce primero las medidas proyectivas y luego se generalizan con los operadores POVM\@. 
-\cpnote{Tengo problemas con iniciar una frase con ``por lo que''. Croe que se usa a la mitad de una frase. Si vas a comenzar una frase, prefiero que comiences de otra manera}.\rrnote{Ya cambie el inició de las frases que empezaban con ``por lo que''}
+respectivas de los diferentes resultados posibles de la medición y el estado
+posterior a la medición del sistema. 
+En este contexto es necesario estudiar las medidas cuyos valores son operadores
+positivos (POVM por sus siglas en inglés) las cuales son una herramienta que
+generaliza las medidas proyectivas y que permiten un efecto más suave en el
+sistema medido. En el segundo capítulo se expone el estudio del formalismo de
+las medidas POVM\@. Se introduce primero las medidas proyectivas y luego se
+generalizan con los operadores POVM\@. 
+
+Asimismo se recurre a lenguaje de las operaciones cuánticas porque permiten
+representar la evolución de los sistemas más allá de los ideales, de una manera
+valiosa como suma de operadores, los cuales están relacionados con las medidas
+POVM\@. Además, la teoría de las operaciones cuánticas propone un formalismo
+para describir la evolución de los sistemas abiertos de manera discreta
+{\cite{nielsen_chuang_2010}}. En el tercer capítulo se estudia el formalismo de
+las operaciones cuánticas y su representación como suma de operadores.
+Adicionalmente se presenta el proceso de tomografía cuántica. \cpnote{Ver si esta 
+ultima frase va o no va, ya cuando tengamos mas listo el tercer capitulo}
 
 
-Asimismo se recurre a lenguaje de las operaciones cuánticas porque permiten representar la evolución de los sistemas más allá de los ideales, de una manera valiosa como suma de operadores, los cuales están relacionados con las medidas POVM\@. Además, la teoría de las operaciones cuánticas propone un formalismo para describir la evolución de los sistemas abiertos de manera discreta {\cite{nielsen_chuang_2010}}. En el tercer capítulo se estudia el formalismo de las operaciones cuánticas y su representación como suma de operadores. Adicionalmente se presenta el proceso de tomografía cuántica.
-
-
-\cpnote{Es costumbre abrir el parrafo con lo mas importante. En este caso me parece que es importante decir porqué vamos a usar el lenguaje de las operaaciones cuanticas. Un poco como tu ultima frase. Abre el parrafo con un refraseo de lo ultimo y adapta.}
-\rrnote{Cambié el orden del párrafo y lo adapté.}
-
-En suma, incluso en sistemas de dos partículas en los que se realiza una medición de un observable, en la cual existe una posibilidad de identificar las partículas equivocadamente, es posible describir completamente dicha medición utilizando las herramientas mencionadas anteriormente. En especial, la representación como suma de operadores de las operaciones cuánticas y los operadores POVM serán de utilidad para la descripción de las mediciones difusas. En el último capítulo se formula el enunciado del problema de las mediciones difusas en sistemas de dos partículas. Y finalmente, se exploran algunos conjuntos de operadores de Kraus que describen las mediciones difusas y ejemplos numéricos de la aplicación de los operadores. 
+En suma, incluso en sistemas de dos partículas en los que se realiza una
+medición de un observable, en la cual existe una posibilidad de identificar las
+partículas equivocadamente, es posible describir completamente dicha medición
+utilizando las herramientas mencionadas anteriormente. En especial, la
+representación como suma de operadores de las operaciones cuánticas y los
+operadores POVM serán de utilidad para la descripción de las mediciones
+difusas. En el último capítulo se formula el enunciado del problema de las
+mediciones difusas en sistemas de dos partículas. Y finalmente, se exploran
+algunos conjuntos de operadores de Kraus que describen las mediciones difusas y
+ejemplos numéricos de la aplicación de los operadores. 
 
 %Asimismo se recurre al lenguaje de las operaciones cuánticas y su representación como  suma de operadores. Debido a que la teoría de las operaciones cuánticas propone un formalismo para describir la evolución de los sistemas abiertos de manera discreta {\cite{nielsen_chuang_2010}}. Las operaciones cuánticas son una herramienta que permiten describir la evolución de los sistemas más allá de los ideales. Más aún permite representarla de una manera valiosa como suma de operadores tales que están relacionados con las medidas POVM\@. 
-\cpnote{Estas pasando como por la estructura general del trabajo. Sin embargo no hablas del capitulo 4 sino dos frases en la parte de la estructura. Te propongo que armes un parrafo hablando del 4, y que quizá elimines el siguiente parrafo, indicando en los parrafos anteriores donde va, por ejemplo, lo de los POVMs.} \rrnote{Agregué un último párrafo y la parte donde indicaba la estructura del documento la fui colocando en cada uno de los párrafos. }
+% \cpnote{Estas pasando como por la estructura general del trabajo. Sin embargo no hablas del capitulo 4 sino dos frases en la parte de la estructura. Te propongo que armes un parrafo hablando del 4, y que quizá elimines el siguiente parrafo, indicando en los parrafos anteriores donde va, por ejemplo, lo de los POVMs.} \rrnote{Agregué un último párrafo y la parte donde indicaba la estructura del documento la fui colocando en cada uno de los párrafos. }
 
 
 

@@ -384,32 +384,25 @@ Luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene
 
 La razón principal para estudiar el operador de densidad reducido es que es la única operación que proporciona la descripción correcta de observables para subsistemas de un sistema compuesto. 
 
-Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, si  $\mathcal{M}$ es un
-observable en el sistema descrito en el sistema de Hilbert $\mathcal{H}_A$, y
-se tiene algún dispositivo de medición, el cual es capaz de realizar la
-medición de $\mathcal{M}$\cpnote{Frase inconclusa}. Sea $\tilde{\mathcal{M}}$ un observable para la
+Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen la siguiente situación. Supóngase que $\mathcal{M}$ es un observable en el sistema de Hilbert $\mathcal{H}_A$ y se tiene algún dispositivo de medición, el cual es capaz de realizar la medición de $\mathcal{M}$\cpnote{Frase inconclusa} \rrnote{ya lo he corregido}. Además, sea $\tilde{\mathcal{M}}$ un observable para la
 misma medición, realizada en el sistema compuesto $\mathcal{H}_A\otimes
 \mathcal{H}_B$. Entonces, es necesario mostrar que $\tilde{\mathcal{M}}$ debe
 ser igual a $\mathcal{M}\otimes \mathds{1}_B$. Notar que si el sistema
 $\mathcal{H}_A\otimes \mathcal{H}_B$ está preparado en el estado $|m \ra
 \otimes|\psi\ra $, donde $|m\ra $ es un vector propio de $\mathcal{M}$ con
-valor propio $m$ y $|\psi\ra$ es un estado de $\mathcal{H}_B$, luego el
-dispositivo de medición debe proporcionar  el resultado $m$ para la medición,
-con probabilidad uno\cpnote{Esta frase tambien esta rara. Porfa checa de aca en adelante
-y pule}. En consecuencia, si $P_m$ es el operador de proyección al
+valor propio $m$ y $|\psi\ra$ es algún estado de $\mathcal{H}_B$, luego el
+dispositivo de medición debe proporcionar  el resultado $m$ con una probabilidad igual a uno. \cpnote{Esta frase tambien esta rara. Porfa checa de aca en adelante
+y pule}\rrnote{ya he revisado la redacción del resto del párrafo.} En consecuencia, si $P_m$ es el operador de proyección al
 espacio propio de $m$ del observable $\mathcal{M}$, entonces el operador de
 proyector correspondiente para $\tilde{\mathcal{M}}$ es $P_m\otimes
 \mathds{1}_B$. Luego, se tiene que \[\mathcal{\tilde{M}}=\sum_m mP_m\otimes
 \mathds{1}_B=\mathcal{M}\otimes \mathds{1}_B.\]
 
-La traza parcial da como resultado las estadísticas de medición correctas para
-las observaciones en una parte del sistema. Para verlo, suponga que se realiza
+El paso siguiente es mostrar que la traza parcial da como resultado las estadísticas de medición correctas para
+las observaciones en una parte del sistema. Para probarlo, suponga que se realiza
 una medición en el sistema $\mathcal{H}_A$ descrito por el observable
-$\mathcal{M}$. La consistencia física requiere que  para asociar un
-\textit{estado}, $\rho_A$, al sistema $\mathcal{H}_A$, debe tener la propiedad
-que los valores esperados de la medición sean los mismos ya sea que se calculen
-a través de $\rho_A$ o $\rho_{AB}$, {\cite{nielsen_chuang_2010}}
-\begin{equation}\label{promedioDeMedicion}\tr(\mathcal{M}\rho_A)=\tr(\mathcal{\tilde{M}}\rho_{AB})=\tr((\mathcal{\tilde{M}}\otimes
+$\mathcal{M}$. La consistencia física requiere que el \textit{estado} $\rho_A$ que se asocia al sistema $\mathcal{H}_A$, debe tener la propiedad que los valores esperados de la medición sean los mismos ya sea que se calculen a través de $\rho_A$ o $\rho_{AB}$ {\cite{nielsen_chuang_2010}}
+\begin{equation}\label{promedioDeMedicion}\tr(\mathcal{M}\rho_A)=\tr(\mathcal{\tilde{M}}\rho_{AB})=\tr((\mathcal{{M}}\otimes
 \mathds{1}_B)\rho_{AB}).\end{equation} 
 
 De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}} la ecuación
@@ -422,14 +415,13 @@ f(\rho_{AB} )) = \tr((\mathcal{M}\otimes \mathds{1}_B )\rho_{AB} ),\] para
 todos los observables $\mathcal{M}$. 
 
 Sea $\mathcal{M}_i$ una base ortonormal de operadores para el espacio de
-operadores Hermíticos con respecto al producto internos $(X,Y) \equiv \tr(XY
-)$. Luego la expansión $f (\rho_{AB} )$ en esta base resulta que
+operadores Hermíticos con respecto al producto interno $(X,Y) \equiv \tr(XY)$. Luego, la expansión $f (\rho_{AB} )$ en esta base resulta como sigue
 \[\begin{split}
 	f(\rho_{AB})=&\sum_{i}\mathcal{M}_i\tr(\mathcal{M}_i f(\rho_{AB}))\\
 	=&\sum_{i}\mathcal{M}_i \tr((\mathcal{M}_i\otimes \mathds{1}_B)\rho_{AB}),\\
 \end{split}\] 
 de ello se sigue que $f$ está únicamente determinada por la ecuación
-{\ref{promedioDeMedicion}}. Más aún, la traza parcial satisface
+{\ref{promedioDeMedicion}}. Además, la traza parcial satisface
 {\ref{promedioDeMedicion}}, entonces es la única función que tiene esta
 propiedad {\cite{nielsen_chuang_2010}}.
 

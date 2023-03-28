@@ -208,35 +208,68 @@ Sea $\mathcal{O}$ un operador positivo actuando en el espacio de estado del sist
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
 
 
-
+\cpnote{Muy bien!!}
 
 % }}}
 \subsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus} % {{{
 
-Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado $\rho$,  el cual está en contacto con un sistema auxiliar $\mathcal{H}_A$, (este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un aparato de medición) inicialmente en el estado $\sigma=\sum_k \lambda_k |e_k\rala e_k|$, donde esta representación es la descomposición espectral de $\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann, descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de $\mathcal{H}_A$ y satisfacen la relación de completitud. Si el resultado de la medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio $S_\alpha$. Los dos sistemas interactúan durante un tiempo, esta interacción es descrita por un operador unitario $U$ que actúa sobre el sistema conjunto $\mathcal{H}_Q\otimes \mathcal{H}_A$. El estado no normalizado del sistema después de la medición se obtiene proyectando el estado conjunto, en el subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $\mathcal{H}_A$,
+Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado
+$\rho$,  el cual está en contacto con un sistema auxiliar $\mathcal{H}_A$
+(este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un
+aparato de medición), inicialmente en el estado $\sigma=\sum_k \lambda_k
+|e_k\rala e_k|$, donde esta representación es la descomposición espectral de
+$\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann,
+descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala
+f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de
+$\mathcal{H}_A$ y satisfacen la relación de completitud. Si el resultado de la
+medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio
+$S_\alpha$. Los dos sistemas interactúan durante un tiempo, esta interacción es
+descrita por un operador unitario $U$ que actúa sobre el sistema conjunto
+$\mathcal{H}_Q\otimes \mathcal{H}_A$. El estado no normalizado del sistema
+después de la medición se obtiene proyectando el estado conjunto, en el
+subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $\mathcal{H}_A$,
 
 \begin{equation}\label{measurement_model}
     \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger P_\alpha)= \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger)\equiv \E_\alpha(\rho),
-\end{equation} donde $\E_\alpha$ es un mapeo lineal en el sistema de los operadores de densidad. Este método de definir un conjunto de operaciones cuánticas en términos de interacción con un ancilla inicialmente no correlacionado, seguido de la medición en el ancilla, se denomina modelo de medición {\cite{unm2014, nielsen_chuang_2010}}.
+\end{equation} 
+donde $\E_\alpha$ es un mapeo lineal en el sistema de los operadores de
+densidad. Este método de definir un conjunto de operaciones cuánticas en
+términos de interacción con un ancilla inicialmente no correlacionado, seguido
+de la medición en el ancilla, se denomina modelo de medición {\cite{unm2014,
+nielsen_chuang_2010}}.
 
-Reescribiendo, la ecuación {\ref{measurement_model}}, en términos de la representación de $P_\alpha$ y de $\sigma$ se obtiene que,
+Reescribiendo, la ecuación {\ref{measurement_model}}, en términos de la
+representación de $P_\alpha$ y de $\sigma$ se obtiene que,
 \begin{equation}
     \E_\alpha(\rho)=\sum_{j,k}\sqrt{\lambda_k}\la f_{\alpha j}|U|e_k\ra \rho \la e_k|U|f_{\alpha j}\ra \sqrt{\lambda_k}=\sum_{j,k}M_{\alpha j k}\rho M_ {\alpha j k}^\dagger,
 \end{equation} donde \begin{equation} \label{KrausOp1}
     M_{\alpha j k}\equiv \sqrt{\lambda_k}\la f_{\alpha j}|U|e_k\ra.
 \end{equation}
-Estos operadores preservan la traza, \[\sum_{\alpha, j,k} M_{\alpha,j,k}^\dagger M_{\alpha,j,k}=\sum_{\alpha, j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra= \tr_A(U^\dagger U \sigma)=\tr_A(\mathds{1}_Q\otimes\sigma)=\mathds{1}_Q.\] De esta forma se obtiene la representación de Kraus de la operación $\E_\alpha$ y se definen los operadores de Kraus con la ecuación {\ref{KrausOp1}}. 
+Estos operadores preservan la traza, \[\sum_{\alpha, j,k}
+M_{\alpha,j,k}^\dagger M_{\alpha,j,k}=\sum_{\alpha, j,k} \lambda_k \la
+e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra= \tr_A(U^\dagger U
+\sigma)=\tr_A(\mathds{1}_Q\otimes\sigma)=\mathds{1}_Q.\] De esta forma se
+obtiene la representación de Kraus de la operación $\E_\alpha$ y se definen los
+operadores de Kraus con la ecuación {\ref{KrausOp1}}. 
 
-La probabilidad de obtener el resultado $\alpha$ en la medición del ancilla es {\cite{unm2014}} \begin{equation}
+La probabilidad de obtener el resultado $\alpha$ en la medición del ancilla es {\cite{unm2014}} 
+\begin{equation}
     p_\alpha=\tr(P_\alpha U\rho\otimes\sigma U^\dagger)=\tr(\E_\alpha(\rho))=\tr\left(\rho \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}\right)=\tr(\rho M_\alpha).
 \end{equation}
 
 %Cualquier modelo de medición da lugar a una medida POVM que describe las estadísticas de medición.
-Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) $ son claramente positivos y preservan la traza. El estado normalizado del sistema posterior a la medición, condicionado al resultado $\alpha$, es {\cite{unm2014}} \begin{equation}
+Los operadores $E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger
+M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha
+j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) $ son claramente positivos y
+preservan la traza. El estado normalizado del sistema posterior a la medición,
+condicionado al resultado $\alpha$, es {\cite{unm2014}} 
+\begin{equation}
     \rho_\alpha =\dfrac{\E_\alpha (\rho)}{\tr(\E_\alpha(\rho))}=\dfrac{\E_\alpha(\rho)}{p_\alpha}=\dfrac{1}{p_\alpha}\sum_{j,k}M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger.
 \end{equation}
 
-Si no se sabe el resultado de la medición en el sistema auxiliar, el estado después de la medición es obtenido promediando sobre las posibles resultados de las mediciones {\cite{unm2014}}
+Si no se sabe el resultado de la medición en el sistema auxiliar, el estado
+después de la medición es obtenido promediando sobre las posibles resultados de
+las mediciones {\cite{unm2014}}
 \begin{equation}
     \rho'=\sum_\alpha p_\alpha \rho_\alpha=\sum_\alpha \E_\alpha(\rho)=\sum_{\alpha,j,k} M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger\equiv\E(\rho).
 \end{equation}
@@ -244,14 +277,25 @@ Si no se sabe el resultado de la medición en el sistema auxiliar, el estado des
 
 % }}}
 \subsection{No unicidad en la representación de Kraus} % {{{
- La representación de Kraus provee una descripción bastante general de la dinámica de los sistemas cuánticos abiertos sin embargo esta representación no es única. Es decir que distintos conjuntos de operadores $\{K_i\}$ y $\{M_j\}$ pueden generar la misma operación cuántica. Esto es importante puesto que, diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y entender la libertad de la representación es crucial para una buena comprensión de la corrección de errores cuánticos. Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen formalmente el teorema y su demostración.
+ La representación de Kraus provee una descripción bastante general de la
+dinámica de los sistemas cuánticos abiertos sin embargo esta representación no
+es única. Es decir que distintos conjuntos de operadores $\{K_i\}$ y $\{M_j\}$
+pueden generar la misma operación cuántica. Esto es importante puesto que,
+diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y
+entender la libertad de la representación es crucial para una buena comprensión
+de la corrección de errores cuánticos. Nielsen y Chuang
+{\cite{nielsen_chuang_2010}} proponen formalmente el siguiente teorema y su demostración.
 
 
- \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}
-    
-    Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$, respectivamente. Agregando operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$ si y solo si existe números complejos $u_{ij}$ tales que $K_i=\sum_j u_{ij}M_j$, y $u_{ij}$ es una matriz unitaria de $m$ por $m$
-    
- \end{theorem}
+\begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}
+Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de
+operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$,
+respectivamente. Agregando operadores cero a la lista más corta de operadores,
+para asegurar que $m=n$\cpnote{esta frase está mocha}. Luego $\E=\mathcal{F}$
+si y solo si existe números complejos $u_{ij}$ tales que $K_i=\sum_j
+u_{ij}M_j$, y $u_{ij}$ es una matriz
+unitaria de $m$ por $m$
+\end{theorem}
 
 \begin{proof}
 Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Se definen los siguientes estados
@@ -327,8 +371,8 @@ Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación c
 \end{equation}
 % }}}
 % }}}
+\cpnote{está bien!}
 \begin{comment}
-
 \section{Proceso de tomografía cuántica} % {{{
 
 Antes de describir el proceso de tomografía cuántica, vale la pena presentar la tomografía de estado cuántico. La tomografía de estado cuántico es el procedimiento experimental para determinar un estado cuántico desconocido. Es posible estimar $\rho$ si se tiene un gran número de copias de $\rho$. Por ejemplo, si $\rho$ es el estado cuántico producido por algún experimento, se puede repetir el experimento muchas veces para producir muchas copias del estado $\rho$ {\cite{nielsen_chuang_2010}}. 
@@ -389,11 +433,9 @@ Ahora que se determinó $\chi$ se puede obtener inmediatamente la representació
 y de ello se puede verificar que  \begin{equation}
     K_i=\sqrt{d_i} \sum_j U_{ji}\tilde{K}_j
 \end{equation} son elementos para $\E$. El proceso se puede resumir en determinar $\lambda$ experimentalmente usando el proceso de tomografía de estado, y luego determinar $\chi$ con $\vec{\chi}=\kappa\lambda$, la cual da una descripción completa de $\E$, incluyendo un conjunto de operadores $\{K_i\}$.
-\end{comment}
-
-
 
 % }}}
+\end{comment}
 
 
 

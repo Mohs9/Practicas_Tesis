@@ -62,19 +62,46 @@ la pones?}.
    
 \subsection{Aproximaciones utilizando instrumento cuánticos} % {{{
 
-Una forma útil de aproximarse a describir completamente las mediciones difusas es considerar una herramienta conocida como \textit{instrumento cuántico}, el cual es un mapeo que toma un operador de entrada y tiene como salida un ensamble que correlaciona un sistema clásico que contiene la salida de la medición y un sistema cuántico que contiene el estado posterior a la medición. 
+Una forma útil de aproximarse a describir completamente las mediciones difusas
+es considerar una herramienta conocida como \textit{instrumento cuántico}, el
+cual es un mapeo que toma un operador de entrada y tiene como salida un
+ensamble que correlaciona un sistema clásico que contiene la salida de la
+medición y un sistema cuántico que contiene el estado posterior a la medición. 
 
 
-Las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala \alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección. Además $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán usados para describir  el estado posterior a la medición condicionados por la salida clásica de la medición $\alpha$. El instrumento cuántico se define entonces:
+Las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala
+\alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección.
+Además $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para
+describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán
+usados para describir  el estado posterior a la medición condicionados por la
+salida clásica de la medición $\alpha$. El instrumento cuántico se define
+como
 \begin{equation}
     \mathcal{I}(\rho)\equiv\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho),
 \end{equation}
-donde el sistema clásico servirá como un apuntador que indica que operadores aplicar al estado inicial. Esto es muy útil debido a que es una forma resumida de describir completamente la medición difusa y no es necesario considerar mediciones selectivas.
+donde el sistema clásico servirá como un apuntador que indica que operadores
+aplicar al estado inicial\cpnote{no me gusta como está. PAreciera que el sistema clasico funciona
+para decidir que operacion aplicar y realmente no es asi. como que la funcion principal es 
+la de dar un resultado definido. lo platicamos?}. Esto es muy útil debido a que es una forma resumida
+de describir completamente la medición difusa y no es necesario considerar
+mediciones selectivas\cpnote{Tampoco entiendo esta frase acá. Pareciera una justificación, 
+pero entonces no va acá sino como en la ``introduccion'' de la subsección.}.
 
 
-Para obtener la salida de la medición y su respectiva probabilidad se puede realizar la traza parcial sobre el sistema cuántico y para obtener el mapeo completamente positivo y que preserva la traza para una medida no selectiva basta con trazar parcialmente sobre el sistema clásico o también llamado apuntador.
+Para obtener la salida de la medición y su respectiva probabilidad se puede
+realizar la traza parcial sobre el sistema cuántico y para obtener el mapeo
+completamente positivo y que preserva la traza para una medida no selectiva
+basta con trazar parcialmente sobre el sistema clásico o también llamado
+apuntador.\cpnote{Acá me gustaria que pusieras las ecuaciones de manera explicita.}
 
-Utilizando instrumentos cuánticos las mediciones difusas se pueden entender como tres alternativas diferentes. 
+Utilizando instrumentos cuánticos las mediciones difusas se pueden entender
+como tres alternativas diferentes. 
+
+\cpnote{Creo que nos podemos restringir a la primera alternativa en este
+informe. Para eso, modifica la frase anterior y adapta por favor el resto del texto. Quizá puedes
+guardar estos ejemplos que siguen para tu tesis.  }
+
+
 
 \subsubsection{Primera alternativa} % {{{
 La primera de ellas es considerar aplicar el operador difuso definido en la ecuación {\ref{operador_difuso}} al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}

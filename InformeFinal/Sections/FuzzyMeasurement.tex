@@ -38,15 +38,14 @@ lugar realiza la medición de $B\otimes A$. Luego, si $\rho$ es el estado
 inicial del sistema, el valor esperado para la salida de la medición difusa (FM
 por sus siglas en inglés), será 
 \begin{equation}
-    \la A\otimes B\ra_{\mathcal{F}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A),
+    \la A\otimes B\ra_{\mathcal{F}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).
 \end{equation}
-donde el operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue 
+Donde el operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue 
 \begin{equation}\label{operador_difuso}
-    \mathcal{F}(\rho):=p\rho+(1-p)S_{01}\rho S_{01}^\dagger,
+    \mathcal{F}(\rho):=p\rho+(1-p)S_{01}\rho S_{01}^\dagger.
 \end{equation}
-$S_{ij}$ es la operación de intercambio \textit{SWAP} con respecto a las
-partículas $i$ y $j$ del estado del sistema {\cite{Pineda_2021}} \cpnote{esta frase esta 
-muy larga. partela por favor}. Esto puede
+$S_{ij}$ es la operación de intercambio SWAP con respecto a las
+partículas $i$ y $j$ del estado del sistema {\cite{Pineda_2021}} \cpnote{esta frase esta muy larga. Partela por favor}. \rrnote{Ya la partí.}Esto puede
 generalizarse para un sistema de $n$ partículas, con un operador de permutación
 $P$.
 
@@ -56,9 +55,8 @@ $P$.
  Primero se considera un sistema conjunto $\mathcal{H}=\mathcal{H}_1\otimes
 \mathcal{H}_2$, en el que se desea medir el observable $A\otimes B$. Pero el
 aparato de medición confunde las partículas y con una probabilidad $(1-p) $
-realiza la medición del observable $B\otimes A$ (notar que a veces $[A\otimes
-B,B\otimes A]\ne 0$) \cpnote{Se me hace que esa aclaración no va a lugar. para que 
-la pones?}. 
+realiza la medición del observable $B\otimes A$. %(notar que a veces $[A\otimesB,B\otimes A]\ne 0$) 
+\cpnote{Se me hace que esa aclaración no va a lugar. Para que la pones?}\rrnote{Ya la quité, no era necesaria.} 
    
 \subsection{Aproximaciones utilizando instrumento cuánticos} % {{{
 
@@ -66,7 +64,9 @@ Una forma útil de aproximarse a describir completamente las mediciones difusas
 es considerar una herramienta conocida como \textit{instrumento cuántico}, el
 cual es un mapeo que toma un operador de entrada y tiene como salida un
 ensamble que correlaciona un sistema clásico que contiene la salida de la
-medición y un sistema cuántico que contiene el estado posterior a la medición. 
+medición y un sistema cuántico que contiene el estado posterior a la medición.Esto es muy útil debido a que es una forma resumida
+de describir completamente la medición difusa y no es necesario considerar
+mediciones selectivas. 
 
 
 Las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala
@@ -79,34 +79,40 @@ como
 \begin{equation}
     \mathcal{I}(\rho)\equiv\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho),
 \end{equation}
-donde el sistema clásico servirá como un apuntador que indica que operadores
-aplicar al estado inicial\cpnote{no me gusta como está. PAreciera que el sistema clasico funciona
-para decidir que operacion aplicar y realmente no es asi. como que la funcion principal es 
-la de dar un resultado definido. lo platicamos?}. Esto es muy útil debido a que es una forma resumida
-de describir completamente la medición difusa y no es necesario considerar
-mediciones selectivas\cpnote{Tampoco entiendo esta frase acá. Pareciera una justificación, 
-pero entonces no va acá sino como en la ``introduccion'' de la subsección.}.
+donde el sistema clásico servirá como un apuntador que registra un resultado $\alpha$ e indica que operador actuó en el estado inicial.
+\cpnote{no me gusta como está. PAreciera que el sistema clasico funciona para decidir que operacion aplicar y realmente no es asi. Como que la funcion principal es la de dar un resultado definido. Lo platicamos?}\rrnote{Sí creo que estaba ambiguo, pero sí me gustaria platicarlo}\cpnote{Tampoco entiendo esta frase acá. Pareciera una justificación, 
+pero entonces no va acá sino como en la ``introduccion'' de la subsección.}\rrnote{moví la frase a la parte de la introducción de la subsección. }
+
 
 
 Para obtener la salida de la medición y su respectiva probabilidad se puede
-realizar la traza parcial sobre el sistema cuántico y para obtener el mapeo
-completamente positivo y que preserva la traza para una medida no selectiva
-basta con trazar parcialmente sobre el sistema clásico o también llamado
-apuntador.\cpnote{Acá me gustaria que pusieras las ecuaciones de manera explicita.}
+realizar la traza parcial sobre el sistema cuántico \begin{equation}
+    \begin{split}
+        \tr_Q(\mathcal{I}(\rho))&=\tr_Q(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
+        &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)).
+    \end{split}
+\end{equation}
 
-Utilizando instrumentos cuánticos las mediciones difusas se pueden entender
-como tres alternativas diferentes. 
+El mapeo completamente positivo y que preserva la traza para una medida no selectiva se obtiene al trazar parcialmente sobre el sistema clásico o también llamado apuntador\begin{equation}
+    \begin{split}
+        \tr_C(\mathcal{I}(\rho))&=\tr_C(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
+        &=\sum_\alpha \tr(|\alpha\rala\alpha|)\E_\alpha(\rho).
+    \end{split}
+\end{equation}
+\cpnote{Acá me gustaria que pusieras las ecuaciones de manera explicita.}\rrnote{Ya la he colocado.}
+
+Las mediciones difusas se pueden entender utilizando el siguiente instrumentos cuántico. 
 
 \cpnote{Creo que nos podemos restringir a la primera alternativa en este
 informe. Para eso, modifica la frase anterior y adapta por favor el resto del texto. Quizá puedes
-guardar estos ejemplos que siguen para tu tesis.  }
+guardar estos ejemplos que siguen para tu tesis.  }\rrnote{Comenté las otras dos alternativas y adapté.}
 
 
 
-\subsubsection{Primera alternativa} % {{{
-La primera de ellas es considerar aplicar el operador difuso definido en la ecuación {\ref{operador_difuso}} al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}
+%\subsubsection{Primera alternativa} % {{{
+El instrumento cuántico a considerar es aplicar el operador difuso definido en la ecuación {\ref{operador_difuso}} al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}
     \begin{split}
-        \mathcal{I}_1(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}(\rho) P_{a_j,b_k}\\
+        \mathcal{I}_F(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}(\rho) P_{a_j,b_k}\\
         &=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}],
 \end{split}
 \end{equation}
@@ -116,6 +122,8 @@ donde $j,k=0,1$ y $P_{a_j,b_k}=|a_j b_k\rala a_j b_k|$ con $a_j$ y $b_k$ son los
 Notar que el sistema clásico indica la salida de la medición y este siempre indica el estado de salida correctamente.
 
 % }}}
+
+\begin{comment}
 \subsubsection{Segunda alternativa} % {{{
 Para la segunda alternativa se realiza una medición ideal en el sistema cuántico y en el sistema clásico ocurre una confusión de los resultados, por ello se aplica el operador difuso al sistema clásico\begin{equation}
     \begin{split}
@@ -144,7 +152,7 @@ Si el estado inicial se encuentra en el subespacio de $P^{s}_{a_j,b_k}$, el fact
         &+(1-q)\sum_{(j,k)\in S}P_{a_j,b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\\
     \end{split}
 \end{equation}  
-
+\end{comment}
 % }}}
 % }}}
 \subsection{POVM para mediciones difusas}\label{Sec_POVM_para_mediciones_difusas} % {{{
@@ -223,15 +231,15 @@ enlace}
 % }}}
 \section{Ejemplos sobre los efectos de una medición difusa} % {{{
 
-En esta sección se explorarán algunos ejemplos numéricos, con operadores particulares y utilizando instrumentos cuánticos con las tres alternativas presentadas en a sección anterior.
+En esta sección se explorarán un ejemplo numérico, con un operador particular y utilizando el instrumento cuántico propuesto en la sección anterior.
 
 Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propios: $\{|00\ra, |01\ra, |10\ra, |11\ra\}$. Sea $\rho $ el estado inicial
 \[\rho={\begin{pmatrix}6/8&0&0 &1/8\\0&2/8&0 &0\\0 &0 &1/8 &0 \\1/8&0&0&1/8\\\end{pmatrix}}.\]
 
-Para la primera alternativa 
+El instrumento cuántico entonces es
 \begin{equation}\label{primer_alternativa_ejemplo}
     \begin{split}
-        \mathcal{I}_1(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
+        \mathcal{I}_F(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
         &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
         &+P_{01} \otimes P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10} \otimes P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
@@ -243,7 +251,7 @@ Para la primera alternativa
 
 Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles, \begin{equation}\label{traza_S1_ejemplo1}
     \begin{split}
-        \tr_Q(\mathcal{I}_1(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        \tr_Q(\mathcal{I}_F(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
@@ -253,14 +261,14 @@ Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabil
 
 Al realizar la traza parcial sobre el sistema apuntador o clásico se obtiene el efecto de la medición, \begin{equation}\label{traza_A1_ejemplo1}
     \begin{split}
-        \tr_C(\mathcal{I}_1(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
+        \tr_C(\mathcal{I}_F(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
         &+p P_{01}\rho P_{01}+(1-p) |01\rala 10|\rho|10\rala01|\\
         &+p P_{10}\rho P_{10}+(1-p) |10\rala 01|\rho|01\rala10|\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
         &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}.\\
     \end{split}
 \end{equation}
-
+\begin{comment}
 Para la segunda alternativa se procede de forma parecida sin embargo el efecto de la medición es diferente, \begin{equation}\label{segunda_alternativa_ejemplo1}
     \begin{split}
         \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
@@ -290,10 +298,11 @@ Luego al realizar la traza parcial sobre el sistema apuntador  o clásico se obt
         &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
     \end{split}
 \end{equation}
+\end{comment}
 
-Como se puede ver en la ecuación {\ref{traza_S1_ejemplo1}} y en la ecuación {\ref{traza_S2_ejemplo1}} los resultados son los mismos, las probabilidades de obtener cada una de las posibles salidas son iguales en las dos primeras alternativas. Sin embargo, el mapeo que se obtiene al realizar la traza parcial sobre el apuntador es distinto. 
+%Como se puede ver en la ecuación {\ref{traza_S1_ejemplo1}} y en la ecuación {\ref{traza_S2_ejemplo1}} los resultados son los mismos, las probabilidades de obtener cada una de las posibles salidas son iguales en las dos primeras alternativas. Sin embargo, el mapeo que se obtiene al realizar la traza parcial sobre el apuntador es distinto. 
 
-
+\begin{comment}
 Para la tercera alternativa tanto el efecto de la medición como el mapeo de las probabilidades es distinto al de las otras dos alternativas.% Primero hay que notar que para este caso $P'_{00}=2P_{00}$,$P'_{11}= 2P_{11}$ y $P'_{10}=P'_{01}
 \begin{equation}\label{tercera_alternativa_ejemplo1}
     \begin{split}
@@ -342,7 +351,7 @@ Finalmente el efecto que realiza esta medición en el estado entrada se calcula 
         &+{(1-q)} (|10\rala10|+|01\rala01|)\rho (|10\rala10|+|01\rala01|).\\
     \end{split}
 \end{equation}
-
+\end{comment}
 
 Ahora comparando estos resultados con una medida proyectiva ideal se puede obtener la diferencia entre realizar medida difusa y una ideal. Para una media proyectiva ideal, el instrumento cuántico para este ejemplo en específico estará dado por: \begin{equation}\label{proyectiva_ideal_ejemplo}
     \begin{split}
@@ -361,7 +370,8 @@ Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de proba
     \end{split}
 \end{equation}
 
-Claramente difiere de la ecuación {\ref{traza_S1_ejemplo1}}, de {\ref{traza_S2_ejemplo1}} y {\ref{traza_S3_ejemplo1}}, incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$ se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.
+Claramente la ecuación {\ref{traza_SP_ejemplo1}} difiere de la ecuación {\ref{traza_S1_ejemplo1}}, % de {\ref{traza_S2_ejemplo1}} y {\ref{traza_S3_ejemplo1}}, 
+incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$. Se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.
 
 Ahora al utilizar la aproximación de la sección {\ref{Sec_POVM_para_mediciones_difusas}} y continuando con el ejemplo del observable $\sigma_z \otimes \sigma_z$, la medida POVM es simplemente \[\{E_{a_j, b_k}\}= \{P_{00},p P_{01}+(1-p)P_{10},p P_{10}+(1-p)P_{01},P_{11}\}.\] 
 

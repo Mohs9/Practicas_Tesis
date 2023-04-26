@@ -2,29 +2,24 @@
 % Intro {{{
 
 
-Los sistemas reales sufren interacciones indeseadas con el mundo exterior, éstas aparecen como ruido en información cuántica. \cpnote{No es buen estilo repetir palabras sin un buen motivo. Puedes partir esta frase en dos y decir ``\ldots exterior. Éstas se presentan\ldots'' es mas, no diría ``presentan'' pues creo que no es lo que quieres decir}\rrnote{Ya lo he corregido.}  
+Los sistemas reales sufren interacciones indeseadas con el mundo exterior, éstas aparecen como ruido en información cuántica.   
  %Para construir sistemas de procesamiento en información cuántica útiles es necesario entender y controlar dicho ruido.
- Las operaciones cuánticas son un herramienta capaz de describir dicho ruido cuántico y el comportamiento de sistemas cuánticos abiertos. %\cpnote{nop, ese no es el motivo\ldots}  
+ Las operaciones cuánticas son un herramienta capaz de describir dicho ruido cuántico y el comportamiento de sistemas cuánticos abiertos. 
  Adicionalmente, el formalismo de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y representa la descripción de los cambios
  %Otra de las aplicaciones de las operaciones cuánticas es que se adaptan a la descripción de
- de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}.\cpnote{Este ultimo mensaje me parece valioso, pero trata de hacer mas lógico y sincero este parrafo} \rrnote{He tratado de hacer que el párrafo lleve una mejor secuencia.}
-
+ de estados discretos, esto es transformaciones entre el estado inicial $\rho$
+y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo
+{\cite{nielsen_chuang_2010}}.
 
 Este capítulo tiene la siguiente estructura. En la primer sección, se discute
 el formalismo de las operaciones cuánticas desde una perspectiva axiomática. En
 la segunda sección se aborda las operaciones cuánticas desde un punto de vista
 diferente, que permitirá familiarizarse con la teoría básica de las operaciones
 cuánticas e involucra a los operadores conocidos como operadores de Kraus. Además se discute sobre las mediciones y su representación como suma de operadores. Y finalmente se presenta un teorema importante sobre la libertad unitaria en la representación de suma de operadores para una operación cuántica.
- %En la última sección se habla sobre el procedimiento de tomografía cuántica con el que se puede determinar experimentalmente la dinámica a la que se somete un sistema cuántico. 
- \cpnote{De como viene el escrito, parece qeu esta tercera sección está fuera de contexto. Trata de hilar mejor esta idea. De hecho no se porque 
-la vas a discutir\ldots }\rrnote{La iba a discutir porque pensé que podría servir en algún momento pero creo que no será necesario para este proyecto.}
-%En la tercera sección se ilustran algunos ejemplos de canales cuánticos que algunos como la despolarización, la amortiguación de amplitud y la amortiguación de fase. 
 % }}}
 \section{Aproximación axiomática de las operaciones cuánticas} % {{{
 En esta sección se abordan las operaciones cuánticas desde un punto de vista
 axiomático el cual será motivado por requerimientos físicos. 
-% \cpnote{porque ``por lo tanto''? no veo porque\ldots quizá escribiste esta seccion un poco cansada
-% porfa revisa.}\rrnote{Ya he revisado esta y la siguiente sección y ya he hecho algunas correcciones.}
 Nielsen y
 Chuang {\cite{nielsen_chuang_2010}}
 presentan la siguiente definición de operación cuántica \begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
@@ -32,19 +27,18 @@ presentan la siguiente definición de operación cuántica \begin{definition}[\t
     \begin{itemize}
         \item \textit{Axioma 1:} La traza $\tr (\mathcal{E}(\rho))$ es la probabilidad de que el proceso representado por $\mathcal{E}$ ocurra, cuando $\rho$ es el estado inicial. Consecuentemente, $0 \le \tr (\mathcal{E}(\rho)) \le 1$ para cualquier estado $\rho$.
 	\item \textit{Axioma 2:} El mapeo $\mathcal{E}$ es lineal 
-\cpnote{porque no simplemente lineal?} en el conjunto de matrices de densidad.
+en el conjunto de matrices de densidad.
 Esto es, para probabilidades
 $\{p_i\}$, \[\mathcal{E}\left(\sum _i p_i \rho _i\right)=\sum_i p_i
 \mathcal{E}(\rho_i).\]
 	\item\textit{Axioma 3:} El mapeo $\E$ es completamente positivo. Esto
 significa que $\E$ mapea  operadores en el espacio de Hilbert
-$\mathcal{H}_{A}$  a operadores en el espacio de Hilbert $\mathcal{H}_{A'}$, luego $\E(\rho)$ debe ser positivo para cualquier operador positivo $\rho $. Más aún, si se introduce un espacio de Hilbert $ \mathcal{H}_{B}$ y se considera el mapeo extendido $(\E \otimes \mathds{1}_B)(\rho)$, éste debe ser positivo también para cualquier operador positivo $\rho$ en el sistema combinado $\mathcal{H}_A\otimes \mathcal{H}_B$. \cpnote{Revisa la fisica de este enunciado. Creo que no l oentiendes. También 
-porfa simplifica la frase, partiendola en do spartes y ajustando. Leyendola por segunda vez quizá
-solo requiere un pequeño ajuste. A ver si lo ves. }\rrnote{Ya he simplificado la frase y lo ajusté de acuerdo a la referencia.}
+$\mathcal{H}_{A}$  a operadores en el espacio de Hilbert $\mathcal{H}_{A'}$, luego $\E(\rho)$ debe ser positivo para cualquier operador positivo $\rho $. Más aún, si se introduce un espacio de Hilbert $ \mathcal{H}_{B}$ y se considera el mapeo extendido $(\E \otimes \mathds{1}_B)(\rho)$, éste debe ser positivo también para cualquier operador positivo $\rho$ en el sistema combinado $\mathcal{H}_A\otimes \mathcal{H}_B$. 
     \end{itemize}
 \end{definition}
 
-El primer axioma resulta conveniente en  el caso de las mediciones. \cpnote{Esta muy criptico}. \rrnote{Ya lo he simplficado}Para verlo mejor, suponga que se realiza una medición
+El primer axioma resulta conveniente en  el caso de las mediciones. Para verlo
+mejor, suponga que se realiza una medición
 proyectiva en la base computacional de un solo qubit. Entonces la operación
 cuántica $\E$ describirá este proceso si se define el mapeo como
 $\E_0\equiv|0\rala0|\rho |0\rala 0|$ y $\E_1\equiv|1\rala1|\rho |1\rala 1|$.
@@ -55,10 +49,8 @@ para el estado final será \[\dfrac{\E(\rho)}{\tr (\E (\rho))}.\]
 En el caso que no se realice ninguna medición, esto se reduce al requisito de
 que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. En este caso la
 operación cuántica $\E$ preserva la traza, ya que por sí sola proporciona una
-descripción completa del proceso cuántico %Por otro lado, si existe una $\rho$ tal que $\tr(\E(\rho)) < 1$, entonces $ \E$ por si sola no provee una  descripción completa del proceso que ocurrió en el sistema. Una operación  cuántica física es aquella que satisface que la probabilidad nunca es mayor a uno 
+descripción completa del proceso cuántico 
 {\cite{nielsen_chuang_2010}}.
-\cpnote{Esa ultima frase se me hace rara. Osea las negativas si se puede?
-para que decir esto si ya se dijo lo de las probabilidades?}\rrnote{La quité porque sí era redundante con lo de arriba.}
 
 \begin{comment}
 Asimismo, una razón física para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo tanto el estado final $\rho'$ evoluciona como \begin{equation}
@@ -84,8 +76,7 @@ estado inicial $\{\rho_i\}$ \begin{equation}
     \rho'=\dfrac{\E_\alpha\left(\sum_i p_i \rho_i\right)}{p_\alpha},
 \end{equation} tomando en cuenta la regla de Bayes  $p(i|\alpha)=\dfrac{p_i
 p(\alpha|i)}{ p_\alpha} $ a la ecuación {\ref{lineal_y_convexo}},  se ve que
-$\E_\alpha$ debe ser lineal {\cite{preskill2020quantum}}.\cpnote{De nueuvo, porque convexo? 
-porque no basta con lineal?}\rrnote{En Nielsen y Chuang lo mencionan creo que porque los coeficientes son probabilidades, deben sumar uno pero es redundante.} 
+$\E_\alpha$ debe ser lineal {\cite{preskill2020quantum}} 
 \begin{equation}
     \E_\alpha\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_\alpha(\rho_i). 
 \end{equation}
@@ -114,7 +105,7 @@ positivo. Por ejemplo,  si se toma un estado en el espacio $\mathcal{H}_A\otimes
 \mathds{1}:|\Psi\rala \Psi|=\sum_{i,j}|i,i\rala j,j| \mapsto
 \sum_{i,j}|j,i\rala i,j|.\]
 
-\cpnote{Este parrafo está mal, me paree. De donde lo sacaste? No entendi la linea de razonamiento para decir que la traza parcial no es valida.}\rrnote{El operador $T\otimes \mathds{1}$ mapea un operador que es positivo ($|\Psi\rala \Psi|$) al operador SWAP que no es positivo, y según entiendo esto lo hace no ser completamente positivo }
+
 Este estado $|\Psi\rala \Psi|$ se mapea al operador SWAP,
 \begin{equation}
     \text{SWAP}=\sum_{i,j}|j,i\rala i,j|=\begin{bmatrix}
@@ -144,7 +135,18 @@ Este estado $|\Psi\rala \Psi|$ se mapea al operador SWAP,
 %
 
 Una operación cuántica puede representarse en una forma elegante 
-como  \textit{suma de operadores}.  \cpnote{Mejora la redaccion}\rrnote{arreglé esta frase.} La representación de suma de operadores de una operación cuántica, también conocida como representación de Kraus\footnote{ La representación de Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el resultado del teorema de Stinespring {\cite{2007geometry}}.}, se puede escribir como $\E(\rho)=\sum_i K_i\rho K_i^\dagger$, para algún conjunto de operadores $\{K_i\}$ que satisfacen la condición $\sum_i K_i^\dagger K_i\le \mathds{1}_N$. \cpnote{corrige la ecuacion}\rrnote{Ya corregí el subíndice} Los operadores $\{K_i\}$ son conocidos como \textit{operadores de Kraus}. Así también, los mapeos completamente positivos que preservan la traza se conocen por varios nombres: \textit{operaciones cuánticas deterministas, canales cuánticos o mapas estocásticos}  {\cite{2007geometry}}.
+como  \textit{suma de operadores}.   La representación de suma de operadores de
+una operación cuántica,
+también conocida como representación de Kraus\footnote{ La representación de
+Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el
+resultado del teorema de Stinespring {\cite{2007geometry}}.}, se puede escribir
+como $\E(\rho)=\sum_i K_i\rho K_i^\dagger$, para algún conjunto de operadores
+$\{K_i\}$ que satisfacen la condición $\sum_i K_i^\dagger K_i\le \mathds{1}_N$.
+Los operadores
+$\{K_i\}$ son conocidos como \textit{operadores de Kraus}. Así también, los
+mapeos completamente positivos que preservan la traza se conocen por varios
+nombres: \textit{operaciones cuánticas deterministas, canales cuánticos o mapas
+estocásticos}  {\cite{2007geometry}}.
 
 Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba de que la representación de suma de operadores es equivalente a la definición de la sección anterior.
 
@@ -173,11 +175,8 @@ espacio de estado de $\mathcal{H}_A\otimes \mathcal{H}_B$ dado por
 
 Se puede pensar en esto como un resultado de aplicar la operación cuántica $\E$
 a la mitad de un estado de máximo entrelazamiento del sistema
-$\mathcal{H}_A\otimes \mathcal{H}_B$. A continuación se probará el hecho que el operador $\sigma$ especifica completamente la operación cuántica $\E$. Es decir para saber como actúa $\E$ en un estado arbitrario de $\mathcal{H}_A$, es suficiente con saber cómo este actúa en un solo estado máximamente entrelazado de $\mathcal{H}_A$ con otro sistema. \cpnote{Eso ultimo es evidente? No lo veo.}\rrnote{No, es lo que se intenta probar.}
+$\mathcal{H}_A\otimes \mathcal{H}_B$. A continuación se probará el hecho que el operador $\sigma$ especifica completamente la operación cuántica $\E$. Es decir para saber como actúa $\E$ en un estado arbitrario de $\mathcal{H}_A$, es suficiente con saber cómo este actúa en un solo estado máximamente entrelazado de $\mathcal{H}_A$ con otro sistema. 
 
-
-\cpnote{La redaccion de las siguientes frases esta como chafa. Dale una revisada con 
-cuidado porfa a lo que sigue y me avisas!}\rrnote{Ya lo he revisado y corregido algunas frases.}
 La estrategia que permite recuperar a $\E$ de $\sigma$ es la siguiente. Sea $|\psi\ra=\sum_j \psi_j |j_A\ra$ algún estado del sistema $\mathcal{H}_A$ y $|\tilde{\psi}\ra = \sum_j \psi_j^*|j_B\ra$ un estado correspondiente del sistema $\mathcal{H}_B$. Notar que
 \begin{equation}
     \begin{split}
@@ -207,8 +206,6 @@ Sea $\mathcal{O}$ un operador positivo actuando en el espacio de estado del sist
 
 La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
 
-
-\cpnote{Muy bien!!}
 
 % }}}
 \subsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus} % {{{
@@ -290,7 +287,7 @@ de la corrección de errores cuánticos. Nielsen y Chuang
 \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}
 Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de
 operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$,
-respectivamente. Además, se agregan operadores cero a la lista más corta de operadores, para asegurar que $m=n$\cpnote{esta frase está mocha}\rrnote{No estoy segura de qué es mocha pero la cambié}. Luego $\E=\mathcal{F}$
+respectivamente. Además, se agregan operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$
 si y solo si existe números complejos $u_{ij}$ tales que $K_i=\sum_j
 u_{ij}M_j$, y $u_{ij}$ es una matriz
 unitaria de $m$ por $m$
@@ -370,7 +367,6 @@ Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación c
 \end{equation}
 % }}}
 % }}}
-\cpnote{está bien!}
 \begin{comment}
 \section{Proceso de tomografía cuántica} % {{{
 

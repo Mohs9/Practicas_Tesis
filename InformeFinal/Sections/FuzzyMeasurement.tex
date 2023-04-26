@@ -168,17 +168,18 @@ de medición.
 
 
 %Sin embargo, el problema es que también se necesita la descripción del estado posterior a la medición y este no puede ser especificado por una medida POVM\@.
-Si se desea el estado posterior a la medición se requiere más información
-acerca de los operadores $E_\alpha$\cpnote{Creo que quedo mal lograda esta 
-frase. Mas bien, quieres mas informacion que los operadores E alpha} \rrnote{Compuse esta frase}. Es por ello que para describir el efecto
+Si se desea el estado posterior a la medición se requiere información
+más allá de los operadores $E_\alpha$. Es por ello que para describir el efecto
 de la medición difusa en un estado de entrada $\rho$, es conveniente establecer
 un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que
 \begin{equation}\label{descomposicionPOVM}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
 
 Esto se conoce como descomposición del operador de medición. Debido a que
 $E_\alpha$ es un operador positivo se puede asumir que
-$K_\alpha=\sqrt{E_\alpha}$. Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@\cpnote{no se si lo digas mas adelante, 
-pero es importante decir que esa evaucion tiene infinitas soluciones} \rrnote{Ya lo coloqué}. Luego de introducir los operadores de Kraus el
+$K_\alpha=\sqrt{E_\alpha}$. Claramente la descomposición en operadores de Kraus
+no es única debido a que al multiplicar por la derecha alguna matriz unitaria
+$U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con
+definir la misma medida POVM\@. Luego de introducir los operadores de Kraus el
 estado de la medición es posterior a la medición POVM será
 \begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho
 K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
@@ -188,15 +189,13 @@ K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
 operadores \begin{equation}\{E_{a_j, b_k}\}= \{p
 P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\},\end{equation} donde $P_{a_j,b_k} =
 |a_j b_k\rala a_j b_k|$ es el operador de proyección dado por los vectores
-propios del observable $A\otimes B$\cpnote{Esta frase tambien esta como un revolitjo de 
-ideas. Quizá separa}\rrnote{Separé y borré algunas partes}. Para esta medida POVM los operadores de
+propios del observable $A\otimes B$. Para esta medida POVM los operadores de
 Kraus en los que se puede descomponer de forma sencilla, son los siguientes
 \begin{equation}
 K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
 \end{equation}
 
-Esta descomposición en operadores de Kraus no es única, existen infinitas soluciones que verifican la ecuación {\ref{descomposicionPOVM}}\cpnote{
-ok esto se puede explicar mas arriba creo y quizá recordar acá (o no).}\rrnote{Lo expliqué arriba y lo volvi a recordad en esta frase.}
+Esta descomposición en operadores de Kraus no es única, existen infinitas soluciones que verifican la ecuación {\ref{descomposicionPOVM}}.
 Como se mencionó anteriormente, cuando se realiza una medición, lo que pasa con
 el estado exactamente depende en como los POVM son implementados en el
 laboratorio.
@@ -206,8 +205,6 @@ final después de una medición difusa, que se describe con la descomposición e
 operadores de Kraus de la medida POVM descrita, con el que se pueden obtener
 varios ejemplos {\cite{enlacepropio}}.
 %\href{https://github.com/Mohs9/Practicas_Tesis/blob/d751cf4a3b187f124057c927433b29aa6d918ef1/InformeFinal/Code/POVM.nb}{\textit{esteenlace}}
- \cpnote{Creo qeu toca poner algo qeu indique con colores que hay un enalice o quizá ponerlo 
-en la bibliografía y de ahi el enlace.}\rrnote{Lo coloqué en las referncias}
 
 % }}} 
 \begin{comment} \subsection{Otra aproximación} % {{{

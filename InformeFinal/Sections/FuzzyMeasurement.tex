@@ -172,42 +172,36 @@ provee para cualquier estado de entrada una probabilidad de cada posible salida
 de medición. 
 
 
-Sin embargo, el problema es que también se necesita la descripción del estado
-posterior a la medición y este no puede ser especificado por una medida POVM\@.
-Si se desea el estado posterior a la medición se debe tener más información
+%Sin embargo, el problema es que también se necesita la descripción del estado posterior a la medición y este no puede ser especificado por una medida POVM\@.
+Si se desea el estado posterior a la medición se requiere más información
 acerca de los operadores $E_\alpha$\cpnote{Creo que quedo mal lograda esta 
-frase. Mas bien, quieres mas informacion que los operadores E alpha}. Es por
-ello que para describir el efecto
+frase. Mas bien, quieres mas informacion que los operadores E alpha} \rrnote{Compuse esta frase}. Es por ello que para describir el efecto
 de la medición difusa en un estado de entrada $\rho$, es conveniente establecer
 un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que
-\begin{equation}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
+\begin{equation}\label{descomposicionPOVM}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
 
 Esto se conoce como descomposición del operador de medición. Debido a que
 $E_\alpha$ es un operador positivo se puede asumir que
-$K_\alpha=\sqrt{E_\alpha}$\cpnote{no se si lo digas mas adelante, 
-pero es importante decir que esa evaucion tiene infinitas soluciones}. Luego de introducir los operadores de Kraus el
+$K_\alpha=\sqrt{E_\alpha}$. Claramente la descomposición en operadores de Kraus no es única debido a que al multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@\cpnote{no se si lo digas mas adelante, 
+pero es importante decir que esa evaucion tiene infinitas soluciones} \rrnote{Ya lo coloqué}. Luego de introducir los operadores de Kraus el
 estado de la medición es posterior a la medición POVM será
 \begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho
 K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
 
-Las medidas POVM dan información sobre el estado de entrada, para mediciones
-difusas debido a que se tiene una probabilidad $p$ de medir el observable
-$A\otimes B$ y con una probabilidad $(1-p)$ se puede medir el operador
-$B\otimes A$ se puede proponer intuitivamente el siguiente conjunto de
+%Las medidas POVM dan información sobre el estado de entrada,
+ En mediciones difusas se tiene una probabilidad $p$ de medir el observable $A\otimes B$ y una probabilidad $(1-p)$ de medir el operador $B\otimes A$ es por ello que se  propone intuitivamente el siguiente conjunto de
 operadores \begin{equation}\{E_{a_j, b_k}\}= \{p
 P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\},\end{equation} donde $P_{a_j,b_k} =
 |a_j b_k\rala a_j b_k|$ es el operador de proyección dado por los vectores
 propios del observable $A\otimes B$\cpnote{Esta frase tambien esta como un revolitjo de 
-ideas. Quizá separa}. Para esta medida POVM los operadores de
+ideas. Quizá separa}\rrnote{Separé y borré algunas partes}. Para esta medida POVM los operadores de
 Kraus en los que se puede descomponer de forma sencilla, son los siguientes
 \begin{equation}
 K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
 \end{equation}
 
-Claramente la descomposición en operadores de Kraus no es única debido a que al
-multiplicar por la derecha alguna matriz unitaria $U$, $UK_{a_j,b_k}$ también
-será un nuevo operador de Kraus que cumpla con definir la misma medida POVM\@\cpnote{
-ok esto se puede explicar mas arriba creo y quizá recordar acá (o no).}
+Esta descomposición en operadores de Kraus no es única, existen infinitas soluciones que verifican la ecuación {\ref{descomposicionPOVM}}\cpnote{
+ok esto se puede explicar mas arriba creo y quizá recordar acá (o no).}\rrnote{Lo expliqué arriba y lo volvi a recordad en esta frase.}
 Como se mencionó anteriormente, cuando se realiza una medición, lo que pasa con
 el estado exactamente depende en como los POVM son implementados en el
 laboratorio.
@@ -215,11 +209,10 @@ laboratorio.
 Se realizó un programa que mapea un operador de estado inicial a un estado
 final después de una medición difusa, que se describe con la descomposición en
 operadores de Kraus de la medida POVM descrita, con el que se pueden obtener
-varios ejemplos. El programa se puede obtener en
-\href{https://github.com/Mohs9/Practicas_Tesis/blob/d751cf4a3b187f124057c927433b29aa6d918ef1/InformeFinal/Code/POVM.nb}{\textit{este
-enlace}
-}. \cpnote{Creo qeu toca poner algo qeu indique con colores que hay un enalice o quizá ponerlo 
-en la bibliografía y de ahi el enlace.}
+varios ejemplos {\cite{enlacepropio}}.
+%\href{https://github.com/Mohs9/Practicas_Tesis/blob/d751cf4a3b187f124057c927433b29aa6d918ef1/InformeFinal/Code/POVM.nb}{\textit{esteenlace}}
+ \cpnote{Creo qeu toca poner algo qeu indique con colores que hay un enalice o quizá ponerlo 
+en la bibliografía y de ahi el enlace.}\rrnote{Lo coloqué en las referncias}
 
 % }}} 
 \begin{comment} \subsection{Otra aproximación} % {{{
@@ -256,13 +249,13 @@ El instrumento cuántico entonces es
 \end{equation}
 
 
-Al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles, \begin{equation}\label{traza_S1_ejemplo1}
+Al realizar la traza parcial sobre le sistema cuántico se obtendrá su respectivo mapeo de probabilidades, \begin{equation}\label{traza_S1_ejemplo1}
     \begin{split}
         \tr_Q(\mathcal{I}_F(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
         &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
         &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
         &=(6/8)P_{00} + (1/8)P_{11}\\
-        &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}.\\
+        &+{\color{blue}[2p/8 +(1-p)/8]P_{01}}+ {\color{red}[p/8+2(1-p)/8]P_{10}}.\\
     \end{split}
 \end{equation}
 
@@ -305,7 +298,8 @@ Luego al realizar la traza parcial sobre el sistema apuntador  o clásico se obt
         &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
     \end{split}
 \end{equation}
-\end{comment} % }}}
+\end{comment} 
+% }}}
 
 %Como se puede ver en la ecuación {\ref{traza_S1_ejemplo1}} y en la ecuación {\ref{traza_S2_ejemplo1}} los resultados son los mismos, las probabilidades de obtener cada una de las posibles salidas son iguales en las dos primeras alternativas. Sin embargo, el mapeo que se obtiene al realizar la traza parcial sobre el apuntador es distinto. 
 
@@ -358,7 +352,8 @@ Finalmente el efecto que realiza esta medición en el estado entrada se calcula 
         &+{(1-q)} (|10\rala10|+|01\rala01|)\rho (|10\rala10|+|01\rala01|).\\
     \end{split}
 \end{equation}
-\end{comment} % }}}
+\end{comment}
+ % }}}
 
 Ahora comparando estos resultados con una medida proyectiva ideal se puede obtener la diferencia entre realizar medida difusa y una ideal. Para una media proyectiva ideal, el instrumento cuántico para este ejemplo en específico estará dado por: \begin{equation}\label{proyectiva_ideal_ejemplo}
     \begin{split}
@@ -373,19 +368,24 @@ Ahora comparando estos resultados con una medida proyectiva ideal se puede obten
 Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de probabilidades \begin{equation}\label{traza_SP_ejemplo1}
     \begin{split}
         \tr_Q(\mathcal{I}_P(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra+P_{01}\la 01|\rho|01\ra +P_{10} \la 10|\rho|10\ra\\
-        &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
+        &=(6/8)P_{00} + (1/8)P_{11}+{\color{blue}(2/8)P_{01}} + {\color{red}(1/8)P_{10}}.\\
     \end{split}
 \end{equation}
 
+Al realizar la traza parcial sobre el sistema clásico de la medición ideal se obtiene el efecto de la medición,\begin{equation}\label{traza_AP_ejemploP}\begin{split}
+       \tr_C(\mathcal{I}_P(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+P_{10}\rho P_{10}\\
+      &=(6/8)P_{00} + (1/8)P_{11}+(2/8) P_{01}+ (1/8)P_{10}.\\
+ \end{split}
+\end{equation}
+\cpnote{Quisiera que comentaras, resaltaras y analizaras las diferencias.}\rrnote{Agregue el comentario sobre las diferencias y remarqué de otros colores algunos términos}
+Notar que al obtener la traza parcial sobre el sistema cuántico se obtiene el mapeo de probabilidades para ambos instrumentos, el cual da la probabilidad de cada posible resultado de la medición para el estado cuántico de entrada. En la ecuación {\ref{traza_S1_ejemplo1}}  y {\ref{traza_SP_ejemplo1}} en la ecuación se resaltó con color azul y rojo la parte que difiere del mapeo de probabilidades de los instrumentos. Los términos en azul de la ecuación {\ref{traza_S1_ejemplo1}} y de la ecuación {\ref{traza_SP_ejemplo1}}, para $0<p<1$, indican que las probabilidades de obtener el resultado correspondiente $P_{01}$ es menor en la medición difusa que en la medición proyectiva y los términos en rojos de la ecuaciones, indican que la probabilidad de obtener el resultado corrrespondiente al estado $P_{10}$ es mayor que en la medición ideal. Las probabilidades de los términos en negro permanecen igual en ambas ecuaciones.  Se puede ver que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición proyectiva y esto es debido al intercambio de partículas en el sistema. 
 
-\cpnote{Quisiera que comentaras, resaltaras y analizaras las diferencias.}
-Claramente la ecuación {\ref{traza_SP_ejemplo1}} difiere de la ecuación {\ref{traza_S1_ejemplo1}}, % de {\ref{traza_S2_ejemplo1}} y {\ref{traza_S3_ejemplo1}}, 
-incluso en este ejemplo muy simple, donde los operadores $A=\sigma _z=B$. Se puede notar que al realizar una medición difusa las probabilidades de las posibles salidas varían con una medición ideal.
+
+%El efecto de la medición no selectiva dado por las ecuaciones {\ref{traza_A1_ejemplo1}} y {\ref{traza_AP_ejemploP}} también difiere debido a los estados $P_{01}$ y $P_{10}$ que obtuvieron una probabilidad distinta. 
 
 Ahora al utilizar la aproximación de la sección {\ref{Sec_POVM_para_mediciones_difusas}} y continuando con el ejemplo del observable $\sigma_z \otimes \sigma_z$, la medida POVM es simplemente \[\{E_{a_j, b_k}\}= \{P_{00},p P_{01}+(1-p)P_{10},p P_{10}+(1-p)P_{01},P_{11}\}.\] 
 
-
-La \cpnote{Mas bien Una descompo...}descomposición de estos operadores por tanto son las siguientes
+Una \cpnote{Mas bien Una descompo \ldots} \rrnote{Ya lo cambié } descomposición de estos operadores por tanto son las siguientes
 \begin{equation}
     \begin{split}
         K_{a_0,b_0}&=\sqrt{P_{00}}=P_{00}\\

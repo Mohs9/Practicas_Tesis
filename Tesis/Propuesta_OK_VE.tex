@@ -1,0 +1,202 @@
+\documentclass[12pt,oneside]{book}\raggedbottom{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algunos Paquetes Necesarios 
+% Importing document settings from our file "packages.sty"
+\usepackage{packages}
+
+
+
+\begin{document}
+
+\newcommand{\myName}{Instrumentos cu\'anticos}
+\newcommand{\myDate}{Primer semestre 2021}
+\newcommand{\myCourse}{}
+\newcommand{\degre}{\ensuremath{^\circ}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vi}{\mathbf{\hat{\i}}}
+\newcommand{\vj}{\mathbf{\hat{\j}}}
+\newcommand{\vk}{\mathbf{\hat{\k}}}
+\newcommand{\I}{\mathcal{I}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fancyboxes
+
+
+\newcounter{problem}[section]\setcounter{problem}{0}
+\renewcommand{\theproblem}{%\arabic{section}.
+	\arabic{problem}}
+
+\newenvironment{problem}[1][]{%
+	\refstepcounter{problem}
+	
+	\ifstrempty{#1}%
+	% if condition (without title)
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=purple!20]
+				{\strut{} Problema~\theproblem};}
+		}%
+		% else condition (with title)
+	}{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=purple!20]
+				{\strut{} Problema~\theproblem:~#1};}%
+		}%
+	}%
+	% Both conditions
+	\mdfsetup{%
+		innertopmargin=10pt,linecolor=pink!40,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax%
+	}
+\begin{mdframed}[]\relax%
+	\label{#1}}{\end{mdframed}}
+
+
+\newcounter{solution}[section]\setcounter{solution}{0}
+\renewcommand{\thesolution}{%\arabic{section}.
+	\arabic{solution}}
+\newenvironment{solution}[1][]{%
+	\refstepcounter{solution}%
+	\ifstrempty{#1}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=green!20]
+				{\strut{} Soluci\'on~\thesolution};}}
+	}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=green!20]
+				{\strut{} Soluci\'on~\thesolution:~#1};}}%
+	}%
+	\mdfsetup{innertopmargin=10pt,linecolor=green!20,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax%
+		\label{#1}}{\end{mdframed}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tema - BEGIN
+\newtheoremstyle{Tema}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {3mm}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bfseries}% name of head font
+  {\newline}% punctuation between head and body
+  {20mm}% space after theorem head
+  {}% Manually specify head
+
+\theoremstyle{Tema} \newtheorem{Tema}{Tema} %%%%% Template para Temas
+\theoremstyle{Tema} \newtheorem{serie}{Serie}              %%%%%  Template para Series de ejercicios
+\theoremstyle{Tema} \newtheorem{ejercicio}{Ejercicio}    %%%%%  Template para Ejercicios
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tema - END
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado - BEGIN %%%%%%%%%%
+\fancypagestyle{firststyle}
+{
+\renewcommand{\headrulewidth}{1.5pt}
+\fancyhead[R]{
+			%\textbf{Universidad de San Carlos de Guatemala} \\
+			%\textbf{Escuela de Ciencias Físicas y Matemáticas}\\
+			%\textbf{\myDate{}} \\
+			%\textbf{\myCourse{} }    %%%%%%%%%% Agregar nombre del curso 
+			  %%%%%%%%%%%%%%%%%%%%%% Agregar fecha en formato: Enero 15, 2015
+			}
+\fancyhead[L]{ 
+%	\includegraphics[height=1.6 cm, width=5.5 cm]{LogoColor}  
+	}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado - END %%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado (pagina 2 en adelante) - BEGIN %%%
+\fancypagestyle{allStyle}
+{
+\renewcommand{\headrulewidth}{0.8 pt}
+\fancyhead[R]{
+			\emph{\myName{} $-$ \myCourse{}} %%%% Modificar n\'umero de examen parcial y nombre del curso
+			}
+\fancyhead[L]{}  
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado (pagina 2 en adelante) - END %%%
+
+\date{}
+\setlength{\headheight}{0.5in} % fixes \headheight warning
+ %%%%%%%%%%%%%%%%%%%%%%%% BEGIN%%%%%%%%%%%%%%
+
+\pagestyle{allStyle}
+
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titulo - BEGIN
+\begin{center}
+\LARGE
+\textsc{\myName}\\\normalsize Nueva propuesta de operadores Kraus utilizando una operación SWAP % Modificar el N\'umero del examen parcial
+\medskip
+\hrule height 1.5pt
+\end{center}
+
+El primer instrumento que da un valor esperado correcto es \begin{equation}\label{primerInstrumento}
+	\mathcal{I}_1(\rho)=\sum_{a_j,b_k} P_{a_j b_k}\otimes p P_{a_j b_k}\rho  P_{a_j b_k}+ (1-p) P_{a_j b_k}S\rho S  P_{a_j b_k},
+\end{equation} los operadores de Kraus para este instrumento son:\[K_{a_j b_k}= P_{a_j b_k}\otimes  P_{a_j b_k}\sqrt{p} \] \[K_{a_j b_k}^S= P_{a_j b_k}\otimes  P_{a_j b_k}S\sqrt{1-p}, \]
+ahora reescribiendo {\ref{primerInstrumento}} con los operadores de Kraus:\[\I_1(\rho)=\sum_{a_j,b_k}K_{a_j b_k}\rho K_{a_j b_k}^\dagger+K_{a_j b_k}^S\rho K_{a_j b_k}^{S\dagger}\]
+la propuesta para obtener operadores de Kraus distintos tomando como base estos operadores es aplicar una operación SWAP al primer instrumento.
+
+Definamos el siguiente operador:\begin{equation}
+	\hat{S}=S_{13}\otimes S_{24},
+\end{equation} donde $S_{ij}$ es la matriz Swap que intercambia los estados en las posiciones $i$ y $j$. El instrumento {\ref{primerInstrumento}} se transforma ahora en:\[\mathcal{I}_1\to \mathcal{I}'_1= \hat{S}\mathcal{I}_1\hat{S}\]
+\[\begin{split}
+	\mathcal{I}'_1=&\hat{S}\left(\sum_{a_j,b_k} P_{a_j b_k}\otimes p P_{a_j b_k}\rho  P_{a_j b_k}+ (1-p) P_{a_j b_k}S\rho S  P_{a_j b_k}\right)\hat{S}\\
+	=&\sum_{a_j b_k}\hat{S} (|a_j b_k\rala a_j b_k| )\otimes p (|a_j b_k\rala a_j b_k|\rho |a_j b_k \rala a_j b_k|)\hat{S}\\
+	+&\sum_{a_j b_k}\hat{S} (|a_j b_k\rala a_j b_k| )\otimes (1-p) (|a_j b_k\rala a_j b_k| S_{12}\rho S_{12}  |a_j b_k\rala a_j b_k| )\hat{S}\\
+	=&p\langle a_j b_k|\rho |a_j b_k\rangle \sum_{a_j b_k}\hat{S} |a_j b_k\rala a_j b_k| \otimes  |a_j b_k\rala a_j b_k|\hat{S}\\
+	+&(1-p)\langle a_j b_k| S_{12}\rho S_{12}  |a_j b_k\rangle \sum_{a_j b_k}\hat{S} |a_j b_k\rala a_j b_k|\otimes |a_j b_k\rala a_j b_k|\hat{S}\\
+	=&p\langle a_j b_k|\rho |a_j b_k\rangle \sum_{a_j b_k}|a_j b_k\rala a_j b_k| \otimes  |a_j b_k\rala a_j b_k|\\
+	+&(1-p)\langle a_j b_k| S_{12}\rho S_{12}  |a_j b_k\rangle \sum_{a_j b_k} |a_j b_k\rala a_j b_k|\otimes |a_j b_k\rala a_j b_k|\\
+	=&\I_1\\
+\end{split}\]
+
+Después de esta álgebra noto que $\I_1'=\I_1$ por lo que el valor esperado sí será el mismo pero los operadores de Kraus siguen siendo los mismos.
+
+Ejemplo: Supongamos que $A\otimes B=\sigma_x\otimes \sigma_z$ y $\rho=|+0\rala +0|$
+
+\[\begin{split}
+	\mathcal{I}'_1=&\hat{S}\left(|+0\rala+0| \otimes p |+0\rala+0| +0\rala+0|+0\rala+0|\right)\hat{S}\\
+	+&\hat{S}\left(|+0\rala+0| \otimes (1-p) |+0\rala+0|S|+0\rala+0| S  |+0\rala+0|\right)\hat{S}\\
+	=&\hat{S}\left(|+0\rala+0| \otimes p |+0\rala+0| +0\rala+0|+0\rala+0|\right)\hat{S}\\
+	+&\hat{S}\left(|+0\rala+0| \otimes (1-p) |+0\rala+0|0+\rala0+|+0\rala+0|\right)\hat{S}\\
+	=&\hat{S}\left(|+0\rala+0| \otimes p |+0\rala+0|\right)\hat{S}+\hat{S}\left(|+0\rala+0| \otimes (1-p) \frac{1}{4}|+0\rala+0|\right)\hat{S}\\	
+	=&p\hat{S}\left(|+0\rala+0| \otimes |+0\rala+0|\right)\hat{S} +(1-p) \frac{1}{4}\hat{S}\left(|+0\rala+0| \otimes |+0\rala+0|\right)\hat{S}\\	
+	=&p\left(|+0\rala+0| \otimes |+0\rala+0|\right)+(1-p) \frac{1}{4}\left(|+0\rala+0| \otimes |+0\rala+0|\right)\\	
+	=&\I_1.\\
+\end{split}\]
+
+
+
+
+Notar que cambiar los operadores de Kraus a la siguiente forma (para intercambiar el sistema clásico con el cuántico):\[K_{a_j b_k}\to \sqrt{p}P_{a_j b_k}\otimes P_{a_j b_k}\]
+\[K^S_{a_j b_k}\to \sqrt{1-p}P_{a_j b_k}S\otimes P_{a_j b_k},\] esto es aplicarle una operación $\hat{S}$ por la izquierda y por la derecha a los operadores de Kraus \[K_{a_j b_k}\to K'_{a_j b_k}=\hat{S}K_{a_j b_k}\hat{S}= \sqrt{p}P_{a_j b_k}\otimes P_{a_j b_k}\]
+\[K^S_{a_j b_k}\to K'^S_{a_j b_k}=\hat{S}K_{a_j b_k}^S\hat{S}=\sqrt{1-p}P_{a_j b_k}S\otimes P_{a_j b_k}.\]
+
+Con estos nuevos operadores el instrumento se transforma en:\[\I_1\to \sum_{a_j, b_k}K'_{a_j b_k}\rho K'^\dagger_{a_j b_k}+K'^S_{a_j b_k}\rho K'^{S\dagger}_{a_j b_k} \]
+
+\[\begin{split} \I_1'&= \sum_{a_j, b_k}(\sqrt{p}P_{a_j b_k}\otimes P_{a_j b_k})(\mathds{1}\otimes \rho)(\sqrt{p}P_{a_j b_k}\otimes P_{a_j b_k})\\
+	+&(\sqrt{1-p}P_{a_j b_k}S\otimes P_{a_j b_k})(\mathds{1}\otimes \rho) (\sqrt{1-p}SP_{a_j b_k} \otimes P_{a_j b_k})\\
+	&=\sum_{a_j b_k} pP_{a_j b_k}\otimes P_{a_j b_k}\rho P_{a_j b_k}+ (1-p) P_{a_j b_k}\otimes P_{a_j b_k}\rho P_{a_j b_k}\\
+	&=\sum_{a_j b_k} P_{a_j b_k}\otimes P_{a_j b_k}\rho P_{a_j b_k}
+\end{split}\] el cual es un instrumento de una medida proyectiva ideal y por tanto no tendrán el mismo valor esperado.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Instrucciones - BEGIN
+
+\vspace{0.1 in}
+
+\end{document} %%%%%%%%%%%%%%%%%%%%%%%% BEGIN%%%%%%%%%%%%%%

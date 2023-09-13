@@ -1,0 +1,120 @@
+\section{Cálculos sobre la conmutación de los operadores}
+Para operadores factorizables notar que $[A\otimes B, B\otimes A] $ no siempre conmutan. Para verlo
+\begin{comment}
+se puede escribir cada operador hermítico en la base de las matrices de Pauli, por lo que:
+
+
+\[A\otimes B=\sum_\alpha a_\alpha \sigma_\alpha\otimes \sum_\beta b_\beta \sigma_\beta.\]
+
+
+
+con las letras griegas $\alpha, \beta= 0,1,2,3$ y al realizar el conmutador se obtiene:
+
+\[[A\otimes B, B\otimes A]=(A\otimes B)(B\otimes A)-(B\otimes A)(A\otimes B )\]
+\[\begin{split}
+    =&\left(\sum_\alpha a_\alpha \sigma_ \alpha \otimes \sum_\beta b_\beta \sigma_\beta \right)\left(\sum_\nu b_\nu \sigma_\nu \otimes \sum_\mu a_\mu\sigma_\mu\right)\\
+    -&\left(\sum_\nu b_\nu \sigma_\nu\otimes \sum_\mu a_\mu \sigma_\mu \right)\left(\sum_\alpha a_\alpha \sigma_\alpha\otimes \sum_\beta b_\beta \sigma_\beta\right)\\
+    =&\left(\sum_{\alpha \nu} a_\alpha b_\nu\sigma_\alpha\sigma_\nu\otimes \sum_{\beta \mu} b_\beta a_\mu \sigma_\beta\sigma_\mu\right)-\left(\sum_{\nu \alpha} b_\nu a_\alpha \sigma_\nu \sigma_\alpha \otimes \sum_{\mu \beta} a_\mu b_\beta\sigma_\mu \sigma_\beta\right)\\
+\end{split}\]
+Ahora se descompone la sumatoria y se reescribe con las letras latinas $i,j,k,l=1,2,3$.
+
+\[\begin{split}
+    =&\left(a_0b_0\mathds{1}+ \sum_i (a_i b_0+a_0 b_i)\sigma_i+\sum_{ik} a_i b_k\sigma_i\sigma_k\right)\otimes \left(b_0 a_0\mathds{1}+ \sum_j (b_0 a_j+b_j a_0)\sigma_j+\sum_{jl}  b_j a_l\sigma_j\sigma_l\right)\\
+    -&\left(b_0a_0\mathds{1}+ \sum_i (b_0 a_i+b_i a_0)\sigma_i+\sum_{ki}b_k a_i \sigma_k\sigma_i\right)\otimes \left(a_0 b_0\mathds{1}+ \sum_j (a_j b_0+a_0b_j)\sigma_j+\sum_{lj} a_l b_j\sigma_l\sigma_j\right)\\
+\end{split}\]
+
+Sea $C=b_0a_0\mathds{1}+ \sum_i (b_0 a_i+b_i a_0)\sigma_i$, y se tiene en cuenta que $\sigma_i \sigma_j=\mathds{1}\delta_{ij} +i\varepsilon_{ijk}\sigma_k$, con $\delta_{ij}$ la delta de Kronecker y $\varepsilon_{ijk}$ es el símbolo de Levi-Civita.
+
+
+\[\begin{split}
+    =&\left(C+\sum_{ik} a_i b_k\sigma_i\sigma_k\right)\otimes \left(C+\sum_{jl}  b_j a_l\sigma_j\sigma_l\right)\\
+    -&\left(C+\sum_{ki}b_k a_i \sigma_k\sigma_i\right)\otimes \left(C+\sum_{lj} a_l b_j\sigma_l\sigma_j\right)\\
+    =&\cancel{C \otimes C}+\sum_{ik} a_i b_k\sigma_i\sigma_k\otimes C +C\otimes\sum_{jl}  b_j a_l\sigma_j\sigma_l+ \sum_{ik} a_i b_k\sigma_i\sigma_k\otimes\sum_{jl}  b_j a_l\sigma_j\sigma_l\\
+    -&\cancel{C\otimes C}-\sum_{ki}b_k a_i \sigma_k\sigma_i\otimes C-C\otimes \sum_{lj} a_l b_j\sigma_l\sigma_j-\sum_{ki}b_k a_i \sigma_k\sigma_i\otimes \sum_{lj} a_l b_j\sigma_l\sigma_j \\
+    =&\sum_{ik} a_i b_k(\delta_{ik}\mathds{1}+i\varepsilon_{ikr}\sigma_r) \otimes C +C\otimes\sum_{jl}  b_j a_l(\delta_{jl}\mathds{1}+i\varepsilon_{jlr}\sigma_r)+ \sum_{ik} a_i b_k\sigma_i\sigma_k\otimes\sum_{jl}  b_j a_l\sigma_j\sigma_l\\
+    -&\sum_{ki}b_k a_i (\delta_{ki}\mathds{1}+i\varepsilon_{kir}\sigma_r) \otimes C-C\otimes \sum_{lj} a_l b_j(\delta_{lj}\mathds{1}+i\varepsilon_{ljr}\sigma_r) -\sum_{ki}b_k a_i \sigma_k\sigma_i\otimes \sum_{lj} a_l b_j\sigma_l\sigma_j \\
+    =i&\sum_{ik} a_i b_k\varepsilon_{ikr}\sigma_r \otimes C +C\otimes i\sum_{jl}  b_j a_l\varepsilon_{jlr}\sigma_r + \sum_{ik} a_i b_k\sigma_i\sigma_k\otimes\sum_{jl}  b_j a_l\sigma_j\sigma_l\\
+    -&i\sum_{ki}b_k a_i \varepsilon_{kir}\sigma_r \otimes C-C\otimes i\sum_{lj} a_l b_j\varepsilon_{ljr}\sigma_r -\sum_{ki}b_k a_i \sigma_k\sigma_i\otimes \sum_{lj} a_l b_j\sigma_l\sigma_j \\
+    =i&\sum_{ik} a_i b_k\varepsilon_{ikr}\sigma_r \otimes C +C\otimes i\sum_{jl}  b_j a_l\varepsilon_{jlr}\sigma_r + \sum_{ik} a_i b_k\sigma_i\sigma_k\otimes\sum_{jl}  b_j a_l\sigma_j\sigma_l\\
+    +&i\sum_{ik}b_k a_i \varepsilon_{ikr}\sigma_r \otimes C+C\otimes i\sum_{jl} a_l b_j\varepsilon_{jlr}\sigma_r -\sum_{ki}b_k a_i \sigma_k\sigma_i\otimes \sum_{lj} a_l b_j\sigma_l\sigma_j \\
+    =&2i\sum_{ik} a_i b_k\varepsilon_{ikr}\sigma_r \otimes C +2i C\otimes \sum_{jl}  b_j a_l\varepsilon_{jlr}\sigma_r + \sum_{ik} a_i b_k\sigma_i\sigma_k\otimes\sum_{jl}  b_j a_l\sigma_j\sigma_l\\
+    & -\sum_{ki}b_k a_i \sigma_k\sigma_i\otimes \sum_{lj} a_l b_j\sigma_l\sigma_j \\
+\end{split}\]
+
+Por el momento $D=2i \sum_{ik} a_i b_k\varepsilon_{ikr}\sigma_r \otimes C +2i C\otimes \sum_{jl}  b_j a_l\varepsilon_{jlr}\sigma_r $
+
+
+
+\[\begin{split}
+    =&D+\sum_{ik} a_i b_k (\delta_{ik}\mathds{1}+i\varepsilon_{ikr}\sigma_r) \otimes \sum_{jl} b_j a_l(\delta_{jl}\mathds{1}+i\varepsilon_{jlr}\sigma_r)\\
+    -&\sum_{ki} b_k a_i (\delta_{ki}\mathds{1}+i\varepsilon_{kir}\sigma_r) \otimes \sum_{lj} a_l b_j(\delta_{lj}\mathds{1}+i\varepsilon_{ljr}\sigma_r) \\
+    =&D+\left(\sum_{ik} a_i b_k \delta_{ik}\mathds{1}\right)\otimes\left( \sum_{jl} b_j a_l\delta_{jl}\mathds{1}\right)+\left(\sum_{ik} a_i b_k \delta_{ik}\mathds{1}\right)\otimes i\left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)\\
+    +&i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes\left( \sum_{jl} b_j a_l\delta_{jl}\mathds{1}\right)+i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes i\left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)\\
+    -&\left(\sum_{ki} a_i b_k \delta_{ki}\mathds{1}\right)\otimes\left( \sum_{lj} b_j a_l\delta_{lj}\mathds{1}\right)-\left(\sum_{ki} a_i b_k \delta_{ki}\mathds{1}\right)\otimes i\left( \sum_{lj} b_j a_l \varepsilon_{ljr}\sigma_r \right)\\
+    -&i\left(\sum_{ki} a_i b_k \varepsilon_{kir}\sigma_r \right)\otimes\left( \sum_{lj} b_j a_l\delta_{lj}\mathds{1}\right)-i\left(\sum_{ki} a_i b_k \varepsilon_{kir}\sigma_r \right)\otimes i\left( \sum_{lj} b_j a_l \varepsilon_{ljr}\sigma_r \right)\\
+    =&D+\cancel{\sum_{i} a_i b_i\mathds{1}\otimes \sum_{j} b_j a_j\mathds{1}}+\sum_{i} a_i b_i \mathds{1}\otimes i\left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)\\
+    +&i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes \sum_{j} b_j a_j\mathds{1}+\cancel{i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes i\left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)}\\
+    -&\cancel{\sum_{i} a_i b_i \mathds{1}\otimes \sum_{l} b_j a_j \mathds{1}}+\sum_{j} a_j b_j \mathds{1}\otimes i\left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)\\
+    +&i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes \sum_{j} b_j a_j\mathds{1}- \cancel{i\left(\sum_{ik} a_i b_k \varepsilon_{ikr} \sigma_r \right)\otimes i\left( \sum_{lj} b_j a_l \varepsilon_{jlr}\sigma_r \right)}\\
+    =&D+2i\sum_{i} a_i b_i \mathds{1}\otimes \left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)+2i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes \sum_{i} b_i a_i\mathds{1}\\
+    =&2i\left(C+\sum_{i} a_i b_i \mathds{1}\right)\otimes \left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)+2i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes \left(\sum_{i} b_i a_i\mathds{1}+C\right)\\
+    =&2i\left(b_0a_0\mathds{1}+ \sum_i (b_0 a_i+b_i a_0)\sigma_i+\sum_{i} a_i b_i \mathds{1}\right)\otimes \left( \sum_{jl} b_j a_l \varepsilon_{jlr}\sigma_r \right)\\
+    +&2i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes \left(b_0a_0\mathds{1}+ \sum_i (b_0 a_i+b_i a_0)\sigma_i+\sum_{i} b_i a_i\mathds{1}\right)\\
+    =&-2i\left(\sum_i (b_0 a_i+b_i a_0)\sigma_i+\sum_{\alpha} a_\alpha b_\alpha \mathds{1}\right)\otimes \left( \sum_{lj} a_l b_j \varepsilon_{ljr}\sigma_r \right)\\
+    +&2i\left(\sum_{ik} a_i b_k \varepsilon_{ikr}\sigma_r \right)\otimes \left( \sum_i (b_0 a_i+b_i a_0)\sigma_i+\sum_{\alpha} a_\alpha b_\alpha \mathds{1}\right)\\
+    =&-2i\left(\sum_i (b_0 a_i+b_i a_0)\sigma_i+ a_0 b_0 \mathds{1}+\vec{a}\cdot \vec{b} \mathds{1}\right)\otimes \vec{a}\times \vec{b} \\
+    +&2i\left(\vec{a}\times \vec{b} \right)\otimes \left( \sum_i (b_0 a_i+b_i a_0)\sigma_i+a_0 b_0 \mathds{1}+\vec{a}\cdot \vec{b} \mathds{1}\right)\\
+\end{split}\]
+
+
+\end{comment}
+primero se tomarán dos operadores $A$ y $B$ escritos como una combinación lineal de la base de las matrices de Pauli. Esto operadores se pueden pensar como vectores y luego bajo ciertas transformaciones como rotaciones o reflexiones, se puede obtener una simplificación de los operadores $A=a_0\mathds{1}+a_3\sigma_3$ y $B=b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3$. 
+
+Seguidamente al operar:
+\[\begin{split}(A\otimes B)(B\otimes A)&= (a_0\mathds{1}+a_3\sigma_3\otimes b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3) (b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3 \otimes a_0\mathds{1}+a_3\sigma_3)\\
+&= (a_0\mathds{1}+a_3\sigma_3)( b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3)\otimes (b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3 )(a_0\mathds{1}+a_3\sigma_3)\\
+&=((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3+a_3b_1\sigma_3\sigma_1)\\
+&\otimes ((b_0a_0+b_3a_3)\mathds{1}+(b_1a_0)\sigma_1+(b_0a_3+a_0b_3)\sigma_3+b_1a_3\sigma_1\sigma_3)\\
+\end{split}\]
+
+
+\[\begin{split}(B\otimes A)(A\otimes B)&=(b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3 \otimes a_0\mathds{1}+a_3\sigma_3) (a_0\mathds{1}+a_3\sigma_3\otimes b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3) \\
+    &= (b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3 )(a_0\mathds{1}+a_3\sigma_3)\otimes (a_0\mathds{1}+a_3\sigma_3)( b_0\mathds{1}+b_1\sigma_1+b_3\sigma_3)\\
+    &= ((b_0a_0+b_3a_3)\mathds{1}+(b_1a_0)\sigma_1+(b_0a_3+a_0b_3)\sigma_3+b_1a_3\sigma_1\sigma_3)\\
+    &\otimes((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3+a_3b_1\sigma_3\sigma_1)\\
+    \end{split}\]
+
+
+    \[\begin{split}(A\otimes B)(B\otimes A)-(B\otimes A)(A\otimes B)&=((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3+ia_3b_1\sigma_2)\\
+        &\otimes ((b_0a_0+b_3a_3)\mathds{1}+(b_1a_0)\sigma_1+(b_0a_3+a_0b_3)\sigma_3-ib_1a_3\sigma_2)\\
+         &- ((b_0a_0+b_3a_3)\mathds{1}+(b_1a_0)\sigma_1+(b_0a_3+a_0b_3)\sigma_3-ib_1a_3\sigma_2)\\
+        &\otimes((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3+ia_3b_1\sigma_2)\\
+        \end{split}\]
+
+
+        \[\begin{split}(A\otimes B)(B\otimes A)-(B\otimes A)(A\otimes B)&=(a_0b_0+a_3b_3)\mathds{1}\otimes- ib_1a_3\sigma_2 +(a_0b_1)\sigma_1\otimes- ib_1a_3\sigma_2\\
+        &+(a_3b_0+b_3a_0)\sigma_3\otimes- ib_1a_3\sigma_2+\cancel{ia_3b_1\sigma_2\otimes- ib_1a_3\sigma_2}\\
+        &+(ib_1a_3\sigma_2 \otimes (a_0b_0+a_3b_3)\mathds{1}+ib_1a_3\sigma_2 \otimes(a_0b_1)\sigma_1 \\
+        &+ib_1a_3\sigma_2 \otimes(a_3b_0+b_3a_0)\sigma_3) \\
+        &-(a_0b_0+a_3b_3)\mathds{1}\otimes ib_1a_3\sigma_2 -(a_0b_1)\sigma_1\otimes ib_1a_3\sigma_2\\
+        &-(a_3b_0+b_3a_0)\sigma_3\otimes ib_1a_3\sigma_2+\cancel{ia_3b_1\sigma_2\otimes ib_1a_3\sigma_2}\\
+        &+ib_1a_3\sigma_2 \otimes (a_0b_0+a_3b_3)\mathds{1}+ib_1a_3\sigma_2 \otimes(a_0b_1)\sigma_1\\
+        &+ib_1a_3\sigma_2 \otimes(a_3b_0+b_3a_0)\sigma_3  \\      
+            \end{split}\]
+
+          \[\begin{split}(A\otimes B)(B\otimes A)-(B\otimes A)(A\otimes B)
+            &=-((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3)\otimes ib_1a_3\sigma_2 \\
+            &+ib_1a_3\sigma_2 \otimes ((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1 +(a_3b_0+b_3a_0)\sigma_3) \\
+            &-((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3)\otimes ib_1a_3\sigma_2 \\
+            &+ib_1a_3\sigma_2 \otimes ((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1 +(a_3b_0+b_3a_0)\sigma_3) \\
+            &=-2ia_3b_1((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1+(a_3b_0+b_3a_0)\sigma_3)\otimes \sigma_2 \\
+            &+2ia_3b_1(\sigma_2 \otimes ((a_0b_0+a_3b_3)\mathds{1}+(a_0b_1)\sigma_1 +(a_3b_0+b_3a_0)\sigma_3) ).\\
+           % &=-C\otimes \sigma_2 +\sigma_2 \otimes C\\
+        \end{split}\]  %dado que en general el producto tensorial no es conmutativo, entonces para matrices $A$, $B$,   $A\otimes B$ no conmuta con $B\otimes A$.
+
+De esta última expresión se puede concluir que será cero no solo en el caso en el que $A=B$, sino también en el caso en el que  ambos operadores $A$ y $B$ no incluyen la identidad al descomponerlos como combinación lineal de las matrices de Pauli. Además si los operadores se visualizan como vectores en la esfera de Bloch y estos son paralelos, el operador $B$ no tendría componente en $\sigma_1$ y por tanto $b_1=0$ y la última expresión se haría cero. En otro caso $[A\otimes B, B \otimes A]\ne 0$
+\begin{center}
+\begin{minipage}{11cm} 
+    \input{Images/BlochSphere1}
+\end{minipage}
+\end{center}

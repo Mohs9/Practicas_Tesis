@@ -1,0 +1,75 @@
+\documentclass[12pt,oneside]{book}\raggedbottom{}
+
+
+% Importing document settings from our file "packages.sty"
+\usepackage{packages}
+
+% Beginning of document
+\begin{document}
+
+\setlength{\headheight}{50pt}
+\addtolength{\topmargin}{-25pt}
+
+% Inserting title page
+\import{./Sections/}{title}
+\thispagestyle{empty}
+\newpage
+\frontmatter{
+\onehalfspacing{
+\tableofcontents    % Índice general vinculado
+% Inserting list of figures & list of tables
+\newpage
+%\listoffigures
+\import{./Sections/}{Objetivos}
+\newpage
+
+%\import{./Sections/}{Justificacion}
+\import{./Sections/}{Introduction}}
+
+%\listoftables
+
+%\import{./Sections/}{symbol}
+
+}
+% Defining front matter settings 
+
+% Inserting table of contents
+\mainmatter{\onehalfspacing{	% interlineado 1 1/2
+% Defining main matter settings 
+\linenumbers{}
+\setlength\linenumbersep{3pt}
+
+\import{./Sections/}{metodologia}
+\import{./Sections/}{Descripcion_capitulos}
+\import{./Sections/}{contenidos}
+
+\nocite{Hall2013}
+\nocite{sakurai2017modern}
+\nocite{wilde2011classical}
+\nocite{2007geometry}
+}
+
+% Example section added directly into the main-file
+
+
+% Printing bibliography
+\newpage
+
+%otras opciones {plain}
+\nocite{gomez2010introduccion}
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+%\printbibliography[heading = bibintoc, title = Referencias]    % 'bibintoc' inserts our bibliography into the table of contents
+}
+% Inserting appendix with separate settings
+%\addappendix[A]{
+%\import{./Appendices/}{ApendiceI}
+%}
+%\addappendix[B]{
+%\import{./Appendices/}{ApendiceI}
+%}
+% End of document
+
+
+\end{document}

@@ -202,15 +202,37 @@ Claim: Los instrumentos tienen los mismos valores esperados, en el caso de obser
 
 \begin{proof}
 	$(\Rightarrow)$
-Notamos que el primer término de {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos
- de estas ecuaciones \[\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )\] Por la linealidad de la traza se puede reacomodar el lado izquierdo: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\&=\tr\left[\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\rho \right]\end{split}.\]
+El primer término de {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos
+ de estas ecuaciones \[\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )\] Por la linealidad de la traza se puede reacomodar el lado izquierdo: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\&=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  
 
-De ello  \[B\otimes A=\sum_{j,k} \tr((B\otimes A)P_{a_j, b_k})P_{a_j, b_k}=\sum_{j,k}d_{j,k}P_{a_j,b_k},\] lo cual está indicando que el operador \(B\otimes A\), en el caso no degenerado debe conmutar con el operador \(A\otimes B\), o más específicamente la base de operadores de proyección de $B\otimes A$ debe ser la misma que $A\otimes B$ sin importar cuales sean sus valores propios.
+
+
+
+
+De ello  \[B\otimes A=\sum_{j,k} \tr((B\otimes A)P_{a_j, b_k})P_{a_j, b_k}=\sum_{j,k}d_{j,k}P_{a_j,b_k},\] notemos que
+\[\begin{split}[A\otimes B, B\otimes A ]&= A\otimes B (B\otimes A)-B\otimes A (A\otimes B)\\
+&=(\sum_{j,k}a_j b_k P_{a_j, b_k})(\sum_{i,l} \tr((B\otimes A)P_{a_i, b_l})P_{a_i, b_l})\\
+&- (\sum_{i,l} \tr((B\otimes A)P_{a_i, b_l})P_{a_j, b_k})(\sum_{j,k}a_j b_k P_{a_j, b_k})\\
+&=\sum_{j,k,i,l}a_j b_k  \tr((B\otimes A)P_{a_i, b_l})P_{a_j, b_k}P_{a_i, b_l}\\
+&- (\sum_{i,l,j,k} a_j b_k \tr((B\otimes A)P_{a_i, b_l})P_{a_i, b_l} P_{a_j, b_k})\\
+&=\sum_{j,k}a_j b_k  \tr((B\otimes A)P_{a_j, b_k})- (\sum_{i,l} a_i b_l \tr((B\otimes A)P_{a_i, b_l})=\mathbf{0}\\
+\end{split}\]
+
+
+
+
+lo cual está indicando que el operador \(B\otimes A\), en el caso no degenerado debe conmutar con el operador \(A\otimes B\), o más específicamente la base de operadores de proyección de $B\otimes A$ debe ser la misma que $A\otimes B$ sin importar cuales sean sus valores propios.
+
+
+%De otra forma, con la misma idea se ve que si el operador de densidad conmuta con $A\otimes B$, es decir que \[\rho=\sum_{j,k} (\tr(\rho P_{a_j, b_k})) P_{a_j, b_k},\] de nuevo sin importar cuales sean sus valores propios.
+
+
+
 
 $(\Leftarrow)$
-Ahora si suponemos que $B\otimes A=\sum_{i,l}d_{i,l}P_{a_j, b_k}$
+Ahora si suponemos que $B\otimes A=\sum_{i,l}d_{i,l}P_{a_i, b_l}$
 
-\[\begin{split}\sum_{j,k}\tr( \sum_{i,l}d_{i,l}P_{a_j, b_k} P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&=\sum_{j,k}\sum_{i,l}d_{i,l}\delta_{j,k}^{i,l}\tr(P_{a_j b_k}\rho )\\&=\sum_{j,k}d_{j,k}\tr(P_{a_j b_k}\rho )=\tr(B\otimes A\rho)\end{split}.\]
+\[\begin{split}\sum_{j,k}\tr( \sum_{i,l}d_{i,l}P_{a_i, b_l} P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&=\sum_{j,k}\sum_{i,l}d_{i,l}\delta_{j,k}^{i,l}\tr(P_{a_j b_k}\rho )\\&=\sum_{j,k}d_{j,k}\tr(P_{a_j b_k}\rho )=\tr(B\otimes A\rho)\end{split}.\]
 
 
 \end{proof}
@@ -219,9 +241,8 @@ Ahora si suponemos que $B\otimes A=\sum_{i,l}d_{i,l}P_{a_j, b_k}$
 
 
 
-%En particular, realizando la misma idea se ve que si el operador de densidad conmuta con $A\otimes B$, es decir que \[\rho=\sum_{j,k} (\tr(\rho P_{a_j, b_k})) P_{a_j, b_k},\] de nuevo sin importar cuales sean sus valores propios, puede h.
 
-Existen otras condiciones en las mucho más específicas y particulares que cumplen la equivalencia. Una de las que me parece más interesantes e intuitivas después de ver algunos ejemplos numéricos es que $A$ y $B$ sean dos operadores no degenerados y que conmuten puesto que conservarían cierta simetría, puesto que $A\otimes B$ y $B\otimes A$ compartirían el mismo espectro y el mismo conjunto de valores propios con la diferencia que los valores propios no serían asignados de igual forma a los vectores propios.
+Existen otras condiciones mucho más específicas y particulares que cumplen la equivalencia. Una de las que me parece más interesantes e intuitivas después de ver algunos ejemplos numéricos es que $A$ y $B$ sean dos operadores no degenerados y que conmuten puesto que conservarían cierta simetría, puesto que $A\otimes B$ y $B\otimes A$ compartirían el mismo espectro y el mismo conjunto de valores propios con la diferencia que los valores propios no serían asignados de igual forma a los vectores propios.
 
 
 Bajo esta idea supongamos que: \begin{align}

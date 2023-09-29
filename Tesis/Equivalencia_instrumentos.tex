@@ -203,25 +203,65 @@ Claim: Los instrumentos tienen los mismos valores esperados, en el caso de obser
 \begin{proof}
 	$(\Rightarrow)$
 El primer término de {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos
- de estas ecuaciones \[\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )\] Por la linealidad de la traza se puede reacomodar el lado izquierdo: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\&=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  
+ de estas ecuaciones \[\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )\] Por la linealidad de la traza se puede reacomodar el lado derecho: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\&=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  
+
+reescribiendo (33)
+\[\tr\left[\left(B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho \right]=0\]
+Expandiendo $B\otimes A$ en la base de vectores propios de $A\otimes B$ obtenemos que \[B\otimes A=\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|\]
+
+Sustituyendo lo del paréntesis en la linea (37)
+\[\begin{split}
+	B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)&=0\\
+\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)&=0\\
+\sum_{j,k\ne j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|&=0\\
+\sum_{j,k\ne j',k'}  \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|&=0\\
+\end{split}\]
+
+Por lo que podría suceder que \[\begin{array}{cc}
+	\langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle& \forall j,k\ne j',k'\end{array}\]
 
 
 
 
 
-De ello  \[B\otimes A=\sum_{j,k} \tr((B\otimes A)P_{a_j, b_k})P_{a_j, b_k}=\sum_{j,k}d_{j,k}P_{a_j,b_k},\] notemos que
+\begin{comment}
+	De ello  \[B\otimes A=\sum_{j,k} \tr((B\otimes A)P_{a_j, b_k})P_{a_j, b_k}=\sum_{j,k}d_{j,k}P_{a_j,b_k},\] notemos que
 \[\begin{split}[A\otimes B, B\otimes A ]&= A\otimes B (B\otimes A)-B\otimes A (A\otimes B)\\
 &=(\sum_{j,k}a_j b_k P_{a_j, b_k})(\sum_{i,l} \tr((B\otimes A)P_{a_i, b_l})P_{a_i, b_l})\\
 &- (\sum_{i,l} \tr((B\otimes A)P_{a_i, b_l})P_{a_j, b_k})(\sum_{j,k}a_j b_k P_{a_j, b_k})\\
 &=\sum_{j,k,i,l}a_j b_k  \tr((B\otimes A)P_{a_i, b_l})P_{a_j, b_k}P_{a_i, b_l}\\
 &- (\sum_{i,l,j,k} a_j b_k \tr((B\otimes A)P_{a_i, b_l})P_{a_i, b_l} P_{a_j, b_k})\\
-&=\sum_{j,k}a_j b_k  \tr((B\otimes A)P_{a_j, b_k})- (\sum_{i,l} a_i b_l \tr((B\otimes A)P_{a_i, b_l})=\mathbf{0}\\
+&=\sum_{j,k}a_j b_k  \tr((B\otimes A)P_{a_j, b_k})-\sum_{i,l} a_i b_l \tr((B\otimes A)P_{a_i, b_l})=\mathbf{0}\\
 \end{split}\]
+\end{comment}
 
 
 
 
-lo cual está indicando que el operador \(B\otimes A\), en el caso no degenerado debe conmutar con el operador \(A\otimes B\), o más específicamente la base de operadores de proyección de $B\otimes A$ debe ser la misma que $A\otimes B$ sin importar cuales sean sus valores propios.
+
+%lo cual está indicando que el operador \(B\otimes A\), en el caso no degenerado debe conmutar con el operador \(A\otimes B\), o más específicamente la base de operadores de proyección de $B\otimes A$ debe ser la misma que $A\otimes B$ sin importar cuales sean sus valores propios.
+
+\begin{comment}
+	Ejemplo: Sea $Q=c_{0+}|0+\rala 0+|+c_{0-}|0-\rala 0-|+ c_{1+}|1+\rala 1+|+c_{1-}|1-\rala 1-|$ y 
+
+
+$SQS=c_{0+}|+0\rala +0|+c_{0-}|-0\rala -0|+ c_{1+}|+1\rala +1|+c_{1-}|-1\rala -1|$ pero también supongamos que \[SQS=\sum_{j,k}\tr(SQS P_{d_{jk}})P_{d_{j,k}}\]
+
+donde $\tr(SQS|0+\rala0+|)=\frac{1}{4}(c_{0+}+c_{0-}+c_{1+}+c_{1-})$
+
+
+
+
+\end{comment}
+
+
+
+
+
+
+
+
+
 
 
 %De otra forma, con la misma idea se ve que si el operador de densidad conmuta con $A\otimes B$, es decir que \[\rho=\sum_{j,k} (\tr(\rho P_{a_j, b_k})) P_{a_j, b_k},\] de nuevo sin importar cuales sean sus valores propios.

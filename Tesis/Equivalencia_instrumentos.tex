@@ -137,7 +137,7 @@
 \bigskip
 \hrule height 1.5pt
 \end{center}
-
+\setcounter{chapter}{1}
 
 El valor esperado dado por la primera ecuación del paper original es 
 \begin{equation}\label{ecuacion1paper}\begin{split}
@@ -148,9 +148,9 @@ esta ecuación debe ser el punto de partida.
 
 
 
-\subsection*{Aproximaciones utilizando instrumento cuánticos}
+\section{Aproximaciones utilizando instrumento cuánticos}
 
-\subsubsection{Primera alternativa}
+\subsection{Primera alternativa}
 
  \begin{equation}
     \begin{split}
@@ -164,13 +164,15 @@ donde $j,k=0,1$ y $P_{a_j,b_k}=|a_j b_k\rala a_j b_k|$ con $a_j$ y $b_k$ son los
 
 Notar que si el sistema clásico indica que la salida de le medición es $a_j,b_k$, el estado de salida estará en el subespacio que indica el sistema clásico.
 
-De este instrumento se calculó el  valor esperado de la medición, de la siguiente manera:\begin{equation}\label{ExpectedValueI1}\begin{split}
+De este instrumento se calculó el  valor esperado de la medición, de la siguiente manera:\begin{equation*}
+	\begin{split}
 	\la A\otimes B \ra_{\mathcal{I}_1}&=\sum_{jk} a_{j}b_k[p\la a_j b_k|\rho |a_j b_k\ra + (1-p)\la b_k a_j|\rho | b_k a_j\ra] \\
    & = p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A)\\
-\end{split}\end{equation}
+\end{split}\end{equation*}
+
 
 El valor esperado es claramente el mismo que en la ecuación {\ref{ecuacion1paper}}
-\subsubsection{Segunda alternativa}
+\subsection{Segunda alternativa}
 
 \begin{equation}
     \begin{split}
@@ -189,36 +191,43 @@ También se calculó el valor esperado del observable:
 
 		Notemos que el término remarcado en azul difumina la parte de los resultados. Y en general esta ecuación no es igual a la ecuación {\ref{ecuacion1paper}}. Por ejemplo si $A\otimes B= \sigma_z\otimes \sigma_x$, sin importar cuál sea el estado inicial $\rho$ la parte en azul es siempre 0 lo que difiere con el valor esperado para el instrumento 1. 
 
-
-Entonces la pregunta que ahora se deb responder es ¿cuándo los dos instrumentos anteriores son equivalentes? Es decir, ¿en qué condiciones los dos instrumentos arrojan los mismo resultados?
+\section{Condiciones}
+Entonces la pregunta que ahora se debe responder es ¿cuándo los dos instrumentos anteriores son equivalentes? Es decir, ¿en qué condiciones los dos instrumentos arrojan los mismo resultados?
 
 Tenemos que al simplificar el valor esperado del segundo instrumento:
-\begin{equation}\label{ExpectedValueI2}\begin{split}\la A\otimes B \ra_{\mathcal{I}_2}&=\sum_{j,k} p Tr(a_{j}b_k P_{a_j b_k}\rho)+{\color{blue}(1-p)\tr( (B\otimes A)P_{a_j,b_k})} \tr(P_{a_j b_k}\rho) \\
+\begin{equation*}\begin{split}\la A\otimes B \ra_{\mathcal{I}_2}&=\sum_{j,k} p Tr(a_{j}b_k P_{a_j b_k}\rho)+{\color{blue}(1-p)\tr( (B\otimes A)P_{a_j,b_k})} \tr(P_{a_j b_k}\rho) \\
     &=p\tr(A\otimes B \rho)+(1-p)\sum_{j,k}\tr((B\otimes A )P_{a_j b_k} )\tr(P_{a_j b_k}\rho)
-\end{split}\end{equation}
+\end{split}\end{equation*}
 
 
-Claim: Los instrumentos tienen los mismos valores esperados, en el caso de observables no degenerados, si y solo si $A\otimes B$ y $B\otimes A$ son compatibles o bien si $\rho $ es compatible con $A\otimes B$.
+\textbf{\textit{Claim}}: Para todo estado inicial $\rho$, los instrumentos son equivalentes, si y solo si los coeficientes ``mixtos'' del operador $B\otimes A$ en la base de los vectores propios de $A\otimes B$ son cero.
 
-\begin{proof}
-	$(\Rightarrow)$
-El primer término de {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos
- de estas ecuaciones \[\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )\] Por la linealidad de la traza se puede reacomodar el lado derecho: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\&=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  
-
-reescribiendo (33)
-\[\tr\left[\left(B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho \right]=0\]
-Expandiendo $B\otimes A$ en la base de vectores propios de $A\otimes B$ obtenemos que \[B\otimes A=\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|\]
-
-Sustituyendo lo del paréntesis en la linea (37)
+\begin{proof}$(\Rightarrow)$ Supongamos que para todo estado inicial $\rho$ los valores esperados de los instrumentos son iguales.  El valor esperado del primer instrumento es \begin{equation}\label{ExpectedValueI1}\begin{split}
+	\la A\otimes B \ra_{\mathcal{I}_1}& = p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).\\
+\end{split}\end{equation} Y el valor esperado del segundo instrumento es \begin{equation}\label{ExpectedValueI2}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_2}&=p\tr(A\otimes B \rho)+(1-p)\sum_{j,k}\tr((B\otimes A )P_{a_j b_k} )\tr(P_{a_j b_k}\rho).
+    \end{split}
+\end{equation} El primer término del lado derecho de la ecuación {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos de estas ecuaciones, i.e. \begin{equation}\label{equivalencia_terminos}\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado derecho de esta última ecuación: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
+	&=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  reescribiendo la ecuación {\ref{equivalencia_terminos}} 
+	\[\tr(B\otimes A \rho)=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\\ \]
+\begin{equation}\label{trazaCero}\begin{split}
+	\tr\left[\left(B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho \right]=0\\ \end{split}.\end{equation}
+	Al expandir $B\otimes A$ en la base de vectores propios de $A\otimes B$ obtenemos que \[B\otimes A=\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|,\] desarrollando la ecuación {\ref{trazaCero}}   
 \[\begin{split}
-	B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)&=0\\
-\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)&=0\\
-\sum_{j,k\ne j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|&=0\\
-\sum_{j,k\ne j',k'}  \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|&=0\\
+	\tr\left[\left(B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho\right]&=0\\
+\tr\left[\left(\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho\right]&=0\\
+\tr\left[\left(\sum_{j,k\ne j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|\right)\rho\right]&=0\\
+\tr\left[\left(\sum_{j,k\ne j',k'}  \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|\right)\rho\right]&=0.\\
 \end{split}\]
+De la última ecuación, para cualquier estado inicial $\rho$, se obtiene que\footnote[1]{ver lema {\ref{lemma_traza_cero}}.} 
+\[\sum_{j,k\ne j', k'} \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|=\mathbf{0},\] luego por independencia lineal de la base de vectores propios  
+ \[\begin{array}{cc}
+	\langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle=0& \forall j,k\ne j',k'.\end{array}\]
 
-Por lo que podría suceder que \[\begin{array}{cc}
-	\langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle& \forall j,k\ne j',k'\end{array}\]
+	
+
+
 
 
 
@@ -270,17 +279,56 @@ donde $\tr(SQS|0+\rala0+|)=\frac{1}{4}(c_{0+}+c_{0-}+c_{1+}+c_{1-})$
 
 
 $(\Leftarrow)$
-Ahora si suponemos que $B\otimes A=\sum_{i,l}d_{i,l}P_{a_i, b_l}$
+Ahora si suponemos que los coeficientes  $\langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle=0$,  $\forall j,k\ne j',k'$. Entonces el operador $B\otimes A=\sum_{i,l}d_{i,l}P_{a_i, b_l}$ escrito en la base de vectores propios de $A\otimes B$.
 
-\[\begin{split}\sum_{j,k}\tr( \sum_{i,l}d_{i,l}P_{a_i, b_l} P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&=\sum_{j,k}\sum_{i,l}d_{i,l}\delta_{j,k}^{i,l}\tr(P_{a_j b_k}\rho )\\&=\sum_{j,k}d_{j,k}\tr(P_{a_j b_k}\rho )=\tr(B\otimes A\rho)\end{split}.\]
+Finalmente, se obtiene la siguiente igualdad \[\begin{split}\sum_{j,k}\tr( \sum_{i,l}d_{i,l}P_{a_i, b_l} P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&=\sum_{j,k}\sum_{i,l}d_{i,l}\delta_{j,k}^{i,l}\tr(P_{a_j b_k}\rho )\\&=\sum_{j,k}d_{j,k}\tr(P_{a_j b_k}\rho )=\tr(B\otimes A\rho)\end{split}.\]
+
+
+\end{proof}
+
+Se puede probar lo siguiente:
+
+
+\begin{lemma}\label{lemma_traza_cero} Si $\forall\rho$, $\tr(A\rho)=0$, entonces $A=\mathbf{0}$.\end{lemma}\begin{proof} Supongamos por contradicción que $A\ne \mathbf{0}$. Entonces, sea $\rho=|a\rala a|$, con $|a\rangle$ un vector propio ortonormal, de $A$. Luego, al calcular $A|a\rala a|$, tenemos $A|a\rala a|=a|a\rala a|$ entonces, la traza  de $A\rho$ es exactamente $a$, que es distinto de cero.
+Entonces, hemos encontrado una matriz $A$ distinta de cero tal que la traza de $A\rho$ sea distinta de cero. De ello se deduce que $A = \mathbf{0}$ si no existe un $\rho$ distinto de cero. \end{proof}
+
+
+
+
+
+Ahora si se quiere ver que condiciones debería cumplir $\rho$ para que los instrumentos sean equivalentes, se puede proponer algo similar a lo anterior.
+
+\textbf{\textit{Claim 2}}: Para cualquier operador $B\otimes A$ los instrumentos son equivalentes si y solo si todos los coeficientes <<mixtos>> de la matriz $\rho$ en la base de los vectores propios del observable $A\otimes B$ son cero.
+
+La demostración es análoga.
+
+\begin{proof}$(\Rightarrow)$ Supongamos que para todo observable $B\otimes A$ los valores esperados de los instrumentos son iguales. De la proposición anterior se tiene  \begin{equation}\label{equivalencia_terminos_2}\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado derecho de esta última ecuación: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr(\rho P_{a_j,b_k})P_{a_j b_k}B\otimes A ]\\
+	&=\tr\left[\left(\sum_{j,k}\tr(\rho P_{a_j,b_k})P_{a_j b_k}\right)B\otimes A  \right]\end{split}.\]  reescribiendo la ecuación {\ref{equivalencia_terminos_2}} 
+	\[\tr(B\otimes A \rho)=\tr\left[\left(\sum_{j,k}\tr(\rho P_{a_j,b_k})P_{a_j b_k}\right)B\otimes A \right]\\ \]
+\begin{equation}\label{trazaCero2}\begin{split}
+	\tr\left[\left(\rho-\left(\sum_{j,k}\tr(\rho P_{a_j,b_k})P_{a_j b_k}\right)\right)B\otimes A\right]=0\\ \end{split}.\end{equation}
+	Al expandir $\rho$ en la base de vectores propios de $A\otimes B$ obtenemos que \[\rho=\sum_{j,k,j',k'}\tr(\rho |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|,\] desarrollando la ecuación {\ref{trazaCero2}}   
+\[\begin{split}
+	\tr\left[\left(\rho-\left(\sum_{j,k}\tr(\rho P_{a_j,b_k})P_{a_j b_k}\right)\right)B\otimes A\right]&=0\\
+\tr\left[\left(\sum_{j,k,j',k'}\tr(\rho |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|-\left(\sum_{j,k}\tr(\rho P_{a_j,b_k})P_{a_j b_k}\right)\right)B\otimes A\right]&=0\\
+\tr\left[\left(\sum_{j,k\ne j',k'}\tr(\rho |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|\right)B\otimes A \right]&=0\\
+\tr\left[\left(\sum_{j,k\ne j',k'}  \langle a_j b_k |\rho|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|\right)B\otimes A\right]&=0.\\
+\end{split}\]
+De la última ecuación, para cualquier observable $B\otimes A$
+ \[\begin{array}{cc}
+	\langle a_j b_k |\rho|a_{j'}b_{k'}\rangle=0& \forall j,k\ne j',k'.\end{array}\]
+
+	
+$(\Leftarrow)$
+Ahora si suponemos que los coeficientes  $\langle a_j b_k |\rho |a_{j'}b_{k'}\rangle=0$,  $\forall j,k\ne j',k'$. Entonces el operador $\rho =\sum_{i,l}d_{i,l}P_{a_i, b_l}$ escrito en la base de vectores propios de $A\otimes B$.
+
+Finalmente, se obtiene la siguiente igualdad \[\begin{split}\sum_{j,k}\tr( \sum_{i,l}d_{i,l}P_{a_i, b_l} P_{a_j,b_k})\tr(P_{a_j b_k}B\otimes A )&=\sum_{j,k}\sum_{i,l}d_{i,l}\delta_{j,k}^{i,l}\tr(P_{a_j b_k}B\otimes A )\\&=\sum_{j,k}d_{j,k}\tr(P_{a_j b_k}B\otimes A)=\tr(B\otimes A\rho)\end{split}.\]
 
 
 \end{proof}
 
 
-
-
-
+\begin{comment}
 
 Existen otras condiciones mucho más específicas y particulares que cumplen la equivalencia. Una de las que me parece más interesantes e intuitivas después de ver algunos ejemplos numéricos es que $A$ y $B$ sean dos operadores no degenerados y que conmuten puesto que conservarían cierta simetría, puesto que $A\otimes B$ y $B\otimes A$ compartirían el mismo espectro y el mismo conjunto de valores propios con la diferencia que los valores propios no serían asignados de igual forma a los vectores propios.
 
@@ -326,7 +374,6 @@ Al sustituir en la ecuación de valor esperado del segundo instrumento {\ref{Exp
 
 
 
-\begin{comment}
 
 
 \subsubsection{Tercera alternativa}

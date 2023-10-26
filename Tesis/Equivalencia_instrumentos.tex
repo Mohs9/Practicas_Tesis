@@ -233,6 +233,7 @@ De la última ecuación, para cualquier estado inicial $\rho$, se obtiene que\fo
 
 
 
+
 \begin{comment}
 	De ello  \[B\otimes A=\sum_{j,k} \tr((B\otimes A)P_{a_j, b_k})P_{a_j, b_k}=\sum_{j,k}d_{j,k}P_{a_j,b_k},\] notemos que
 \[\begin{split}[A\otimes B, B\otimes A ]&= A\otimes B (B\otimes A)-B\otimes A (A\otimes B)\\
@@ -355,27 +356,6 @@ Al sustituir en la ecuación de valor esperado del segundo instrumento {\ref{Exp
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsubsection{Tercera alternativa}
 Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
@@ -416,5 +396,39 @@ Su valor esperado es:
 
 
 \end{comment}
+\pagebreak
+
+
+
+\textbf{¿En que caso específico} $\mathbf{\tr(B\rho)=0}$ \textbf{para} $\mathbf{B}$ y $\mathbf{\rho}$ \textbf{distintas de cero?}, donde $B$ es una matriz hermítica escrita en la base de un operador $A$ con $0$ en las entradas de la diagonal.  
+
+Sea \[B=\sum_{i\ne j}\tr(B|a_i\rala a_j|)|a_i\rala a_j|=\sum_{i\ne j}b_{i,j}|a_i\rala a_j|,\] y \[\rho =\sum_{i, j}\tr(\rho|a_i\rala a_j|)|a_i\rala a_j|=\sum_{i,j}r_{i,j}|a_i\rala a_j|.\] Luego \[\begin{split}B\rho&=\sum_{i\ne j,k,l}b_{i,j}r_{k,l}|a_i\rala a_l|\delta_{j,k}\\
+	&=\sum_{i\ne j,l}b_{i,j}r_{j,l}|a_i\rala a_l|\\
+\end{split}\]
+Si $\rho$ está en un subespacio de $A$
+
+\[\tr(B\rho)=0=\sum_{i\ne j}b_{i,j}r_{i,j}\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}

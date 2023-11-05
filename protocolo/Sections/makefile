@@ -1,3 +1,0 @@
-../MAIN.pdf ::
-	cd .. && make
-

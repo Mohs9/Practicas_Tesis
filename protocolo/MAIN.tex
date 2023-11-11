@@ -8,6 +8,7 @@
 \addtolength{\topmargin}{-25pt}
 % }}}
 \begin{document}
+\begin{sloppypar}
 % Inserting title page {{{
 
 
@@ -206,9 +207,11 @@ Supervisado por:\\
 
 Estudiar los operadores de Kraus que describan completamente las mediciones
 difusas en un sistema de  $n$ partículas. 
-\cpnote {Me gustaría un objetivo más fisico. Para que estamos estudiando esto?
+\cpnote{Me gustaría un objetivo más fisico. Para que estamos estudiando esto?
 Cual es el objetivo de verdad? Me gustaría que lo pensaras y que si no lo 
 sabes, que lo discutamos. }
+\rrnote{Sí me gustaría discutirlo, porque no creo tenerlo tan claro}
+
 
 
 \section*{Objetivos Específicos}
@@ -234,17 +237,18 @@ sabes, que lo discutamos. }
 % }}}
 \chapter*{Introducción} \addcontentsline{toc}{chapter}{INTRODUCCIÓN} % {{{
 
-El problema de la medición ha jugado un papel muy importante en la física
-cuántica desde su fundación. Ciertamente, se ha logrado avanzar en este
-problema, a través de los años gracias al desarrollo de las técnicas de
-medición y al entendimiento de los procesos de medición en mecánica cuántica
-{\cite{Pineda_2021}} \cpnote{Creo que no es una buena referencia 
+El problema de la medición ha jugado un papel muy importante en la física cuántica desde su fundación. Ciertamente,  se ha logrado avanzar en este problema a través de los años, gracias al desarrollo y al entendimiento de los procesos de medición en mecánica cuántica {\cite{jacobs2014quantum}} \cpnote{Creo que no es una buena referencia 
 para ese comentario. También creo qeu la frase anterior le faltan comas o le 
-sobran palabras}. 
+sobran palabras}.\rrnote{Quite algunas palabras y agregué algunas comas. Cambié la referencia a la que toman en el paper}
+
 
 \cpnote{El salto que das acá está demasiado grande. No contextualizas lo que estaoms
 discutiendo. Croe que para el siguiente documento toca primero plantear un esqueleto 
 y luego ya escribir.}
+
+
+
+
 
 %Debido a que en la naturaleza es posible obtener mediciones imperfectas
 Una descripción completa de una medición debe proporcionar las probabilidades
@@ -256,6 +260,9 @@ existe una posibilidad finita de identificar erróneamente las partículas.
 \cpnote{Me gustaria un poco entender un poco mejor la estructura de esta intro. Creo 
 que puedes ampliar un poco mas los dos primeros parrafos donde hablas un poco del 
 problema y lo contextualizas y leuog dejar los ultimos 4 mas o menos como están}
+
+
+
 
 Para poder abordar el problema es necesario estudiar un marco conceptual
 previo, iniciando por la reformulación de los postulados de la mecánica
@@ -274,13 +281,13 @@ observable, en la cual existe una posibilidad de identificar las partículas
 equivocadamente, es posible describir completamente dicha medición utilizando
 las herramientas mencionadas anteriormente. Estas detecciones imperfectas se
 exponen en la referencia {\cite{Pineda_2021}}. \cpnote{Acá si esta bien puesta 
-la cita. Por cierto, no necesitas dobles llaves para las citas. }
+la cita. Por cierto, no necesitas dobles llaves para las citas.}\rrnote{Solo las pongo para silenciar las advertencias que me da chktex}
+
 
 Se inicia la formulación del problema de las mediciones difusas en el sistema
 más simple posible, un sistema de dos partículas. Primero, se exploran algunos
 conjuntos de operadores de Kraus que describen las mediciones difusas y
-ejemplos numéricos \cpnote{porque dices que numéricos?} de la aplicación de los
-operadores. En este trabajo se
+ejemplos\cpnote{porque dices que numéricos?} \rrnote{quité esa palabra. Era porque en el documento anterior había usado un ejemplo con números específicos} de la aplicación de los operadores. En este trabajo se
 introducen los instrumentos cuánticos, los cuales constituyen una herramienta
 que describe completamente las mediciones. Se evalúa las condiciones en las que
 algunos instrumentos cuánticos son equivalentes para caracterizar las
@@ -293,48 +300,20 @@ exploran las implicaciones de trabajar con observables degenerados en
 mediciones difusas. Finalmente, se proponen algunos ejemplos de operadores de
 Kraus que describen completamente sistemas específicos de varias partículas. 
 
-\begin{comment} % {{{
 
-
-Durante el proyecto de prácticas se trabajó en la descripción completa de las mediciones difusas para el caso en el que el sistema solo cuenta con dos partículas.
-
-La matriz de densidad es una herramienta utilizada para describir al estado de un sistema cuántico que será útil en el desarrollo de todo el trabajo. En el primer capítulo  se presenta la revisión y estudio bibliográfico que se realizó sobre el formalismo de la matriz de densidad en mecánica cuántica. 
-
-
- 
-
- En el tercer capítulo se estudia el formalismo de
-las operaciones cuánticas y su representación como suma de operadores.
-%Adicionalmente se presenta el proceso de tomografía cuántica. 
-% \cpnote{Ver si esta 
-% ultima frase va o no va, ya cuando tengamos mas listo el tercer capitulo}\rrnote{Sí, quité la última frase}
-
-En suma, En especial, la
-representación como suma de operadores de las operaciones cuánticas y los operadores POVM serán de utilidad para la descripción de las mediciones difusas. 
-
-
-%Asimismo se recurre al lenguaje de las operaciones cuánticas y su representación como  suma de operadores. Debido a que la teoría de las operaciones cuánticas propone un formalismo para describir la evolución de los sistemas abiertos de manera discreta {\cite{nielsen_chuang_2010}}. Las operaciones cuánticas son una herramienta que permiten describir la evolución de los sistemas más allá de los ideales. Más aún permite representarla de una manera valiosa como suma de operadores tales que están relacionados con las medidas POVM\@. 
-
-% \cpnote{Estas pasando como por la estructura general del trabajo. Sin embargo no hablas del capitulo 4 sino dos frases en la parte de la estructura. Te propongo que armes un parrafo hablando del 4, y que quizá elimines el siguiente parrafo, indicando en los parrafos anteriores donde va, por ejemplo, lo de los POVMs.} \rrnote{Agregué un último párrafo y la parte donde indicaba la estructura del documento la fui colocando en cada uno de los párrafos. }
-
-
-
-\end{comment} % }}}
-
+}}
 % }}}
-}
 
 \mainmatter{\onehalfspacing{ \linenumbers{} \setlength\linenumbersep{3pt}
 \chapter{METODOLOGÍA}% \addcontentsline{toc}{chapter}{METODOLOGÍA} % {{{
 
 
-La metodología del proyecto de graduación consiste en iniciar \cpnote{No consiste en 
+La metodología del proyecto de graduación se iniciará estudiando \cpnote{No consiste en 
 iniciar, sino que tu arrancaras estudiando los conectos fundamentales. Reformula 
-esta frase.} estudiando los
-conceptos fundamentales. Se estudiará un marco conceptual para abordar el
+esta frase.} \rrnote{Reformulé la frase anterior.}conceptos fundamentales para abordar el
 problema de las mediciones difusas. Se planteará el problema y se explorarán
 los operadores de Kraus para la completa descripción de las mediciones difusas
-para sistemas de dos partículas. Finalmente,se propone establecer los
+para sistemas de dos partículas. Finalmente, se propone establecer los
 operadores de Kraus que describan las mediciones difusas para cualquier
 sistema.
 
@@ -444,5 +423,5 @@ generalización de los operadores de Kraus con cualquier observable.
 \bibliographystyle{ieeetr}
 \bibliography{references}
 }
-
+\end{sloppypar}
 \end{document}

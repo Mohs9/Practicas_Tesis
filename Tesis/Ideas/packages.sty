@@ -141,13 +141,7 @@
 
 
 % --- Page setup ---
-\usepackage[a4paper,
-            bindingoffset=0.5cm,
-            inner=2.7 cm,
-            outer=2.5cm,
-            top=2.5cm,
-            bottom=2.5cm,
-            footskip=14mm]{geometry}
+\usepackage[a4paper, total={170mm, 245mm,footskip = 14mm}]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.8em}
 
@@ -186,7 +180,6 @@
 \usepackage{subcaption}
 \usetikzlibrary{calc,patterns,angles,quotes}
 \usepackage{float}
-\usepackage{lipsum}
 %Definitions=======================================================
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[chapter]
@@ -232,4 +225,4 @@
 
 \titleformat{\chapter}[display]
 {\normalfont\bfseries\centering}{}{0pt}{\LARGE \MakeUppercase }
-%\linenumbers
+\linenumbers

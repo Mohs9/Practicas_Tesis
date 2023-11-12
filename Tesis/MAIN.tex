@@ -1,0 +1,66 @@
+\documentclass[12pt,letterpaper]{book}\raggedbottom{}
+
+
+% Importing document settings from our file "packages.sty"
+\usepackage{packages}
+
+% Beginning of document
+\begin{document}
+\begin{sloppypar}
+
+\setlength{\headheight}{30pt}
+\addtolength{\topmargin}{-25pt}
+\frontmatter{}
+% Inserting title page
+\import{./Sections/}{title}
+\import{./Sections/}{agradecimientos}
+\onehalfspacing{
+\tableofcontents    % Índice general vinculado
+% Inserting list of figures & list of tables
+\newpage
+\listoffigures
+
+\newpage
+\listoftables
+
+\import{./Sections/}{symbol}
+}
+
+% Defining front matter settings 
+
+% Inserting table of contents
+\mainmatter{\onehalfspacing{	% interlineado 1 1/2
+% Defining main matter settings 
+\linenumbers{}
+\setlength\linenumbersep{3pt}
+\import{./Sections/}{Objetivos}
+\import{./Sections/}{Introduction}
+\import{./Sections/}{marcoTeorico}
+\import{./Sections/}{FM2particulas}
+%\import{./Sections/}{Conclusiones}
+}
+
+% Example section added directly into the main-file
+
+
+% Printing bibliography
+\newpage
+
+%otras opciones {plain}
+\nocite{gomez2010introduccion}
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+%\printbibliography[heading = bibintoc, title = Referencias]    % 'bibintoc' inserts our bibliography into the table of contents
+}
+% Inserting appendix with separate settings
+%\addappendix[A]{
+%\import{./Appendices/}{ApendiceI}
+%}
+%\addappendix[B]{
+%\import{./Appendices/}{ApendiceI}
+%}
+% End of document
+
+\end{sloppypar}
+\end{document}

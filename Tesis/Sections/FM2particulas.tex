@@ -1,0 +1,412 @@
+\chapter[MEDICIONES DIFUSAS PARA SISTEMAS DE DOS PARTÍCULAS]{2. MEDICIONES DIFUSAS PARA SISTEMAS DE DOS PARTÍCULAS}
+% Intro {{{
+
+%En el capítulo {\ref{MedidaPOVM}} y en la sección {\ref{Medicion_RepresentacionDeKraus}} se habló sobre medidas POVM y sobre mediciones.
+\section{Introducción}
+ En este capítulo se presentan las mediciones difusas de sistemas cuánticos de
+dos partículas (que puede ser generalizado para más de dos partículas) en las
+que se pueden identificar partículas individuales, sin embargo siempre hay una
+probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se
+exponen en la referencia {\cite{Pineda_2021}}. También se utiliza el lenguaje
+de las operaciones cuánticas por medio de los operadores de Kraus para poder
+describir las mediciones en los sistemas cuánticos de dos partículas.
+
+La estructura de este capítulo es la siguiente. En la segunda sección se establece el problema de las mediciones difusas para un sistema de dos partículas. Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial. Finalmente, en la cuarta sección se presentan algunos ejemplos numéricos de las mediciones y su descripción utilizando los operadores en la tercera sección.
+
+% }}}
+\section{Mediciones difusas para dos partículas} % {{{
+
+Pineda, Davalos, Viviescas y Rosado {\cite{Pineda_2021}}, proponen el siguiente
+ejemplo. <<Una cadena de iones se hace brillar  y se obtiene una señal
+fluorescente. Sin embargo, debido a la imperfecciones del detector, no es
+posible determinar el origen exacto de la señal fluorescente. La
+información obtenida en este caso se vuelve borrosa, pero su cuantificación aún
+es posible>>.
+
+Si se  realiza una  medición en un sistema de muchas partículas, pero no se
+está seguro en cual partícula  fue aplicada esta medición, se obtiene una
+\textit{medición difusa}. En el caso de un sistema de dos partículas, en el cual se
+desea realizar una medición del observable $A\otimes B$, el dispositivo de
+medición confunde las partículas con una probabilidad $(1-p)$, y a veces en su
+lugar realiza la medición de $B\otimes A$. Luego, si $\rho$ es el estado
+inicial del sistema, el valor esperado para la salida de la medición difusa (FM
+por sus siglas en inglés), será 
+\begin{equation}
+    \la A\otimes B\ra_{\mathcal{F}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).
+\end{equation}
+El operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue 
+\begin{equation}\label{operador_difuso}
+    \mathcal{F}(\rho):=p\rho+(1-p)S_{01}\rho S_{01}^\dagger,
+\end{equation}
+donde $S_{ij}$ es la operación de intercambio SWAP con respecto a las
+partículas $i$ y $j$ del estado del sistema {\cite{Pineda_2021}}. Esto puede
+generalizarse para un sistema de $n$ partículas, con un operador de permutación
+$P$.
+
+% }}}
+ \section{Operadores de Kraus para mediciones difusas} % {{{
+
+ Primero se considera un sistema conjunto $\mathcal{H}=\mathcal{H}_1\otimes
+\mathcal{H}_2$, en el que se desea medir el observable $A\otimes B$. Pero el
+aparato de medición confunde las partículas y con una probabilidad $(1-p) $
+realiza la medición del observable $B\otimes A$. 
+%(notar que a veces $[A\otimesB,B\otimes A]\ne 0$) 
+
+   
+
+
+% }}}
+
+\begin{comment}
+\subsubsection{Segunda alternativa} % {{{
+Para la segunda alternativa se realiza una medición ideal en el sistema cuántico y en el sistema clásico ocurre una confusión de los resultados, por ello se aplica el operador difuso al sistema clásico\begin{equation}
+    \begin{split}
+        \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k}[pP_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger]\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k} pP_{a_j,b_k} \otimes P_{a_j,b_k} \rho P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k} pP_{a_j,b_k} \otimes P_{a_j,b_k} \rho P_{a_j,b_k}+(1-p)P_{b_k,a_j}\otimes P_{a_j,b_k} \rho P_{a_j,b_k}.\\
+    \end{split}
+\end{equation} 
+Al aplicarle el operador difuso al sistema clásico se puede notar que aunque el apuntador indique que el resultado medido fuera el estado $|b_k a_j\ra$ es posible que con una probabilidad $(1-p)$, el estado de salida real sea $|a_j b_k\ra$.
+
+
+
+% }}}
+\subsubsection{Tercera alternativa} % {{{
+Para la tercera alternativa se considera un tipo medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
+
+
+Sea $S$ el conjunto de pares ordenados $(j,k)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus respectivos operadores de proyección tienen la característica que  $|a_j b_k \rala a_j b_k|\ne|b_k a_j \rala b_k a_j |$. Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. Entonces se introduce un nuevo operador de proyección \[P^{s}_{a_j,b_k}=|a_j b_k\rala a_j b_k|+|b_k a_j\rala b_k a_j|,\] además los estados $|a_j b_k\rala a_j b_k|$ son ortogonales con $|b_k a_j\rala b_k a_j|$. El operador $P^s_{a_j,b_k}$ se interpreta como la falta de conocimiento si el estado se encuentra en $|a_j b_k\ra$ o en $|b_k a_j\ra$. 
+
+De igual forma, sea $R$ el conjunto de pares ordenados $(i,l)$ de los índices de valores propios tales que su primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus respectivos operadores de proyección tienen la característica que  $|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |$, Los valores que toman $j$ y $k$ pueden ser $0$ o $1$. El operador de proyección asociado a los valores propios indexados por los elementos del conjunto $R$ es \[P^r_{a_i,b_l}=|a_i b_l\rala a_i b_l|=|b_l a_i \rala b_l a_i |.\] Luego, con una probabilidad $q$ el instrumento cuántico es \[\sum_{m,n} P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n},\] con $m,n=1,0$ y con una probabilidad $(1-q)$ es \[\sum_{(i,l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,n_l}+\sum_{(j,k)\in S}P_{a_j b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\]
+
+Si el estado inicial se encuentra en el subespacio de $P^{s}_{a_j,b_k}$, el factor $(1/2)$ en la segunda sumatoria es la probabilidad con la que el sistema clásico indica  que el estado está en $|a_j b_k\ra $ o en $|b_k a_j\ra$. El instrumento es la suma convexa de estos dos posibilidades \begin{equation}
+    \begin{split}
+        \mathcal{I}_3(\rho)&=q\sum_{m,n}  P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n} +(1-q)\sum_{(i,l)\in R} P_{a_i, b_l}\otimes  P^{r}_{a_i,b_l}\rho P^r_{a_i,b_l}\\
+        &+(1-q)\sum_{(j,k)\in S}P_{a_j,b_k} \otimes  \dfrac{1}{2}P^{s}_{a_j,b_k}\rho P^s_{a_j,b_k}.\\
+    \end{split}
+\end{equation}  
+\end{comment}
+% }}}
+% }}}
+\subsection{POVM para mediciones difusas}\label{Sec_POVM_para_mediciones_difusas} % {{{
+
+En el capítulo {\ref{MedidaPOVM}} se habló de las medidas POVM, con ellas puede
+realizarse un mapeo que toma dos argumentos, una salida de medición $\alpha \in
+S $, donde $S$ es el conjunto de todos los posibles resultados de la medición,
+y un estado cuántico. El mapeo es de la forma 
+\begin{equation}\begin{split}
+    E:S\times \mathcal{H}\longrightarrow [0,1]\\
+    E(\alpha,\rho)=\tr(E_\alpha\rho),
+\end{split}\end{equation}
+donde $\mathcal{H}$ es el conjunto de los operadores de densidad. Este mapeo
+que proporciona las medidas POVM es muy útil puesto que para describir
+completamente una medición es necesario tener un mapeo de salidas. Este mapeo
+provee para cualquier estado de entrada una probabilidad de cada posible salida
+de medición. 
+
+
+%Sin embargo, el problema es que también se necesita la descripción del estado posterior a la medición y este no puede ser especificado por una medida POVM\@.
+Si se desea el estado posterior a la medición se requiere información
+más allá de los operadores $E_\alpha$. Es por ello que para describir el efecto
+de la medición difusa en un estado de entrada $\rho$, es conveniente establecer
+un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que
+\begin{equation}\label{descomposicionPOVM}E_\alpha=K_\alpha^\dagger K_\alpha.\end{equation}
+
+Esto se conoce como descomposición del operador de medición. Debido a que
+$E_\alpha$ es un operador positivo se puede asumir que
+$K_\alpha=\sqrt{E_\alpha}$. Claramente la descomposición en operadores de Kraus
+no es única debido a que al multiplicar por la derecha alguna matriz unitaria
+$U$, $UK_{a_j,b_k}$ también será un nuevo operador de Kraus que cumpla con
+definir la misma medida POVM\@. Luego de introducir los operadores de Kraus el
+estado de la medición es posterior a la medición POVM será
+\begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho
+K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
+
+%Las medidas POVM dan información sobre el estado de entrada,
+ En mediciones difusas se tiene una probabilidad $p$ de medir el observable $A\otimes B$ y una probabilidad $(1-p)$ de medir el operador $B\otimes A$ es por ello que se  propone intuitivamente el siguiente conjunto de
+operadores \begin{equation}\{E_{a_j, b_k}\}= \{p
+P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger\},\end{equation} donde $P_{a_j,b_k} =
+|a_j b_k\rala a_j b_k|$ es el operador de proyección dado por los vectores
+propios del observable $A\otimes B$. Para esta medida POVM los operadores de
+Kraus en los que se puede descomponer de forma sencilla, son los siguientes
+\begin{equation}
+K_{a_j, b_k}= \sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}.
+\end{equation}
+
+Esta descomposición en operadores de Kraus no es única, existen infinitas soluciones que verifican la ecuación {\ref{descomposicionPOVM}}.
+Como se mencionó anteriormente, cuando se realiza una medición, lo que pasa con
+el estado exactamente depende en como los POVM son implementados en el laboratorio.
+
+% }}} 
+\begin{comment} \subsection{Otra aproximación} % {{{
+    Ahora, considerando una medida proyectiva, supóngase que el observable es no degenerado y la salida de la medición sobre el estado inicial $\rho $ fue el valor propio $a_j b_k$ con $j,k=0,1$ y el operador de proyección será $P_{a_j,b_k}$. Luego, el estado después de la medición será \begin{equation}
+       \begin{split}
+           \rho'&= p\dfrac{ P_{a_j,b_k}\rho P_{a_j,b_k}}{\tr(\rho P_{a_j,b_k})}+ (1-p)\dfrac{S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k} S^\dagger SP_{a_j,b_k})}\\
+           &=\dfrac{p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p) S P_{a_j,b_k}\rho P_{a_j,b_k}S^\dagger}{\tr(\rho P_{a_j,b_k})},
+       \end{split}
+    \end{equation} donde $S$ es el operador SWAP\@. En consecuencia, los operadores de Kraus que describen el efecto de la medición para una medida selectiva serán $\{\sqrt{p}P_{a_j,b_k}, (\sqrt{1-p})S P_{a_j,b_k}\}$, con $j,k=0,1$. Este mapeo contempla la forma de la operaciones cuánticas normalizadas $\E(\rho)/\tr(\E(\rho))$. Para esta aproximación se realizó un  programa que mapea un operador de estado inicial a un estado final después de una medición difusa, que se describe con esta aproximación con la que se pueden obtener varios ejemplos. El programa se puede obtener en el repositorio \href{https://github.com/Mohs9/Practicas_Tesis/blob/d751cf4a3b187f124057c927433b29aa6d918ef1/InformeFinal/Code/FuzzyMeasure.nb}{\textit{al presionar este texto.}}
+\end{comment}
+    
+
+
+% }}}
+% }}}
+
+
+\subsection{Otras aproximaciones utilizando instrumento cuánticos} % {{{
+
+Una forma útil de aproximarse a describir completamente las mediciones difusas
+es considerar una herramienta conocida como \textit{instrumento cuántico}, el
+cual es un mapeo que toma un operador de entrada y tiene como salida un
+ensamble que correlaciona un sistema clásico que contiene la salida de la
+medición y un sistema cuántico que contiene el estado posterior a la medición. Esto es muy útil debido a que es una forma resumida
+de describir completamente la medición difusa y no es necesario considerar
+mediciones selectivas. 
+
+
+Las salidas de la medición se registran en un sistema clásico $\{|\alpha\rala
+\alpha |\}$ modelados como un conjunto ortonormal de operadores de proyección.
+Además $\{\E_\alpha(\rho)\}$ es un conjunto de operaciones cuánticas. Para
+describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán
+usados para describir  el estado posterior a la medición condicionados por la
+salida clásica de la medición $\alpha$. El instrumento cuántico se define
+como
+\begin{equation}
+    \mathcal{I}(\rho)\equiv\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho),
+\end{equation}
+donde el sistema clásico servirá como un apuntador que registra un resultado
+$\alpha$ e indica que operador actuó en el estado inicial.
+
+
+
+Para obtener la salida de la medición y su respectiva probabilidad se puede
+realizar la traza parcial sobre el sistema cuántico \begin{equation}
+    \begin{split}
+        \tr_Q(\mathcal{I}(\rho))&=\tr_Q(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
+        &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)).
+    \end{split}
+\end{equation}
+
+El mapeo completamente positivo y que preserva la traza para una medida no selectiva se obtiene al trazar parcialmente sobre el sistema clásico o también llamado apuntador\begin{equation}
+    \begin{split}
+        \tr_C(\mathcal{I}(\rho))&=\tr_C(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
+        &=\sum_\alpha \tr(|\alpha\rala\alpha|)\E_\alpha(\rho).
+    \end{split}
+\end{equation}
+
+Las mediciones difusas se pueden entender utilizando el siguiente instrumento cuántico. 
+
+
+
+%\subsubsection{Primera alternativa} % {{{
+El instrumento cuántico a considerar es aplicar el operador difuso definido en la ecuación {\ref{operador_difuso}} al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}
+    \begin{split}
+        \mathcal{I}_F(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}(\rho) P_{a_j,b_k}\\
+        &=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}],
+\end{split}
+\end{equation}
+
+donde $j,k=0,1$ y $P_{a_j,b_k}=|a_j b_k\rala a_j b_k|$ con $a_j$ y $b_k$ son los valores propios de los operadores $A$ y $B$ respectivamente.
+
+Notar que el sistema clásico indica la salida de la medición y este siempre indica el estado de salida correctamente.
+
+
+\section{Ejemplos sobre los efectos de una medición difusa} % {{{
+
+En esta sección se explorarán un ejemplo numérico, con un operador particular y utilizando la medida POVM propuesta en la sección {\ref{Sec_POVM_para_mediciones_difusas}} y el instrumento cuántico propuesto en la sección anterior.
+
+
+Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propios: \[\{|00\ra, |01\ra, |10\ra, |11\ra\}.\] Sea $\rho $ el estado inicial\[\rho={\begin{pmatrix}6/8&0&0 &1/8\\0&2/8&0 &0\\0 &0 &1/8 &0 \\1/8&0&0&1/8\\\end{pmatrix}}.\]
+
+La medida POVM planteada es simplemente \[\{E_{a_j, b_k}\}= \{P_{00},p P_{01}+(1-p)P_{10},p P_{10}+(1-p)P_{01},P_{11}\}.\] 
+
+Una descomposición de estos operadores por tanto son las siguientes
+\begin{equation}
+    \begin{split}
+        K_{a_0,b_0}&=\sqrt{P_{00}}=P_{00}\\
+        K_{a_0,b_1}&=\sqrt{p P_{01}+(1-p)P_{10}}=\sqrt{p}P_{01}+\sqrt{1-p}P_{10}\\
+        K_{a_1,b_0}&=\sqrt{p P_{10}+(1-p)P_{01}}=\sqrt{p}P_{10}+\sqrt{1-p}P_{01}\\
+        K_{a_1,b_1}&=\sqrt{P_{11}}=P_{11}.\\
+\end{split}
+\end{equation} 
+
+Para una medida en la que se obtiene una salida determinada $a_j,b_k$, el canal que representa la medición difusa será \[\E_{a_j,b_k}(\rho)=K_{a_j,b_k}\rho K_{a_j,b_k}^\dagger.\] En el caso que la salida sea $a_0,b_1$, el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $|01\rala 01|$ y con una probabilidad $(1-p)$, en el espacio propio de $|10\rala10|$
+\[\E_{a_0,b_1}(\rho)=K_{a_0,b_1}\rho K_{a_0,b_1}^\dagger=\begin{bmatrix}
+    0&0&0&0\\
+    0&p/4&0&0\\
+    0&0&(1-p)/8&0\\
+    0&p&0&0\\
+\end{bmatrix},\]
+para una medida no selectiva, la operación cuántica estará descrita por estos operadores de Kraus \[
+\begin{split}
+    \mathcal{E}(\rho)&=  P_{00}\rho P_{00}+(\sqrt{p}P_{10}+\sqrt{1-p}P_{01})\rho(\sqrt{p}P_{10}+\sqrt{1-p}P_{01})\\
+    &+ (\sqrt{p}P_{01}+\sqrt{1-p}P_{10})\rho (\sqrt{p} P_{01}+\sqrt{1-p}P_{10})+P_{11}\rho P_{11}.\\
+\end{split}
+\]
+
+
+Continuando con el ejemplo del observable $\sigma_z \otimes \sigma_z$ y la aproximación del instrumento cuántico se tiene que,
+\begin{equation}\label{primer_alternativa_ejemplo}
+    \begin{split}
+        \mathcal{I}_F(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
+        &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
+        &+P_{01} \otimes P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
+        &+P_{10} \otimes P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
+        &=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}+P_{01} \otimes P_{01}[2p/8 +(1-p)/8]\\
+        &+P_{10} \otimes P_{10}[p/8+2(1-p)/8].\\
+    \end{split}
+\end{equation}
+
+
+Al realizar la traza parcial sobre le sistema cuántico se obtendrá su respectivo mapeo de probabilidades, \begin{equation}\label{traza_S1_ejemplo1}
+    \begin{split}
+        \tr_Q(\mathcal{I}_F(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
+        &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
+        &=(6/8)P_{00} + (1/8)P_{11}\\
+        &+{\color{blue}[2p/8 +(1-p)/8]P_{01}}+ {\color{red}[p/8+2(1-p)/8]P_{10}}.\\
+    \end{split}
+\end{equation}
+
+Al realizar la traza parcial sobre el sistema apuntador o clásico se obtiene el efecto de la medición, \begin{equation}\label{traza_A1_ejemplo1}
+    \begin{split}
+        \tr_C(\mathcal{I}_F(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}\\
+        &+p P_{01}\rho P_{01}+(1-p) |01\rala 10|\rho|10\rala01|\\
+        &+p P_{10}\rho P_{10}+(1-p) |10\rala 01|\rho|01\rala10|\\
+        &=(6/8)P_{00} + (1/8)P_{11}\\
+        &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}.\\
+    \end{split}
+\end{equation}
+\begin{comment} % {{{ Segunda alternativa
+Para la segunda alternativa se procede de forma parecida sin embargo el efecto de la medición es diferente, \begin{equation}\label{segunda_alternativa_ejemplo1}
+    \begin{split}
+        \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
+        &+P_{01} \otimes [pP_{01} \la 01|\rho|01\ra+(1-p)P_{10}\la 10|\rho|10\ra]\\
+        &+P_{10} \otimes [p P_{10}\la 10|\rho|10\ra+(1-p)P_{01}\la 01|\rho|01\ra]\\
+        &=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}\\
+        &+   P_{01} \otimes [2p/8P_{01} +(1-p)/8P_{10}]+P_{10} \otimes[p/8 P_{10}+2(1-p)/8 P_{01}].\\
+    \end{split}
+\end{equation}
+
+
+De nuevo, al realizar la traza parcial sobre le sistema cuántico se obtendrá la probabilidad de cada una de las salidas posibles \begin{equation}\label{traza_S2_ejemplo1}
+    \begin{split}
+        \tr_Q(\mathcal{I}_2(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        &+P_{01}[p \la 01|\rho|01\ra+(1-p)\la 10|\rho|10\ra]\\
+        &+P_{10}[p \la 10|\rho|10\ra+(1-p)\la 01|\rho|01\ra]\\
+        &=(6/8)P_{00} + (1/8)P_{11}\\
+        &+[2p/8 +(1-p)/8]P_{01}+ [p/8+2(1-p)/8]P_{10}.\\
+    \end{split}
+\end{equation}
+
+Luego al realizar la traza parcial sobre el sistema apuntador  o clásico se obtiene el efecto de la medición sobre el estado de entrada,
+\begin{equation}\label{traza_A2_ejemplo1}
+    \begin{split}
+        \tr_C(\mathcal{I}_2(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+ P_{10}\rho P_{10}\\
+        &=(6/8)P_{00} + (1/8)P_{11}+(2/8)P_{01} + (1/8)P_{10}.\\
+    \end{split}
+\end{equation}
+\end{comment} 
+% }}}
+
+
+\begin{comment} % {{{ Tercera alternativa
+Para la tercera alternativa tanto el efecto de la medición como el mapeo de las probabilidades es distinto al de las otras dos alternativas.% Primero hay que notar que para este caso $P'_{00}=2P_{00}$,$P'_{11}= 2P_{11}$ y $P'_{10}=P'_{01}
+\begin{equation}\label{tercera_alternativa_ejemplo1}
+    \begin{split}
+        \mathcal{I}_3(\rho)&=\sum_{m,n} q [P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n}]+(1-q)[P_{a_0,b_0}\otimes P_{a_0,b_0}\rho P_{a_0,b_0}+P_{a_1,b_1}\otimes P_{a_1,b_1} \rho P_{a_1,b_1}\\
+        &+ P_{a_0,b_1} \otimes \frac{1}{2} P^{s}_{a_0,b_1}\rho P^s_{a_0,b_1}+ P_{a_1,b_0} \otimes \frac{1}{2} P^{s}_{a_1,b_0}\rho P^s_{a_1,b_0}]\\
+        &=P_{00}\otimes P_{00}\rho P_{00} + P_{11}\otimes P_{11} \rho P_{11}\\
+        &+P_{01} \otimes qP_{01}\rho P_{01} +P_{10}\otimes q P_{10}\rho P_{10} \\
+        &+P_{01} \otimes \frac{1-q}{2}P^s_{01}\rho P^s_{01}+P_{10}\otimes \frac{1-q}{2}P^s_{10}\rho P^s_{10}\\
+        &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
+        &+P_{01} \otimes \left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P^s_{01}\rho P^s_{01}\right] \\
+        &+P_{10}\otimes \left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P^s_{10}\rho P^s_{10}\right].\\
+        %&=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}\\
+        %&+   P_{01} \otimes [2p/8P_{01} +(1-p)/8P_{10}]+P_{10} \otimes[p/8 P_{10}+2(1-p)/8 P_{01}].\\
+    \end{split}
+\end{equation}
+
+Ahora, al realizar la traza parcial sobre le sistema cuántico se obtiene lo siguiente
+\begin{equation}\label{traza_S3_ejemplo1}
+    \begin{split}
+        \tr_Q(\mathcal{I}_3(\rho)) 
+        &=P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        &+P_{01}  \left[q \la 01|\rho| 01\ra+ \frac{(1-q)}{2} (\la 01|\rho |01\ra +\la 10 |\rho |10\ra)\right] \\
+        &+P_{10}  \left[q \la 10|\rho| 10\ra+ \frac{(1-q)}{2} (\la 01|\rho| 01\ra +\la 10 |\rho |10\ra)\right] \\
+        &=P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra\\
+        &+P_{01}  \left[\frac{1+q}{2}\la 01|\rho| 01\ra+ \frac{(1-q)}{2} \la 10 |\rho |10\ra\right] \\
+        &+P_{10}  \left[\frac{1+q}{2}\la 10|\rho| 10\ra+ \frac{(1-q)}{2} \la 01 |\rho |01\ra\right] \\
+        &=(6/8)P_{00} + (1/8)P_{11}\\
+        &+  \left[(1+q)/8+ (1-q)/16\right] P_{01}+  \left[(1+q)/(16)+ (1-q)/8 \right] P_{10}.\\
+    \end{split}
+\end{equation}
+
+Esta traza parcial será igual a la ecuación {\ref{traza_S1_ejemplo1}} y {\ref{traza_S2_ejemplo1}}, solo cuando $q=2p-1$ y $1/2<p<1$. En caso contrario las ecuaciones no son equivalentes. 
+
+Finalmente el efecto que realiza esta medición en el estado entrada se calcula con la traza parcial sobre el sistema clásico \begin{equation}\label{traza_A3_ejemplo1}
+    \begin{split}
+        \tr_C(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}\\
+        &+\left[qP_{01}\rho P_{01}+ \frac{(1-q)}{2} P^s_{01}\rho P^s_{01}\right] \\
+        &+\left[qP_{10}\rho P_{10}+ \frac{(1-q)}{2} P^s_{10}\rho P^s_{10}\right]\\
+        &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]+{(1-q)} P^s_{10}\rho P^s_{10}.\\
+    \end{split}
+\end{equation}
+
+\begin{equation}\label{traza_A3_ejemplo1.1}
+    \begin{split}
+        \tr_C(\mathcal{I}_3(\rho)) &=P_{00} \rho P_{00} + P_{11} \rho P_{01}+q\left[P_{01}\rho P_{01}+ P_{10}\rho P_{10}\right]\\
+        &+{(1-q)} (|10\rala10|+|01\rala01|)\rho (|10\rala10|+|01\rala01|).\\
+    \end{split}
+\end{equation}
+\end{comment}
+ % }}}
+
+Ahora comparando estos resultados con una medida proyectiva ideal se puede obtener la diferencia entre realizar medida difusa y una ideal. Para una media proyectiva ideal, el instrumento cuántico para este ejemplo en específico estará dado por: \begin{equation}\label{proyectiva_ideal_ejemplo}
+    \begin{split}
+        \mathcal{I}_P(\rho)&=\sum_{a_j,b_k}P_{a_j,b_k}\otimes[P_{a_j,b_k}\rho P_{a_j,b_k}]\\
+        &=P_{00}\otimes P_{00} \la 00|\rho|00\ra + P_{11}\otimes P_{11} \la 11|\rho|11\ra\\
+        &+P_{01} \otimes P_{01}\la 01|\rho|01\ra +P_{10} \otimes P_{10} \la 10|\rho|10\ra\\
+        &=P_{00}\otimes (6/8)P_{00} + P_{11}\otimes (1/8)P_{11}+P_{01} \otimes (2/8)P_{01} +P_{10} \otimes (1/8)P_{10}.\\
+    \end{split}
+\end{equation}
+
+
+Al aplicarle la traza parcial al sistema cuántico se obtiene, el mapeo de probabilidades \begin{equation}\label{traza_SP_ejemplo1}
+    \begin{split}
+        \tr_Q(\mathcal{I}_P(\rho)) &= P_{00} \la 00|\rho|00\ra + P_{11} \la 11|\rho|11\ra+P_{01}\la 01|\rho|01\ra +P_{10} \la 10|\rho|10\ra\\
+        &=(6/8)P_{00} + (1/8)P_{11}+{\color{blue}(2/8)P_{01}} + {\color{red}(1/8)P_{10}}.\\
+    \end{split}
+\end{equation}
+
+Al realizar la traza parcial sobre el sistema clásico de la medición ideal se obtiene el efecto de la medición,\begin{equation}\label{traza_AP_ejemploP}\begin{split}
+       \tr_C(\mathcal{I}_P(\rho)) &= P_{00} \rho P_{00} + P_{11}\rho P_{11}+ P_{01}\rho P_{01}+P_{10}\rho P_{10}\\
+      &=(6/8)P_{00} + (1/8)P_{11}+(2/8) P_{01}+ (1/8)P_{10}.\\
+ \end{split}
+\end{equation}
+Notar que al obtener la traza parcial sobre el sistema cuántico se obtiene el
+mapeo de probabilidades para ambos instrumentos, el cual da la probabilidad de
+cada posible resultado de la medición para el estado cuántico de entrada. En la
+ecuación {\ref{traza_S1_ejemplo1}}  y {\ref{traza_SP_ejemplo1}} en la ecuación
+se resaltó con color azul y rojo la parte que difiere del mapeo de
+probabilidades de los instrumentos. Los términos en azul de la ecuación
+{\ref{traza_S1_ejemplo1}} y de la ecuación {\ref{traza_SP_ejemplo1}}, para
+$0<p<1$, indican que las probabilidades de obtener el resultado correspondiente
+$P_{01}$ es menor en la medición difusa que en la medición proyectiva y los
+términos en rojos de la ecuaciones, indican que la probabilidad de obtener el
+resultado correspondiente al estado $P_{10}$ es mayor que en la medición
+ideal. Las probabilidades de los términos en negro permanecen igual en ambas
+ecuaciones.  Se puede ver que al realizar una medición difusa las
+probabilidades de las posibles salidas varían con una medición proyectiva y
+esto es debido al intercambio de partículas en el sistema. 
+
+
+%El efecto de la medición no selectiva dado por las ecuaciones {\ref{traza_A1_ejemplo1}} y {\ref{traza_AP_ejemploP}} también difiere debido a los estados $P_{01}$ y $P_{10}$ que obtuvieron una probabilidad distinta. 
+
+
+%Físicamente este canal describe la medición difusa.
+% }}}
+
+

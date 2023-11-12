@@ -1,0 +1,1153 @@
+\chapter[MARCO TEÓRICO]{1. MARCO TEÓRICO}
+\section{Introducción}\label{IntroduccionMarcoteorico}
+
+Para estudiar la completa descripción de las mediciones difusas para sistemas de varias partículas primero será indispensable examinar el formalismo de algunas herramientas tales como el operador densidad, las medidas POVM y las operaciones cuánticas. El operador de densidad también conocido como <<matriz de densidad>> describe el estado cuántico de un sistema físico y generaliza los vectores de estado, puesto que éstos pueden representar estados mixtos. Este operador contiene todas las propiedades estadísticas de un sistema cuántico, incluso cuando no es posible describir el sistema mediante un estado puro. Por otro lado, las medidas POVM son apropiadas debido a que los sistemas cuánticos reales presentan ruido o perturbaciones con el ambiente y estas medidas tienen en cuenta la interacción del sistema con el entorno y son especialmente útiles porque pueden proporcionar las estadísticas de medición. La teoría de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y considera que los estados cuánticos evolucionan de forma discreta.  
+
+En la primera sección de este capítulo, se presentan la definición y las propiedades del operador de densidad y se reformulan los postulados de la mecánica cuántica utilizando este operador. Además se expone el operador de densidad reducido, una de las aplicaciones más importantes del operador de densidad. En la segunda sección, se hablará de un caso particular de las mediciones, las mediciones proyectivas, así como se discutirá acerca de los operadores POVM\@. Finalmente, en la tercera sección se aborda el formalismo de las operaciones cuánticas que permitirá familiarizarse con la teoría básica de las mismas e involucra a los operadores conocidos como operadores de Kraus. Asimismo se presenta un teorema importante sobre la libertad unitaria en la representación de suma de operadores para una operación cuántica.
+
+
+
+
+\section{Operador de densidad}\label{OpDensidad}
+
+%\subsection{Definición y motivación  del operador de densidad} % {{{
+El lenguaje de los operadores de densidad proporciona un  medio conveniente
+para describir los sistemas cuánticos, tales que su estado no es completamente
+conocido. Al considerar un sistema cuántico que se encuentra en alguno de los
+estados $|\psi_j \rangle $ con probabilidad $p_j$. El conjunto de todos los
+posibles estados conforman un ensamble de estados puros del sistema, con lo
+cual se puede enunciar la siguiente definición. 
+
+\begin{definition}[\textbf{Operador de densidad}] El operador de densidad
+$\rho$ correspondiente al ensamble de estados puros $\{p_j,|\psi_j \rangle \}$
+es definido como {\cite{wilde2011classical}}
+  	\begin{equation}{\label{defdensityoperator}}
+  		\rho=\sum_{j}p_j|\psi_j\rangle \langle \psi_j|.
+  	\end{equation}
+\end{definition}
+A menudo se utiliza el término matriz de densidad para referirse al operador de
+densidad, en la práctica estos dos términos se utilizan indistintamente. Esta
+formulación, es equivalente a la aproximación del vector de estado, sin embargo
+a veces es mucho más fácil acercarse a problemas desde este nuevo punto de
+vista.
+ 
+Considérese una medición en un ensamble, de algún observable $\mathcal{O}$. Una
+pregunta importante sería, ¿cuál es el valor promedio de $\mathcal{O}$ cuando
+se reproduce un número muy grande de mediciones? La respuesta está dada por el
+promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por
+{\cite{sakurai2017modern}} \begin{equation}
+ 	\label{expectationvalue}
+ 	 \begin{split}
+ 		\langle \mathcal{O} \rangle &= \sum_{i}p_i \langle\psi_i|\mathcal{O}|\psi_i\rangle\\
+ 		&=\sum_i\sum_{j}\sum_k \langle\psi_i||\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle \langle \phi_k||\psi_i\rangle\\
+ 		&=\sum_{j}\sum_k \left(\sum_{i} p_i \langle \phi_k|\psi_i\rangle  \langle\psi_i|\phi_j\rangle\right) \langle \phi_j|\mathcal{O}|\phi_k\rangle, 
+ 	\end{split}
+\end{equation} donde $\{|\phi_j\rangle \}$ es una base más general del espacio de Hilbert del sistema. La última línea en la ecuación {\ref{expectationvalue}} es una
+motivación para  definir el operador de densidad  en la forma de la ecuación
+{\ref{defdensityoperator}}. El operador de densidad contiene toda la
+información físicamente importante que se puede obtener acerca del ensamble
+{\cite{sakurai2017modern}}\begin{equation}
+ 	\label{expectationvalue_traza}
+ 	\begin{split}
+ 		\langle \mathcal{O} \rangle &=\sum_{j}\sum_k \langle \phi_k|\rho|\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle\\
+ 		&= \rm{tr}(\rho \mathcal{O}).
+ 	\end{split}
+\end{equation}
+
+Además las mediciones se pueden describir fácilmente utilizando matrices de densidad. Si se realiza una medición descrita por lo operadores $M_m$ y con un estado inicial $|\psi_i\rangle$, luego la probabilidad de obtener el resultado $m$, dado el estado $i$ es $p(m|i)=\langle \psi_i|M_m^{\dagger}M_m|\psi_i\rangle = \tr(M_m^{\dagger} M_m |\psi_i\rangle \langle\psi_i|)$. Por la ley de probabilidad total,
+%\footnote{Si  $X$ y $Y$ son dos variables aleatorias, entonces las probabilidades para $Y $ pueden expresarse en términos de las probabilidades para $X$, y las probabilidades condicionales para $ Y$ dada $X$, \[p(y) =\sum_x p(y|x)p(x),\]  donde la suma sobre los valores de $x$ que $X$ puede tomar {\cite{nielsen_chuang_2010}}.}
+ la probabilidad de
+obtener un resultado $m$ es {\cite{nielsen_chuang_2010}}
+\begin{equation}
+	\label{probabilidad_m}
+	\begin{split}
+	p(m) &= \sum_{i}p(m|i)p_i\\
+	&=\sum_i p_i\tr(M_m^{\dagger} M_m |\psi_i\rangle \langle\psi_i|)\\
+	&=\sum_{i}\tr(M_m^{\dagger} M_m \rho)
+	\end{split}
+\end{equation} y el estado después de la medición será $|\psi_i^m\rangle=\frac{M_m|\psi_i\rangle}{\sqrt{\langle\psi_j|M_m^{\dagger}M_m|\psi_i\rangle}}$, por lo que el operador de densidad correspondiente al ensamble de estados $|\psi_i^m\rangle$ con probabilidades $p(i|m)$ estará dado por \[\rho_m=\sum_i p(i|m)\frac{M_m|\psi_i\rangle \langle \psi_i|M^{\dagger}}{\langle\psi_j|M_m^{\dagger}M_m|\psi_i\rangle}.\] Utilizando el teorema de Bayes, para $p(i|m)=\frac{p(m|i)p_i}{p_m}$ se obtiene finalmente que el operador de densidad $\rho_m$ es {\cite{nielsen_chuang_2010}} \begin{equation}
+	\rho_m=\sum_i p_i \dfrac{M_m|\psi_i\rangle \langle \psi_i|M_m^{\dagger}}{\tr(M^{\dagger}_m M_m \rho )}=\dfrac{M_m \rho M_m^{\dagger}}{\tr (M^{\dagger}_m M_m\rho )}.
+\end{equation}
+
+
+Ahora si por alguna razón, el registro de la medición se pierde. Se tendría un sistema cuántico en el estado $\rho_m$ con probabilidad $p(m)$, pero ya no se conocería el valor real de $m$. El estado del sistema cuántico estaría descrito por el operador densidad siguiente \begin{equation}
+	\rho'=\sum_m p(m)\rho_m=\tr(M^{\dagger}_m M_m\rho )\dfrac{M_m\rho M_m^{\dagger}}{\tr (M^{\dagger}_m M_m \rho )}=M_m\rho M_m^{\dagger}.
+\end{equation}
+
+
+Supóngase que la evolución de un sistema cerrado es descrito por el operador $U$. Si el sistema inicial se encuentra en el estado $|\psi_i\rangle$ con probabilidad $p_i$ luego de la evolución, el sistema se encontrará en el estado $U|\psi_i\rangle$ con probabilidad $p_i$. Luego, la evolución del operador de densidad está descrita por {\cite{nielsen_chuang_2010}}\[\rho=\sum_{i}p_i|\psi_i\rangle \langle \psi_i|\xrightarrow{U}\rho'=\sum_{i}Up_i|\psi_i\rangle \langle \psi_i|U^{\dagger}=U\rho U^{\dagger}.\]
+
+
+Hasta el momento se puede ver con estas motivaciones que los postulados básicos de la mecánica cuántica relacionados con la medición y la evolución unitaria pueden ser reformulados en el lenguaje de los operadores de densidad. En la siguiente sección se profundiza esta reformulación de los postulados.
+
+
+% }}}
+\subsection{Propiedades del operador de densidad}\label{postulates} % {{{
+
+En esta sección se desarrolla algunas de las características y propiedades de
+los operadores de densidad. Asimismo se presenta la formulación de los
+postulados de la mecánica cuántica. 
+
+Para iniciar se enuncia la siguiente proposición y el siguiente teorema. 
+
+\begin{proposition}El operador de densidad es un operador hermítico.
+	
+\end{proposition}
+
+
+\begin{proof}
+	\begin{equation}
+		\begin{split}
+			\rho^\dagger&={\left(\sum_{i} p_i|\psi_i\rangle \langle \psi_i|\right)}^{\dagger}\\
+			&=\sum_{i} p_i {\left(|\psi_i\rangle \langle\psi_i|\right)}^{\dagger}\\
+			&=\sum_{i} p_i |\psi_i\rangle \langle\psi_i|\\
+			&=\rho.
+		\end{split}
+	\end{equation}
+	
+\end{proof}
+
+De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}}:\begin{theorem}[\textbf{Caracterización del operador de densidad}] Un operador $\rho$ es un operador de densidad, asociado a algún ensamble $\{p_i, |\psi_i\rangle\}$ si y solo si este satisface las siguientes condiciones:
+\begin{enumerate}
+	\item $\rho$ tiene una traza igual a uno.
+	\item $\rho $ es un operador \textit{positivo semidefinido}.
+\end{enumerate}	
+\end{theorem}
+
+
+Ahora se procede a demostrar formalmente este teorema.
+
+
+\begin{proof}
+	Primero se supondrá que $\rho $ es un operador de densidad por lo que debe cumplir con la definición {\ref{defdensityoperator}}, al computar la traza se obtiene que \begin{equation*}
+		\begin{split}
+			{\rm tr(\rho)}&=\tr\left(\sum_{i} p_i|\psi_i\rangle \langle \psi_i|\right) \\
+			&=	\sum_{i}p_i \tr(|\psi_i\rangle \langle \psi_i|)\\
+			&=\sum_{i}p_i \sum_j\langle \psi_j|\psi_i\rangle \langle \psi_i|\psi_j\rangle\\
+			&=\sum_{i}\sum_j p_i \delta_{ij} \delta_{ij}\\
+			&=\sum_i p_i=1.\\
+		\end{split}
+	\end{equation*}
+
+Ahora para la segunda condición, se toma un vector de estado arbitrario $|\varphi \rangle$ \begin{equation*}
+	\begin{split}
+	\langle \varphi |	\rho|\varphi \rangle&=\sum_{i}p_i\langle \varphi |\psi_i\rangle \langle \psi_i|\varphi \rangle \\
+	&=\sum_{i}p_i| \langle \psi_i|\varphi \rangle|^2 \ge 0.\\
+	\end{split}
+\end{equation*}
+La desigualdad se sigue porque cada $p_i$ es una probabilidad y por lo tanto no es negativa. Por la definición de operadores positivos semidefinidos, $\rho$ cumple la segunda condición.
+
+
+Ahora se debe mostrar el converso del enunciado anterior. Suponiendo $\rho$ es un operador que cumple las dos condiciones, entonces se debe demostrar que es un operador de densidad.
+
+Dado que $\rho$ es un operador positivo semidefinido entonces tiene una descomposición espectral dada por la siguiente ecuación {\cite{nielsen_chuang_2010}} \[\rho=\sum_i \lambda_i |i\rangle \langle i|,\] con $|i\rangle$ vectores ortogonales y $\lambda_i$ son valores propios reales no negativos, de la matriz $\rho$. Además satisface que la traza es uno 
+\[\tr(\rho)=1=\sum_i\lambda_i.\]
+
+Luego, un sistema estado $|i\rangle$ con una probabilidad $\lambda_i$ tendrá un operador asociado $\rho$. Esto significa que, el ensamble $\{\lambda_i, |i\rangle\}$  corresponde al operador $\rho$ que cumple con {\ref{defdensityoperator}}.
+
+
+\end{proof}
+
+
+
+Este teorema  permite obtener una definición equivalente del operador de densidad y con ello es posible reformular los postulados de la mecánica cuántica utilizando este operador. Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan la siguiente reformulación.
+
+
+\setlength{\leftskip}{1cm}
+
+ \textbf{Postulado 1:} Cualquier sistema físico tiene asociado un espacio de Hilbert $\mathcal{H}$, conocido como el \textit{espacio de estado} del sistema. El sistema está completamente descrito por su \textit{operador de densidad}, el cual es un operador $\rho$ positivo semidefinido con traza uno, actuando en el espacio de estado del sistema. Si un sistema cuántico está en el estado $\rho_i$ con una probabilidad $p_i$, entonces el operador de densidad para el sistema es $\sum_{i}p_i\rho_i$.
+
+
+\textbf{Postulado 2:} La evolución de un sistema cuántico cerrado está descrita por una \textit{transformación unitaria}. Esto es, el estado $\rho$ del sistema en el tiempo $t_1$ está relacionado con el estado $\rho'$ del sistema en el tiempo $t_2$ por un operador unitario $U$ que depende solamente de $t_1$ y $t_2$, \begin{equation}\label{postulado 2}
+\rho'=U\rho U^{\dagger}.
+\end{equation}
+
+
+\textbf{Postulado 3:} Las mediciones cuánticas están descritas por una colección $\{M_m\}$ de \textit{operadores de medición}. Estos operadores actúan en el espacio de estado del sistema que se está midiendo. El índice $m$ se refiere a las salidas de la medición que pueden ocurrir en el experimento. Si el estado del sistema cuántico es $\rho$ inmediatamente antes de la medición, luego la probabilidad de obtener el resultado $m$ está dada por \begin{equation}\label{probaility3postulate}
+	p(m)=\tr(M^\dagger M \rho)
+\end{equation} y el estado del sistema después de la medición es  \begin{equation}\label{state3postulate}
+	\rho_m'=\dfrac{M_m\rho M_m^\dagger}{\tr(M_m^\dagger M_m \rho)}.
+\end{equation}
+
+Los operadores de medición satisfacen la relación de completitud \begin{equation}\label{completitud3postulate}
+	  	\sum_m M_m^\dagger M_m=\mathds{1}.
+\end{equation}
+
+\textbf{Postulado 4:} El espacio de Hilbert de un sistema físico compuesto es el producto tensorial de los espacios de Hilbert individuales de cada uno de los sistemas que componen al sistema total. Es decir, si el sistema total se compone de $N$ subsistemas, entonces \begin{equation}\label{Htotal4postulado}
+	\mathcal{H}_{\text{total}}=\mathcal{H}_1\otimes \mathcal{H}_2\otimes \cdots \otimes \mathcal{H}_N.
+\end{equation}
+  Más aún, si el sistema número $i$, con $i=1,2,\ldots,N$, está preparado en el estado $\rho_i$, luego el estado del sistema total será  \begin{equation}\label{rhototal4postulado}
+	\rho_{\text{total}}=\rho_1\otimes \rho_2 \otimes \cdots \rho_N.
+\end{equation}
+
+
+\setlength{\leftskip}{0pt}
+
+Con esta reformulación de los postulados de la mecánica cuántica se tiene la
+ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyos estados son mixtos y la descripción de subsistemas de un sistema cuántico compuesto. Ahora, es necesario discutir estos conceptos, nuevas definiciones y hechos sobre operadores de densidad. 
+
+Un sistema cuántico cuyo estado es conocido exactamente, se dice que
+se encuentra en \textit{estado puro}. En este caso, el operador de densidad es
+simplemente $\rho=|\psi \rangle \langle \psi|$. De lo contrario, $\rho$ está en
+un \textit{estado mixto}\footnote{En algunas referencias, se  usa el término
+<<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen
+de este uso puede ser que no se asume necesariamente que un estado es puro. Además, el término <<estado puro>> se usa a menudo en referencia a un vector de
+estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$.
+}; se dice que es una mezcla estadística de los diferentes estado puros en el ensamble de
+$\rho$ {\cite{nielsen_chuang_2010}}. 
+\begin{comment}
+Estos conceptos dan pie a incluir las siguientes definiciones {\cite{wilde2011classical}}: 
+\begin{definition}[\textbf{Estado máximamente mezclado}] El estado máximamente mezclado
+$\sigma$ es el operador de densidad correspondiente a un conjunto uniforme de
+estados ortogonales $\{\frac{1}{d},|x\ra\}$, donde $d$ es la dimensión del
+espacio de Hilbert. El estado de máxima mezcla $\sigma$ es entonces igual a
+\begin{equation}\label{maximallyMixedState}
+		\sigma \equiv \dfrac{1}{d}\sum_x|x\rala x|=\dfrac{\mathds{1}}{d}.
+	\end{equation}
+\end{definition}
+
+
+\begin{definition}[\textbf{Pureza}] La pureza $P(\rho)$ de un operador de densidad $\rho$ se define como sigue {\cite{wilde2011classical}} \begin{equation}
+	P(\rho)\equiv\tr(\rho^\dagger\rho)=\tr(\rho^2).
+\end{equation}
+
+	\end{definition}
+
+
+\begin{proposition}
+	La pureza de un operador de densidad es igual a uno, si y solo si es un estado puro, y la pureza de un operador de densidad es estrictamente menor que uno, si y solo si es un estado mixto.
+	\end{proposition}
+
+
+\begin{proof}
+	Sea un operador de densidad dado por a siguiente ecuación, \[\rho=\sum_i p_i |\psi_i\rangle \langle \psi_i|\] con $p_i\ge 0$ y $\sum_{i}p_i=1$, se tiene que:
+	
+	\begin{equation*}
+		\begin{split}
+			\rho^2&=\sum_{i,j} p_i p_j|\psi_i\rala \psi_i|\psi_j\rala \psi_j|\\
+			&=\sum_{i,j} p_i p_j|\psi_i \rala \psi_j|\delta_{ij}\\
+			&=\sum_i p_i^2|\psi_i \rala \psi_i|.
+			\end{split}
+	\end{equation*}
+Luego se obtiene la pureza, \[\tr(\rho^2)=\tr{\left(\sum_i p_i^2|\psi_i \rala \psi_i|\right)}=\sum_i p_i^2 \tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2.\]
+	
+Ahora, dado que $p_i^2 \le p_i $ puesto que $0 \le p_i \le 1$. Luego, se tiene \[\sum_i p_i^2\le\sum_i p_i=1.\]
+	
+Suponiendo que $\tr(\rho^2)=1$, entonces $\sum_i p_i^{2}=1$. Para $0<p_i<1$ se tiene que  $p_i^2<p_i$ y solamente una $p_i$ debe ser 1. Por lo tanto, $\rho=|\psi_i\rala\psi_i|$ es un estado puro.
+	 
+Por otro lado, suponiendo que $\rho
+$ es puro, $\rho=|\psi\rala \psi|$
+\[\tr(\rho^2)=\tr(|\psi\rala \psi|\psi\rala \psi|)=\tr(|\psi\rala
+\psi|)=\la\psi|\psi\ra=1.\]
+Por otro lado, si $\rho $ es mixto, luego $\rho=\sum_i
+p_i|\psi_i\rangle \langle \psi_i|$, con todo $p_i<1$ \[\tr(\rho^2)=\sum_i p_i^2
+\tr(|\psi_i \rala\psi_i|)=\sum_i p_i^2<\sum_i p_i=1.\]
+	\end{proof}
+
+\end{comment}
+
+Antes de pasar a la siguiente sección, es indispensable discutir qué clase de
+ensambles pueden dar una matriz de densidad particular y cuándo dos conjuntos
+de vectores $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador de
+densidad. La respuesta a estas interrogantes tiene muchas aplicaciones en
+información y computación cuántica. Para ello se presenta el siguiente
+teorema y su demostración que enuncian Nielsen y Chuang
+{\cite{nielsen_chuang_2010}}. 
+\begin{theorem}[\textbf{Libertad unitaria en el ensamble para matrices de densidad}]
+Los conjuntos $\{|\psi_i\ra\}$ y $ \{|\phi_j\ra \}$, no necesariamente
+normalizados, generan la misma matriz de densidad si y solo si
+\begin{equation}\label{teorema2.4}
+|\psi_i\ra= \sum_{j}u_{ij}|\phi_j\ra,
+\end{equation} donde $u_{ij}$ es una matriz unitaria compleja, con índices $i$ y $j$. Se completa con vectores 0 adicionales en caso uno de los conjuntos tenga menos elementos.
+\end{theorem}
+
+\begin{proof}
+	
+	Primero, se supone que $|\psi_i\ra= \sum_{j}u_{ij}|\phi_j\ra$ para alguna matriz $u_{ij}$. Luego \begin{equation*}
+		\begin{split}
+			\sum_{i}|\psi_i\ra \la \psi_i|&=\sum_{ijk} u_{ij}u_{ik}^*|\phi_j\ra \la \phi_k|\\
+			&=\sum_{jk}\left(\sum_i  u_{ki}^\dagger u_{ij}\right) |\phi_j\ra \la \phi_k|\\
+			&=\sum_{jk}\delta_{jk}|\phi_j\ra \la \phi_k|\\
+			&=\sum_{j} |\phi_j\ra \la \phi_j|,\\
+	\end{split}
+	\end{equation*}	
+	con lo que se prueba que $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador. Notar que para estado normalizados $\{|\tilde{\psi}_i\ra\}$ y$ \{|\tilde{\phi}_j\ra \}$ y distribuciones de probabilidad $p_i$ y $q_j$, si $\sqrt{p_i}|\tilde{\psi}_i\ra=\sum_{j} u_{ij} \sqrt{q_j}|\tilde{\phi}_j\ra$ se obtendrá el mismo operador de densidad $\rho=\sum_i p_i |\tilde{\phi}_i\rala\tilde{\phi}_i|= \sum_j q_j|\tilde{\phi}_j \rala\tilde{\phi}_j| $.
+	
+Por otro lado, se supone que
+ambos conjuntos generan el mismo operador
+\[Q=\sum_{i}|\psi_i\ra \la \psi_i|=\sum_{j} |\phi_j\ra \la \phi_j|.\]
+	
+Luego la  descomposición espectral del operador es $Q = \sum_k \lambda_k |k \rala k|$ tal que los vectores $ |k\ra$ son ortonormales, y $\lambda_k$ son estrictamente  positivos. Sea $|\psi\ra$  un vector ortonormal al espacio generado por $|\tilde{k}\ra=\sqrt{\lambda_k}|k\ra$, de ello $\la \psi|\tilde{k}\ra \la \tilde{k}|\psi\ra=0$ para todo $ k$, y luego se ve que 	\[0=\la \psi |Q|\psi\ra=\sum_{i}\la\psi|\psi_i\rala \psi_i|\psi \ra =\sum_i |\la\psi|\psi_i\ra|^2 \] y $\la\psi|\psi_i\ra=0$ para todo $i$ y todo $|\psi \ra$ ortonormal al espacio generado  por el $|\tilde{k}\ra$. Esto se sigue que cada $|\psi_i\ra $ puede expresarse como una combinación lineal de los vectores  $|\tilde{k}\ra$, $|\psi_i\ra=\sum_k c_{ik} |\tilde{k}\ra$. 
+	
+Como  $Q=\sum_k  |\tilde{k}\rala \tilde{k}|=\sum_{i}|\psi_i\rala\psi_i|$, se ve
+que \[\sum_k |\tilde{k}\rala \tilde{k}|=\sum_{kl} \left(\sum_i
+c_{ik}c_{il}^{*}\right)|\tilde{k}\rala \tilde{l}|,\] los operadores $|\tilde{k}
+\rala \tilde{l}|$ es fácil ver  que son linealmente independientes y debe ser
+que $\sum_i c_{ik}c_{il}^{*}=\delta_{kl}$. Esto asegura que se puedan agregar
+columnas extra a $c$ para obtener una matriz $v$ tal que
+$|\psi_i\ra=\sum_{k}v_{ik}|\tilde{k}\ra  $, donde se han agregado  vectores cero a la
+lista de $|\tilde{k}\ra$. Similarmente, se puede encontrar una matriz unitaria
+$w$ tal que $|\phi_j\ra=\sum_{k}w_{jk}|\tilde{k}\ra$. Luego $|\psi_i\ra=\sum_j
+u_{ij}|\phi_j\ra$, donde  $u=vw^\dagger$ es unitaria. De manera similar se concluye que para ensambles que generan el mismo operador de densidad $\rho=\sum_i p_i |\tilde{\phi}_i\rala\tilde{\phi}_i|= \sum_j q_j|\tilde{\phi}_j \rala\tilde{\phi}_j| $ entonces se tiene una matriz unitaria $u$ tal que  $\sqrt{p_i}|\tilde{\psi}_i\ra=\sum_{j} u_{ij} \sqrt{q_j}|\tilde{\phi}_j\ra$.
+\end{proof}
+
+% }}}
+\subsection{El operador de densidad reducido} % {{{
+
+Una de las aplicaciones más importantes del operador de densidad es el operador
+de densidad reducido, que es una herramienta descriptiva para subsistemas de un
+sistema cuántico. La matriz de densidad reducida es útil es
+para el análisis de sistemas cuánticos compuestos y será discutida
+en esta sección.
+
+
+Supóngase que se tiene sistemas $A$ y $B$, cuyos estados están descritos por el
+operador de densidad $\rho_{AB}$. El operador de densidad reducido o local para
+el sistema $A$ es definido por  
+\begin{equation}
+	\rho_A=\tr_B(\rho_{AB}),
+\end{equation} 
+donde $\tr_B$ es un mapeo de operadores conocidos como la traza parcial sobre
+el sistema $B$. La traza parcial tiene la siguiente definición, presentada
+por Wilde {\cite{wilde2011classical}}.
+
+\begin{definition}[\textbf{Traza parcial}]
+Sea  $ \rho_{AB}$ un operador cuadrado actuando en un producto tensorial del
+espacio de Hilbert $\mathcal{H}_A \otimes \mathcal{ H}_B$ y sea $\{|l\ra_b\}$
+una base ortonormal para el espacio $\mathcal{H}_B$. Luego la traza parcial
+sobre el sistema $\mathcal{H}_B$ está definida como sigue: 
+\begin{equation}
+		\tr_B(\rho_{AB})\equiv\sum_{l} (\mathds{1}\otimes\la l|_B)\rho_{AB}(\mathds{1}\otimes|l\ra_B).	
+\end{equation} 
+Por simplicidad, no se suele escribir los operadores identidad y se escribe de la siguiente forma:
+\begin{equation}
+	\tr_B(\rho_{AB})\equiv\sum_{l} \la l|_B\rho_{AB}|l\ra_B.
+\end{equation}
+\end{definition}
+
+Por la misma razón que la definición de la traza es invariante bajo la elección
+de una base ortonormal, lo mismo es cierto para la operación de traza parcial.
+También se observa, a partir de la definición anterior, que la traza parcial es
+una operación lineal.
+
+En conclusión, dado un operador $\rho_{AB}$ que describe un estado conjunto de
+los sistemas $A$ y $B$, es posible calcular un operador de densidad local
+$\rho_A$, que describe el estado local de $A$ si el sistema $B$ es inaccesible
+para $A$.
+
+
+Según Wilde {\cite{wilde2011classical}}, existe una forma alternativa de
+describir la traza parcial, la cual es útil estar consciente. Para un estado
+simple de la forma  
+\begin{equation}
+	|x_1\rala x_2|_A\otimes|y_1\rala y_2|_B,
+\end{equation} 
+la acción de la traza partial es como sigue: 
+\begin{equation}
+	\begin{split}
+	\tr_B(	|x_1\rala x_2|_A\otimes|y_1\rala y_2|_B)&=|x_1\rala x_2|_A\tr(|y_1\rala y_2|_B)\\
+	&=|x_1\rala x_2|_A \la y_2|y_1\ra,
+	\end{split}
+\end{equation}
+donde se calcula la traza del segundo sistema para obtener el operador de
+densidad local del primero.
+
+Esto se puede generalizar para un operador de densidad arbitrario $\rho_{AB}$,
+con una base ortonormal $\{|i \ra_A \otimes |j\ra_B \} _{i,j}$ para un estado
+conformado por dos sistemas:
+\begin{equation}
+	\begin{split}
+	\rho_{AB}&=\sum_{i,j,k,l}\lambda_{i,j;k,l}(|i\ra_A \otimes|j\ra_B)(\la k|_A\otimes \la l|_B)\\
+	&=\sum_{i,j,k,l}\lambda_{i,j;k,l} |i\rala k|_A\otimes|j\rala l|_B,
+	\end{split}
+\end{equation}
+los coeficientes $\lambda_{i,j;k,l}$  son los elementos de la matriz $\rho_{AB}$ en la base respectiva.
+
+
+Luego al aplicar la traza parcial y usando la linealidad de la traza, se obtiene 
+\begin{equation}
+	\begin{split}
+		\rho_A&=\tr_B\left(\sum_{i,j,k,l}\lambda_{i,j;k,l} |i\rala k|_A\otimes|j\rala l|_B\right)\\
+		&=\sum_{i,j,k,l}\lambda_{i,j;k,l} \tr_B(|i\rala k|_A\otimes|j\rala l|_B)\\
+		&=\sum_{i,j,k,l}\lambda_{i,j;k,l}|i\rala k|_A \tr(|j\rala l|_B)\\
+		&=\sum_{i,j,k,l}\lambda_{i,j;k,l}|i\rala k|_A \la l|j\ra \\
+		%&=\sum_{i,j,k}\lambda_{i,j;k,j}|i\rala k|_A\\
+		&=\sum_{i,k}\left(\sum_j\lambda_{i,j;k,j}\right)|i\rala k|_A.
+	\end{split}
+\end{equation}
+
+La razón principal para estudiar el operador de densidad reducido es que es la única operación que proporciona la descripción correcta de observables para subsistemas de un sistema compuesto. 
+
+Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen la siguiente situación.
+Supóngase que $\mathcal{M}$ es un observable en el sistema de Hilbert
+$\mathcal{H}_A$ y se tiene algún dispositivo de medición, el cual es capaz de
+realizar la medición de $\mathcal{M}$. Además, sea $\tilde{\mathcal{M}}$ un observable para la misma medición, realizada en el sistema compuesto $\mathcal{H}_A\otimes
+\mathcal{H}_B$. Entonces, es necesario mostrar que $\tilde{\mathcal{M}}$ debe
+ser igual a $\mathcal{M}\otimes \mathds{1}_B$. Notar que si el sistema
+$\mathcal{H}_A\otimes \mathcal{H}_B$ está preparado en el estado $|m \ra
+\otimes|\psi\ra $, donde $|m\ra $ es un vector propio de $\mathcal{M}$ con
+valor propio $m$ y $|\psi\ra$ es algún estado de $\mathcal{H}_B$, luego el
+dispositivo de medición debe proporcionar  el resultado $m$ con una
+probabilidad igual a uno.  En consecuencia, si $P_m$ es el operador de proyección al espacio propio de $m$ del observable $\mathcal{M}$, entonces el operador de proyector correspondiente para $\tilde{\mathcal{M}}$ es $P_m\otimes
+\mathds{1}_B$. Luego, se tiene que \[\mathcal{\tilde{M}}=\sum_m mP_m\otimes
+\mathds{1}_B=\mathcal{M}\otimes \mathds{1}_B.\]
+
+El paso siguiente es mostrar que la traza parcial da como resultado las estadísticas de medición correctas para
+las observaciones en una parte del sistema. Para probarlo, suponga que se realiza
+una medición en el sistema $\mathcal{H}_A$ descrito por el observable
+$\mathcal{M}$. La consistencia física requiere que el \textit{estado} $\rho_A$ que se asocia al sistema $\mathcal{H}_A$, debe tener la propiedad que los valores esperados de la medición sean los mismos ya sea que se calculen a través de $\rho_A$ o $\rho_{AB}$ {\cite{nielsen_chuang_2010}}
+\begin{equation}\label{promedioDeMedicion}\tr(\mathcal{M}\rho_A)=\tr(\mathcal{\tilde{M}}\rho_{AB})=\tr((\mathcal{{M}}\otimes
+\mathds{1}_B)\rho_{AB}).\end{equation} 
+
+De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}} la ecuación
+{\ref{promedioDeMedicion}} es satisfecha si se escoge $\rho_A\equiv \tr_B(\rho
+_{AB})$. De hecho, la traza parcial debe ser la única función que cumpla esta
+propiedad. Para comprobar la propiedad de unicidad, se toma  $f(\cdot)$ como
+algún mapeo de operadores de densidad en $\mathcal{H}_A\otimes \mathcal{H}_B$ a
+los operadores de densidad en $\mathcal{H}_A$ tal que \[\tr(\mathcal{M}
+f(\rho_{AB} )) = \tr((\mathcal{M}\otimes \mathds{1}_B )\rho_{AB} ),\] para
+todos los observables $\mathcal{M}$. 
+
+Sea $\mathcal{M}_i$ una base ortonormal de operadores para el espacio de
+operadores hermíticos con respecto al producto interno $(X,Y) \equiv \tr(XY)$. Luego, la expansión $f (\rho_{AB} )$ en esta base resulta como sigue
+\[\begin{split}
+	f(\rho_{AB})=&\sum_{i}\mathcal{M}_i\tr(\mathcal{M}_i f(\rho_{AB}))\\
+	=&\sum_{i}\mathcal{M}_i \tr((\mathcal{M}_i\otimes \mathds{1}_B)\rho_{AB}),\\
+\end{split}\] 
+de ello se sigue que $f$ está únicamente determinada por la ecuación
+{\ref{promedioDeMedicion}}. Además, la traza parcial satisface
+{\ref{promedioDeMedicion}}, entonces es la única función que tiene esta
+propiedad {\cite{nielsen_chuang_2010}}.
+
+%Con el operador de densidad reducido se finaliza el marco teórico del lenguaje del operador de densidad necesario para el objetivo de este proyecto. En la siguiente sección, se estará hablando sobre operadores POVM que son de interés en este trabajo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%###############################################################################
+%###############################################################################
+%################################################################################
+
+\section{Medidas POVM}\label{MedidaPOVM}
+% Intro {{{
+Hasta ahora, se ha descrito el espacio de estados cuánticos. Ahora, se abordará
+el tema del proceso de medición cuántica utilizando herramientas como las medidas proyectivas y las medidas POVM o también conocidas como medidas generalizadas. Aunque el proceso de medición  sigue
+siendo algo enigmático, aquí simplemente se toma como cierto el
+postulado relacionado al colapso de la función de onda, mencionado en el capítulo anterior (sección {\ref{postulates}}). Según Nielsen y Chuang
+{\cite{nielsen_chuang_2010}}, el postulado de la medición cuántica, involucra
+dos elementos. El primero, proporciona una regla que describe las estadísticas
+de medición, es decir, las probabilidades respectivas de los diferentes
+resultados de medición posibles. En segundo lugar, da una regla que describe el
+estado posterior a la medición del sistema. 
+
+%A diferencia de las medidas PVM o proyectivas, las cuales son un caso particular de las medidas aquí tratadas, y son válidas solo para sistemas cerrados, las medidas POVM, también conocidas como medidas generalizadas, tienen en cuenta la interacción del sistema con el entorno.
+
+
+%El postulado de la medición tiene la virtud de la generalidad, mas no de la
+%precisión, sin embargo presenta algunas ventajas como una estructura
+%matemáticamente más simple y además que muchos problemas en información
+%cuántica implican medidas generales
+% }}}
+\subsection{Medidas proyectivas PVM} % {{{
+La medición cuántica realizada en un estado $\rho$ produce  la $m$-ésima 
+salida con una probabilidad $p(m)$ dada por la ecuación
+(\ref{probaility3postulate}) y transforma a $\rho $ en $\rho_m$ descrito por la
+ecuación (\ref{state3postulate}). En tales mediciones, se registran resultados
+concretos etiquetados por el subíndice $m$ y son llamadas \textit{selectivas}.
+Si no se realiza una selección basada en la salida de la medición, el estado
+inicial es transformado en una combinación convexa de todas las salidas
+posibles, dado por 
+\begin{equation}\label{non-selective-measure}
+	\rho'=\sum_m M_m\rho M_m^\dagger.
+\end{equation}
+Esto es un estado mixto que  describe una medición cuántica \textit{no selectiva}, incluso si el estado inicial $\rho$ es puro {\cite{2007geometry}}.
+
+En una medida proyectiva PVM (por sus siglas en inglés, projection-valued
+measure) los operadores de medición son operadores proyectores ortogonales
+tales que $M_{m}=M_{m}^{\dagger}=P_{m}$, y $P_{m}P_{n}=\delta_{mn}P_{m}$. Una
+medición proyectiva es descrita por un observable $\mathcal{O}$ y las salidas
+de la medición están etiquetadas por los valores propios de $\mathcal{O}$. Dado
+que el $\mathcal{O}$ es operador hermítico, se puede utilizar la descomposición
+espectral para representarlo como \begin{equation}
+	\mathcal{O}=\sum_m \lambda_m P_m,
+\end{equation} puede obtenerse un conjunto ortogonal de operadores de medición \[P_m=\sum_i
+|e_i^{(m)}\rala e_i^{(m)}|,\] que satisfacen la relación de completitud
+{\cite{2007geometry}}. 
+
+En una medición proyectiva selectiva la salida etiquetada por $\lambda_m$
+ocurre con probabilidad $p(m)=\tr(P_m\rho P_m)$, y por la propiedad cíclica de
+la traza,  $p(m)=\tr(P_m\rho)$; el estado inicial es transformado como 
+\begin{equation}\label{stateProjective}
+	\rho\to	\rho_m=\dfrac{P_m\rho P_m}{\tr(P_m \rho)}.
+\end{equation}
+
+ En una medición proyectiva no selectiva, el estado inicial es transformado en
+una mezcla  
+\begin{equation}
+	\rho \to \rho'=\sum_m P_m \rho P_m.
+\end{equation} 
+
+
+El estado conmuta con el observable $\mathcal{O}$. El valor esperado del
+observable estará dado por 
+\begin{equation}
+	\la \mathcal{O} \ra=\sum_m p_m\lambda_m=\sum_m \lambda_m
+\tr(P_m\rho)=\tr(\mathcal{O}\rho).
+\end{equation}
+
+Una característica clave de las mediciones proyectivas consiste en la
+repetibilidad. Esto significa que si la medición es repetida, el estado en
+{\ref{stateProjective}} sigue siendo el mismo, y da el mismo resultado
+{\cite{2007geometry}}.
+% }}}
+\subsection{Operadores POVM}\label{operadoresPOVM} % {{{
+Para algunas aplicaciones, el estado posterior a la medición del sistema es de poco interés, siendo el
+principal elemento de interés las probabilidades de los respectivos resultados
+de medición. En tales casos, existe una herramienta matemática conocida como
+formalismo POVM que es especialmente bien adaptado al análisis de las medidas
+(el acrónimo POVM significa <<medida valorada por el operador positivo>>). Este
+formalismo es una simple consecuencia de la descripción general de las medidas
+introducidas en el Postulado 3, pero la teoría de es bastante elegante y
+ampliamente utilizada que se discutirá en esta sección
+{\cite{nielsen_chuang_2010}}. Se procede a dar una definición de las medidas
+POVM\@. 
+
+\begin{definition}[\textbf{POVM}] Una medida POVM (positive operator-valued measure) es un conjunto $\{E_{m}\}$ de operadores llamados <<efectos>> que satisfacen las siguientes condiciones {\cite{2007geometry}}:
+	\begin{enumerate}
+		\item Positividad: $\la \psi |E_m|\psi \ra \ge 0 $ para cualquier vector $|\psi\ra$.
+		\item Hermiticidad: $E_m=E_{m}^\dagger$.
+		\item  Completitud: $\sum_m E_m =\mathds{1}$.
+	\end{enumerate}
+\end{definition}
+
+Una medida POVM aplicada al estado $\rho$ produce la $m$-ésima salida, con una
+probabilidad $p(m)=\tr(E_m \rho)$. Un ejemplo de medida POVM son las ya
+discutidas medidas proyectivas descritas por los operadores de proyección,
+tales que $P_m P_n=\delta_{mn}P_{m}$ y $\sum_m P_m = \mathds{1}$. Solo en este
+caso todos los elementos POVM son los mismos que los propios operadores de
+medición, $E_m=P_m P_m^\dagger=P_m$ {\cite{nielsen_chuang_2010}}.
+
+
+Nótese que los elementos $E_m$ del conjunto de operadores hermíticos no
+necesariamente conmutan. Los POVM se ajustan en el marco general del postulado
+de la medición cuántica, ya que se puede elegir $E_m=M_m M_m^{\dagger}$. Sin
+embargo es importante notar que los POVM no determinan los operadores de
+medición $M_m$ de manera única, a excepción del caso particular de las
+mediciones proyectivas. Lo que sucede con el estado exactamente, cuando una
+medición es realizada depende en como los POVM son implementados en el
+laboratorio {\cite{2007geometry}}.   
+
+Según Bengtsson y Zyczkowski {\cite{2007geometry}}, un POVM es llamado
+\textit{puro} si cada operadores $E_m$ es de rango uno, tales que existe un
+estado puro $|\phi_m\ra$ tal que $E_m$ es proporcional a $|\phi_m\rala\phi_m|$.
+Un POVM que es impuro puede siempre volverse puro, reemplazando
+cada operador $E_m$ por su descomposición espectral. 
+\begin{comment}
+Un conjunto de $k$ estados puros $|\phi_m \ra$ definen un POVM puro si y solo
+si el estado máximamente mezclado (\ref{maximallyMixedState}) puede ser
+descompuesto como  $\sigma=\sum_{m=1}^{k}p_m|\phi_m\rala\phi_m|$, donde
+$\{p_m\}$ forma un conjunto adecuado de coeficientes positivos. De hecho
+cualquier ensamble de estados puros o mixtos representando a $\sigma$ definen
+un POVM\@. Para cualquier conjunto de operadores $E_m$ definiendo un POVM se
+toman estados cuánticos $\rho_m=E_m/\tr(E_m)$ y una probabilidad $p_m=\tr
+E_m/d$ para obtener el estado máximamente mezclado: 
+\begin{equation}
+	\sum_{m=1}^{k} p_m\rho _{m}=\sum_{m=1}^k \dfrac{1}{d}E_m=\dfrac{\mathds{1}}{d}=\sigma.
+\end{equation}
+Por otro lado, cualquier ensamble de matrices de densidad definen un POVM
+{\cite{2007geometry}}. 
+\end{comment}
+
+Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, por lo general los textos
+introductorios a la mecánica cuántica describen solamente la medidas
+proyectivas y en consecuencia el formalismo de las medidas POVM y la
+descripción del tercer postulado mencionado en la sección {\ref{postulates}},
+no es tan conocido. En computación e información cuántica, el objetivo es
+lograr un buen nivel de control sobre las mediciones que se pueden realizar,
+por consiguiente utilizar un formalismo más completo para la descripción de las
+mediciones es de gran ayuda. Por supuesto, las medidas proyectivas son
+completamente equivalentes a las mediciones más generales cuando se toman en
+cuenta los demás axiomas.
+
+
+Existen varias razones para utilizar el formalismo general de las mediciones. La primera es que matemáticamente las mediciones generales son menos restrictivas que las medidas proyectivas. Por ejemplo, estas mediciones generales no necesariamente exigen la condición de idempotencia $P^2=P$ como si lo hacen las medidas proyectivas. Otra razón para utilizarlas es que existen muchos problemas en información y computación cuántica tales como la forma óptima de distinguir un conjunto de estados cuánticos cuya respuesta implica una medición general, en lugar de una medición proyectiva {\cite{nielsen_chuang_2010}}.
+
+
+Una tercera razón para utilizar las mediciones generales esta relacionada con la propiedad de repetibilidad de las mediciones proyectivas. Las medidas proyectivas son repetibles en el sentido que si se realiza una medición proyectiva una vez y se obtiene un resultado $m$, al repetir la medición el resultado será nuevamente $m$ y el estado también será el mismo. Este hecho indica que muchas medidas importantes en mecánica cuántica no son medidas proyectivas.  Para tales mediciones, debe emplearse el postulado general de medición. Y en este contexto las medidas POVM son un caso especial del formalismo de la medición general, que proporciona el medio más simple en el que se pueden estudiar las estadísticas generales de medición, sin necesidad de conocer el estado posterior a la medición. Son una conveniencia matemática que a veces brinda información adicional sobre las mediciones cuánticas {\cite{nielsen_chuang_2010}}.
+
+
+Para mostrar la utilidad del formalismo POVM como una forma intuitiva de
+obtener información sobre las mediciones cuánticas en problemas en las que solo
+importan las estadísticas de medición, Nielsen y Chuang
+{\cite{nielsen_chuang_2010}}, proponen un ejemplo sencillo e intuitivo.
+
+Antes de presentar el ejemplo, vale la pena mostrar la siguiente proposición
+propuesta y demostrada por Nielsen y Chuang {\cite{nielsen_chuang_2010}}.
+
+\begin{proposition}
+Los estados no ortogonales no pueden ser distinguibles de forma fiable por alguna medida.
+\end{proposition}
+\begin{proof}
+Se demostrará por reducción al absurdo. Supóngase que existe una medición que
+pueda distinguir estados ortogonales.
+
+Si el estado $|\psi_1\ra $ ($|\psi_2\ra $) se prepara, entonces la
+probabilidad de medir $j$ debe ser 1, tal que  $f(j) =1$ $(f(j)=2)$, donde $f(\cdot)$ representa
+la regla que se usa para adivinar cuál es el índice $i$ de la salida, $f(j)=i$. 
+Definiendo $E_i\equiv \sum_{j:f(j)=i}M_j^\dagger M_j$, estas observaciones pueden ser escritas como 
+\begin{align}
+	\la \psi_1|E_1|\psi_1\ra=1, \label{E1psi1} \\
+	\la \psi_2|E_2|\psi_2\ra=1\label{E2psi2}.
+\end{align}
+
+Dado que $\sum_i E_i=\mathds{1}$, se sigue que $\sum_i \la \psi_1|E_i|\psi_1\ra=1$,
+y como $\la \psi_1|E_1|\psi_1\ra=1$ y se debe tener que $\la \psi_1|E_2|\psi_1\ra=0$,
+y luego $\sqrt{E_2}|\psi_1\ra=0$. 
+
+
+Además se puede descomponer  
+$|\psi_2\ra=\alpha|\psi_1\ra +\beta|\phi\ra$, donde $|\phi\ra$ sí es ortonormal
+a $|\psi_1\ra $, $|\alpha|^2+|\beta|^2=1$, y $|\beta|<1$ debido a que $|\psi_1\ra$
+y $|\psi_2\ra$ no son ortogonales. Luego $\sqrt{E_2}|\psi_2\ra=\beta \sqrt{E_2}|\phi\ra$, Lo
+cual implica una contradicción, con {\ref{E2psi2}}, puesto que \begin{equation}
+	\la \psi_2|E_2|\psi_2\ra=|\beta|^2 \la\phi|E_2|\phi\ra \le |\beta|^2<1,
+\end{equation} 
+donde la segunda desigualdad  se obtiene de la observación \[ \la
+\phi|E_2|\phi\ra \le \sum_i\la \phi|E_i|\phi\ra= \la\phi|\phi\ra=1. \]
+\end{proof}
+Ahora se puede proceder con el ejemplo sobre POVM\@. Supóngase que se tienen
+dos intermediarios \textit{A} y \textit{B}, el intermediario \textit{A} prepara
+un conjunto de estados $|\psi_1\ra=|0\ra$ y $|\psi_2\ra=(|0\ra
++|1\ra)/\sqrt{2}$. El intermediario \textit{A} le da a \textit{B} uno de los
+dos qubits. Debido a que estos dos qubit no son ortogonales, es imposible que
+\textit{B} pueda determinar cual de los dos le han dado con perfecta
+fiabilidad. Sin embargo, es posible que $B$ realice una medición la cual
+distinga los estados algunas veces, pero nunca cometa un error de
+identificación. Considérese un POVM conteniendo los siguientes tres elementos 
+	\begin{align}
+		E_1 & \equiv \dfrac{\sqrt{2}}{1+\sqrt{2}} |1\rala1|, \label{eq11} \\
+		E_2 & \equiv \dfrac{\sqrt{2}}{1+\sqrt{2}} \dfrac{(|0\ra -|1\ra)(\la0|-\la1|)}{2}, \label{eq12} \\
+		E_3 & \equiv \mathds{1}-E_1-E_2\label{eq13}. 
+	\end{align}
+
+Es fácil ver que los tres operadores son hermíticos, positivos y debido a como
+se construye el tercer operador se satisface las relaciones de completitud. Los
+operadores cumplen con ser POVM\@. Ahora, supóngase que $B$ recibió el estado
+$|\psi_1\ra=|0\ra$, y realiza una medición descrita por el POVM
+$\{E_1,E_2,E_3\}$. Hay una probabilidad cero de que observe el resultado $E_1$,
+debido a que $E_1$ ha sido construido sabiamente para asegurar que
+$p(1)=\la\psi_1|E_1|\psi_1\ra=0$. Luego, si el resultado de su medición es
+$E_1$, $B$ puede concluir con seguridad que el estado que recibió, fue
+$|\psi_2\ra $. Un pensamiento similar conduce a mostrar que si la salida de la
+medición $E_2$ ocurre, el estado que $B$ recibió sería $|\psi_1\ra$. Algunas
+veces, sin embargo, $B$ obtendrá el resultado de la medición $E_3$ y no podrá
+inferir nada acerca de la identidad del estado que se le dio. Mas el punto
+clave, es que $B$ nunca comete un error al identificar el estado que se le ha
+dado. Esta infalibilidad tiene el precio que, a veces, $B$ no obtiene
+información sobre la identidad del estado.
+
+% }}}
+\begin{comment}
+\subsubsection{El teorema de Naimark} % {{{Cualquier POVM .
+En esta sección se habla de que las medidas POVM pueden interpretarse como una
+medidas proyectivas en un espacio de mayor dimensión.  Dado cualquier POVM puro
+con $k$ elementos y un estado $\rho$ en un espacio de Hilbert de dimensión $d$,
+se puede encontrar un estado $\rho \otimes \rho_0$ en un espacio de Hilbert
+$\mathcal{H}\otimes\mathcal{H'}$ tal que las estadísticas de la medición POVM
+original se reproducen exactamente mediante una medida proyectiva de $\rho
+\otimes \rho_0$. Esta afirmación es consecuencia del teorema del Naimark
+{\cite{2007geometry}}.
+
+\begin{theorem}[\textbf{Teorema de Naimark}] 
+Cualquier POVM $\{E_i\}$ en el espacio de Hilbert $\mathcal{H}$, existe una
+medida proyectiva PVM $\{P_i\}$ en un espacio de Hilbert más grande
+$\mathcal{K}$, de tal manera que $E_i=\Pi^\dagger P_i\Pi$, donde $\Pi$ proyecta
+desde $\mathcal{K}$ hacia $\mathcal{H}$.
+\end{theorem}
+	
+
+Una forma de construir los operadores $\{P_i\}$ es tomar  $P _{i}=\mathds{1} _{H}\otimes
+|i\rangle \langle i|_{H'}$ y
+$\Pi=\sum _{i=1}^{n}{\sqrt {E_{i}} }_{H}\otimes {|i\rangle }_{H'}$ en el espacio $\mathcal{K}=\mathcal{H}\otimes\mathcal{H'}$. La
+probabilidad de obtener la salida $i$ con estos operadores PVM, es la misma a
+la probabilidad de obtener esta con el POVM original {\cite{2007geometry}}
+\begin{equation}
+ \begin{split}
+ p_i&=\tr \left(\Pi\rho\Pi^{\dagger }P _{i}\right)\\
+ &=\tr \left(\Pi\rho \Pi^{\dagger }\left[\mathds{1}_{H}\otimes |i\rangle \langle i|_{H'}\right]\right)\\
+ &=\tr \left(\rho\left(\sum _{j=1}^{n}{\sqrt {E{j} }}_{H}^{\dagger }\otimes {\langle j|}_{H'}\right)\mathds{1} _{H}\otimes |i\rangle \langle i|_{B}\left(\sum _{k=1}^{n}{\sqrt {E_{k} }}_{H}\otimes {|k\rangle }_{H'}\right)\right)\\
+ &=\tr \left(\rho {\sqrt {E_{i} }}_{H}\mathds{1} _{H}{\sqrt {E_{i} }}_{H}\right)\\
+ &=\tr (\rho E_{i}).
+ \end{split}
+\end{equation}
+\end{comment}
+Con este ejemplo se ultima el formalismo de las medidas POVM necesario para el objetivo de este trabajo. En la siguiente sección se discutirá sobre las operaciones cuánticas y su importancia en sistemas abiertos.
+% }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%###############################################################################
+%###############################################################################
+%################################################################################
+
+\section{Operaciones cuánticas}\label{OpCuanticas}
+% Intro {{{
+
+Los sistemas reales sufren interacciones indeseadas con el mundo exterior, éstas aparecen como ruido en información cuántica. Las operaciones cuánticas son un herramienta capaz de describir dicho ruido cuántico y el comportamiento de sistemas cuánticos abiertos.  Adicionalmente, el formalismo de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y representa la descripción de los cambios  de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo
+{\cite{nielsen_chuang_2010}}.
+
+% }}}
+\subsection{Aproximación axiomática de las operaciones cuánticas} % {{{
+En esta sección se abordan las operaciones cuánticas desde un punto de vista
+axiomático el cual será motivado por requerimientos físicos. 
+Nielsen y
+Chuang {\cite{nielsen_chuang_2010}}
+presentan la siguiente definición de operación cuántica \begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
+
+    \begin{itemize}
+        \item \textit{Axioma 1:} La traza $\tr (\mathcal{E}(\rho))$ es la probabilidad de que el proceso representado por $\mathcal{E}$ ocurra, cuando $\rho$ es el estado inicial. Consecuentemente, $0 \le \tr (\mathcal{E}(\rho)) \le 1$ para cualquier estado $\rho$.
+	\item \textit{Axioma 2:} El mapeo $\mathcal{E}$ es lineal 
+en el conjunto de matrices de densidad.
+Esto es, para probabilidades
+$\{p_i\}$, \[\mathcal{E}\left(\sum _i p_i \rho _i\right)=\sum_i p_i
+\mathcal{E}(\rho_i).\]
+	\item\textit{Axioma 3:} El mapeo $\E$ es completamente positivo. Esto
+significa que $\E$ mapea  operadores en el espacio de Hilbert
+$\mathcal{H}_{A}$  a operadores en el espacio de Hilbert $\mathcal{H}_{A'}$, luego $\E(\rho)$ debe ser positivo para cualquier operador positivo $\rho $. Más aún, si se introduce un espacio de Hilbert $ \mathcal{H}_{B}$ y se considera el mapeo extendido $(\E \otimes \mathds{1}_B)(\rho)$, éste debe ser positivo también para cualquier operador positivo $\rho$ en el sistema combinado $\mathcal{H}_A\otimes \mathcal{H}_B$. 
+    \end{itemize}
+\end{definition}
+
+El primer axioma resulta conveniente en  el caso de las mediciones. Para verlo
+mejor, suponga que se realiza una medición
+proyectiva en la base computacional de un solo qubit. Entonces la operación
+cuántica $\E$ describirá este proceso si se define el mapeo como
+$\E_0\equiv|0\rala0|\rho |0\rala 0|$ y $\E_1\equiv|1\rala1|\rho |1\rala 1|$.
+Las probabilidad de las salidas serán entonces $\tr (\E_0(\rho))$ y $\tr
+(\E_1(\rho))$ respectivamente.  Con esta convención la normalización correcta
+para el estado final será \[\dfrac{\E(\rho)}{\tr (\E (\rho))}.\]
+
+En el caso que no se realice ninguna medición, esto se reduce al requisito de
+que $\tr[\E(\rho)] = 1 = \tr(\rho)$, para todo $\rho$. En este caso la
+operación cuántica $\E$ preserva la traza, ya que por sí sola proporciona una
+descripción completa del proceso cuántico 
+{\cite{nielsen_chuang_2010}}.
+
+\begin{comment}
+Asimismo, una razón física para proponer el segundo axioma, es que se espera que la evolución de un estado cuántico sea lineal debido a que de esa forma es compatible con la interpretación del operador de densidad como un ensamble de posibles estados. Supóngase que $\E$ mapea al estado inicial $\rho$  en el tiempo $t=0$ al estado final al tiempo $t=T$, el estado $\rho_i$ es preparado con una probabilidad $p_i$. Luego el estado de evolución temporal en $t = T$ será $\E(\rho_i )$ con probabilidad $p_i$, por lo tanto el estado final $\rho'$ evoluciona como \begin{equation}
+\rho'= \sum_i p_i \E (\rho_i).
+\end{equation}
+
+Por otro lado, el estado inicial es descrito por $\sum_i p_i \rho$, que evoluciona así 
+\begin{equation}
+    \rho'= \E\left(\sum_i p_i \rho_i\right).
+\end{equation} Igualando las dos ecuaciones anteriores, se tiene  que $\E$ debe actuar linealmente, en combinaciones convexas de estados {\cite{preskill2020quantum}}.
+\end{comment}
+
+Asimismo, para ver una razón física para proponer el segundo axioma, supóngase que un estado inicial $\rho_i$ está preparado con un probabilidad $p_i$ y luego se realiza la medición. Si el estado es $\rho_i $ luego la salida de la medición  $\alpha$ ocurre con la probabilidad condicional $p(\alpha|i)$, y el estado de la medición  posterior es $\E_\alpha(\rho_i)/p(\alpha|i)$; luego el ensamble de estado después de la medición está descrita por el operador de densidad 
+\begin{equation}\label{lineal_y_convexo}
+    \rho'=\sum_i p(i|\alpha)\dfrac{\E_\alpha(\rho_i)}{p(\alpha|i)},
+\end{equation}
+donde $p(i|\alpha)$ es la probabilidad a posteriori que el estado $\rho_i$
+fuera preparado, tomando en cuenta la información obtenida haciendo la medición
+{\cite{preskill2020quantum}}. 
+
+Por otro lado, aplicando la operación $\E_\alpha$  a la combinación convexa del
+estado inicial $\{\rho_i\}$ \begin{equation}
+    \rho'=\dfrac{\E_\alpha\left(\sum_i p_i \rho_i\right)}{p_\alpha},
+\end{equation} tomando en cuenta la regla de Bayes  $p(i|\alpha)=\dfrac{p_i
+p(\alpha|i)}{ p_\alpha} $ a la ecuación {\ref{lineal_y_convexo}},  se ve que
+$\E_\alpha$ debe ser lineal {\cite{preskill2020quantum}} 
+\begin{equation}
+    \E_\alpha\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_\alpha(\rho_i). 
+\end{equation}
+
+La tercera propiedad también se origina por un requerimiento físico. Es
+razonable exigir que un mapeo sea completamente positivo si se va a describir
+la evolución temporal de un sistema cuántico. Aunque el mapeo actúa solo en una
+parte del sistema, debe representar un estado inicial de todo el sistema hacia
+un estado final del sistema entero. Si $\rho_{AB}$ es una matriz de densidad de
+un sistema conjunto de $\mathcal{H}_A$ y $\mathcal{H}_{B}$  y $\E$ actúa
+solamente sobre $\mathcal{H}_A$, entonces $\E(\rho_{AB})$  debe ser un operador
+de densidad también. Formalmente, supongamos que introducimos un segundo
+sistema $B$ (de dimensión finita). Sea $\mathds{1}_{B}$ el mapa identidad del
+sistema $B$. Entonces el mapa $\E\otimes \mathds{1}_{B}$ debe llevar operadores
+positivos a operadores positivos {\cite{nielsen_chuang_2010, preskill2020quantum}}. 
+
+\begin{comment}
+
+Es importante tener en cuenta que no todos los mapas positivos son
+completamente positivos; la positividad completa es una condición más fuerte.
+Un ejemplo de un operador positivo pero no completamente positivo es la
+transpuesta, $T:\rho \mapsto {\rho}^T$, dado que \[\la \psi |{\rho}^T| \psi
+\ra=\sum_{i,j} \psi _j^* {(\rho)}^T _{ji} \psi _i=\sum _{i,j} \psi _i{(\rho)}
+_{ij} \psi_j^{*}=\la {\psi}^*|\rho|\psi ^*\ra,\] cumple con ser positivo para
+cualquier estado $| \psi \ra$. Sin embargo $ {T} $ no es completamente
+positivo. Por ejemplo,  si se toma un estado en el espacio $\mathcal{H}_A\otimes \mathcal{H}_B$ \[\Psi_{AB} \equiv \sum_i
+|i,i\ra, \]con $i=0,1$. La extensión de $T$ actuando en este estado es \[T \otimes
+\mathds{1}:|\Psi\rala \Psi|=\sum_{i,j}|i,i\rala j,j| \mapsto
+\sum_{i,j}|j,i\rala i,j|.\]
+
+
+Este estado $|\Psi\rala \Psi|$ se mapea al operador SWAP,
+\begin{equation}
+    \text{SWAP}=\sum_{i,j}|j,i\rala i,j|=\begin{bmatrix}
+        1&0&0&0\\
+        0&0&1&0\\
+        0&1&0&0\\
+        0&0&0&1\\
+    \end{bmatrix}
+\end{equation}
+
+%el cual intercambia los sistemas $\mathcal{H}_A$ y $\mathcal{H}_B$:
+%\begin{equation}
+ %   \text{SWAP}:|\psi\ra_A\otimes|\phi\ra_B=\sum_{i,j}\psi_i\phi_j |i,j\ra\mapsto\sum_{i,j}\phi_j\psi_i|j,i\ra=|\phi\ra_A\otimes|\psi\ra_B.
+%\end{equation} 
+
+ Al aplicar dos veces el operador SWAP se obtiene el mismo estado inicial, por tanto el cuadrado de SWAP es la identidad y sus valores propios serán $\pm 1$. El operador SWAP tiene valores propios negativos lo que significa que $T \otimes \mathds{1}$ no es positivo, debido a que un operador positivo no lo mapea a otro operador positivo. En consecuencia $T$, no cumple con ser completamente positivo  {\cite{preskill2020quantum}}.
+
+
+\end{comment}
+
+% }}}
+\subsection{Operadores de Kraus} % {{{
+% Intro {{{
+
+
+
+%
+
+Una operación cuántica puede representarse en una forma elegante 
+como  \textit{suma de operadores}.   La representación de suma de operadores de
+una operación cuántica,
+también conocida como representación de Kraus\footnote{ La representación de
+Kraus fue introducida por el físico alemán Karl Kraus en 1971, basada en el
+resultado del teorema de Stinespring {\cite{2007geometry}}.}, se puede escribir
+como $\E(\rho)=\sum_i K_i\rho K_i^\dagger$, para algún conjunto de operadores
+$\{K_i\}$ que satisfacen la condición $\sum_i K_i^\dagger K_i\le \mathds{1}_N$.
+Los operadores
+$\{K_i\}$ son conocidos como \textit{operadores de Kraus}. Así también, los
+mapeos completamente positivos que preservan la traza se conocen por varios
+nombres: \textit{operaciones cuánticas deterministas, canales cuánticos o mapas
+estocásticos}  {\cite{2007geometry}}.
+
+Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba de que la representación de suma de operadores es equivalente a la definición de la sección anterior.
+
+\begin{theorem}
+    El mapeo $\E$ satisface los axiomas de la definición {\ref{DefE(rho)}} si y solo si 
+    \begin{equation}
+        \E(\rho)=\sum_i K_i \rho K_i^\dagger,
+    \end{equation}
+    para algún conjunto de operadores $\{K_i\}$ el cual mapea el espacio de Hilbert de entrada al espacio de Hilbert de salida, y $\sum_i K_i^\dagger K_i\le \mathds{1}_N$.
+\end{theorem}
+
+
+\begin{proof}
+Suponiendo que $\E$ satisface {\ref{DefE(rho)}}. Se introduce un sistema
+$\mathcal{H}_B$, con las mismas dimensiones del sistema cuántico original
+$\mathcal{H}_A$. Sea $|k_A\ra$ y $|k_B\ra$  bases ortonormales para $\mathcal{H}_A$ y $\mathcal{H}_B$
+respectivamente. Se define un estado conjunto del sistema $\mathcal{H}_A\otimes
+\mathcal{H}_B$ como \[|\alpha\ra \equiv \sum_k |k_A\ra |k_B\ra.\] El estado
+$|\alpha\ra $ es un estado máximamente entrelazado de los sistemas
+$\mathcal{H}_A$ y $\mathcal{H}_B$. También se define un operador $\sigma$ en
+espacio de estado de $\mathcal{H}_A\otimes \mathcal{H}_B$ dado por 
+\begin{equation}\label{sigma1}
+    \sigma \equiv (\E\otimes\mathds{1}_B)(|\alpha\rala \alpha|).
+\end{equation}
+
+
+Se puede pensar en esto como un resultado de aplicar la operación cuántica $\E$
+a la mitad de un estado de máximo entrelazamiento del sistema
+$\mathcal{H}_A\otimes \mathcal{H}_B$. A continuación se probará el hecho que el operador $\sigma$ especifica completamente la operación cuántica $\E$. Es decir para saber como actúa $\E$ en un estado arbitrario de $\mathcal{H}_A$, es suficiente con saber cómo este actúa en un solo estado máximamente entrelazado de $\mathcal{H}_A$ con otro sistema. 
+
+La estrategia que permite recuperar a $\E$ de $\sigma$ es la siguiente. Sea $|\psi\ra=\sum_j \psi_j |j_A\ra$ algún estado del sistema $\mathcal{H}_A$ y $|\tilde{\psi}\ra = \sum_j \psi_j^*|j_B\ra$ un estado correspondiente del sistema $\mathcal{H}_B$. Notar que
+\begin{equation}
+    \begin{split}
+        \la \tilde \psi |\sigma |\tilde{\psi}\ra&= \la \tilde \psi |\left(\sum_{kj} \E (|k_A \rala j_A|)\otimes |k_B\rala j_B|\right) |\tilde{\psi}\ra\\
+        &=\sum_{kj} \psi_k \psi_j^* \E (|k_A \rala j_A|)\\
+        &=\E(|\psi\rala\psi|).
+    \end{split}
+\end{equation}
+
+Luego, sea $\sigma=\sum_i |s_i\rala s_i|$ una descomposición del operador $\sigma$, donde los vectores $|s_i\ra$ no necesitan ser normalizados. Adicionalmente, se define el siguiente mapeo \begin{equation}K_i(|\psi\ra) \equiv \la\tilde{\psi}|s_i\ra.\end{equation} 
+Se puede notar que este mapeo es lineal, por consiguiente $K_i$ es un operador lineal en el espacio de estado $\mathcal{H}_A$. Más aún, se tiene que \begin{equation}
+    \begin{split}
+       \sum_i K_i |\psi \rala \psi |K_i^\dagger&=\sum_i  \la\tilde{\psi}|s_i\ra \la s_i|\tilde{\psi}\ra\\
+        &=\la \tilde \psi |\sigma |\tilde{\psi}\ra\\
+        &=\E(|\psi \rala\psi|).\\
+    \end{split}
+\end{equation}
+
+
+
+De ello se obtiene la siguiente igualdad \[\E(|\psi\rala \psi|)=\sum_i K_i |\psi \rala \psi |K_i^\dagger,\] para todos los estados $|\psi\ra$ de $\mathcal{H}_A$. Por el segundo axioma, se sigue que \[\E(\rho)=\sum_i K_i \rho K_i^\dagger.\] La condición $\sum_i K_i^\dagger K_i\le \mathds{1}$ se obtiene del primer axioma, identificando la traza de $\E(\rho) $ con una probabilidad. Esto concluye la primera parte de la demostración.
+
+Ahora se supone el recíproco de lo anterior, sea $\E(\rho)=\sum_i K_i \rho K_i^\dagger$, tal que $\sum_i K_i^\dagger K_i \le \mathds{1}$. Es fácil ver que la operación cuántica $\E$ es lineal, pero falta chequear la completa positividad.
+
+Sea $\mathcal{O}$ un operador positivo actuando en el espacio de estado del sistema extendido, $\mathcal{H}_A\otimes \mathcal{H}_B$ y $|\psi \ra$ algún estado del sistema $\mathcal{H}_A\otimes \mathcal{H}_B$. De igual forma, se define el estado  $|\varphi_i\ra \equiv (K_i^\dagger \otimes \mathds{1}_B)|\psi\ra$, de ello se tiene que \[\la \psi |(K_i \otimes \mathds{1}_B)\mathcal{O}(K_i^\dagger \otimes \mathds{1}_B)|\psi\ra=\la \varphi_i |\mathcal{O}|\varphi_i\ra \ge 0,\] por la positividad de $\mathcal{O}$. Por la linealidad se sigue que \[\la \psi| (\E \otimes \mathds{1}_B)(\mathcal{O})|\psi\ra=\sum_i \la \varphi_i|\mathcal{O}|\varphi_i\ra \ge 0,\] esto se cumple para cualquier operador positivo $\mathcal{O}$. En consecuencia, el operador $(\E\otimes \mathds{1}_B)(\mathcal{O})$ es positivo como se requiere. Finalmente, la condición $\sum_i K_i^\dagger K_i \le \mathds{1}$ asegura que las probabilidades son menores o iguales a 1. 
+\end{proof}
+
+La representación de suma de operadores describe la dinámica del sistema principal sin tener que considerar explícitamente las propiedades del entorno; todo lo que se necesita saber está agrupado en los operadores $\{K_i\}$, que actúan solo en el sistema principal {\cite{nielsen_chuang_2010}}.
+
+
+% }}}
+\subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus} % {{{
+
+Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado
+$\rho$,  el cual está en contacto con un sistema auxiliar $\mathcal{H}_A$
+(este también es llamado <<ancilla>> y puede ser pensado como el ambiente o un
+aparato de medición), inicialmente en el estado $\sigma=\sum_k \lambda_k
+|e_k\rala e_k|$, donde esta representación es la descomposición espectral de
+$\sigma$. El sistema auxiliar está sujeto a las mediciones de von Neumann,
+descritas por los operadores de proyección $P_\alpha=\sum_j |f_{\alpha j}\rala
+f_{\alpha j}|$,  donde $|f_{\alpha j}\ra$ forman una base ortonormal de
+$\mathcal{H}_A$ y satisfacen la relación de completitud. Si el resultado de la
+medición es $\alpha$, el sistema auxiliar es observado estando en el subespacio
+$S_\alpha$. Los dos sistemas interactúan durante un tiempo, esta interacción es
+descrita por un operador unitario $U$ que actúa sobre el sistema conjunto
+$\mathcal{H}_Q\otimes \mathcal{H}_A$. El estado no normalizado del sistema
+después de la medición se obtiene proyectando el estado conjunto, en el
+subespacio $S_\alpha$ y luego aplicando la traza parcial sobre $\mathcal{H}_A$,
+
+\begin{equation}\label{measurement_model}
+    \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger P_\alpha)= \tr_A(P_\alpha U \rho \otimes \sigma U^\dagger)\equiv \E_\alpha(\rho),
+\end{equation} 
+donde $\E_\alpha$ es un mapeo lineal en el sistema de los operadores de
+densidad. Este método de definir un conjunto de operaciones cuánticas en
+términos de interacción con un ancilla inicialmente no correlacionado, seguido
+de la medición en el ancilla, se denomina modelo de medición {\cite{unm2014,
+nielsen_chuang_2010}}.
+
+Reescribiendo, la ecuación {\ref{measurement_model}}, en términos de la
+representación de $P_\alpha$ y de $\sigma$ se obtiene que,
+\begin{equation}
+    \E_\alpha(\rho)=\sum_{j,k}\sqrt{\lambda_k}\la f_{\alpha j}|U|e_k\ra \rho \la e_k|U|f_{\alpha j}\ra \sqrt{\lambda_k}=\sum_{j,k}M_{\alpha j k}\rho M_ {\alpha j k}^\dagger,
+\end{equation} donde \begin{equation} \label{KrausOp1}
+    M_{\alpha j k}\equiv \sqrt{\lambda_k}\la f_{\alpha j}|U|e_k\ra.
+\end{equation}
+Estos operadores preservan la traza, \[\sum_{\alpha, j,k}
+M_{\alpha,j,k}^\dagger M_{\alpha,j,k}=\sum_{\alpha, j,k} \lambda_k \la
+e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra= \tr_A(U^\dagger U
+\sigma)=\tr_A(\mathds{1}_Q\otimes\sigma)=\mathds{1}_Q.\] De esta forma se obtiene la representación de Kraus de la operación $\E_\alpha$ y se definen los operadores de Kraus con la ecuación {\ref{KrausOp1}}. 
+
+La probabilidad de obtener el resultado $\alpha$ en la medición del ancilla es {\cite{unm2014}} 
+\begin{equation}
+    p_\alpha=\tr(P_\alpha U\rho\otimes\sigma U^\dagger)=\tr(\E_\alpha(\rho))=\tr\left(\rho \sum _{j,k} M_{\alpha, j,k}^\dagger M_{\alpha,j,k}\right)=\tr(\rho M_\alpha).
+\end{equation}
+
+%Cualquier modelo de medición da lugar a una medida POVM que describe las estadísticas de medición.
+Los operadores \[E_\alpha \equiv \sum _{j,k} M_{\alpha, j,k}^\dagger
+M_{\alpha,j,k}=\sum_{j,k} \lambda_k \la e_k|U|f_{\alpha j}\ra \la f_{\alpha
+j}|U|e_k\ra=\tr_A(U^\dagger P_\alpha U\sigma) \] son claramente positivos y
+preservan la traza. El estado normalizado del sistema posterior a la medición,
+condicionado al resultado $\alpha$, es {\cite{unm2014}} 
+\begin{equation}
+    \rho_\alpha =\dfrac{\E_\alpha (\rho)}{\tr(\E_\alpha(\rho))}=\dfrac{\E_\alpha(\rho)}{p_\alpha}=\dfrac{1}{p_\alpha}\sum_{j,k}M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger.
+\end{equation}
+
+Si no se sabe el resultado de la medición en el sistema auxiliar, el estado
+después de la medición es obtenido promediando sobre las posibles resultados de
+las mediciones {\cite{unm2014}}
+\begin{equation}
+    \rho'=\sum_\alpha p_\alpha \rho_\alpha=\sum_\alpha \E_\alpha(\rho)=\sum_{\alpha,j,k} M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger\equiv\E(\rho).
+\end{equation}
+
+
+% }}}
+\subsubsection{No unicidad en la representación de Kraus} % {{{
+ La representación de Kraus provee una descripción bastante general de la
+dinámica de los sistemas cuánticos abiertos sin embargo esta representación no
+es única. Es decir que distintos conjuntos de operadores $\{K_i\}$ y $\{M_j\}$
+pueden generar la misma operación cuántica. Esto es importante puesto que,
+diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y
+entender la libertad de la representación es crucial para una buena comprensión
+de la corrección de errores cuánticos. Nielsen y Chuang
+{\cite{nielsen_chuang_2010}} proponen formalmente el siguiente teorema y su demostración.
+
+
+\begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}
+Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de
+operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$,
+respectivamente. Además, se agregan operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$
+si y solo si existe números complejos $u_{ij}$ tales que $K_i=\sum_j
+u_{ij}M_j$, y $u_{ij}$ es una matriz
+unitaria de $m$ por $m$
+\end{theorem}
+
+\begin{proof}
+Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Se definen los siguientes estados
+\begin{equation}
+    |e_i\ra\equiv \sum_k (K_i|k_A\ra)|k_B\ra
+\end{equation}
+\begin{equation}
+    |f_j\ra\equiv \sum_k (M_j|k_A\ra)|k_B\ra.
+\end{equation}
+
+
+Además se toma el operador $\sigma$ definido en la ecuación {\ref{sigma1}}, de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{j}u_{ij}|f_j\ra$.
+
+Para un estado arbitrario $|\psi\ra$ 
+\begin{equation}
+    \begin{split}
+        K_i|\psi\ra&=\sum_k \psi_k K_i|k_A\ra\\
+                   &= \sum_{lk}\psi_l(K_i|k_A\ra)\la l_B |k_B\ra\\
+                   &=\sum_{l}\psi_l\la l_B| e_i\ra=\sum_{jl}\psi_l u_{ij}\la l_B|f_j\ra\\
+                   &=\sum_{jkl}\psi_l u_{ij}(M_j|k_A\ra)\la l_B|k_B\ra\\
+                   &=\sum_{jl}\psi_l u_{ij}M_j|l_A\ra=\sum_j u_{ij} M_j |\psi\ra,\\
+    \end{split}
+\end{equation} luego \[K_i=\sum_j u_{ij}M_j.\]Por otra parte, se supone que $K_i$ y $M_j$ están relacionados por la matriz unitaria $K_i=\sum_j u_{ij}M_j$. Entonces, se tiene que
+\begin{equation}
+    \begin{split}
+        \E(\rho)&=\sum_i  K_i\rho K_i^\dagger\\
+            &=\sum_{ij} u_{ij}u_{ij}^*M_j\rho M_j^\dagger\\
+            &=\sum_j M_j\rho M_j^\dagger\\
+            &=\mathcal{F}(\rho).
+    \end{split}
+\end{equation}
+
+Con ello se muestra que el conjunto de operadores $\{K_i\}$ es la misma operación cuántica que con el conjunto $\{M_j\}$.
+\end{proof}
+
+Para ejemplificar el teorema anterior Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen las siguientes operaciones $\E(\rho)=\sum_i K_i\rho K_i^\dagger$ y $\mathcal{F}(\rho)=\sum_i M_i\rho M_i^\dagger$, donde los conjuntos $\{K_n\}$ y $\{M_m\}$ tienen elementos definidos por 
+\begin{equation}
+    \begin{array}{ccc}
+        K_1=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
+            1&0\\
+            0&1\\
+        \end{bmatrix},&&K_2=\dfrac{1}{\sqrt{2}}\begin{bmatrix}
+            1&0\\
+            0&-1\\
+        \end{bmatrix}.\\
+    \end{array}
+\end{equation}
+
+Esta operación $\E$ representa $1/2$ de probabilidad de aplicar el operador unitario y $1/2$ de probabilidad de aplicarle $Z$ al sistema cuántico y
+\begin{equation}
+    \begin{array}{ccc}
+        M_1=\begin{bmatrix}
+            1&0\\
+            0&0\\
+        \end{bmatrix},&&M_2=\begin{bmatrix}
+            0&0\\
+            0&1\\
+        \end{bmatrix},\\
+    \end{array}
+\end{equation}
+
+la segunda operación $\mathcal{F}$ corresponde a realizar una medición proyectiva en la base $\{|0\ra , |1\ra\}$, con el resultado de la medida desconocida. 
+
+
+
+Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación cuántica. Para verlo, notar que existe la matriz unitaria \[U=\begin{bmatrix}u_{11}&u_{12} \\u_{21}&u_{22}\end{bmatrix}=\dfrac{1}{\sqrt{2}}\begin{bmatrix}1&1 \\1&-1\end{bmatrix}\]tal que \[M_1=\sum_{j} u_{1j}K_j=(K_1+K_2)/\sqrt{2}\] y \[M_2=\sum_j u_{2j}K_j=(K_1-K_2)/\sqrt{2}\] luego,
+\begin{equation} 
+    \begin{split}
+        \mathcal{F}(\rho)&=\dfrac{(K_1+K_2)\rho(K_1^\dagger+K_2^\dagger)+(K_1-K_2)\rho(K_1^\dagger-K_2^\dagger)}{2}\\
+        &=K_1\rho K_1^\dagger+K_2\rho K_2^\dagger\\
+        &=\E(\rho).
+    \end{split}
+\end{equation}
+% }}}
+% }}}
+\begin{comment}
+\section{Proceso de tomografía cuántica} % {{{
+
+Antes de describir el proceso de tomografía cuántica, vale la pena presentar la tomografía de estado cuántico. La tomografía de estado cuántico es el procedimiento experimental para determinar un estado cuántico desconocido. Es posible estimar $\rho$ si se tiene un gran número de copias de $\rho$. Por ejemplo, si $\rho$ es el estado cuántico producido por algún experimento, se puede repetir el experimento muchas veces para producir muchas copias del estado $\rho$ {\cite{nielsen_chuang_2010}}. 
+
+Suponiendo que se tiene varias copias de un operador de densidad de un qubit $\rho$. El conjunto $\mathds{1}/\sqrt{2}$, $X/\sqrt{2}$, $Y/\sqrt{2}$, $Z/\sqrt{2}$ forma una base ortonormal de matrices, tal que $\rho$  puede escribirse con \[\rho=\dfrac{\tr(\rho)\mathds{1}+\tr(X\rho)X+\tr(Y\rho)Y+\tr(Z\rho)Z}{2}.\]
+
+Por ejemplo, para estimar $\tr(Z\rho)$ se mide el observable $Z$ muchas veces, $m$, obteniendo salidas como $z_1,z_2,\ldots,z_m$, todos iguales a $+1$ o $-1$. El promedio empírico de esas cantidades, $\sum_i z_i/m$, es un estimado para el valor real de $\tr(Z\rho)$. Usando el teorema del límite central para determinar qué tan bien se comporta esta estimación para $m$ grande, donde se vuelve aproximadamente gaussiana con media igual a $\tr(Z\rho)$ y con desviación estándar  $\Delta(Z)/ m$, donde $\Delta(Z)$ es la desviación estándar para una sola medición de $Z$, que tiene un límite superior de 1, por ende, la desviación estándar en la estimación $\sum_i z_i/m$ es como máximo $1/\sqrt{m}$ {\cite{nielsen_chuang_2010}}. 
+
+Al generalizar el procedimiento para el caso de más de un qubit es similar,
+\[\rho=\sum_{\vec{v}}\dfrac{\tr(\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}\rho)\sigma_{v_1}\otimes\sigma_{v_2}\otimes \ldots \otimes \sigma_{v_n}}{2^n},\] donde la suma es sobre los vectores $\vec{v} = (v_1 ,\ldots, v_n )$ con entradas vi elegidas del conjunto $\{0, 1, 2, 3\}$. Al realizar mediciones de observables que son productos de matrices de Pauli, se puede estimar cada término en esta suma, y así obtener una estimación de $\rho$ {\cite{nielsen_chuang_2010}}.
+
+Para el proceso de tomografía cuántica, el objetivo es tener una forma de determinar una representación útil de $\E$  de los datos experimentales disponibles. El objetivo es encontrar un conjunto de operadores de Kraus $\{K_i\}$ para $\E$.
+
+
+Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan una forma de determinar los $K_i$  a partir de los parámetros medibles.
+
+Primero, se toman en cuenta una base fija de operadores $\tilde{K_i}$, tales que  \begin{equation}\label{Basefija}
+    K_i=\sum_m e_{im}\tilde{K}_m
+\end{equation}
+para algún conjunto de números complejos $e_{im}$. Luego, 
+\begin{equation}\label{operacionEnTerminosDeChi}
+    \E(\rho)=\sum_{mn}\tilde{K}_m\rho \tilde{K}_n^\dagger \chi_{mn},
+\end{equation}
+donde $\chi_{mn}\equiv \sum_i e_{im}e_{in}^*$ son las entradas de una matriz que es hermitiana por definición. Esta expresión, conocida como la \textit{representación de la matriz chi}. Esto muestra que la operación $\E$ puede ser completamente descrita por la matriz $\chi$.
+
+En general, $\chi$ tendrá $d^4-d^2$ parámetros reales independientes, puesto que un mapeo lineal general de matrices de $d$ por $d$ a matrices de $d$ por $d$ está descrito por $d^4$ parámetros independientes, pero debido a que $\rho$ es hermitiana de traza uno, se tienen $d^2$ parámetros fijos.
+
+Sea $\rho_j$, $1 \le j\le d^2$ una base fija para el espacio de matrices de $d\times d$; cualquier matriz de $d\times d$ puede ser escrita como una única combinación de $\rho_j$. Luego, es posible determinar $\E(\rho_j)$ por la tomografía de estado cuántico, para cada $\rho_j$.
+
+Luego, cada $\E(\rho_j)$ puede ser expresada como una combinación lineal de estados de la base 
+\begin{equation}\label{E_en_terminos_de_la_base}
+    \E(\rho_j)=\sum_k \lambda _{jk}\rho_k.
+\end{equation}
+Ahora, $\lambda_{jk}$ puede ser determinado por algoritmos de álgebra lineal. Se puede escribir lo siguiente
+\begin{equation}
+    \tilde{K}_m\rho_j \tilde{K}_n^\dagger=\sum_k\beta_{jk}^{mn}\rho_k,
+\end{equation}
+donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser determinados por los algoritmos de álgebra lineal, dados los operadores $\tilde{K}_m$ y $\rho_j$.  Combinando las dos últimas expresiones con la ecuación {\ref{operacionEnTerminosDeChi}}
+\begin{equation}
+\sum_k \sum_{mn}\chi_{mn}\beta_{jk}^{mn}\rho_k=\sum_k\lambda_{jk}\rho_k.
+\end{equation}
+
+Debido a la independencia lineal de $\rho_k$ para cada $k$, 
+\begin{equation}
+    \sum_{mn}\beta_{jk}^{mn}\chi_{mn}=\lambda_{jk}.
+\end{equation}
+
+Esta relación es una condición necesaria y suficiente para la matriz $\chi$ para dar la operación cuántica correcta $\E$. Luego $\chi$ y $\lambda$ pueden verse como vectores, y $\beta$ como una matriz de $d^4\times d^4$, con las columnas nombradas por ${mn}$ y las columnas por ${jk}$. Se necesita computar la matriz inversa de $\beta_{jk}^{mn}$. Sea $\kappa$ la matriz inversa generalizada de la matriz $\beta$, que satisface \[\sum_{jk}\kappa_{jk}^{pq}\beta_{jk}^{mn}=\delta_{pm}\delta{qn},\] los elementos de $\chi$ se leen como 
+\begin{equation}
+    \chi_{mn}=\sum_{jk}\kappa_{jk}^{mn}\lambda_{jk}.
+\end{equation}
+
+Ahora que se determinó $\chi$ se puede obtener inmediatamente la representación de Kraus para $\E$ de la siguiente manera. Sea $U^\dagger$ una matriz unitaria que diagonaliza $\chi$,
+\begin{equation}
+    \chi_{mn}=\sum_{xy}U_{mx}d_x\delta_{xy}U_{ny}^*
+\end{equation}
+
+y de ello se puede verificar que  \begin{equation}
+    K_i=\sqrt{d_i} \sum_j U_{ji}\tilde{K}_j
+\end{equation} son elementos para $\E$. El proceso se puede resumir en determinar $\lambda$ experimentalmente usando el proceso de tomografía de estado, y luego determinar $\chi$ con $\vec{\chi}=\kappa\lambda$, la cual da una descripción completa de $\E$, incluyendo un conjunto de operadores $\{K_i\}$.
+
+% }}}
+\end{comment}
+
+
+
+
+
+
+

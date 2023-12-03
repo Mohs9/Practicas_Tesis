@@ -33,6 +33,7 @@
 \usepackage{parskip}
 \renewcommand{\cftchapfont}{\bfseries\scshape}
 \usepackage{longtable}
+\usepackage{chngcntr}
 
 %\newcommand{\mycaption}[2][\@empty]% #1 = short caption (optionl), #2 = caption
 %{\refstepcounter\@captype
@@ -46,18 +47,6 @@
  %\fi
 %}
 %\usepackage{tocloft,calc}
-\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={Fig.}}
-
-\newcommand{\addappendix[1]}{   % Self-created command to insert appendix with predefined settings
-   \newpage
-   \appendix
-    \chapter*{APÉNDICE #1}   % Name of appendix
-    \addcontentsline{toc}{chapter}{Apéndice #1}  % Add appendix name to table of contents
-    \renewcommand{\thesection}{#1.\arabic{section}}    % Change numbering of section to upper-case letters.
-    \renewcommand{\thefigure}{#1.\arabic{figure}}%
-    %\addcontentsline{lof}{figure}{}
-    %\captionsetup[figure]{labelfont={default},labelformat={default},labelsep=period,name={Fig. #1.}}
-    }
 
 % --- Bibliography & References---  
 %\usepackage[backend = bibtex,    % Recommended backend for sorting bibliography
@@ -193,12 +182,11 @@
 \newtheorem{proposition}[theorem]{Proposición}
 \newtheorem{corollary}[theorem]{Corolario}
 \newtheorem{lemma}[theorem]{Lema}
-
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
 \theoremstyle{remark}
 \newtheorem{claim}{Claim}[section]
-
+%\usepackage{apptools}
 %COMANDOS==========================================================
 \renewcommand\qedsymbol{$\blacksquare$}
 \newcommand{\ra}{\rangle}
@@ -207,6 +195,7 @@
 \newcommand{\tr}{{\rm Tr}}
 \newcommand{\E}{\mathcal{E}}
 \newcommand{\F}{\mathcal{F}}
+\newcommand{\tensor}{\otimes}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
 \FXRegisterAuthor{rr}{arr}{\color{magenta}RR}
 
@@ -233,3 +222,17 @@
 \titleformat{\chapter}[display]
 {\normalfont\bfseries\centering}{}{0pt}{\LARGE \MakeUppercase }
 %\linenumbers
+
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={Fig.}}
+
+\newcommand{\addappendix[1]}{   % Self-created command to insert appendix with predefined settings
+   \newpage
+   \appendix
+    \chapter*{APÉNDICE #1}   % Name of appendix
+    \addcontentsline{toc}{chapter}{Apéndice #1}  % Add appendix name to table of contents
+    \renewcommand{\thesection}{#1.\arabic{section}}  
+    \renewcommand{\thefigure}{#1.\arabic{figure}}%
+    \counterwithin{theorem}{section}
+    %\addcontentsline{lof}{figure}{}
+    %\captionsetup[figure]{labelfont={default},labelformat={default},labelsep=period,name={Fig. #1.}}
+    }

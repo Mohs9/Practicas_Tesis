@@ -210,8 +210,12 @@ difusas en un sistema de  $n$ partículas.
 \cpnote{Me gustaría un objetivo más fisico. Para que estamos estudiando esto?
 Cual es el objetivo de verdad? Me gustaría que lo pensaras y que si no lo 
 sabes, que lo discutamos. }
-\rrnote{Sí me gustaría discutirlo, porque no creo tenerlo tan claro}
 
+\rrnote{Escribí un parráfo que explica qué es una medición difusa y para qué uilizamos los operadores de Kraus}
+
+En un sistema de varias partículas, una medición difusa es aquella en la que existe una posibilidad de identificar erróneamente a las partículas. El objetivo general de este proyecto es establecer operadores que brinden un mapeo que proporcione la probabilidad obtener las posibles salidas de una medición difusa, así como el estado posterior a la medición.   
+
+%En un sistema de varias partículas, una medición difusa es aquella en la que existe una posibilidad de identificar erróneamente a las partículas. El objetivo general de este proyecto es establecer los operadores que describan completamente una medición difusa. Para describir completamente una medición es necesario contar con un mapeo de salidas que proporcione la probabilidad de las posibles salidas de una medición difusa, así como el estado posterior a la medición. 
 
 
 \section*{Objetivos Específicos}
@@ -251,11 +255,9 @@ y luego ya escribir.}
 
 
 %Debido a que en la naturaleza es posible obtener mediciones imperfectas
-Una descripción completa de una medición debe proporcionar las probabilidades
-respectivas de los diferentes resultados posibles de la medición y el estado
-posterior a la medición del sistema. En este trabajo se trata particularmente
+ En este trabajo se trata particularmente
 con \textit{mediciones difusas}, en las que en un sistema de varias partículas
-existe una posibilidad finita de identificar erróneamente las partículas.
+existe una posibilidad finita de identificar erróneamente las partículas. Una descripción completa de una medición debe proporcionar las probabilidades respectivas de los diferentes resultados posibles de la medición y el estado posterior a la medición del sistema.
 
 \cpnote{Me gustaria un poco entender un poco mejor la estructura de esta intro. Creo 
 que puedes ampliar un poco mas los dos primeros parrafos donde hablas un poco del 
@@ -280,7 +282,7 @@ En sistemas de varias partículas en los que se realiza una medición de un
 observable, en la cual existe una posibilidad de identificar las partículas
 equivocadamente, es posible describir completamente dicha medición utilizando
 las herramientas mencionadas anteriormente. Estas detecciones imperfectas se
-exponen en la referencia {\cite{Pineda_2021}}. \cpnote{Acá si esta bien puesta 
+exponen en la referencia {\cite{Pineda_2021}}.\cpnote{Acá si esta bien puesta 
 la cita. Por cierto, no necesitas dobles llaves para las citas.}\rrnote{Solo las pongo para silenciar las advertencias que me da chktex}
 
 
@@ -308,7 +310,7 @@ Kraus que describen completamente sistemas específicos de varias partículas.
 \chapter{METODOLOGÍA}% \addcontentsline{toc}{chapter}{METODOLOGÍA} % {{{
 
 
-La metodología del proyecto de graduación se iniciará estudiando \cpnote{No consiste en 
+El proyecto de graduación se iniciará estudiando \cpnote{No consiste en 
 iniciar, sino que tu arrancaras estudiando los conectos fundamentales. Reformula 
 esta frase.} \rrnote{Reformulé la frase anterior.}conceptos fundamentales para abordar el
 problema de las mediciones difusas. Se planteará el problema y se explorarán
@@ -322,21 +324,17 @@ que es lo que va en otro? Puedes pensarlo y platicamos? Dejo las correcciones de
 para cuando lo tengamos claro}
 
 
-Para la primera parte se estudiará la literatura especializada en las herramientas matemáticas necesarias para este trabajo, principalmente el operador de densidad, las medidas POVM y la teoría de las operaciones cuánticas. Se usará el informe final de prácticas como base inicial así como  otras fuentes para comprender y analizar algunos teoremas y temas puntuales.
+%En este proyecto, se estudiará la literatura especializada en las herramientas matemáticas necesarias para este trabajo, principalmente el operador de densidad, las medidas POVM y la teoría de las operaciones cuánticas. Se usará el informe final de prácticas como base inicial así como  otras fuentes especializadas para comprender y analizar algunos teoremas y temas puntuales.
+%Se planteará el problema de mediciones difusas para sistemas de dos partículas. Se revistarán los operadores de Kraus y algunos ejemplos que fueron inspeccionados durante el proyecto de prácticas finales. 
 
-
-
-
-Para la segunda parte se utilizará los operadores de Kraus y algunos ejemplos que fueron inspeccionados durante el proyecto de prácticas finales. Primero se evaluará los sistemas de dos partículas con observables factorizables. Se usarán herramientas como instrumentos cuánticos y se evaluará en que condiciones existen instrumentos cuánticos equivalentes que describan completamente mediciones difusas para sistemas de dos partículas.
-
- Finalmente, en la última parte se aplicará el procedimiento   que se utilizó en la segunda parte buscando generalizarlo para sistemas con $n$ partículas. Además se trabajarán con la idea de observables que no son factorizables. Se explorará el concepto de observables degenerados y sus consecuencias en los operadores de Kraus y en los instrumentos cuánticos que describan completamente las mediciones difusas en sistemas de $n$ partículas.
+ %Finalmente, se aplicará el procedimiento que se utilizó en la segunda parte buscando generalizarlo para sistemas con $n$ partículas. Además se trabajarán con la idea de observables que no son factorizables. Se explorará el concepto de observables degenerados y sus consecuencias en los operadores de Kraus y en los instrumentos cuánticos que describan completamente las mediciones difusas en sistemas de $n$ partículas.
 
 % }}}
 \chapter{DESCRIPCIÓN DE LOS CAPÍTULOS}  % {{{
 \cpnote{Otra vez acá es la repeticion de lo anterior. Debemos platicar 
 un poco a ver que es lo que se quiere hacer en cada parte de este documento. }
-
-\section{INTRODUCCIÓN A LOS OPERADORES DE DENSIDAD Y A LAS OPERACIONES CUÁNTICAS}
+\rrnote{Sí, me gustaría trabajar esta parte simultáneamente junto con la tesis}
+\section{OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 En el primer capítulo  se presenta la revisión y estudio bibliográfico que se
 realizó sobre el formalismo de la matriz de densidad en mecánica cuántica, las
 medidas POVM y las operaciones cuánticas. La matriz de densidad es una
@@ -354,10 +352,9 @@ dos partículas en las que se pueden identificar partículas, pero existe una
 probabilidad de identificarlas erróneamente. Con el lenguaje de las operaciones
 cuánticas se exploran algunos conjuntos de operadores de Kraus que describen
 las mediciones difusas y ejemplos numéricos de la aplicación de los operadores.
-En este capítulo se presenta el concepto de instrumentos cuánticos y su
-utilidad en la descripción de mediciones en sistemas cuánticos. Y se indagarán
-las condiciones en la que instrumentos cuánticos que representan la idea detrás
-de mediciones difusas, sean equivalentes.
+Se definirá una nueva herramienta llamada instrumento cuántico. Con esta nueva herramienta se propondrán al menos dos instrumentos cuánticos con distinta interpretación física. A estos instrumentos se les calcularán los valores esperados y se evaluará en que condiciones existen instrumentos cuánticos equivalentes que describan completamente mediciones difusas para sistemas de dos partículas.
+
+%En este capítulo se presenta el concepto de instrumentos cuánticos y su utilidad en la descripción de mediciones en sistemas cuánticos. Y se indagarán las condiciones en la que instrumentos cuánticos que representan la idea detrás de mediciones difusas, sean equivalentes.
 
 
 \section{OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$n$}}{n} PARTÍCULAS}
@@ -372,7 +369,9 @@ ejemplos de sistemas de varias partículas en mediciones difusas que ilustran la
 generalización de los operadores de Kraus con cualquier observable.  
 
 % }}}
-\chapter{CONTENIDOS} % {{{
+\chapter{CONTENIDOS*} % {{{
+\textit{*Nota: El contenido que se presenta a continuación es tentativo. Conforme se avance en la realización de la tesis es posible que se modifique.}
+
 
 \section*{LISTA DE FIGURAS}
 
@@ -384,7 +383,7 @@ generalización de los operadores de Kraus con cualquier observable.
 
 \section*{INTRODUCCIÓN}
 
-\section*{1 MARCO TEÓRICO}
+\section*{1 OPERADOR DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 \begin{itemize}
 \item[1.1] Introducción
 \item[1.2] Operador de densidad

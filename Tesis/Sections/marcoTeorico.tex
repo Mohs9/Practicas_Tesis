@@ -1,4 +1,4 @@
-\chapter[MARCO TEÓRICO]{1. MARCO TEÓRICO}
+\chapter[OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS]{1. OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 \section{Introducción}\label{IntroduccionMarcoteorico}
 
 Para estudiar la completa descripción de las mediciones difusas para sistemas de varias partículas primero será indispensable examinar el formalismo de algunas herramientas tales como el operador densidad, las medidas POVM y las operaciones cuánticas. El operador de densidad también conocido como <<matriz de densidad>> describe el estado cuántico de un sistema físico y generaliza los vectores de estado, puesto que éstos pueden representar estados mixtos. Este operador contiene todas las propiedades estadísticas de un sistema cuántico, incluso cuando no es posible describir el sistema mediante un estado puro. Por otro lado, las medidas POVM son apropiadas debido a que los sistemas cuánticos reales presentan ruido o perturbaciones con el ambiente y estas medidas tienen en cuenta la interacción del sistema con el entorno y son especialmente útiles porque pueden proporcionar las estadísticas de medición. La teoría de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y considera que los estados cuánticos evolucionan de forma discreta.  
@@ -42,9 +42,9 @@ promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por
  		&=\sum_i\sum_{j}\sum_k \langle\psi_i||\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle \langle \phi_k||\psi_i\rangle\\
  		&=\sum_{j}\sum_k \left(\sum_{i} p_i \langle \phi_k|\psi_i\rangle  \langle\psi_i|\phi_j\rangle\right) \langle \phi_j|\mathcal{O}|\phi_k\rangle, 
  	\end{split}
-\end{equation} donde $\{|\phi_j\rangle \}$ es una base más general del espacio de Hilbert del sistema. La última línea en la ecuación {\ref{expectationvalue}} es una
+\end{equation} donde $\{|\phi_j\rangle \}$ es una base más general del espacio de Hilbert del sistema. La última línea en la ecuación ({\ref{expectationvalue}}) es una
 motivación para  definir el operador de densidad  en la forma de la ecuación
-{\ref{defdensityoperator}}. El operador de densidad contiene toda la
+({\ref{defdensityoperator}}). El operador de densidad contiene toda la
 información físicamente importante que se puede obtener acerca del ensamble
 {\cite{sakurai2017modern}}\begin{equation}
  	\label{expectationvalue_traza}
@@ -119,7 +119,7 @@ Ahora se procede a demostrar formalmente este teorema.
 
 
 \begin{proof}
-	Primero se supondrá que $\rho $ es un operador de densidad por lo que debe cumplir con la definición {\ref{defdensityoperator}}, al computar la traza se obtiene que \begin{equation*}
+	Primero se supondrá que $\rho $ es un operador de densidad por lo que debe cumplir con la definición ({\ref{defdensityoperator}}), al computar la traza se obtiene que \begin{equation*}
 		\begin{split}
 			{\rm tr(\rho)}&=\tr\left(\sum_{i} p_i|\psi_i\rangle \langle \psi_i|\right) \\
 			&=	\sum_{i}p_i \tr(|\psi_i\rangle \langle \psi_i|)\\
@@ -143,7 +143,7 @@ Ahora se debe mostrar el converso del enunciado anterior. Suponiendo $\rho$ es u
 Dado que $\rho$ es un operador positivo semidefinido entonces tiene una descomposición espectral dada por la siguiente ecuación {\cite{nielsen_chuang_2010}} \[\rho=\sum_i \lambda_i |i\rangle \langle i|,\] con $|i\rangle$ vectores ortogonales y $\lambda_i$ son valores propios reales no negativos, de la matriz $\rho$. Además satisface que la traza es uno 
 \[\tr(\rho)=1=\sum_i\lambda_i.\]
 
-Luego, un sistema estado $|i\rangle$ con una probabilidad $\lambda_i$ tendrá un operador asociado $\rho$. Esto significa que, el ensamble $\{\lambda_i, |i\rangle\}$  corresponde al operador $\rho$ que cumple con {\ref{defdensityoperator}}.
+Luego, un sistema estado $|i\rangle$ con una probabilidad $\lambda_i$ tendrá un operador asociado $\rho$. Esto significa que, el ensamble $\{\lambda_i, |i\rangle\}$  corresponde al operador $\rho$ que cumple con ({\ref{defdensityoperator}}).
 
 
 \end{proof}
@@ -400,7 +400,7 @@ $\mathcal{M}$. La consistencia física requiere que el \textit{estado} $\rho_A$ 
 \mathds{1}_B)\rho_{AB}).\end{equation} 
 
 De acuerdo a Nielsen y Chuang {\cite{nielsen_chuang_2010}} la ecuación
-{\ref{promedioDeMedicion}} es satisfecha si se escoge $\rho_A\equiv \tr_B(\rho
+({\ref{promedioDeMedicion}}) es satisfecha si se escoge $\rho_A\equiv \tr_B(\rho
 _{AB})$. De hecho, la traza parcial debe ser la única función que cumpla esta
 propiedad. Para comprobar la propiedad de unicidad, se toma  $f(\cdot)$ como
 algún mapeo de operadores de densidad en $\mathcal{H}_A\otimes \mathcal{H}_B$ a
@@ -415,8 +415,8 @@ operadores hermíticos con respecto al producto interno $(X,Y) \equiv \tr(XY)$. 
 	=&\sum_{i}\mathcal{M}_i \tr((\mathcal{M}_i\otimes \mathds{1}_B)\rho_{AB}),\\
 \end{split}\] 
 de ello se sigue que $f$ está únicamente determinada por la ecuación
-{\ref{promedioDeMedicion}}. Además, la traza parcial satisface
-{\ref{promedioDeMedicion}}, entonces es la única función que tiene esta
+({\ref{promedioDeMedicion}}). Además, la traza parcial satisface
+({\ref{promedioDeMedicion}}), entonces es la única función que tiene esta
 propiedad {\cite{nielsen_chuang_2010}}.
 
 %Con el operador de densidad reducido se finaliza el marco teórico del lenguaje del operador de densidad necesario para el objetivo de este proyecto. En la siguiente sección, se estará hablando sobre operadores POVM que son de interés en este trabajo.
@@ -511,7 +511,7 @@ observable estará dado por
 
 Una característica clave de las mediciones proyectivas consiste en la
 repetibilidad. Esto significa que si la medición es repetida, el estado en
-{\ref{stateProjective}} sigue siendo el mismo, y da el mismo resultado
+({\ref{stateProjective}}) sigue siendo el mismo, y da el mismo resultado
 {\cite{2007geometry}}.
 % }}}
 \subsection{Operadores POVM}\label{operadoresPOVM} % {{{
@@ -556,26 +556,12 @@ Según Bengtsson y Zyczkowski {\cite{2007geometry}}, un POVM es llamado
 estado puro $|\phi_m\ra$ tal que $E_m$ es proporcional a $|\phi_m\rala\phi_m|$.
 Un POVM que es impuro puede siempre volverse puro, reemplazando
 cada operador $E_m$ por su descomposición espectral. 
-\begin{comment}
-Un conjunto de $k$ estados puros $|\phi_m \ra$ definen un POVM puro si y solo
-si el estado máximamente mezclado (\ref{maximallyMixedState}) puede ser
-descompuesto como  $\sigma=\sum_{m=1}^{k}p_m|\phi_m\rala\phi_m|$, donde
-$\{p_m\}$ forma un conjunto adecuado de coeficientes positivos. De hecho
-cualquier ensamble de estados puros o mixtos representando a $\sigma$ definen
-un POVM\@. Para cualquier conjunto de operadores $E_m$ definiendo un POVM se
-toman estados cuánticos $\rho_m=E_m/\tr(E_m)$ y una probabilidad $p_m=\tr
-E_m/d$ para obtener el estado máximamente mezclado: 
-\begin{equation}
-	\sum_{m=1}^{k} p_m\rho _{m}=\sum_{m=1}^k \dfrac{1}{d}E_m=\dfrac{\mathds{1}}{d}=\sigma.
-\end{equation}
-Por otro lado, cualquier ensamble de matrices de densidad definen un POVM
-{\cite{2007geometry}}. 
-\end{comment}
+
 
 Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, por lo general los textos
 introductorios a la mecánica cuántica describen solamente la medidas
 proyectivas y en consecuencia el formalismo de las medidas POVM y la
-descripción del tercer postulado mencionado en la sección {\ref{postulates}},
+descripción del tercer postulado mencionado en la sección ({\ref{postulates}}),
 no es tan conocido. En computación e información cuántica, el objetivo es
 lograr un buen nivel de control sobre las mediciones que se pueden realizar,
 por consiguiente utilizar un formalismo más completo para la descripción de las
@@ -623,7 +609,7 @@ Además se puede descomponer
 $|\psi_2\ra=\alpha|\psi_1\ra +\beta|\phi\ra$, donde $|\phi\ra$ sí es ortonormal
 a $|\psi_1\ra $, $|\alpha|^2+|\beta|^2=1$, y $|\beta|<1$ debido a que $|\psi_1\ra$
 y $|\psi_2\ra$ no son ortogonales. Luego $\sqrt{E_2}|\psi_2\ra=\beta \sqrt{E_2}|\phi\ra$, Lo
-cual implica una contradicción, con {\ref{E2psi2}}, puesto que \begin{equation}
+cual implica una contradicción, con ({\ref{E2psi2}}), puesto que \begin{equation}
 	\la \psi_2|E_2|\psi_2\ra=|\beta|^2 \la\phi|E_2|\phi\ra \le |\beta|^2<1,
 \end{equation} 
 donde la segunda desigualdad  se obtiene de la observación \[ \la
@@ -788,7 +774,7 @@ Por otro lado, aplicando la operación $\E_\alpha$  a la combinación convexa de
 estado inicial $\{\rho_i\}$ \begin{equation}
     \rho'=\dfrac{\E_\alpha\left(\sum_i p_i \rho_i\right)}{p_\alpha},
 \end{equation} tomando en cuenta la regla de Bayes  $p(i|\alpha)=\dfrac{p_i
-p(\alpha|i)}{ p_\alpha} $ a la ecuación {\ref{lineal_y_convexo}},  se ve que
+p(\alpha|i)}{ p_\alpha} $ a la ecuación ({\ref{lineal_y_convexo}}),  se ve que
 $\E_\alpha$ debe ser lineal {\cite{preskill2020quantum}} 
 \begin{equation}
     \E_\alpha\left(\sum_i p_i \rho_i\right)=\sum_i p_i\E_\alpha(\rho_i). 
@@ -866,7 +852,7 @@ estocásticos}  {\cite{2007geometry}}.
 Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba de que la representación de suma de operadores es equivalente a la definición de la sección anterior.
 
 \begin{theorem}
-    El mapeo $\E$ satisface los axiomas de la definición {\ref{DefE(rho)}} si y solo si 
+    El mapeo $\E$ satisface los axiomas de la definición ({\ref{DefE(rho)}}) si y solo si 
     \begin{equation}
         \E(\rho)=\sum_i K_i \rho K_i^\dagger,
     \end{equation}
@@ -875,7 +861,7 @@ Nielsen y Chuang {\cite{nielsen_chuang_2010}} presentan un teorema y una prueba 
 
 
 \begin{proof}
-Suponiendo que $\E$ satisface {\ref{DefE(rho)}}. Se introduce un sistema
+Suponiendo que $\E$ satisface ({\ref{DefE(rho)}}). Se introduce un sistema
 $\mathcal{H}_B$, con las mismas dimensiones del sistema cuántico original
 $\mathcal{H}_A$. Sea $|k_A\ra$ y $|k_B\ra$  bases ortonormales para $\mathcal{H}_A$ y $\mathcal{H}_B$
 respectivamente. Se define un estado conjunto del sistema $\mathcal{H}_A\otimes
@@ -950,7 +936,7 @@ términos de interacción con un ancilla inicialmente no correlacionado, seguido
 de la medición en el ancilla, se denomina modelo de medición {\cite{unm2014,
 nielsen_chuang_2010}}.
 
-Reescribiendo, la ecuación {\ref{measurement_model}}, en términos de la
+Reescribiendo, la ecuación ({\ref{measurement_model}}), en términos de la
 representación de $P_\alpha$ y de $\sigma$ se obtiene que,
 \begin{equation}
     \E_\alpha(\rho)=\sum_{j,k}\sqrt{\lambda_k}\la f_{\alpha j}|U|e_k\ra \rho \la e_k|U|f_{\alpha j}\ra \sqrt{\lambda_k}=\sum_{j,k}M_{\alpha j k}\rho M_ {\alpha j k}^\dagger,
@@ -960,7 +946,7 @@ representación de $P_\alpha$ y de $\sigma$ se obtiene que,
 Estos operadores preservan la traza, \[\sum_{\alpha, j,k}
 M_{\alpha,j,k}^\dagger M_{\alpha,j,k}=\sum_{\alpha, j,k} \lambda_k \la
 e_k|U|f_{\alpha j}\ra \la f_{\alpha j}|U|e_k\ra= \tr_A(U^\dagger U
-\sigma)=\tr_A(\mathds{1}_Q\otimes\sigma)=\mathds{1}_Q.\] De esta forma se obtiene la representación de Kraus de la operación $\E_\alpha$ y se definen los operadores de Kraus con la ecuación {\ref{KrausOp1}}. 
+\sigma)=\tr_A(\mathds{1}_Q\otimes\sigma)=\mathds{1}_Q.\] De esta forma se obtiene la representación de Kraus de la operación $\E_\alpha$ y se definen los operadores de Kraus con la ecuación ({\ref{KrausOp1}}). 
 
 La probabilidad de obtener el resultado $\alpha$ en la medición del ancilla es {\cite{unm2014}} 
 \begin{equation}
@@ -1007,7 +993,7 @@ unitaria de $m$ por $m$
 \end{theorem}
 
 \begin{proof}
-Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Se definen los siguientes estados
+Para probar este teorema se hace uso del teorema ({\ref{teorema2.4}}). Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Se definen los siguientes estados
 \begin{equation}
     |e_i\ra\equiv \sum_k (K_i|k_A\ra)|k_B\ra
 \end{equation}
@@ -1016,7 +1002,7 @@ Para probar este teorema se hace uso del teorema {\ref{teorema2.4}}. Este result
 \end{equation}
 
 
-Además se toma el operador $\sigma$ definido en la ecuación {\ref{sigma1}}, de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{j}u_{ij}|f_j\ra$.
+Además se toma el operador $\sigma$ definido en la ecuación ({\ref{sigma1}}), de la cual se obtiene que $\sigma=\sum_i|e_i \rala e_i|=\sum_j |f_j\rala f_j|$, y luego existe una matriz unitaria tal que $  |e_i\ra=\sum_{j}u_{ij}|f_j\ra$.
 
 Para un estado arbitrario $|\psi\ra$ 
 \begin{equation}
@@ -1118,7 +1104,7 @@ Ahora, $\lambda_{jk}$ puede ser determinado por algoritmos de álgebra lineal. S
 \begin{equation}
     \tilde{K}_m\rho_j \tilde{K}_n^\dagger=\sum_k\beta_{jk}^{mn}\rho_k,
 \end{equation}
-donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser determinados por los algoritmos de álgebra lineal, dados los operadores $\tilde{K}_m$ y $\rho_j$.  Combinando las dos últimas expresiones con la ecuación {\ref{operacionEnTerminosDeChi}}
+donde $\beta_{jk}^{mn}$ son número complejos los cuales también pueden ser determinados por los algoritmos de álgebra lineal, dados los operadores $\tilde{K}_m$ y $\rho_j$.  Combinando las dos últimas expresiones con la ecuación ({\ref{operacionEnTerminosDeChi}})
 \begin{equation}
 \sum_k \sum_{mn}\chi_{mn}\beta_{jk}^{mn}\rho_k=\sum_k\lambda_{jk}\rho_k.
 \end{equation}

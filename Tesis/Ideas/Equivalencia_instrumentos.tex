@@ -208,7 +208,7 @@ Tenemos que al simplificar el valor esperado del segundo instrumento:
     \begin{split}
         \la A\otimes B \ra_{\mathcal{I}_2}&=p\tr(A\otimes B \rho)+(1-p)\sum_{j,k}\tr((B\otimes A )P_{a_j b_k} )\tr(P_{a_j b_k}\rho).
     \end{split}
-\end{equation} El primer término del lado derecho de la ecuación {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos de estas ecuaciones, i.e. \begin{equation}\label{equivalencia_terminos}\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado derecho de esta última ecuación: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
+\end{equation}El primer término del lado derecho de la ecuación {\ref{ExpectedValueI1}} y el primer término de {\ref{ExpectedValueI2}} son iguales, por lo tanto se igualan los segundos términos de estas ecuaciones, i.e.\begin{equation}\label{equivalencia_terminos}\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado derecho de esta última ecuación: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
 	&=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  reescribiendo la ecuación {\ref{equivalencia_terminos}} 
 	\[\tr(B\otimes A \rho)=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\\ \]
 \begin{equation}\label{trazaCero}\begin{split}
@@ -290,7 +290,7 @@ Se puede probar lo siguiente:
 
 
 \begin{lemma}\label{lemma_traza_cero} Si $\forall\rho$, $\tr(A\rho)=0$, entonces $A=\mathbf{0}$.\end{lemma}\begin{proof} Supongamos por contradicción que $A\ne \mathbf{0}$. Entonces, sea $\rho=|a\rala a|$, con $|a\rangle$ un vector propio ortonormal, de $A$. Luego, al calcular $A|a\rala a|$, tenemos $A|a\rala a|=a|a\rala a|$ entonces, la traza  de $A\rho$ es exactamente $a$, que es distinto de cero.
-Entonces, hemos encontrado una matriz $A$ distinta de cero tal que la traza de $A\rho$ sea distinta de cero. De ello se deduce que $A = \mathbf{0}$ si no existe un $\rho$ distinto de cero. \end{proof}
+Entonces, hemos encontrado una matriz $A$ distinta de cero tal que la traza de $A\rho$ sea distinta de cero. De ello se deduce que $A = \mathbf{0}$ si no existe un $\rho$ distinto de cero.\end{proof}
 
 
 

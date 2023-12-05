@@ -1,0 +1,41 @@
+\chapter{ OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$n$}}{n} PARTÍCULAS}
+\section{ Introducción}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Generalización de operadores de Kraus en sistemas de \texorpdfstring{\boldmath{$n$}}{n} partículas}
+
+En sistema de $n$ partículas en el que se realiza una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_n$, y en el que ocurre un error en el aparato de medición y confunde los resultados. Con una probabilidad $p_{j}$ se realiza la medición de acuerdo a la permutación $\Pi_j$ del observable. 
+
+El operador difuso para un sistema de $n$ partículas se puede definir de forma más general como\begin{equation}\label{eq:fm-nparticles}
+    \mathcal{F}(\rho)=\sum_{j \in S}p_{j}\Pi_j(\rho)
+\end{equation}donde $\mathcal{S}$ es un subconjunto del grupo simétrico de $n$ partículas y $\sum_{j \in \mathcal{S}} p_j=1$. El valor esperado de esta medición será {\cite{Pineda_2021}}\begin{equation}\label{eq:ExpectedValue-generalForm}\begin{split}
+    \langle A_1\tensor A_2\tensor \hdots \tensor A_n\rangle_{\mathcal{F}(\rho)} &=\tr(\mathcal{F}(\rho)A_1\tensor A_2\tensor \hdots \tensor A_n)\\
+    &=\sum_{j \in S}p_{j}\tr(\Pi_j(\rho)A_1\tensor A_2\tensor \hdots \tensor A_n).
+\end{split}
+\end{equation} 
+
+
+
+\subsection{Instrumentos cuánticos en sistemas de \texorpdfstring{\boldmath{$n$}}{n} partículas}
+En esta parte también se consideran las dos alternativas de instrumentos cuánticos de la sección ({\ref{sec:instrumentos-cuanticos}}). La primera alternativa es el instrumento en el que las partículas se intercambian y luego se aplica una medición proyectiva \begin{equation}
+    \mathcal{I}(\rho)=\sum_{}P_{a_{1j},a_{2j},\hdots, a_{nj}}\otimes P_{a_{1j},a_{2j},\hdots, a_{nj}}\mathcal{F}(\rho)P_{a_{1j},a_{2j},\hdots, a_{nj}}
+\end{equation}
+
+
+\section{Observables no factorizables en mediciones difusas}
+\section{Observables degenerados en mediciones difusas}

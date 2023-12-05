@@ -9,7 +9,7 @@ exponen en la referencia {\cite{Pineda_2021}}. También se utiliza el lenguaje
 de las operaciones cuánticas por medio de los operadores de Kraus para poder
 describir las mediciones en los sistemas cuánticos de dos partículas.
 
-La estructura de este capítulo es la siguiente. En la segunda sección se establece el problema de las mediciones difusas para un sistema de dos partículas. Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial.  Además se exponen dos instrumentos cuánticos, los cuales son una herramienta conveniente para describir completamente un medición difusa sintetizadamente. Finalmente, en la cuarta sección se presentan algunos ejemplos de las mediciones y su descripción utilizando los operadores en la tercera sección.
+La estructura de este capítulo se presenta a continuación. En la siguiente sección se establece el problema de las mediciones difusas para un sistema de dos partículas. Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial.  Además se exponen dos instrumentos cuánticos, los cuales son una herramienta conveniente para describir completamente un medición difusa sintetizadamente. Finalmente, en la cuarta sección se presentan algunos ejemplos de las mediciones y su descripción utilizando los operadores en la tercera sección.
 
 % }}}
 \section{Mediciones difusas para dos partículas} % {{{
@@ -30,7 +30,7 @@ lugar realiza la medición de $B\otimes A$. Luego, si $\rho$ es el estado
 inicial del sistema, el valor esperado para la salida de la medición difusa (FM
 por sus siglas en inglés), será 
 \begin{equation}\label{ExpectedValue-theorginal}
-    \la A\otimes B\ra_{\mathcal{F}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).
+    \la A\otimes B\ra_{\mathcal{F}_{2p}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).
 \end{equation}
 El operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue 
 \begin{equation}\label{operador_difuso}
@@ -39,7 +39,7 @@ El operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue
 donde $S_{ij}$ es la operación de intercambio SWAP con respecto a las
 partículas $i$ y $j$ del estado del sistema {\cite{Pineda_2021}}. Esto puede
 generalizarse para un sistema de $n$ partículas, con un operador de permutación
-$P$.
+$\Pi$.
 
 % }}}
  \section{Operadores de Kraus para mediciones difusas} % {{{
@@ -89,7 +89,7 @@ Si el estado inicial se encuentra en el subespacio de $P^{s}_{a_j,b_k}$, el fact
 % }}}
 \subsection{POVM para mediciones difusas}\label{Sec_POVM_para_mediciones_difusas} % {{{
 
-En el capítulo ({\ref{MedidaPOVM}}) se habló de las medidas POVM, con ellas puede
+En la sección ({\ref{MedidaPOVM}}) se habló de las medidas POVM, con ellas puede
 realizarse un mapeo que toma dos argumentos, una salida de medición $\alpha \in
 S $, donde $S$ es el conjunto de todos los posibles resultados de la medición,
 y un estado cuántico. El mapeo es de la forma 
@@ -152,7 +152,7 @@ el estado exactamente depende en como los POVM son implementados en el laborator
 % }}}
 
 
-\subsection{Instrumentos cuánticos} % {{{
+\subsection{Instrumentos cuánticos}\label{sec:instrumentos-cuanticos} % {{{
 
 Una forma útil de aproximarse a describir completamente las mediciones difusas
 es considerar una herramienta conocida como \textit{instrumento cuántico}, el
@@ -176,7 +176,7 @@ salida clásica de la medición $\alpha$.
 El instrumento cuántico es un mapeo lineal que se define como
 \begin{equation}
     \begin{split}
-        \mathcal{I}: \mathcal{H}_{\text{qu}}\mapsto \mathcal{H}_{\text{cl}}\otimes \mathcal{H}_{\text{qu}},\\
+        \mathcal{I}: \mathcal{H}_{\text{qu}}\rightarrow\mathcal{H}_{\text{cl}}\otimes \mathcal{H}_{\text{qu}},\\
     \mathcal{I}(\rho)=\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho),
     \end{split}
 \end{equation}
@@ -301,9 +301,9 @@ A continuación se presenta la proposición que detalla las condiciones de equiv
 
 \end{proof}
 
-%\begin{corollary}
- %   Para todo estado inicial $\rho$ si los observables $A\tensor B$ y $B\tensor A$ son no degenerados y conmutan entonces ambos instrumentos son equivalentes.
-%\end{corollary}
+\begin{corollary}
+   Para todo estado inicial $\rho$ si los observables $A\tensor B$ y $B\tensor A$ conmutan y  no son degenerados entonces ambos instrumentos son equivalentes.
+\end{corollary}
 
 
 \section{Ejemplos sobre los efectos de una medición difusa} % {{{

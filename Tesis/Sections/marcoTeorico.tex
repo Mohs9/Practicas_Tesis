@@ -1,7 +1,7 @@
 \chapter[OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS]{1. OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 \section{Introducción}\label{IntroduccionMarcoteorico}
 
-Para estudiar la completa descripción de las mediciones difusas para sistemas de varias partículas primero será indispensable examinar el formalismo de algunas herramientas tales como el operador densidad, las medidas POVM y las operaciones cuánticas. El operador de densidad también conocido como <<matriz de densidad>> describe el estado cuántico de un sistema físico y generaliza los vectores de estado, puesto que éstos pueden representar estados mixtos. Este operador contiene todas las propiedades estadísticas de un sistema cuántico, incluso cuando no es posible describir el sistema mediante un estado puro. Por otro lado, las medidas POVM son apropiadas debido a que los sistemas cuánticos reales presentan ruido o perturbaciones con el ambiente y estas medidas tienen en cuenta la interacción del sistema con el entorno y son especialmente útiles porque pueden proporcionar las estadísticas de medición. La teoría de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y considera que los estados cuánticos evolucionan de forma discreta.  
+Para estudiar la completa descripción de las mediciones difusas para sistemas de varias partículas primero será indispensable examinar el formalismo de algunas herramientas tales como el operador densidad, las medidas POVM y las operaciones cuánticas. El operador de densidad también conocido como <<matriz de densidad>> describe el estado cuántico de un sistema físico y generaliza los vectores de estado, puesto que éstos pueden representar estados mixtos. Este operador contiene todas las propiedades estadísticas de un sistema cuántico, incluso cuando no es posible describir el sistema mediante un estado puro. Por otro lado, las medidas POVM son apropiadas debido a que los sistemas cuánticos reales presentan ruido o perturbaciones con el ambiente y estas medidas tienen en cuenta la interacción del sistema con el entorno y son especialmente útiles porque pueden proporcionar las estadísticas de medición. Por último, la teoría de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y considera que los estados cuánticos evolucionan de forma discreta.  
 
 En la primera sección de este capítulo, se presentan la definición y las propiedades del operador de densidad y se reformulan los postulados de la mecánica cuántica utilizando este operador. Además se expone el operador de densidad reducido, una de las aplicaciones más importantes del operador de densidad. En la segunda sección, se hablará de un caso particular de las mediciones, las mediciones proyectivas, así como se discutirá acerca de los operadores POVM\@. Finalmente, en la tercera sección se aborda el formalismo de las operaciones cuánticas que permitirá familiarizarse con la teoría básica de las mismas e involucra a los operadores conocidos como operadores de Kraus. Asimismo se presenta un teorema importante sobre la libertad unitaria en la representación de suma de operadores para una operación cuántica.
 
@@ -575,6 +575,7 @@ Existen varias razones para utilizar el formalismo general de las mediciones. La
 
 Una tercera razón para utilizar las mediciones generales esta relacionada con la propiedad de repetibilidad de las mediciones proyectivas. Las medidas proyectivas son repetibles en el sentido que si se realiza una medición proyectiva una vez y se obtiene un resultado $m$, al repetir la medición el resultado será nuevamente $m$ y el estado también será el mismo. Este hecho indica que muchas medidas importantes en mecánica cuántica no son medidas proyectivas.  Para tales mediciones, debe emplearse el postulado general de medición. Y en este contexto las medidas POVM son un caso especial del formalismo de la medición general, que proporciona el medio más simple en el que se pueden estudiar las estadísticas generales de medición, sin necesidad de conocer el estado posterior a la medición. Son una conveniencia matemática que a veces brinda información adicional sobre las mediciones cuánticas {\cite{nielsen_chuang_2010}}.
 
+\begin{comment}
 
 Para mostrar la utilidad del formalismo POVM como una forma intuitiva de
 obtener información sobre las mediciones cuánticas en problemas en las que solo
@@ -647,7 +648,6 @@ dado. Esta infalibilidad tiene el precio que, a veces, $B$ no obtiene
 información sobre la identidad del estado.
 
 % }}}
-\begin{comment}
 \subsubsection{El teorema de Naimark} % {{{Cualquier POVM .
 En esta sección se habla de que las medidas POVM pueden interpretarse como una
 medidas proyectivas en un espacio de mayor dimensión.  Dado cualquier POVM puro
@@ -680,8 +680,9 @@ la probabilidad de obtener esta con el POVM original {\cite{2007geometry}}
  &=\tr (\rho E_{i}).
  \end{split}
 \end{equation}
-\end{comment}
+
 Con este ejemplo se ultima el formalismo de las medidas POVM necesario para el objetivo de este trabajo. En la siguiente sección se discutirá sobre las operaciones cuánticas y su importancia en sistemas abiertos.
+\end{comment}
 % }}}
 
 

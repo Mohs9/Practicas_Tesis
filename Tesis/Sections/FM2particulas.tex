@@ -33,7 +33,7 @@ por sus siglas en inglés), será
     \la A\otimes B\ra_{\mathcal{F}_{2p}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).
 \end{equation}
 El operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue 
-\begin{equation}\label{operador_difuso}
+\begin{equation}\label{eq:operador_difuso2p}
     \mathcal{F}(\rho):=p\rho+(1-p)S_{01}\rho S_{01}^\dagger,
 \end{equation}
 donde $S_{ij}$ es la operación de intercambio SWAP con respecto a las
@@ -211,7 +211,7 @@ Las mediciones difusas se pueden entender utilizando instrumentos cuánticos. El
 
 \rrnote{Explicamos el primer instrumento y su valor esperado}
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
-El instrumento cuántico a considerar es aplicar el operador difuso definido en la ecuación ({\ref{operador_difuso}}) al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}\label{fisrtinstrument}
+El instrumento cuántico a considerar es aplicar el operador difuso definido en la ecuación ({\ref{eq:operador_difuso2p}}) al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}\label{fisrtinstrument}
     \begin{split}
         \mathcal{I}_1(\rho)&=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}(\rho) P_{a_j,b_k}\\
         &=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}],

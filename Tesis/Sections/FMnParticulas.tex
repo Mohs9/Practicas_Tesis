@@ -23,17 +23,22 @@
 
 En sistema de $n$ partículas en el que se realiza una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_N$, y en el que ocurre un error en el aparato de medición y confunde los resultados. Con cierta probabilidad se realiza la medición de acuerdo a la permutación $\Pi$ del observable. 
 
-El operador difuso definido en la ecuación ({\ref{eq:operador_difuso2p}}), ahora se pude redefinir para un sistema de $N$ partículas se puede de forma más general como\begin{equation}\label{eq:fm-nparticles}
-   \fuzzy{\rho}=\sum_{\Pi\in S}p_{\Pi}\Pi(\rho)
-\end{equation}donde $\mathcal{S}$ es un subconjunto del grupo simétrico de $n$ partículas y $\sum_{\Pi \in \mathcal{S}} p_\Pi=1$. El valor esperado de esta medición será {\cite{Pineda_2021}}\begin{equation}\label{eq:ExpectedValue-generalForm}\begin{split}
+El operador difuso definido en la ecuación ({\ref{eq:operador_difuso2p}}), ahora se pude redefinir para un sistema de $N$ partículas de forma más general como\begin{equation}\label{eq:fm-nparticles}
+   \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
+\end{equation}donde $\mathcal{S}$ es un subconjunto del grupo simétrico de $n$ partículas y $\sum_{i=1}^{N!} p_i=1$. 
+
+\rrnote{Ahondar en las propiedades de los operadores de permutación }
+%Los operadores de permutación $\Pi_j \in \mathcal{S}$ cumplen con ciertas propiedades 
+
+El valor esperado de esta medición será {\cite{Pineda_2021}}\begin{equation}\label{eq:ExpectedValue-generalForm}\begin{split}
     \left \langle \prodtensor A_i\right \rangle_{\mathcal{F}(\rho)} &=\tr\left(\fuzzy{\rho}\prodtensor A_i\right)\\
-    &=\sum_{j \in S}p_{j}\tr \left(\Pi_j(\rho) \prodtensor A_i\right).
+    &=\sum_{\Pi_j \in S}p_{j}\tr \left(\permut{j}{\rho} \prodtensor A_i\right).
 \end{split}
 \end{equation} 
 
 \subsection{Medidas POVM en sistemas de varias partículas}
 En el capítulo anterior se describió el mapeo que puede realizarse con las medidas POVM, el cual será conveniente para proporcionar la probabilidad de cada posible salida de la medición. En un sistema de dos partículas se propuso intuitivamente un conjunto de efectos cuya generalización para $N$ partículas puede ser escrita como \begin{equation}\label{eq:effectsSetNp}
-    {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\{\fuzzy{P_{\lambda_i}}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi \in S} p_\Pi \Pi(P_{\lambda_i})\right\}}_{\lambda_i \in \Lambda},
+    {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\{\fuzzy{P_{\lambda_i}}^\dagger\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
 \end{equation}  
 donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$. El conjunto de valores propios del observable es \begin{equation}\label{eq:lambdaeigenvalues}
     \Lambda=\{a_{11}\cdot a_{21}\cdot \hdots \cdot a_{N1},\hdots,a_{1J}\cdot a_{2K}\cdot \hdots \cdot a_{NM}\},
@@ -41,7 +46,7 @@ donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada vecto
 
 
 Para obtener el estado posterior a la medición se requiere utilizar la descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. Para mediciones difusas en sistema de $N$ partículas se propone utilizar \begin{equation}
-    K_{\lambda_i}=\sqrt{\sum_{\Pi \in S} p_\Pi \Pi(P_{\lambda_i})},
+    K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}},
 \end{equation} esto se puede realizar debido a la positividad de los efectos. De nuevo, esta descomposición no es única y el estado posterior de la medición dependerá de como se implementen las medidas POVM en el laboratorio. 
 
 
@@ -49,7 +54,50 @@ Para obtener el estado posterior a la medición se requiere utilizar la descompo
 \subsection{Instrumentos cuánticos en sistemas de \texorpdfstring{\boldmath{$N$}}{N} partículas}
 En esta parte también se consideran las dos alternativas de instrumentos cuánticos de la sección ({\ref{sec:instrumentos-cuanticos}}). La primera alternativa es el instrumento en el que las partículas se intercambian y luego se aplica una medición proyectiva \begin{equation}\label{eq:1instrumentnp}
     \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i},
-\end{equation} donde $P_{\lambda_i}$ son los operadores de proyección y $\lambda_i$ son valores propios del observable.
+\end{equation} donde $P_{\lambda_i}$ son los operadores de proyección y $\lambda_i \in \Lambda$ son los valores propios del observable.  
+
+
+\rrnote{Considerar poner esta álgebra en el ápendice}
+
+El valor esperado del resultado de la medición modelado con este instrumento puede calcularse de la siguiente manera \begin{equation*}
+    \begin{split}
+        \left \la \prodtensor A_i \right \ra_{\mathcal{I}_1}&=\tr\left( \left[\left(\prodtensor A_i\right) \otimes \mathds{1}\right]\mathcal{I}_1\right) \\
+        &=\tr\left(\left[ \left(\prodtensor A_i\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}P_{\lambda_j}\otimes P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j} \right)\\
+        &=\sum_{\lambda_j\in \Lambda} \tr\left(\left(\prodtensor A_i\right) P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho} P_{\lambda_j}\right) \\
+        &=\sum_{\lambda_j\in \Lambda} \tr\left(\sum_{{\lambda_j, \lambda_k \in \Lambda}}\lambda_k P_{\lambda_k} P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho} P_{\lambda_j}\right)  \\
+        &=\sum_{\lambda_j \in\Lambda} \tr\left(\lambda_j P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j}\right) \\
+        &=\sum_{\lambda_j \in \Lambda} \lambda_j \tr\left(P_{\lambda_j}\fuzzy{\rho}\right) \\
+    \end{split}
+\end{equation*} con lo que se puede concluir que el valor esperado correspondiente a este instrumento es \begin{equation}\label{eq:valor-esperado-1instrumentnp}
+        \left \la \prodtensor A_i \right \ra_{\mathcal{I}_1}= \tr\left( \prodtensor A_i \fuzzy{\rho}\right),
+\end{equation}el mismo que el valor esperado correcto ({\ref{eq:ExpectedValue-generalForm}}).
+
+La segunda alternativa presentada en ({\ref{second-instrument}}) es igualmente generalizable para un sistema de $N$ partículas como \begin{equation}\label{eq:second-instrumentnp}
+    \mathcal{I}_2(\rho)= \sum_{\lambda_i \in \Lambda } \fuzzy{P_{\lambda_i}}\tensor P_{\lambda_i}\rho P_{\lambda_i},
+\end{equation}  en esta alternativa se interpreta una confusión en la lectura de los resultados.
+
+
+
+\rrnote{Considerar poner esta álgebra en el ápendice.}
+
+Con esta alternativa el valor esperado se calcula como 
+\begin{equation*}
+    \begin{split}
+        \left \la \prodtensor A_i \right \ra_{\mathcal{I}_2}&=\tr\left( \left[\left(\prodtensor A_i\right) \otimes \mathds{1}\right]\mathcal{I}_2\right) \\
+        &=\tr\left(\left[ \left(\prodtensor A_i\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}\fuzzy{P_{\lambda_j}}\otimes P_{\lambda_j}{\rho}P_{\lambda_j} \right)\\
+        &=\sum_{\lambda_j\in \Lambda} \tr\left(\prodtensor A_i\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right). \\
+    \end{split}
+\end{equation*} finalmente el valor esperado es \begin{equation}\label{eq:valor-esperado-2instrumentnp}
+    \left \la \prodtensor A_i \right \ra_{\mathcal{I}_2}=\sum_{\lambda_j\in \Lambda} \tr\left(\prodtensor A_i\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right).
+\end{equation} Este valor esperado no corresponde a (\ref{eq:ExpectedValue-generalForm}) por lo que análogamente a (\ref{prop:Equivalencia-instruments}) se tiene una proposición más general para la equivalencia de estos instrumentos en sistema de $N$ partículas.
+
+\begin{proposition}\label{prop:Equivalencia-instrumentos-np}
+    Para todo estado inicial $\rho$, los instrumentos cuánticos {\ref{eq:1instrumentnp}} y {\ref{eq:second-instrumentnp}} son equivalentes si y solo si \[\left \langle \lambda_j \left|{\permutdagger{l}{\prodtensor A_i}}\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y } \forall \Pi_l \in \mathcal{S}\]
+\end{proposition}
+
+\begin{proof}
+    $(\Rightarrow)$ Suponiendo que para todo estado inicial $\rho$ los valores esperados de los instrumentos son iguales \[ \tr\left( \prodtensor A_i \fuzzy{\rho}\right)=\sum_{\lambda_j\in \Lambda} \tr\left(\prodtensor A_i\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right)\]
+\end{proof}
 
 \section{Observables no factorizables en mediciones difusas}
 \section{Observables degenerados en mediciones difusas}

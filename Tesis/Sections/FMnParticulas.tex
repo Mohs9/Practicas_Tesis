@@ -42,11 +42,10 @@ En el capítulo anterior se describió el mapeo que puede realizarse con las med
 \end{equation}  
 donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$. El conjunto de valores propios del observable es \begin{equation}\label{eq:lambdaeigenvalues}
     \Lambda=\{a_{11}\cdot a_{21}\cdot \hdots \cdot a_{N1},\hdots,a_{1J}\cdot a_{2K}\cdot \hdots \cdot a_{NM}\},
-\end{equation} donde $a_{jk}$ es el $k$-ésimo valor propio correspondiente al observable $A_j$.  Es fácilmente comprobable que estos operadores $E_{\lambda_i}$ son hermíticos, cumplen con la propiedad de completitud y son positivos.
-
+\end{equation} donde $a_{jk}$ es el $k$-ésimo valor propio correspondiente al observable $A_j$. Es fácilmente comprobable que estos operadores $E_{\lambda_i}$ son hermíticos, cumplen con la propiedad de completitud y son positivos \rrnote{Creo que deberia probarlo.}.
 
 Para obtener el estado posterior a la medición se requiere utilizar la descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. Para mediciones difusas en sistema de $N$ partículas se propone utilizar \begin{equation}
-    K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}},
+   K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}},
 \end{equation} esto se puede realizar debido a la positividad de los efectos. De nuevo, esta descomposición no es única y el estado posterior de la medición dependerá de como se implementen las medidas POVM en el laboratorio. 
 
 
@@ -78,7 +77,6 @@ La segunda alternativa presentada en ({\ref{second-instrument}}) es igualmente g
 
 
 
-\rrnote{Considerar poner esta álgebra en el ápendice.}
 
 Con esta alternativa el valor esperado se calcula como 
 \begin{equation*}

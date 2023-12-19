@@ -38,7 +38,7 @@ Asesorado por: \\
 
 \vfill
 
-Guatemala, {noviembre 2023}
+Guatemala, 2024
 \end{center}
 
 %%%%%%%%%%%%PAGINA EN BLANCO%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -357,13 +357,13 @@ Se definirá una nueva herramienta llamada instrumento cuántico. Con esta nueva
 %En este capítulo se presenta el concepto de instrumentos cuánticos y su utilidad en la descripción de mediciones en sistemas cuánticos. Y se indagarán las condiciones en la que instrumentos cuánticos que representan la idea detrás de mediciones difusas, sean equivalentes.
 
 
-\section{OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$n$}}{n} PARTÍCULAS}
+\section{OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
 
 En este capítulo se presentará un razonamiento análogo al del capítulo
-anterior para sistemas de $n$ partículas. Se  desarrollarán los operadores de
+anterior para sistemas de $N$ partículas. Se  desarrollarán los operadores de
 Kraus, así como los instrumentos cuánticos que describan completamente las
-mediciones difusas para sistemas de $n$ partículas. Se examinarán los
-observables no factorizables. Se explorarán las consecuencias de trabajar con
+mediciones difusas para sistemas de $N$ partículas. Se examinarán los
+observables no factorizables. Se exploran las consecuencias de trabajar con
 observables degenerados en mediciones difusas.  Finalmente, se presentan
 ejemplos de sistemas de varias partículas en mediciones difusas que ilustran la
 generalización de los operadores de Kraus con cualquier observable.  
@@ -385,26 +385,108 @@ generalización de los operadores de Kraus con cualquier observable.
 
 \section*{1 OPERADOR DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 \begin{itemize}
-\item[1.1] Introducción
-\item[1.2] Operador de densidad
-\item[1.3] Medidas POVM
-\item[1.4] Operaciones cuánticas 
+\item[1.1]\textbf{Introducción:}
+En el primer capítulo se desea examinar el formalismo de algunas herramientas tales como el operador densidad, las medidas POVM y las operaciones  cuánticas que son la base para poder abordar el problema de las mediciones difusas. 
+
+%El operador de densidad describe el estado cuántico de un sistema físico y generaliza los vectores de estado, puesto que éstos pueden representar estados mixtos. Por otro lado, las medidas POVM son especialmente útiles porque pueden proporcionar las estadísticas de medición. Por último, la teoría de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y considera que los estados cuánticos evolucionan de forma discreta.
+
+
+
+\item[1.2] \textbf{Operador de densidad:}
+El lenguaje de los operadores de densidad proporciona un medio conveniente para
+describir los sistemas cuánticos, tales que su estado no es completamente conocido.
+
+En esta sección se presenta la definición del operador de densidad. Además, se dan algunas motivaciones para definir el operador de densidad de tal forma que sea de utilidad para utilizarlo en el contexto de las mediciones.
+\begin{itemize}
+  \item[1.2.1] \textbf{Propiedades del operador de densidad:} Se desarrolla algunas de las características y propiedades de los operadores de densidad. 
+  
+  Asimismo se presenta la formulación de los postulados de la mecánica cuántica en el lenguaje de la matriz de densidad.
+  \item[1.2.2] \textbf{El operador de densidad reducido:} Una de las aplicaciones más importantes del operador de densidad es el operador de densidad reducido, que es una herramienta descriptiva para subsistemas de un sistema cuántico. 
+  
+  Se presenta la definición de traza parcial y la razón principal de estudiarla.
+
+\end{itemize}
+\item[1.3] \textbf{Medidas POVM} 
+\begin{itemize}
+  \item[1.3.1]\textbf{Medidas proyectivas PVM:}
+  Se describen las medidas selectivas y no selectivas. 
+  
+  Se procede a caracterizar a las medidas proyectivas. 
+  
+  En una medida proyectiva PVM los operadores de medición son operadores proyectores ortogonales tales que son hermíticos e idempotentes.
+  
+  Con base en el tercer postulado se estudia las mediciones selectivas y no selectivas con operadores de proyección. 
+  \item[1.3.2]\textbf{Operadores POVM:} Para algunas aplicaciones, el estado posterior a la medición del sistema es de poco interés, siendo el
+  principal elemento de interés las probabilidades de los respectivos resultados
+  de medición.
+  
+  En estos casos es importante estudiar las medidas POVM\@. Se define las medidas POVM y se mencionan varias razones por las que  estos operadores son de utilidad.
+\end{itemize}
+\item[1.4]\textbf{Operaciones cuánticas}
+\begin{itemize}
+  \item[1.4.1] \textbf{Aproximación axiomática de las operaciones cuánticas:} En esta sección se definen las operaciones cuánticas desde un punto de vista
+ axiomático el cual será motivado por requerimientos físicos. 
+  \item[1.4.2] \textbf{Operadores de Kraus: }En esta sección se presentan dos teoremas.
+  
+  El primero propone que las operaciones cuánticas definidas de forma axiomática como la suma de operadores.
+  
+  El segundo teorema es refrente a la no unicidad de los operadores de Kraus.
+\end{itemize}
 \end{itemize}
 
 \section*{2 MEDICIONES DIFUSAS EN SISTEMAS DE DOS PARTÍCULAS}
 \begin{itemize}
-\item[2.1] Introducción
-\item[2.2] Operadores de Kraus para mediciones difusas en sistemas de dos partículas
-\item[2.4] Ejemplos sobre los efectos de una medición difusa
-\item[2.5] Instrumentos cuánticos en mediciones difusas
-\item[2.6] Condiciones para equivalencia de los instrumentos 
-\end{itemize}
-\section*{3 OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$n$}}{n} PARTÍCULAS}
+\item[2.1] \textbf{Introducción:} En este capítulo se presentan las mediciones difusas de sistemas cuánticos de dos partículas en las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. 
+\item[2.2] \textbf{Mediciones difusas en sistemas de dos partículas:}
+En el caso de un sistema de dos partículas, en el cual se desea realizar una medición del observable $A\otimes B$, el dispositivo de medición confunde las partículas con una probabilidad $(1-p)$, y a veces en su lugar realiza la medición de $B\otimes A$. 
+
+Se presenta la definición de la operación difusa para un sistema de dos partículas y con base en ella se obtiene el valor esperado de la medición. 
+\item[2.3] \textbf{Operadores de Kraus para mediciones difusas:} En esta sección se pretende establecer operadores de Kraus que puedan describir completamente las mediciones difusas en sistemas simples de dos partículas.
 \begin{itemize}
-\item[3.1] Introducción
-\item[3.2] Generalización de operadores de Kraus en sistemas de $n$ partículas
-\item[3.3] Observables no factorizables en mediciones difusas.
-\item[3.4] Observables degenerados en mediciones difusas.  
+  \item[2.3.1] \textbf{POVM para mediciones difusas:} 
+  Las medidas POVM pueden ser entendidas como un mapeo, el cual provee para cualquier estado de entrada una probabilidad de cada posible salida de medición. 
+  
+  Se propone intuitivamente un conjunto de efectos con los que se obtiene un mapeo de las salidas de la medición difusa. Estos efectos se descomponen como operadores de Kraus, utilizando la operación raíz cuadrada debido a la positividad de los efectos. Sin embargo, esta descomposición no es única.
+  \item[2.3.2] \textbf{Instrumentos cuánticos:} Se presenta la definición de una herramienta conocida como instrumento cuántico. A su vez se plantea la forma de calcular el valor esperado de la medición utilizando instrumentos cuánticos. 
+  
+  Se proponen dos alternativas  de instruments cuánticos con dos interpretaciones diferentes y sus respectivos cálculos de los valores esperados.
+  \item[2.3.3] \textbf{Equivalencia de los instrumentos} En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.
+\end{itemize}
+\item[2.4] \textbf{Ejemplos sobre los efectos de una medición difusa}
+Se explorará un ejemplo, con un operador particular utilizando la medida POVM propuesta en la sección de POVM para mediciones difusas y la primera alternativa de instrumento cuántico propuesto en la sección anterior.
+\end{itemize}
+\section*{3 OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
+\begin{itemize}
+\item[3.1] \textbf{Introducción:} En este capítulo se aspira a generalizar los resultados obtenidos en el segundo capítulo, ahora trabajando en sistemas más grandes de $N$ partículas.
+
+Además se explora las implicaciones de tener observables no factorizables así como degenerados.
+\item[3.2] \textbf{Generalización de operadores de Kraus en sistemas de $N$ partículas:} En un sistema de $N$ partículas en el que se pretende medir el observable $A_1\otimes A_2\otimes \hdots \otimes A_N$, pero ocurre un error en  el aparato y confunde los resultados.
+
+Se redefine la operación difusa, para un sistema de $N$ partículas utilizando los operadores de permutación y se mencionan algunas características de los operadores de permutación. 
+
+Se calcula el valor esperado de realizar la medición del nuevo observable.
+
+\begin{itemize}
+  \item[3.2.1] \textbf{Medidas POVM en sistemas de varias partículas}
+  Se generaliza los operadores de Kraus que se propusieron en un sistema de dos partículas utilizando la descomposición de los efectos de las medidas POVM, que se expusieron anteriormente.
+  \item[3.2.2] \textbf{Instrumentos cuánticos en sistemas de $N$ partículas.} 
+  Se plantea la primera alternativa de instrumento cuántico utilizando la nueva operación difusa y el nuevo observable, a su vez se calcula el valor esperado. 
+  
+  De igual forma, se plantea la segunda alternativa y su valor esperado. 
+  
+  Finalmente se demuestra la proposición que explica en que condiciones los instrumentos para un sistema de $N$ partículas son equivalentes.
+
+\end{itemize} 
+
+
+\item[3.3] \textbf{Observables no factorizables en mediciones difusas.}
+
+\item[3.4] \textbf{Observables degenerados en mediciones difusas:}
+Analizar las implicaciones que tiene trabajar con operadores con algún nivel de degeneración.
+
+\item[3.5] \textbf{Casos particulares de mediciones difusas:}
+En esta sección se desea ilustrar ejemplos de sistemas de $N$ partículas en los que se realicen mediciones difusas y poderlos describir completamente.
+
 \end{itemize}
 \section*{CONCLUSIONES }
 \section*{TRABAJO FUTURO}

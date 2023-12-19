@@ -3,11 +3,7 @@
 
 \section{Introducción}
  En este capítulo se presentan las mediciones difusas de sistemas cuánticos de
-dos partículas en las que se pueden identificar partículas individuales, sin embargo siempre hay una
-probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se
-exponen en la referencia {\cite{Pineda_2021}}. También se utiliza el lenguaje
-de las operaciones cuánticas por medio de los operadores de Kraus para poder
-describir las mediciones en los sistemas cuánticos de dos partículas.
+dos partículas en las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. También se utiliza el lenguaje de las operaciones cuánticas por medio de los operadores de Kraus para poder describir las mediciones en los sistemas cuánticos de dos partículas.
 
 La estructura de este capítulo se presenta a continuación. En la siguiente sección se establece el problema de las mediciones difusas para un sistema de dos partículas. Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial.  Además se exponen dos instrumentos cuánticos, los cuales son una herramienta conveniente para describir completamente un medición difusa sintetizadamente. Finalmente, en la cuarta sección se presentan algunos ejemplos de las mediciones y su descripción utilizando los operadores en la tercera sección.
 
@@ -23,16 +19,13 @@ es posible>>.
 
 Si se  realiza una  medición en un sistema de muchas partículas, pero no se
 está seguro en cual partícula  fue aplicada esta medición, se obtiene una
-\textit{medición difusa}. En el caso de un sistema de dos partículas, en el cual se
-desea realizar una medición del observable $A\otimes B$, el dispositivo de
-medición confunde las partículas con una probabilidad $(1-p)$, y a veces en su
-lugar realiza la medición de $B\otimes A$. Luego, si $\rho$ es el estado
+\textit{medición difusa}. En el caso de un sistema de dos partículas, en el cual se desea realizar una medición del observable $A\otimes B$, el dispositivo de medición confunde las partículas con una probabilidad $(1-p)$, y a veces en su lugar realiza la medición de $B\otimes A$. Luego, si $\rho$ es el estado
 inicial del sistema, el valor esperado para la salida de la medición difusa (FM
 por sus siglas en inglés), será 
 \begin{equation}\label{ExpectedValue-theorginal}
     \la A\otimes B\ra_{\mathcal{F}_{2p}(\rho)}=\tr(\mathcal{F}(\rho)A\otimes B)=p\tr(\rho A\otimes B)+(1-p)\tr(\rho B\otimes A).
 \end{equation}
-El operador \textit{difuso }$\mathcal{F}(\rho)$ se define como sigue 
+La operación \textit{difusa }$\mathcal{F}(\rho)$ se define como sigue 
 \begin{equation}\label{eq:operador_difuso2p}
     \mathcal{F}(\rho):=p\rho+(1-p)S_{01}\rho S_{01}^\dagger,
 \end{equation}
@@ -170,7 +163,7 @@ describir el instrumento cuántico $\mathcal{I}$, los mapeos $\E_\alpha$ serán
 usados para describir  el estado posterior a la medición condicionados por la
 salida clásica de la medición $\alpha$. 
 
-\rrnote{Se plantea la definición matemática del instrumento y la forma de calcular el valor esperado del mismo.}
+\rrnote{Se plantea la definición matemática del instrumento cuántico.}
 
 
 El instrumento cuántico es un mapeo lineal que se define como
@@ -184,9 +177,8 @@ donde $\mathcal{H}_{\text{cl}}$ y $\mathcal{H}_{\text{qu}}$ son los espacios de 
 $\alpha$ e indica que operador actuó en el estado inicial.
 
 
-
-Para obtener la salida de la medición y su respectiva probabilidad se puede
-realizar la traza parcial sobre el sistema cuántico \begin{equation}
+\rrnote{Se describe como obtener el mapeo de las salidas y del estadao posterior, usando las trazas parciales de los sistemas cuánticos y clásicos respectivamente.}
+Las mediciones difusas se pueden describir completamente utilizando instrumentos cuánticos. Para obtener la salida de la medición y su respectiva probabilidad se puede realizar la traza parcial sobre el sistema cuántico \begin{equation}
     \begin{split}
         \tr_Q(\mathcal{I}(\rho))&=\tr_Q(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
         &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)).
@@ -200,16 +192,14 @@ El mapeo completamente positivo y que preserva la traza para una medida no selec
     \end{split}
 \end{equation}
 
-Las mediciones difusas se pueden entender utilizando instrumentos cuánticos. El valor esperado de la medición descrita con un instrumento cuántico se calcula de la siguiente forma, la cual es análoga a la planteada en la ecuación ({\ref{expectationvalue_traza}}), \begin{equation}\label{valueExpectedQuantumInstrument}
+
+\rrnote{El valor esperado de un instrumento (debería profundizar.)}
+
+
+ El valor esperado de la medición descrita con un instrumento cuántico se calcula de la siguiente forma, la cual es análoga a la planteada en la ecuación ({\ref{expectationvalue_traza}}), \begin{equation}\label{valueExpectedQuantumInstrument}
 \langle \mathcal{O}\rangle_{\mathcal{I}}= \tr\left(\mathcal{O}_{\text{cl}}\otimes \mathds{1}_{\text{qu}}\mathcal{I}(\rho)\right).
-\end{equation}%onde el subíndice <<cl>> indica que el observable se multiplica por el sistema clásico y el subíndice <<qu>> indica que la identidad está en el espacio cuántico. 
-
-
-
-
-
-
-\rrnote{Explicamos el primer instrumento y su valor esperado}
+\end{equation}%donde el subíndice <<cl>> indica que el observable se multiplica por el sistema clásico y el subíndice <<qu>> indica que la identidad está en el espacio cuántico. 
+\rrnote{Se explica el primer instrumento y su valor esperado}
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
 El instrumento cuántico a considerar es aplicar el operador difuso definido en la ecuación ({\ref{eq:operador_difuso2p}}) al estado inicial y luego aplicarle una medida proyectiva, para modelar el sistema cuántico, como  si las partículas se intercambian.\begin{equation}\label{fisrtinstrument}
     \begin{split}
@@ -236,7 +226,7 @@ Notar que el sistema clásico indica la salida de la medición y este siempre in
 \end{equation} Claramente con este instrumento se obtiene el valor esperado de la ecuación ({\ref{ExpectedValue-theorginal}}), hecho que es correcto para describir una medición difusa.
 
 
-\rrnote{Explicamos el segundo  instrumento, su interpretación y su valor esperado.}
+\rrnote{Se explica el segundo  instrumento, su interpretación y su valor esperado.}
 \subsubsection{Segunda alternativa de instrumento cuántico}
 
 Se cuenta con una segunda propuesta para otro instrumento cuántico, en la que también se considera el operador $A\otimes B$. En este instrumento se aplica el operador difuso al sistema clásico y en el sistema cuántico simplemente se aplica una medición ideal a $\rho$.  Después de aplicar el instrumento, todavía se tiene que hacer la lectura de los datos en el sistema clásico. En este caso se realiza una medición ideal en el sistema cuántico, pero luego ocurre una confusión de los resultados clásicos. El instrumento es \begin{equation}\label{second-instrument}
@@ -265,7 +255,9 @@ Notemos que el término remarcado en azul difumina la parte de los resultados. S
 
 
 \subsection{Equivalencia de los instrumentos}
-\rrnote{Idea principal: Se resume que se esperaba que los instruemntos fueran equivalentes pero resultaron distintos y por ello vale la pena preguntarse ¿cuándo sí lo son?}
+\rrnote{Idea principal: En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
+
+
 Los instrumentos fueron planteados de manera intuitiva tal que describieran una medición difusa con dos interpretaciones diferentes. Debido a la forma en la que se plantearon los dos instrumentos se esperaba que el valor esperado de cada uno fuera el correcto. Como se vió en las secciones anteriores los instrumentos propuestos no son equivalentes. Desafortunadamente, solo el valor esperado del primer instrumento coincide con la ecuación ({\ref{ExpectedValue-theorginal}}). Es por ello que vale la pena preguntarse, ¿en qué condiciones los dos instrumentos son equivalentes?
 
 
@@ -308,7 +300,7 @@ A continuación se presenta la proposición que detalla las condiciones de equiv
 
 \section{Ejemplos sobre los efectos de una medición difusa} % {{{
 
-En esta sección se explorarán un ejemplo, con un operador particular utilizando la medida POVM propuesta en la sección ({\ref{Sec_POVM_para_mediciones_difusas}}) y el instrumento cuántico propuesto en la sección anterior.
+Se explorará un ejemplo, con un operador particular utilizando la medida POVM propuesta en la sección ({\ref{Sec_POVM_para_mediciones_difusas}}) y la primera alternativa de instrumento cuántico propuesto en la sección anterior.
 
 
 Primero se considera el operador $\sigma_z \otimes \sigma_z$, con vectores propios: \[\{|00\ra, |01\ra, |10\ra, |11\ra\}.\] Sea $\rho $ el estado inicial\[\rho={\begin{pmatrix}6/8&0&0 &1/8\\0&2/8&0 &0\\0 &0 &1/8 &0 \\1/8&0&0&1/8\\\end{pmatrix}}.\]

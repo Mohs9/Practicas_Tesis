@@ -5,33 +5,47 @@
 \section{Introducción}
  En este capítulo se presentan las mediciones difusas de sistemas cuánticos las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. %También se utiliza el lenguaje de las operaciones cuánticas por medio de los operadores de Kraus para poder describir las mediciones en los sistemas cuánticos de dos partículas.
 
-La estructura de este capítulo se presenta a continuación. 
-En la siguiente sección se establece el problema de las mediciones difusas para un sistema cuántico. 
+La estructura de este capítulo se presenta a continuación. En la primera sección se exponen las mediciones no ideales y un ejemplo. En la siguiente sección se establece el problema de las mediciones difusas para un sistema cuántico. 
 %Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial.  Además se exponen dos instrumentos cuánticos, los cuales son una herramienta conveniente para describir completamente un medición difusa sintetizadamente. Finalmente, en la cuarta sección se presentan algunos ejemplos de las mediciones y su descripción utilizando los operadores en la tercera sección.
 
 % }}}
 
 \section{Mediciones no ideales}
 
-\rrnote{ En esta sección me gustaria escribir dos parráfos. En el primero mencionar que se refiere una medición no ideal en sistemas cuánticos. En esl segundo describir un ejemplo de una medicón no ideal.}
-
+\rrnote{ En esta sección me gustaria escribir dos parráfos. En el primero mencionar que se refiere una medición no ideal en sistemas cuánticos. En el segundo describir un ejemplo de una medicón no ideal.}
 
 \rrnote{ En los modelos téoricos se asumen condiciones idealizadas y simplificadas de las mediciones sin embargo en la realidad existen situaciones en las que el proceso de medición no cumple con estas simplificaciones. Explicar factores que pueden introducir imperfecciones e incertidumbre en la medición.Revisar literatura acerca de mediciones no ideales}
 
+
+Los sistemas cuánticos ideales son sistemas cerrados sujetos a la teoría cuántica, que no interactúan con su entorno y por lo tanto, no están sometidos a disturbios, ni pérdida de información. Aunque estos sistemas sufren cierto tipo de ruido cuántico, como el del principio de incertidumbre, la medición de estos sistemas para operadores no degenerados, puede describirse con mediciones proyectivas o ideales. Estos sistemas con mediciones ideales son una simplificación de la realidad difícil de justificar en la práctica. Las mediciones cuánticas proyectivas son inadecuadas por varias razones. Una de ellas es que se pueden realizar mediciones de tal manera que dispositivos imprecisos agreguen ruido clásico al resultado de la medición. Otra razón es que pueden producirse errores en la medición debido a al acoplamiento con otros grados de libertad ajenos al sistema que se está controlando. O bien, que en sistemas abiertos, en los que se intercambia constantemente información con su entorno de forma incontrolable, lo que resulta en una decoherencia del estado en estudio. En el caso de sistemas cuánticos no ideales puede utilizarse una definición más general de medición {\cite{wilde2011classical, jaeger2007quantum}}.
+
+%Un ejemplo de tal imprecisión que se propone en la referencia {\cite{wilde2011classical}}, es el que puede ocurrir en el acoplamiento de dos fotones en un divisor de haz. Es posible que no se pueda ajustar exactamente la reflectividad del divisor de haz o se tenga configurado exactamente el momento de la llegada de los fotones.
+
+%Otra razón fundamental por la que las mediciones proyectivas son inadecuadas para describir mediciones reales es que los experimentadores nunca miden directamente el sistema de interés
+%El ruido puede afectar a los sistemas cuánticos y debemos comprender los métodos de modelización del ruido en la teoría cuántica porque nuestro objetivo final es construir esquemas para proteger los sistemas cuánticos contra los efectos perjudiciales del ruido. 
+
 \rrnote{ A. Peres menciona un ejemplo de <<Fuzzy Measurements>> sin embargo no es el enfoque que se le dará en este trabajo.}
 
+A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar que no es el enfoque que se trabajará en este documento. En este ejemplo existe una señal débil que puede causar conflicto entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico. Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios. El detector tiene que ser <<medido>> por un aparato adecuado que luego produce otra señal clásica.
+
+Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $\rho=\alpha |0\rala0| + \beta|1\rala1|$. Si se quiere medir $\sigma_z$, que tiene valores observables $\pm 1$. Se idealiza que el <<medidor>> que realiza esta medición tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida. Sea $\phi(q)$ la función de onda inicial del medidor. %Si se supone que antes de la medición, es más probable encontrar el metro cerca de $q = 0$. Existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el metro cerca de $q = 1$, y la partícula con espín hacia arriba; y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrar el metro cerca de $q = -1$, y la partícula con espín hacia abajo. 
+Idealmente, $\phi$ debería tener un ancho cero y el resultado de la medición debería ser $\pm 1$. Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q$. Esta discrepancia no es una <<dificultad técnica>> trivial. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$ es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen, el estado final de la partícula no es un estado propio de $\sigma_z$. La ubicación inicial del medidor es incierta, de modo que  a esto A. Peres lo llama una medición <<difusa>>.   
+
+%Si interesa el sistema cuántico (para uso posterior) pero no el medidor en sí, la matriz de densidad reducida $\rho'$ del sistema cuántico se obtiene trazando $q'$ y $q"$.
+
 \section{Medición difusa en sistemas cuánticos}
+
 \rrnote{En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir/ilustrar un ejemplo concreto como el de la cadena de iones.}
 
-    
 
+En este trabajo, el concepto de medición difusa, no ideal,  es distinta al planteado en el ejemplo de la sección anterior.  En este apartado se detalla la idea detrás de una medición difusa que se aborda en el resto del documento.
 
 
 \rrnote{Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  Se puede plantear las condiciones en las que se puede cuantificar una medición difusa. }
 
 
 
-\rrnote{Realizar una explicacion de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar que se obtendría al quere medir un observable.}
+\rrnote{Realizar una explicacion de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar qué se obtendría al querer medir un observable.}
 
 
 \subsection{Operador difuso}

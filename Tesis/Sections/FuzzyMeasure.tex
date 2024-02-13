@@ -38,12 +38,32 @@ jaeger2007quantum}}. \cpnote{Esta informacion de donde la sacaste? Está padre}
 %Otra razón fundamental por la que las mediciones proyectivas son inadecuadas para describir mediciones reales es que los experimentadores nunca miden directamente el sistema de interés
 %El ruido puede afectar a los sistemas cuánticos y debemos comprender los métodos de modelización del ruido en la teoría cuántica porque nuestro objetivo final es construir esquemas para proteger los sistemas cuánticos contra los efectos perjudiciales del ruido. 
 
-\rrnote{ A. Peres menciona un ejemplo de <<Fuzzy Measurements>> sin embargo no es el enfoque que se le dará en este trabajo.}
+\cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}
+A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
+ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar
+que no es el enfoque que se trabajará en este documento. En este ejemplo existe
+una señal débil que puede causar conflicto entre la naturaleza continua de una
+señal clásica y el espectro discreto de un dispositivo cuántico\cpnote{Me da cosa que
+esto lo copiaste textual de algun lado. No lo entiendo.}. Además, el
+resultado final no puede ser registrado por un sistema cuántico, que puede
+estar en una superposición de estados propios\cpnote{Porque no?}. El detector tiene que ser
+<<medido>> por un aparato adecuado que luego produce otra señal clásica\cpnote{El detector
+no mide? como?}.
 
-A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar que no es el enfoque que se trabajará en este documento. En este ejemplo existe una señal débil que puede causar conflicto entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico. Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios. El detector tiene que ser <<medido>> por un aparato adecuado que luego produce otra señal clásica.
-
-Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $\rho=\alpha |0\rala0| + \beta|1\rala1|$. Si se quiere medir $\sigma_z$, que tiene valores observables $\pm 1$. Se idealiza que el <<medidor>> que realiza esta medición tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida. Sea $\phi(q)$ la función de onda inicial del medidor. %Si se supone que antes de la medición, es más probable encontrar el metro cerca de $q = 0$. Existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el metro cerca de $q = 1$, y la partícula con espín hacia arriba; y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrar el metro cerca de $q = -1$, y la partícula con espín hacia abajo. 
-Idealmente, $\phi$ debería tener un ancho cero y el resultado de la medición debería ser $\pm 1$. Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q$. Esta discrepancia no es una <<dificultad técnica>> trivial. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$ es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen, el estado final de la partícula no es un estado propio de $\sigma_z$. La ubicación inicial del medidor es incierta, de modo que  a esto A. Peres lo llama una medición <<difusa>>.   
+Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $\rho=\alpha |0\rala0| + \beta|1\rala1|$. Si se quiere medir $\sigma_z$, que tiene valores observables $\pm 1$. Se idealiza que el <<medidor>> que realiza esta medición tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida. Sea $\phi(q)$ la función de onda inicial del medidor. 
+%Si se supone que antes de la medición, es más probable encontrar el metro cerca de $q = 0$. Existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el metro cerca de $q = 1$, y la partícula con espín hacia arriba; y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrar el metro cerca de $q = -1$, y la partícula con espín hacia abajo. 
+Idealmente, $\phi$ debería tener un ancho cero y el resultado de la medición
+debería ser $\pm 1$. Sin embargo, el valor realmente observado de $\sigma_z$
+puede diferir del resultado ideal en una cantidad de orden $\Delta q$. Esta
+discrepancia no es una <<dificultad técnica>> trivial. La probabilidad de
+observar el medidor entre $q_0$ y $q_0 + d q_0$
+es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el
+valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen,
+el estado final de la partícula no es un estado propio de $\sigma_z$\cpnote{Mejora la redaccion
+y porfa tambien explicame porque el estado de la particula no es un estado 
+propio de sigma z}. La
+ubicación inicial del medidor es incierta, de modo que  a esto A. Peres lo
+llama una medición <<difusa>>.   
 
 %Si interesa el sistema cuántico (para uso posterior) pero no el medidor en sí, la matriz de densidad reducida $\rho'$ del sistema cuántico se obtiene trazando $q'$ y $q"$.
 

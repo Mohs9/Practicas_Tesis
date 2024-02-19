@@ -14,41 +14,53 @@ La estructura de este capítulo se presenta a continuación. En la primera secci
 
 Los sistemas cuánticos ideales son sistemas cerrados sujetos a la teoría
 cuántica, que no interactúan con su entorno y por lo tanto, no están sometidos
-a disturbios \cpnote{Como disturbios?}, ni pérdida de información \cpnote{Como
-se pierde informacion?}. Aunque estos sistemas sufren cierto
-tipo de ruido cuántico\cpnote{que es ruido cuantico? Evita hablar de cosas que 
-no tienes totalmente claras}, como el del principio de incertidumbre, la medición de
-estos sistemas para operadores no degenerados, puede describirse con mediciones
-proyectivas o ideales \cpnote{porque la restriccion para sistemas no degenerados?}. Estos sistemas con mediciones ideales son una
+a perturbaciones que pueden provocar pérdida de información en el sentido de ruido clásico.\cpnote{Como disturbios?}, \cpnote{Como
+se pierde informacion?}\rrnote{agregué lo que estaba en la referencia}.
+%Aunque estos sistemas sufren cierto tipo de ruido cuántico 
+\cpnote{que es ruido cuantico? Evita hablar de cosas que 
+no tienes totalmente claras}\rrnote{de acuerdo, quite esa primera frase}
+%, como el del principio de incertidumbre, 
+La medición de estos sistemas para operadores, puede describirse con mediciones
+proyectivas o ideales \cpnote{porque la restriccion para sistemas no degenerados?}\rrnote{lo había puesto porque estaba en una referencia simplificada pero no es necesario.}. Estos sistemas con mediciones ideales son una
 simplificación de la realidad difícil de justificar en la práctica. Las
 mediciones cuánticas proyectivas son inadecuadas por varias razones. Una de
 ellas es que se pueden realizar mediciones de tal manera que dispositivos
 imprecisos agreguen ruido clásico al resultado de la medición. Otra razón es
-que pueden producirse errores en la medición es debido a al acoplamiento con
-otros grados de libertad ajenos al sistema que se está controlando. O bien, que
+que 
+%pueden producirse errores en la medición es debido a al acoplamiento con  otros grados de libertad ajenos al sistema que se está controlando. O bien, que
 en sistemas abiertos, en los que se intercambia constantemente información con
 su entorno de forma incontrolable, lo que resulta en una decoherencia del
-estado en estudio\cpnote{en que se diferencia esto del acoplamiento?}. En el
+estado en estudio\cpnote{en que se diferencia esto del acoplamiento?}\rrnote{Dejé solo la última frase}. En el
 caso de sistemas cuánticos no ideales puede utilizarse
 una definición más general de medición {\cite{wilde2011classical,
-jaeger2007quantum}}. \cpnote{Esta informacion de donde la sacaste? Está padre}
+jaeger2007quantum}}.\cpnote{Esta informacion de donde la sacaste? Está padre} \rrnote{De este libro \href{https://arxiv.org/pdf/1106.1445.pdf}{de Wilde}}
 
 %Un ejemplo de tal imprecisión que se propone en la referencia {\cite{wilde2011classical}}, es el que puede ocurrir en el acoplamiento de dos fotones en un divisor de haz. Es posible que no se pueda ajustar exactamente la reflectividad del divisor de haz o se tenga configurado exactamente el momento de la llegada de los fotones.
 
 %Otra razón fundamental por la que las mediciones proyectivas son inadecuadas para describir mediciones reales es que los experimentadores nunca miden directamente el sistema de interés
 %El ruido puede afectar a los sistemas cuánticos y debemos comprender los métodos de modelización del ruido en la teoría cuántica porque nuestro objetivo final es construir esquemas para proteger los sistemas cuánticos contra los efectos perjudiciales del ruido. 
-
-\cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}
-A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
+El siguiente ejemplo permite visualizar el concepto de una medición imperfecta de forma que expone la diferencia entre una medición ideal y una en la que se involucran imperfecciones en el sistema.
+\cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}\rrnote{Agregué una pequeña justificación} A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
 ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar
 que no es el enfoque que se trabajará en este documento. En este ejemplo existe
-una señal débil que puede causar conflicto entre la naturaleza continua de una
-señal clásica y el espectro discreto de un dispositivo cuántico\cpnote{Me da cosa que
-esto lo copiaste textual de algun lado. No lo entiendo.}. Además, el
-resultado final no puede ser registrado por un sistema cuántico, que puede
-estar en una superposición de estados propios\cpnote{Porque no?}. El detector tiene que ser
-<<medido>> por un aparato adecuado que luego produce otra señal clásica\cpnote{El detector
+una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector. Debido a esta señal débil, se genera un conflicto entre su espectro continuo y el espectro discreto del  dispositivo cuántico.
+%entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico
+\cpnote{Me da cosa que esto lo copiaste textual de algun lado. No lo entiendo.}\rrnote{Sí,lo habia tomado casi literal del libro de A. Peres, el ejemplo trata sobre señales débiles que causan un conflicto con el detector y se agrega un aparato que mide al detector y produce otra señal}
+% Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios \cpnote{Porque no?}. 
+El detector tiene que ser \textit{medido} por un aparato adecuado al que se le llama \textit{el medidor}, que luego produce otra señal clásica\cpnote{El detector
 no mide? como?}.
+
+
+
+
+
+
+
+
+
+
+
+
 
 Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $\rho=\alpha |0\rala0| + \beta|1\rala1|$. Si se quiere medir $\sigma_z$, que tiene valores observables $\pm 1$. Se idealiza que el <<medidor>> que realiza esta medición tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida. Sea $\phi(q)$ la función de onda inicial del medidor. 
 %Si se supone que antes de la medición, es más probable encontrar el metro cerca de $q = 0$. Existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el metro cerca de $q = 1$, y la partícula con espín hacia arriba; y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrar el metro cerca de $q = -1$, y la partícula con espín hacia abajo. 

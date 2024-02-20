@@ -20,7 +20,7 @@ se pierde informacion?}\rrnote{agregué lo que estaba en la referencia}.
 \cpnote{que es ruido cuantico? Evita hablar de cosas que 
 no tienes totalmente claras}\rrnote{de acuerdo, quite esa primera frase}
 %, como el del principio de incertidumbre, 
-La medición de estos sistemas para operadores, puede describirse con mediciones
+La medición de estos sistemas puede describirse con mediciones
 proyectivas o ideales \cpnote{porque la restriccion para sistemas no degenerados?}\rrnote{lo había puesto porque estaba en una referencia simplificada pero no es necesario.}. Estos sistemas con mediciones ideales son una
 simplificación de la realidad difícil de justificar en la práctica. Las
 mediciones cuánticas proyectivas son inadecuadas por varias razones. Una de
@@ -39,43 +39,30 @@ jaeger2007quantum}}.\cpnote{Esta informacion de donde la sacaste? Está padre} \
 
 %Otra razón fundamental por la que las mediciones proyectivas son inadecuadas para describir mediciones reales es que los experimentadores nunca miden directamente el sistema de interés
 %El ruido puede afectar a los sistemas cuánticos y debemos comprender los métodos de modelización del ruido en la teoría cuántica porque nuestro objetivo final es construir esquemas para proteger los sistemas cuánticos contra los efectos perjudiciales del ruido. 
-El siguiente ejemplo permite visualizar el concepto de una medición imperfecta de forma que expone la diferencia entre una medición ideal y una en la que se involucran imperfecciones en el sistema.
+El siguiente ejemplo permite visualizar el concepto de una medición no ideal de forma que clarifica la diferencia entre una medición ideal y una en la que se involucran imperfecciones en el sistema.
 \cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}\rrnote{Agregué una pequeña justificación} A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
 ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar
-que no es el enfoque que se trabajará en este documento. En este ejemplo existe
-una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector. Debido a esta señal débil, se genera un conflicto entre su espectro continuo y el espectro discreto del  dispositivo cuántico.
-%entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico
-\cpnote{Me da cosa que esto lo copiaste textual de algun lado. No lo entiendo.}\rrnote{Sí,lo habia tomado casi literal del libro de A. Peres, el ejemplo trata sobre señales débiles que causan un conflicto con el detector y se agrega un aparato que mide al detector y produce otra señal}
+que no es el enfoque que se trabajará en el documento. En este ejemplo existe
+una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector y debe ser tratado como un sistema cuántico.%entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico
+\cpnote{Me da cosa que esto lo copiaste textual de algun lado. No lo entiendo.}\rrnote{Sí,lo habia tomado casi literal del libro de A. Peres, el ejemplo trata sobre señales débiles que causan un conflicto con el detector y se agrega un aparato que mide al detector}
 % Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios \cpnote{Porque no?}. 
-El detector tiene que ser \textit{medido} por un aparato adecuado al que se le llama \textit{el medidor}, que luego produce otra señal clásica\cpnote{El detector
+ El detector  tiene que <<medirse>> por un aparato adecuado al que se le llama <<el medidor>>, que luego produce otra señal clásica\cpnote{El detector
 no mide? como?}.
 
 
+Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $|\phi\rangle=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$. Se desea medir el observable $\sigma_z$, el cual tiene valores propios $\pm 1$. Además, se supone que el medidor tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida y su función de onda inicial está dada por $\phi(q)$.
 
-
-
-
-
-
-
-
-
-
-
-Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $\rho=\alpha |0\rala0| + \beta|1\rala1|$. Si se quiere medir $\sigma_z$, que tiene valores observables $\pm 1$. Se idealiza que el <<medidor>> que realiza esta medición tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida. Sea $\phi(q)$ la función de onda inicial del medidor. 
-%Si se supone que antes de la medición, es más probable encontrar el metro cerca de $q = 0$. Existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el metro cerca de $q = 1$, y la partícula con espín hacia arriba; y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrar el metro cerca de $q = -1$, y la partícula con espín hacia abajo. 
-Idealmente, $\phi$ debería tener un ancho cero y el resultado de la medición
-debería ser $\pm 1$. Sin embargo, el valor realmente observado de $\sigma_z$
-puede diferir del resultado ideal en una cantidad de orden $\Delta q$. Esta
-discrepancia no es una <<dificultad técnica>> trivial. La probabilidad de
-observar el medidor entre $q_0$ y $q_0 + d q_0$
+Luego, el vector de estado se transforma de la siguiente manera\begin{equation}\label{ejemplo-fm-peres}
+    \begin{pmatrix}\alpha\\\beta\end{pmatrix}\otimes \phi(q)\to \begin{pmatrix}\alpha\\0\end{pmatrix}\otimes \phi(q-1)+\begin{pmatrix}0\\\beta\end{pmatrix}\otimes \phi(q+1).
+\end{equation}Suponiendo que antes de la medición es más probable encontrar el medidor cerca de $q = 0$. Entonces, existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el medidor cerca de $q = 1$ y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrarlo cerca de $q = -1$.
+%Lo que llamamos “el valor observado de $\sigma_z$” es la posición final del medidor.
+Idealmente, $\phi(q\mp 1)$ debería tener un ancho cero y el resultado de la medición debería ser uno de los valores propios de $\sigma_z$.   Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q>2$. Esta discrepancia no es una <<dificultad técnica>> trivial. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$
 es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el
 valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen,
-el estado final de la partícula no es un estado propio de $\sigma_z$\cpnote{Mejora la redaccion
+el estado final de la partícula no es un estado propio de $\sigma_z$.\cpnote{Mejora la redaccion
 y porfa tambien explicame porque el estado de la particula no es un estado 
-propio de sigma z}. La
-ubicación inicial del medidor es incierta, de modo que  a esto A. Peres lo
-llama una medición <<difusa>>.   
+propio de sigma z}\rrnote{Agregué algunas oraciones y quité otras}. Sino que viene dado por el lado derecho de la ecuación {\eqref{ejemplo-fm-peres}}, evaluada en $q = q_0$. La
+ubicación inicial del medidor es incierta, de modo que a esta medición A. Peres la llama <<difusa>>.   
 
 %Si interesa el sistema cuántico (para uso posterior) pero no el medidor en sí, la matriz de densidad reducida $\rho'$ del sistema cuántico se obtiene trazando $q'$ y $q"$.
 

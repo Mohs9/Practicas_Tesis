@@ -14,14 +14,12 @@ La estructura de este capítulo se presenta a continuación. En la primera secci
 
 Los sistemas cuánticos ideales son sistemas cerrados sujetos a la teoría
 cuántica, que no interactúan con su entorno y por lo tanto, no están sometidos
-a perturbaciones que pueden provocar pérdida de información en el sentido de ruido clásico.\cpnote{Como disturbios?}, \cpnote{Como
-se pierde informacion?}\rrnote{agregué lo que estaba en la referencia}.
-%Aunque estos sistemas sufren cierto tipo de ruido cuántico 
-\cpnote{que es ruido cuantico? Evita hablar de cosas que 
-no tienes totalmente claras}\rrnote{de acuerdo, quite esa primera frase}
+a perturbaciones que pueden provocar pérdida de información en el sentido de ruido clásico {\cite{wilde2011classical}}. %\cpnote{Como disturbios?}, \cpnote{Comose pierde informacion?}\rrnote{agregué lo que estaba en la referencia}.
+%Aunque estos sistemas sufren cierto tipo de ruido cuántico\cpnote{que es ruido cuantico? Evita hablar de cosas que no tienes totalmente claras}\rrnote{de acuerdo, quite esa primera frase}
 %, como el del principio de incertidumbre, 
 La medición de estos sistemas puede describirse con mediciones
-proyectivas o ideales \cpnote{porque la restriccion para sistemas no degenerados?}\rrnote{lo había puesto porque estaba en una referencia simplificada pero no es necesario.}. Estos sistemas con mediciones ideales son una
+proyectivas o ideales. %\cpnote{porque la restriccion para sistemas no degenerados?}\rrnote{lo había puesto porque estaba en una referencia simplificada pero no es necesario.}
+Estos sistemas con mediciones ideales son una
 simplificación de la realidad difícil de justificar en la práctica. Las
 mediciones cuánticas proyectivas son inadecuadas por varias razones. Una de
 ellas es que se pueden realizar mediciones de tal manera que dispositivos
@@ -30,56 +28,50 @@ que
 %pueden producirse errores en la medición es debido a al acoplamiento con  otros grados de libertad ajenos al sistema que se está controlando. O bien, que
 en sistemas abiertos, en los que se intercambia constantemente información con
 su entorno de forma incontrolable, lo que resulta en una decoherencia del
-estado en estudio\cpnote{en que se diferencia esto del acoplamiento?}\rrnote{Dejé solo la última frase}. En el
-caso de sistemas cuánticos no ideales puede utilizarse
+estado en estudio. %\cpnote{en que se diferencia esto del acoplamiento?}\rrnote{Dejé solo la última frase}. 
+En el caso de sistemas cuánticos no ideales puede utilizarse
 una definición más general de medición {\cite{wilde2011classical,
-jaeger2007quantum}}.\cpnote{Esta informacion de donde la sacaste? Está padre} \rrnote{De este libro \href{https://arxiv.org/pdf/1106.1445.pdf}{de Wilde}}
+jaeger2007quantum}}.%\cpnote{Esta informacion de donde la sacaste? Está padre} \rrnote{De este libro \href{https://arxiv.org/pdf/1106.1445.pdf}{de Wilde}}
 
-%Un ejemplo de tal imprecisión que se propone en la referencia {\cite{wilde2011classical}}, es el que puede ocurrir en el acoplamiento de dos fotones en un divisor de haz. Es posible que no se pueda ajustar exactamente la reflectividad del divisor de haz o se tenga configurado exactamente el momento de la llegada de los fotones.
 
-%Otra razón fundamental por la que las mediciones proyectivas son inadecuadas para describir mediciones reales es que los experimentadores nunca miden directamente el sistema de interés
-%El ruido puede afectar a los sistemas cuánticos y debemos comprender los métodos de modelización del ruido en la teoría cuántica porque nuestro objetivo final es construir esquemas para proteger los sistemas cuánticos contra los efectos perjudiciales del ruido. 
 El siguiente ejemplo permite visualizar el concepto de una medición no ideal de forma que clarifica la diferencia entre una medición ideal y una en la que se involucran imperfecciones en el sistema.
-\cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}\rrnote{Agregué una pequeña justificación} A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
+%\cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}\rrnote{Agregué una pequeña justificación} 
+A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
 ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar
 que no es el enfoque que se trabajará en el documento. En este ejemplo existe
-una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector y debe ser tratado como un sistema cuántico.%entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico
-\cpnote{Me da cosa que esto lo copiaste textual de algun lado. No lo entiendo.}\rrnote{Sí,lo habia tomado casi literal del libro de A. Peres, el ejemplo trata sobre señales débiles que causan un conflicto con el detector y se agrega un aparato que mide al detector}
+una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector y debe ser tratado como un sistema cuántico. %entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico %\cpnote{Me da cosa que esto lo copiaste textual de algun lado. No lo entiendo.}\rrnote{Sí,lo habia tomado casi literal del libro de A. Peres, el ejemplo trata sobre señales débiles que causan un conflicto con el detector y se agrega un aparato que mide al detector}
 % Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios \cpnote{Porque no?}. 
- El detector  tiene que <<medirse>> por un aparato adecuado al que se le llama <<el medidor>>, que luego produce otra señal clásica\cpnote{El detector
-no mide? como?}.
+ El detector  tiene que <<medirse>> por un aparato adecuado al que se le llama <<el medidor>>, que luego produce otra señal clásica.%\cpnote{El detector no mide? como?}.
 
 
-Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $|\phi\rangle=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$. Se desea medir el observable $\sigma_z$, el cual tiene valores propios $\pm 1$. Además, se supone que el medidor tiene un grado de libertad único y adimensional, $q$, que indica el valor de la variable medida y su función de onda inicial está dada por $\phi(q)$.
+Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $|\phi\rangle=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$. Se desea medir el observable $\sigma_z$, el cual tiene valores propios $\pm 1$. Además, se supone que el medidor tiene un solo grado de libertad y es adimensional, $q$, que indica el valor de la variable medida y su función de onda inicial está dada por $\phi(q)$.
 
 Luego, el vector de estado se transforma de la siguiente manera\begin{equation}\label{ejemplo-fm-peres}
     \begin{pmatrix}\alpha\\\beta\end{pmatrix}\otimes \phi(q)\to \begin{pmatrix}\alpha\\0\end{pmatrix}\otimes \phi(q-1)+\begin{pmatrix}0\\\beta\end{pmatrix}\otimes \phi(q+1).
 \end{equation}Suponiendo que antes de la medición es más probable encontrar el medidor cerca de $q = 0$. Entonces, existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el medidor cerca de $q = 1$ y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrarlo cerca de $q = -1$.
 %Lo que llamamos “el valor observado de $\sigma_z$” es la posición final del medidor.
-Idealmente, $\phi(q\mp 1)$ debería tener un ancho cero y el resultado de la medición debería ser uno de los valores propios de $\sigma_z$.   Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q>2$. Esta discrepancia no es una <<dificultad técnica>> trivial. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$
-es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el
-valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen,
-el estado final de la partícula no es un estado propio de $\sigma_z$.\cpnote{Mejora la redaccion
-y porfa tambien explicame porque el estado de la particula no es un estado 
-propio de sigma z}\rrnote{Agregué algunas oraciones y quité otras}. Sino que viene dado por el lado derecho de la ecuación {\eqref{ejemplo-fm-peres}}, evaluada en $q = q_0$. La
-ubicación inicial del medidor es incierta, de modo que a esta medición A. Peres la llama <<difusa>>.   
+Idealmente, $\phi(q\mp 1)$ debería tener un ancho cero y el resultado de la medición debería ser uno de los valores propios de $\sigma_z$.   Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q>2$. Esta discrepancia no es una <<dificultad técnica trivial>>. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$ es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen, el estado final de la partícula no es un estado propio de $\sigma_z$.%\cpnote{Mejora la redaccion y porfa tambien explicame porque el estado de la particula no es un estado propio de sigma z}\rrnote{Agregué algunas oraciones y quité otras}.
+Sino que viene dado por el lado derecho de la ecuación {\eqref{ejemplo-fm-peres}}, evaluada en $q = q_0$. La ubicación inicial del medidor es incierta, de modo que a esta medición A. Peres la llama <<difusa>>.   
 
-%Si interesa el sistema cuántico (para uso posterior) pero no el medidor en sí, la matriz de densidad reducida $\rho'$ del sistema cuántico se obtiene trazando $q'$ y $q"$.
 
 \section{Medición difusa en sistemas cuánticos}
 
 \rrnote{En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir/ilustrar un ejemplo concreto como el de la cadena de iones.}
-
-
-En este trabajo, el concepto de medición difusa,  es distinta al planteado en el ejemplo de la sección anterior.  En este apartado se detalla la idea detrás de una medición difusa que se aborda en el resto del documento.
-
-
 \rrnote{Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  Se puede plantear las condiciones en las que se puede cuantificar una medición difusa. }
 
-% Una medición difusa o borrosa es una
-%Consideremos un dispositivo de medición impreciso en el que resultado de la medición es 
+En esta tesis, el concepto de <<medición difusa>>, es distinta al planteado en el ejemplo del apartado anterior.  Ahora, se procede a estudiar las ideas detrás de las mediciones difusas que se abordan en el resto del documento. 
+Para esto se considera la siguiente situación presentada por Pineda, Davalos, Viviescas y Rosado {\cite{Pineda_2021}}. Supóngase que se tiene una cadena de iones y se realiza una medición a uno solo de ellos. Se hace brillar la cadena de iones y se obtiene una señal fluorescente. Dicha señal se recibe con un dispositivo detector imperfecto, en consecuencia no se puede saber con seguridad de dónde provino {\cite{Pineda_2021}}. No obstante, es posible cuantificar la información que se obtuvo incluso cuando ésta es borrosa.  Con base en lo anterior, una medición difusa puede definirse como sigue. 
+
+%<<Una cadena de iones se hace brillar  y se obtiene una señal fluorescente. Sin embargo, debido a la imperfecciones del detector, no es posible determinar el origen exacto de la señal fluorescente. La información obtenida en este caso se vuelve borrosa, pero su cuantificación aún es posible>>.
+
+
+\begin{definition}Una medición difusa es un proceso no ideal en el cual, debido a ruido del entorno o a fallos en el dispositivo de detección, se presenta la probabilidad de una identificación errónea de las partículas del sistema.
+\end{definition}
 
 \rrnote{Realizar una explicacion de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar qué se obtendría al querer medir un observable.}
+
+Ahora, se considera un sistema cuántico solo de dos partículas, el cual tiene un espacio de Hilbert dado por $\mathcal{H}=\mathcal{H}_1\otimes \mathcal{H}_2$, y en el que se desea medir un cierto observable $A\tensor B$.  Por simplicidad, se analiza un observable factorizable, cuya representación tensorial se puede expresar en un solo término. Se realiza una medición difusa, si con cierta probabilidad $p$, el aparato mide al observable $A$ en el sistema de la partícula en el espacio $\mathcal{H}_1$ y al observable $B$ en el subsistema de la partícula en el espacio $\mathcal{H}_2$. Sin embargo, existe una probabilidad de $1-p$ de que el detector confunda las partículas y, en su lugar, se mida el observable $B$ en el primer subsistema y a $A$ en el segundo subsistema {\cite{Pineda_2021}}.
+
 
 
 \subsection{Operador difuso}

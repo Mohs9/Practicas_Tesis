@@ -75,9 +75,34 @@ Ahora, se considera un sistema cuántico solo de dos partículas, el cual tiene 
 
 
 \subsection{Operador difuso}
+
+El propósito de este apartado es introducir y establecer de manera formal el operador difuso aplicable a cualquier sistema cuántico que se analizará en las siguientes secciones. Para ello es necesario abordar el formalismo del <<operador de intercambio>> para sistemas de más de dos partículas.
+
+
 \rrnote{Primero se presenta más detalladamente las operaciones de intercambio. Se definen la transformación SWAP, para un sistema de dos partículas, y sus propiedades como que es una matriz unitaria, hermítica.}
 
-\rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso y probar que cumple con las apropiedades axiomaticas de las operaciones cuánticas (aunque no sé si eso sería trivial.) }
+Para iniciar véase el caso de un sistema cuántico que consta sólo de dos partículas. El operador intercambio u operador SWAP, con respecto a las partículas $i$ y $j$ del estado del sistema  se define de la siguiente forma\begin{equation}\label{swap}
+S_{ij}: |\psi\rangle_{i}\otimes |\varphi \rangle_{j}=\sum_{k,l}\psi_k\varphi_l|k,l\rangle \longmapsto     \sum_{k,l}\varphi_l\psi_k|l,k\rangle= |\varphi\rangle_{i}\otimes |\psi \rangle_{j}.
+\end{equation} 
+
+Con esta definición es inmediato notar que el operador SWAP para dos partículas es igual a su adjunto y a su transformación inversa. Lo que significa que el operador cumple con las siguientes propiedades\begin{enumerate}
+    \item Es \textit{involutivo}   $S^{-1}={S}$ y ${S}^{2}=\mathds{1}$, o bien, aplicar el operador de intercambio a las partículas dos veces deja al sistema sin cambios.
+   % \[S^{2}|\psi \varphi \rangle=S|\varphi \psi \rangle=|\psi \varphi \rangle\]
+    \item Es \textit{hermítico} $ {S}^{\dagger}={S}$.
+    %\[\begin{split}
+     %  \text{Primero se toma el siguiente producto interno } \langle\psi \varphi|S|\psi\varphi \rangle=\langle\psi \varphi|\varphi\psi \rangle=\langle\psi|\varphi\rala \varphi| \psi\rangle\\
+     %   \langle\psi \varphi|S^\dagger|\psi\varphi \rangle=\langle \varphi\psi |\psi\varphi \rangle=\langle \varphi| \psi\rangle\langle\psi|\varphi\rangle \\
+    %\end{split}\]
+    \item Es \textit{unitario} $ {S}^{\dagger}{S}=\mathds{1}$.
+\end{enumerate} 
+\rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso}
+
+Continuando en el espacio de Hilbert  $\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2$ para el sistema de dos partículas  se construye una operación cuántica que cumpla con el teorema {\ref{teorema:equivalencia_propiedadesaxiomaticas_opKraus}}. A dicha operación se le  llamará \textit{operación difusa} u \textit{operador difuso}\begin{equation}\label{op_F2p}
+    \mathcal{F}_{2p}(\rho):=p\rho + (1-p)S\rho S^{\dagger}.
+\end{equation}
+El primer término indica que con una probabilidad $p$  se aplica la identidad es decir que el estado se deja intacto.  Además, el segundo término del operador difuso indica que con una probabilidad $(1-p)$ se aplica el operador SWAP al estado $\rho$, lo que implica que las partículas se intercambian con esa probabilidad.
+
+
 
 \rrnote{Luego, quisiera continuar con la generalización de los operadores de intercambio, que serían los operadores de permutación. Presenta  la definición matemática y mostrar si sigue cumpliendo con algunas propiedas de las matrices para dos partículas. }
 

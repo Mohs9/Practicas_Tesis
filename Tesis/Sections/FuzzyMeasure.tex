@@ -76,17 +76,17 @@ Ahora, se considera un sistema cuántico solo de dos partículas, el cual tiene 
 
 \subsection{Operador difuso}
 
-El propósito de este apartado es introducir y establecer de manera formal el operador difuso aplicable a cualquier sistema cuántico que se analizará en las siguientes secciones. Para ello es necesario abordar el formalismo del <<operador de intercambio>> para sistemas de más de dos partículas.
+El propósito de este apartado es introducir y establecer de manera formal el operador difuso aplicable a cualquier sistema cuántico que se analizará en las siguientes secciones. Para ello es necesario abordar el formalismo del <<operador de intercambio>> para sistemas de dos o más partículas.
 
 
 \rrnote{Primero se presenta más detalladamente las operaciones de intercambio. Se definen la transformación SWAP, para un sistema de dos partículas, y sus propiedades como que es una matriz unitaria, hermítica.}
 
-Para iniciar véase el caso de un sistema cuántico que consta sólo de dos partículas. El operador intercambio u operador SWAP, con respecto a las partículas $i$ y $j$ del estado del sistema  se define de la siguiente forma\begin{equation}\label{swap}
-S_{ij}: |\psi\rangle_{i}\otimes |\varphi \rangle_{j}=\sum_{k,l}\psi_k\varphi_l|k,l\rangle \longmapsto     \sum_{k,l}\varphi_l\psi_k|l,k\rangle= |\varphi\rangle_{i}\otimes |\psi \rangle_{j}.
+Se iniciará estudiando el caso de un sistema cuántico que consta de solo dos partículas. El operador intercambio u operador SWAP, con respecto a las partículas en los espacios $\mathcal{H}_1$ y $\mathcal{H}_2$ se define de la siguiente forma\begin{equation}\label{swap}
+S_{12}: |\psi\rangle_{1}\otimes |\varphi \rangle_{2}=\sum_{i,j}\psi_i\varphi_j|i,j\rangle \longmapsto     \sum_{i,j}\varphi_i\psi_j|j,i\rangle= |\varphi\rangle_{1}\otimes |\psi \rangle_{2}.
 \end{equation} 
 
 Con esta definición es inmediato notar que el operador SWAP para dos partículas es igual a su adjunto y a su transformación inversa. Lo que significa que el operador cumple con las siguientes propiedades\begin{enumerate}
-    \item Es \textit{involutivo}   $S^{-1}={S}$ y ${S}^{2}=\mathds{1}$, o bien, aplicar el operador de intercambio a las partículas dos veces deja al sistema sin cambios.
+    \item Es \textit{involutivo}   $S^{-1}={S}$ y ${S}^{2}=\mathds{1}$, esto es,  aplicar el operador de intercambio a las partículas dos veces deja al sistema sin cambios.
    % \[S^{2}|\psi \varphi \rangle=S|\varphi \psi \rangle=|\psi \varphi \rangle\]
     \item Es \textit{hermítico} $ {S}^{\dagger}={S}$.
     %\[\begin{split}
@@ -97,7 +97,7 @@ Con esta definición es inmediato notar que el operador SWAP para dos partícula
 \end{enumerate} 
 \rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso}
 
-Continuando en el espacio de Hilbert  $\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2$ para el sistema de dos partículas  se construye una operación cuántica que cumpla con el teorema {\ref{teorema:equivalencia_propiedadesaxiomaticas_opKraus}}. A dicha operación se le  llamará \textit{operación difusa} u \textit{operador difuso}\begin{equation}\label{op_F2p}
+Continuando en el espacio de Hilbert  $\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2$ para el sistema de dos partículas. Se construye una operación cuántica que cumpla con el teorema {\ref{teorema:equivalencia_propiedadesaxiomaticas_opKraus}}. A dicha operación se le  llamará \textit{operación difusa} u \textit{operador difuso}\begin{equation}\label{op_F2p}
     \mathcal{F}_{2p}(\rho):=p\rho + (1-p)S\rho S^{\dagger}.
 \end{equation}
 El primer término indica que con una probabilidad $p$  se aplica la identidad es decir que el estado se deja intacto.  Además, el segundo término del operador difuso indica que con una probabilidad $(1-p)$ se aplica el operador SWAP al estado $\rho$, lo que implica que las partículas se intercambian con esa probabilidad.
@@ -106,7 +106,36 @@ El primer término indica que con una probabilidad $p$  se aplica la identidad e
 
 \rrnote{Luego, quisiera continuar con la generalización de los operadores de intercambio, que serían los operadores de permutación. Presenta  la definición matemática y mostrar si sigue cumpliendo con algunas propiedas de las matrices para dos partículas. }
 
+Lo anterior se puede generalizar para sistemas con mayor complejidad, en los que se tiene más de dos partículas.  Es relevante notar que en sistemas con varias partículas es factible intercambiar solo dos elementos con un operador $S_{ij}$, (los subíndices denotan el intercambio respecto a las partículas $i$ y $j$) dejando a los demás invariantes.  Sin embargo, es viable que en el sistema se lleve a cabo el intercambio de más de dos partículas. Para describir estas acciones de intercambio, es necesario hablar de los operadores de permutación.
+
+Los operadores de permutación, como el nombre lo sugiere, intercambian algunas partículas con otras. El proceso puede extenderse a permutaciones entre un número arbitrario de $N$ partículas pero, no todas las propiedades obtenidas para el caso de dos partículas se aplican en general. Será más fácil, primero  observar el caso $N = 3$ antes de generalizar los resultados. El operador de permutación $\Pi_{mnp}$ es por definición tal que transforma el vector de estado $|\psi\ra= |u_i\ra_1\tensor |u_j\ra_2 \tensor |u_k\ra_3$, de la siguiente forma {\cite{cohen1977quantum}}\[\Pi_{mnp} |u_i\ra_1\tensor |u_j\ra_2 \tensor |u_k\ra_3= |u_i\ra_m\tensor |u_j\ra_n \tensor |u_k\ra_p.\] Por ejemplo, el operador de permutación $\Pi_{231}$ actúa en el estado $|\psi\ra$ como  
+\[\Pi_{231} |u_i\ra_1\tensor |u_j\ra_2 \tensor |u_k\ra_3= |u_i\ra_2\tensor |u_j\ra_3 \tensor |u_k\ra_1,\] lo que es equivalente a 
+\[\Pi_{231} |u_i\ra_1\tensor |u_j\ra_2 \tensor |u_k\ra_3= |u_k\ra_1\tensor|u_i\ra_2\tensor  |u_j\ra_3.\]  Existen $N$! permutaciones, para este caso $N = 3$, existen 6 formas de permutar las partículas. Notar que realizar una permutación cíclica en un operador dado lo deja sin cambios. 
+
+
+
+En general,todo operador de permutación puede escribirse como producto de operaciones $S_{ij}$, \begin{equation}\label{eq:permutation_operator}\Pi_{\alpha}=S_{\beta_1}S_{\beta_2}\cdots S_{\beta_K}, \end{equation} donde $\alpha$ denota una permutación y $\beta$ un intercambio de algún par de partículas. Si para escribir el operador de permutación se requiere un número par de operadores de intercambio $S_{ij}$, se dice que ese operador es par, y si se requiere un número impar, se dice que es impar. A esto se le llama la <<paridad del operador>> {\cite{cohen1977quantum}}. 
+
+
+No todas las propiedades obtenidas para el operador de intercambio de dos partículas se mantienen. Las propiedades destacables de los operadores de permutación se enumeran a continuación 
+\begin{enumerate}
+    \item Son \textit{unitarios} $\Pi_\alpha\Pi_\alpha^{\dagger}=\mathds{1}$, esto es inmediato del hecho que son el producto de los operadores de intercambio de dos partículas $S_{\beta_k}$.
+    \item \textit{No son hermíticos} para $N>2$. 
+    \item Su operador adjunto tiene la misma paridad.
+
+\end{enumerate}
+
+Además, los operadores de permutación forman un grupo simétrico $\mathcal{S}$ de $n$ elementos. Puesto que existe un operador de permutación que es igual a la identidad, cada permutación admite una operación inversa y el producto de dos permutaciones produce otra permutación.
+
 \rrnote{Finalmente, escribir detalladamente el resultado generalizado el operador difuso, para más partículas  (ecuación 2 del paper). De nuevo me gustaria puntualizar su definición, explicar lo que realiza en un sistema más grande y verficar si sigue cumpliendo las propiedades del operador disfuso para dos partículas. }
+
+Los operadores de permutación fueron presentados puesto que son necesarios para ampliar el alcance del operador difuso (definido en la ecuación {\eqref{op_F2p}}) para un sistema de más partículas. De forma general en un sistema de $N$ partículas se define como sigue\begin{equation}\label{eq:fm-nparticles}
+    \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
+ \end{equation}donde $\mathcal{S}$ es un subconjunto del grupo simétrico de $n$ partículas y $\sum_{i=1}^{N!} p_i=1$.  La idea detrás de este operador es análoga a la anterior. Cada uno de los términos representa que con cierta probabilidad $p_i$ el estado sufren una permutación. En otras palabras, las partículas son intercambiadas en alguna disposición dictada por el operador $\Pi_{i}$, con dicha probabilidad.
+
+
+
+
 
 
 \subsection{Valores esperado en sistemas cuánticos}

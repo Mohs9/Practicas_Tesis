@@ -342,7 +342,7 @@ introducirá la teoría de las operaciones cuánticas  porque permiten represent
 la evolución de los sistemas más allá de los ideales, de una manera valiosa
 como suma de operadores.
 
-\section{MEDICIONES DIFUSAS EN SISTEMAS DE DOS PARTÍCULAS}
+\section{MEDICIONES DIFUSAS EN SISTEMAS CUÁNTICOS}
 Se formulará el enunciado del problema de las mediciones difusas en sistemas de
 dos partículas en las que se pueden identificar partículas, pero existe una
 probabilidad de identificarlas erróneamente. Con el lenguaje de las operaciones
@@ -353,7 +353,7 @@ Se definirá una nueva herramienta llamada instrumento cuántico. Con esta nueva
 %En este capítulo se presenta el concepto de instrumentos cuánticos y su utilidad en la descripción de mediciones en sistemas cuánticos. Y se indagarán las condiciones en la que instrumentos cuánticos que representan la idea detrás de mediciones difusas, sean equivalentes.
 
 
-\section{OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
+\section{RESULTADOS PARA \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
 
 En este capítulo se presentará un razonamiento análogo al del capítulo
 anterior para sistemas de $N$ partículas. Se  desarrollarán los operadores de
@@ -432,122 +432,109 @@ En esta sección se presenta la definición del operador de densidad. Además, s
 
 \section*{2. MEDICIONES DIFUSAS}
 % Intro {{{
-
-\section{Introducción}
- En este capítulo se presentan las mediciones difusas de sistemas cuánticos las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}.
+  \begin{itemize}
+    \item[2.1]\textbf{Introducción:}
+ En este capítulo se presentan las mediciones difusas de sistemas cuánticos. Se inicia hablando de mediciones no ideales. Luego se presenta el problema principal del documento. Las mediciones difusas son aquellas en las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}.
 % }}}
 
-\section{Mediciones no ideales}
 
 
+  \item[2.2]\textbf{Mediciones no ideales:}  En los modelos teóricos se asumen condiciones idealizadas y simplificadas de las mediciones sin embargo en la realidad existen situaciones en las que el proceso de medición no cumple con estas simplificaciones. Se explica factores que pueden introducir imperfecciones e incertidumbre en la medición.Revisar literatura acerca de mediciones no ideales
 
-\rrnote{ En los modelos téoricos se asumen condiciones idealizadas y simplificadas de las mediciones sin embargo en la realidad existen situaciones en las que el proceso de medición no cumple con estas simplificaciones. Explicar factores que pueden introducir imperfecciones e incertidumbre en la medición.Revisar literatura acerca de mediciones no ideales}
+  Se menciona un ejemplo de mediciones no ideales propuesto por A. Peres,  sin embargo no es el enfoque que se le dará en este trabajo.
 
-\rrnote{ A. Peres menciona un ejemplo de <<Fuzzy Measurements>> sin embargo no es el enfoque que se le dará en este trabajo.}
+  \item[2.3]\textbf{{Medición difusa en sistemas cuánticos}:}  En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir un ejemplo concreto como el de la cadena de iones.
 
+  Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  
 
-\section{Medición difusa en sistemas cuánticos}
+Realizar una explicación de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar qué se obtendría al querer medir un observable.
 
-\rrnote{En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir/ilustrar un ejemplo concreto como el de la cadena de iones.}
-
-
-
-
-\rrnote{Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  Se puede plantear las condiciones en las que se puede cuantificar una medición difusa. }
-
-\rrnote{Realizar una explicacion de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar qué se obtendría al querer medir un observable.}
-
-
-\subsection{Operador difuso}
-\rrnote{Primero se presenta más detalladamente las operaciones de intercambio. Se definen la transformación SWAP, para un sistema de dos partículas, y sus propiedades como que es una matriz unitaria, hermítica.}
-
-\rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso y probar que cumple con las apropiedades axiomaticas de las operaciones cuánticas (aunque no sé si eso sería trivial.) }
-
-\rrnote{Luego, quisiera continuar con la generalización de los operadores de intercambio, que serían los operadores de permutación. Presenta  la definición matemática y mostrar si sigue cumpliendo con algunas propiedas de las matrices para dos partículas. }
-
-\rrnote{Finalmente, escribir detalladamente el resultado generalizado el operador difuso, para más partículas  (ecuación 2 del paper). De nuevo me gustaria puntualizar su definición, explicar lo que realiza en un sistema más grande y verficar si sigue cumpliendo las propiedades del operador disfuso para dos partículas. }
-
-
-\subsection{Valores esperado en sistemas cuánticos}
-
-\rrnote{Explicar el resultado del valor esperado en la medición de dos partículas (ecuación 1 del paper).}
-
-
-\rrnote{Incluir imágenes de algún ejemplo de una medición difusa en un sistema específico. Tomar en cuenta consideraciones experimentales. Por ejemplo imágenes que ilustren la medición del observable $\sigma_z\otimes \sigma_x$ en un sistema de dos partículas. Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
-
-\section{Medidas POVM y operadores de Kraus para mediciones difusas}
-
-\rrnote{ El formalismo de las mediciones ideales debe modificarse para considerar mediciones que proporcionan información parcial sobre el sistema. Primero, se debe encontrar la probabilidad del resultado $m$ de la medición, y segundo, se debe formular la regla para el estado después de la medición.}
-
-\rrnote{En esta parte se mencionará como utilizar los operadores POVM y los operadores de Kraus en mediciones imperfectas.}
-
-
-\section{Instrumentos cuánticos}\label{sec:instrumentos-cuanticos} % {{{
-
-\rrnote{Aclarar la utilidad de los instrumentos cuánticos para las mediciones cuánticas}
-
-
-
-
-\rrnote{ Detallar cómo se realiza el cálculo del valor esperado de un instrumento cuántico}
-
-
-\rrnote{Presentar los instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos.}
-
-\section*{2 MEDICIONES DIFUSAS EN SISTEMAS DE DOS PARTÍCULAS}
 \begin{itemize}
-\item[2.1] \textbf{Introducción:} En este capítulo se presentan las mediciones difusas de sistemas cuánticos de dos partículas en las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. 
-\item[2.2] \textbf{Mediciones difusas en sistemas de dos partículas:}
-En el caso de un sistema de dos partículas, en el cual se desea realizar una medición del observable $A\otimes B$, el dispositivo de medición confunde las partículas con una probabilidad $(1-p)$, y a veces en su lugar realiza la medición de $B\otimes A$. 
+  \item[2.3.1]\textbf{{Operador difuso}:}
+  
+  Primero se presenta más detalladamente las operaciones de intercambio. Se definen la transformación SWAP, para un sistema de dos partículas, y sus propiedades como que es una matriz unitaria, hermítica.
 
-Se presenta la definición de la operación difusa para un sistema de dos partículas y con base en ella se obtiene el valor esperado de la medición. 
-\item[2.3] \textbf{Operadores de Kraus para mediciones difusas:} En esta sección se pretende establecer operadores de Kraus que puedan describir completamente las mediciones difusas en sistemas simples de dos partículas.
-\begin{itemize}
-  \item[2.3.1] \textbf{POVM para mediciones difusas:} 
-  Las medidas POVM pueden ser entendidas como un mapeo, el cual provee para cualquier estado de entrada una probabilidad de cada posible salida de medición. 
+  Segundo, se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. 
+
+  {Luego, se generalizan los operadores de intercambio, que serían los operadores de permutación. Se presenta  la definición matemática y mostrar si sigue cumpliendo con algunas propiedades de las matrices para dos partículas. }
+
+Finalmente, escribir detalladamente el resultado generalizado el operador difuso, para más partículas. De nuevo se puntualiza su definición, explicar lo que realiza en un sistema más grande y se  verifica si sigue cumpliendo las propiedades del operador difuso para dos partículas.
+
+  \item[2.3.2] \textbf{Valores esperado en sistemas cuánticos:} {Se explica el resultado del valor esperado en la medición de dos partículas }
   
-  Se propone intuitivamente un conjunto de efectos con los que se obtiene un mapeo de las salidas de la medición difusa. Estos efectos se descomponen como operadores de Kraus, utilizando la operación raíz cuadrada debido a la positividad de los efectos. Sin embargo, esta descomposición no es única.
-  \item[2.3.2] \textbf{Instrumentos cuánticos:} Se presenta la definición de una herramienta conocida como instrumento cuántico. A su vez se plantea la forma de calcular el valor esperado de la medición utilizando instrumentos cuánticos. 
+%{Se imágenes de algún ejemplo de una medición difusa en un sistema específico. Tomar en cuenta consideraciones experimentales. Por ejemplo imágenes que ilustren la medición del observable $\sigma_z\otimes \sigma_x$ en un sistema de dos partículas. Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
   
-  Se proponen dos alternativas  de instrumentos cuánticos con dos interpretaciones diferentes y sus respectivos cálculos de los valores esperados.
-  \item[2.3.3] \textbf{Equivalencia de los instrumentos} En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.
 \end{itemize}
-\item[2.4] \textbf{Ejemplos sobre los efectos de una medición difusa}
-Se explorará un ejemplo, con un operador particular utilizando la medida POVM propuesta en la sección de POVM para mediciones difusas y la primera alternativa de instrumento cuántico propuesto en la sección anterior.
+
+
+
+
+  \item[2.4]\textbf{Medidas POVM y operadores de Kraus para mediciones difusas:}
+  { El formalismo de las mediciones ideales debe modificarse para considerar mediciones que proporcionan información parcial sobre el sistema. Primero, se debe encontrar la probabilidad del resultado $m$ de la medición, y segundo, se debe formular la regla para el estado después de la medición.}
+  {En esta parte se mencionará como utilizar los operadores POVM y los operadores de Kraus en mediciones imperfectas.}
+
+  
+  
+  \item[2.5]  \textbf{Instrumentos cuánticos:} Se aclara la utilidad de los instrumentos cuánticos para las mediciones cuánticas. Además, se detalla cómo se realiza el cálculo del valor esperado de un instrumento cuántico. {Presentar los instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos.}
 \end{itemize}
-\section*{3 OPERADORES DE KRAUS EN SISTEMAS DE \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
+
+
+\section*{3 RESULTADOS PARA \texorpdfstring{\boldmath{$N$}}{N}  PARTÍCULAS}
 \begin{itemize}
-\item[3.1] \textbf{Introducción:} En este capítulo se aspira a generalizar los resultados obtenidos en el segundo capítulo, ahora trabajando en sistemas más grandes de $N$ partículas.
 
-Además se explora las implicaciones de tener observables no factorizables así como degenerados.
-\item[3.2] \textbf{Generalización de operadores de Kraus en sistemas de $N$ partículas:} En un sistema de $N$ partículas en el que se pretende medir el observable $A_1\otimes A_2\otimes \hdots \otimes A_N$, pero ocurre un error en  el aparato y confunde los resultados.
+  \item[3.1] \textbf{Introducción:}   En este capítulo se presentan las mediciones difusas de sistemas cuánticos de dos partículas en las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Se aspira a generalizar los resultados obtenidos en el segundo capítulo, ahora trabajando en sistemas más grandes de $N$ partículas.  Además se explora las implicaciones de tener observables no factorizables así como degenerados.
+  
+  \item[3.2]  \textbf{Sistemas de dos partículas:}
+  En esta sección exponer los resultados ya trabajados y explorar más opciones. Primero especificar condiciones del sistema de dos partículas y de los observables.
 
-Se redefine la operación difusa, para un sistema de $N$ partículas utilizando los operadores de permutación y se mencionan algunas características de los operadores de permutación. 
+  \begin{itemize}
+    \item[3.2.1] \textbf{POVM para mediciones difusas para dos partículas:}\label{Sec_POVM_para_mediciones_difusas} % {{{
+    
+    {Se detallan algunas implementaciones de los operadores POVM\@. Se agregan más de una implementación de efectos en esta sección}
+    \item[3.2.2] \textbf{Instrumentos cuánticos para dos partículas:}
+{Se expone la dos alternativa estudiadas de los instrumentos cuánticos, en sistemas simples de dos partículas y con observables factorizables. }{Se obtiene su valor esperado.}
+\item[3.2.3]\textbf{{Equivalencia de los instrumentos}:}
+Se hace una comparación entre los instrumentos anteriores y se expone por qué resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.
+\item[3.2.4] \textbf{Ejemplos sobre los efectos de una medición difusa:}
+Se describen algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos partículas.
+  \end{itemize}
 
-Se calcula el valor esperado de realizar la medición del nuevo observable.
+ 
+  \item[3.3 ] \textbf{Generalización de operadores de Kraus en sistemas de \texorpdfstring{\boldmath{$N$}}{N} partículas}
+  En esta sección generaliza la implementación los sistema de dos partículas y sus implementaciones en sistemas más grandes y los instrumentos presentados en la última sección del capitulo 2.
 
 \begin{itemize}
-  \item[3.2.1] \textbf{Medidas POVM en sistemas de varias partículas}
-  Se generaliza los operadores de Kraus que se propusieron en un sistema de dos partículas utilizando la descomposición de los efectos de las medidas POVM, que se expusieron anteriormente.
-  \item[3.2.2] \textbf{Instrumentos cuánticos en sistemas de $N$ partículas.} 
-  Se plantea la primera alternativa de instrumento cuántico utilizando la nueva operación difusa y el nuevo observable, a su vez se calcula el valor esperado. 
-  
-  De igual forma, se plantea la segunda alternativa y su valor esperado. 
-  
-  Finalmente se demuestra la proposición que explica en que condiciones los instrumentos para un sistema de $N$ partículas son equivalentes.
+  \item[3.3.1] \textbf{Medidas POVM en sistemas de varias partículas}
+  \item[3.3.2] \textbf{Instrumentos cuánticos en sistemas de varias partículas} 
+\end{itemize}
 
-\end{itemize} 
+\item[3.4]\textbf{Observables degenerados en mediciones difusas:} 
+Se exploran  las consecuencias de tener operadores degenerados en las implementaciones de las medidas POVM y de los instrumentos.
+
+\item[3.5] \textbf{Observables no factorizables en mediciones difusas:} Explorar que implicaciones tiene realizar mediciones estos observables.
+
+\item[3.6] \textbf{Casos particulares de mediciones difusas:} {En esta sección se desea ilustrar ejemplos de sistemas de $N$ partículas, como una cadena o un anillo de iones,  en los que se realicen mediciones difusas y poderlos describir completamente.} { Se realiza alguna ilustración o simulación sobre estos ejemplos.}
 
 
-\item[3.3] \textbf{Observables no factorizables en mediciones difusas.}
-
-\item[3.4] \textbf{Observables degenerados en mediciones difusas:}
-Analizar las implicaciones que tiene trabajar con operadores con algún nivel de degeneración.
-
-\item[3.5] \textbf{Casos particulares de mediciones difusas:}
-En esta sección se desea ilustrar ejemplos de sistemas de $N$ partículas en los que se realicen mediciones difusas y poderlos describir completamente.
 
 \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section*{CONCLUSIONES }
 \section*{TRABAJO FUTURO}
 % }}}

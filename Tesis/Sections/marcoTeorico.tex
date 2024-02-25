@@ -1,5 +1,5 @@
 \chapter[OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS]{1. OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS}
-\section{Introducción}\label{IntroduccionMarcoteorico}
+\section{Introducción}\label{cap:IntroduccionMarcoteorico}
 
 Para estudiar la completa descripción de las mediciones difusas para sistemas de varias partículas primero será indispensable examinar el formalismo de algunas herramientas tales como el operador densidad, las medidas POVM y las operaciones cuánticas. El operador de densidad también conocido como <<matriz de densidad>> describe el estado cuántico de un sistema físico y generaliza los vectores de estado, puesto que éstos pueden representar estados mixtos. Este operador contiene todas las propiedades estadísticas de un sistema cuántico, incluso cuando no es posible describir el sistema mediante un estado puro. Por otro lado, las medidas POVM son apropiadas debido a que los sistemas cuánticos reales presentan ruido o perturbaciones con el ambiente y estas medidas tienen en cuenta la interacción del sistema con el entorno y son especialmente útiles porque pueden proporcionar las estadísticas de medición. Por último, la teoría de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y considera que los estados cuánticos evolucionan de forma discreta.  
 
@@ -8,7 +8,7 @@ En la primera sección de este capítulo, se presentan la definición y las prop
 
 
 
-\section{Operador de densidad}\label{OpDensidad}
+\section{Operador de densidad}\label{sec:OpDensidad}
 
 %\subsection{Definición y motivación  del operador de densidad} % {{{
 El lenguaje de los operadores de densidad proporciona un  medio conveniente
@@ -49,7 +49,7 @@ información físicamente importante que se puede obtener acerca del ensamble
 {\cite{sakurai2017modern}}\begin{equation}
  	\label{expectationvalue_traza}
  	\begin{split}
- 		\langle \mathcal{O} \rangle &=\sum_{j}\sum_k \langle \phi_k|\rho|\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle\\
+ 		\langle \mathcal{O} \rangle_{\rho} &=\sum_{j}\sum_k \langle \phi_k|\rho|\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle\\
  		&= \rm{tr}(\rho \mathcal{O}).
  	\end{split}
 \end{equation}
@@ -82,7 +82,7 @@ Hasta el momento se puede ver con estas motivaciones que los postulados básicos
 
 
 % }}}
-\subsection{Propiedades del operador de densidad}\label{postulates} % {{{
+\subsection{Propiedades del operador de densidad}\label{subsec:postulates} % {{{
 
 En esta sección se desarrolla algunas de las características y propiedades de
 los operadores de densidad. Asimismo se presenta la formulación de los
@@ -442,12 +442,12 @@ propiedad {\cite{nielsen_chuang_2010}}.
 %###############################################################################
 %################################################################################
 
-\section{Medidas POVM}\label{MedidaPOVM}
+\section{Medidas POVM}\label{sec:MedidaPOVM}
 % Intro {{{
 Hasta ahora, se ha descrito el espacio de estados cuánticos. Ahora, se abordará
 el tema del proceso de medición cuántica utilizando herramientas como las medidas proyectivas y las medidas POVM o también conocidas como medidas generalizadas. Aunque el proceso de medición  sigue
 siendo algo enigmático, aquí simplemente se toma como cierto el
-postulado relacionado al colapso de la función de onda, mencionado en el capítulo anterior (sección {\ref{postulates}}). Según Nielsen y Chuang
+postulado relacionado al colapso de la función de onda, mencionado en el capítulo anterior (sección {\ref{subsec:postulates}}). Según Nielsen y Chuang
 {\cite{nielsen_chuang_2010}}, el postulado de la medición cuántica, involucra
 dos elementos. El primero, proporciona una regla que describe las estadísticas
 de medición, es decir, las probabilidades respectivas de los diferentes
@@ -462,7 +462,7 @@ estado posterior a la medición del sistema. En esta sección, se hablará de un
 %matemáticamente más simple y además que muchos problemas en información
 %cuántica implican medidas generales
 % }}}
-\subsection{Medidas proyectivas PVM}\label{medidasproyectivasPVM} % {{{
+\subsection{Medidas proyectivas PVM}\label{subsec:medidasproyectivasPVM} % {{{
 La medición cuántica realizada en un estado $\rho$ produce  la $m$-ésima 
 salida con una probabilidad $p(m)$ dada por la ecuación
 (\ref{probaility3postulate}) y transforma a $\rho $ en $\rho_m$ descrito por la
@@ -561,7 +561,7 @@ cada operador $E_m$ por su descomposición espectral.
 Según Nielsen y Chuang {\cite{nielsen_chuang_2010}}, por lo general los textos
 introductorios a la mecánica cuántica describen solamente la medidas
 proyectivas y en consecuencia el formalismo de las medidas POVM y la
-descripción del tercer postulado mencionado en la sección ({\ref{postulates}}),
+descripción del tercer postulado mencionado en la sección ({\ref{subsec:postulates}}),
 no es tan conocido. En computación e información cuántica, el objetivo es
 lograr un buen nivel de control sobre las mediciones que se pueden realizar,
 por consiguiente utilizar un formalismo más completo para la descripción de las
@@ -710,7 +710,7 @@ Con este ejemplo se ultima el formalismo de las medidas POVM necesario para el o
 %###############################################################################
 %################################################################################
 
-\section{Operaciones cuánticas}\label{OpCuanticas}
+\section{Operaciones cuánticas}\label{sec:OpCuanticas}
 % Intro {{{
 
 Los sistemas reales sufren interacciones indeseadas con el mundo exterior, éstas aparecen como ruido en información cuántica. Las operaciones cuánticas son un herramienta capaz de describir dicho ruido cuántico y el comportamiento de sistemas cuánticos abiertos.  Adicionalmente, el formalismo de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y representa la descripción de los cambios  de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo
@@ -910,7 +910,7 @@ La representación de suma de operadores describe la dinámica del sistema princ
 
 
 % }}}
-\subsubsection{Mediciones y representación de Kraus}\label{Medicion_RepresentacionDeKraus} % {{{
+\subsubsection{Mediciones y representación de Kraus}\label{subsubsec:Medicion_RepresentacionDeKraus} % {{{
 
 Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado
 $\rho$,  el cual está en contacto con un sistema auxiliar $\mathcal{H}_A$
@@ -984,7 +984,7 @@ de la corrección de errores cuánticos. Nielsen y Chuang
 {\cite{nielsen_chuang_2010}} proponen formalmente el siguiente teorema y su demostración.
 
 
-\begin{theorem}[Libertad unitaria en la representación de Kraus]\label{Libertad_unitaria}
+\begin{theorem}[Libertad unitaria en la representación de Kraus]\label{teorema:Libertad_unitaria}
 Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de
 operadores que generan operaciones cuánticas $\E$ y $\mathcal{F}$,
 respectivamente. Además, se agregan operadores cero a la lista más corta de operadores, para asegurar que $m=n$. Luego $\E=\mathcal{F}$

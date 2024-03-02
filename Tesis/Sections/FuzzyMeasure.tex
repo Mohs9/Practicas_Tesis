@@ -135,75 +135,64 @@ Los operadores de permutación fueron presentados puesto que son necesarios para
 
 % }}}
 \subsection{Valores esperado en sistemas cuánticos}\label{subsec:Valores_esperados} % {{{
-\cpnote{No me gusta el titulo de esta subseccion. Discutamoslo}
+\cpnote{No me gusta el titulo de esta subseccion. Discutamoslo}\rrnote{Me parece bien}
 
-En el apartado {\ref{sec:OpDensidad}} se aludió al valor esperado al referirse
-por primera vez al valor promedio de un observable $\mathcal{O}$, cuando se
-realiza un gran número mediciones. En esta sección se ahonda en la relevancia
-de este promedio y su aplicación en este estudio.
-\cpnote{En la intro arranca con lo más importante y luego expandes. Tambien
-podemos discutir un poco a que me refiero}
 
 \rrnote{El fin de esta seccción es explicar el resultado del valor esperado en la medición de dos partículas (ecuación 1 del paper) y por qué es útil este resultado.}
 
 
+En esta sección se ahonda en la relevancia del valor esperado y su aplicación en este estudio. En el apartado {\ref{sec:OpDensidad}} se aludió al valor esperado al referirse por primera vez al valor promedio de un observable $\mathcal{O}$, cuando se realiza un gran número mediciones, sin embargo no se profundizó en el tema. A continuación, se abordará el concepto de valor esperado y se detallará específicamente qué ocurre con esta medida en mediciones difusas.  
 
 
-\rrnote{Explicar qué es y cómo se interpreta el valor esperado en mecánica cuántica.}
+\cpnote{En la intro arranca con lo más importante y luego expandes. Tambien
+podemos discutir un poco a que me refiero} \rrnote{Está bien, lo cambié, pero me gustaria hablarlo también }
 
 
-En los sistemas cuánticos, no es posible asignar un valor definido a los
-observables cuando el sistema se encuentra en un estado arbitrario\cpnote{claro que si}. Se suele
-afirmar que, en términos generales, el valor de los observables no está
-determinado\cpnote{error}. Por esta razón y con el propósito de relacionar las predicciones
-con los resultados experimentales, se introduce el concepto de valor esperado
-{\cite{gomez2010introduccion}}\cpnote{No me gusta. Hay problemas}.  
 
-El valor esperado es un término que se deriva de la teoría básica de la
-probabilidad y se refiere al promedio ponderado de los valores propios que se
-podrían obtener en la medición. La ponderación de cada valor propio en el
-promedio es igual a la probabilidad de obtener dicho valor propio
-{\cite{gomez2010introduccion,sakurai2017modern}}. 
-\cpnote{Ojo, el lenguaje aca cambio. Esto lo copiaste casi literal de alguna fuente? Si es asi, 
-te toca borrarlo y escribirlo con tus propias palabras. Lo mismo para cualquier parte. Una frase
-completa casi literal igual es problematica.}
 
-Es de suma importancia distinguir entre el valor esperado y los posibles
-valores que se pueden obtener en una medición del observable. Los valores que
-se pueden obtener deben ser los valores propios del observable mientras que el
-valor esperado no necesariamente coincidirá con estos
-{\cite{gomez2010introduccion}}. Esto significa que si se tiene muchos sistemas,
-todos en el mismo estado, y se realiza la misma medición en cada uno, los
-resultados diferirán pero el promedio será lo presentado en la ecuación
-{\eqref{expectationvalue_traza}}. 
+
+
+%En los sistemas cuánticos, no es posible asignar un valor definido a los
+%observables cuando el sistema se encuentra en un estado arbitrario
+\cpnote{claro que si}. %Se suele afirmar que, en términos generales, el valor de los observables no está determinado
+\cpnote{error}. %Por esta razón y con el propósito de relacionar las predicciones con los resultados experimentales, se introduce el concepto de valor esperado{\cite{gomez2010introduccion}}
+\cpnote{No me gusta. Hay problemas}.\rrnote{Está bien, esto lo tomé del libro pero lo quitaré porque no aportaba realmente.}
+
+
+\rrnote{Esqueleto: Decir qué es el valor esperado en mecánica cuántica. Y hacer la aclaración entre salidas de la medicion y el valor esperado.}
+
+
+El valor esperado es un término que se deriva de la teoría básica de la probabilidad y representa el promedio ponderado de los resultados posibles que se pueden obtener, cuando se dispone de muchos sistemas, todos en el mismo estado inicial, y se realiza la misma medición en cada uno de ellos. La ponderación que se le asigna a cada resultado se determina por la probabilidad de obtener dicho resultado {\cite{gomez2010introduccion,sakurai2017modern}}.\cpnote{Ojo, el lenguaje aca cambio. Esto lo copiaste casi literal de alguna fuente? Si es asi, 
+te toca borrarlo y escribirlo con tus propias palabras. Lo mismo para cualquier parte. Una frase completa casi literal igual es problematica.}\rrnote{No todo lo copie literal, pero si la habia tomado la última frase casi literal entonces ya lo corregí}
+Es importante, discernir entre el valor esperado de un observable y las salidas que pueden resultar de una medición del observable. Esto significa que los resultados de la medición podrían diferir pero el promedio será lo presentado en la ecuación {\eqref{expectationvalue_traza}}. 
 \cpnote{Este y los dos parrafos anteriores van dando vueltas sobre lo mismo.
 Trata de reorganizar la informacion, como un pequeño esqueleto dedos lineas, y
-luego ya escribes los parrafos}
+luego ya escribes los parrafos}\rrnote{Reduje los dos párrafos a uno y al inicio coloque las dos ideas principales del parrafo.}
+
+
+
 
 \rrnote{Introducir el valor esperado de una medición difusa, y explicar la idea
 detrás de esta ecuación (1) del paper para sistemas de dos partículas. Y
 extenderlo al sistema de N partículas.}
 
-El cálculo del valor esperado como la traza del producto del observable
-$\mathcal{O}$ por el estado inicial del sistema, ya no es aplicable para un
-sistema que experimenta cambios aleatorios\cpnote{como que no? }. Estos cambios en el estado inicial,
-que ocurren como resultado de algún proceso físico pueden ser capturados por
-las operaciones cuánticas {\cite{nielsen_chuang_2010}}. Si $\rho$ es el estado
-inicial antes del proceso, y $\mathcal{\rho}$ entonces el valor esperado de
-este estado final se puede expresar como
+%El cálculo del valor esperado como la traza del producto del observable
+%$\mathcal{O}$ por el estado inicial del sistema, ya no es aplicable para un
+%sistema que experimenta cambios aleatorios
+\cpnote{como que no? }\rrnote{quité esta parte que no me habia expresado bien.}
+Un sistema que experimenta cambios aleatorios tendrá un valor esperado diferente a un sistema que no experimenta tales transformaciones. Estos cambios en el estado inicial, que ocurren como resultado de algún proceso físico, pueden ser capturados por las operaciones cuánticas. Entonces, si $\rho$ es el estado inicial antes del proceso, y $\mathcal{E}(\rho)$ representa la transformación que ocurre, el valor esperado de este estado final se puede expresar como
 \begin{equation}\label{eq:Expected-Value-Op-Cuanticas}
-    \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O})
+    \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O}).
 \end{equation} 
 \cpnote{Ojo con la puntuacion. También, que es lo que quieres decir en este
-parrafo? Porque hablar de operaciones cuánticas? }
+parrafo? Porque hablar de operaciones cuánticas? }\rrnote{inteoduje esto porque es lo que entiendo de la forma general de los valores esperados}
 
 
-\cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese
-y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
-de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }
+\cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
+de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
 Considerando lo anterior, se puede analizar una medición difusa en un sistema
-de dos partículas, en la que el operador difuso $\mathcal{F}_{2\text{p}}$
-registra la evolución del estado inicial $\rho$. El valor esperado del
+de dos partículas.  El estado inicial sufre una transformación, donde  con cierta probabilidad las partículas se intercambian.  El operador difuso $\mathcal{F}_{2\text{p}}$
+registra esta evolución del estado inicial $\rho$. Como resultado, el valor esperado del observable también se modifica. El valor esperado del
 observable factorizable $A\otimes B$ estará dado por
 {\cite{Pineda_2021}}\begin{equation}\label{eq:Expected-Value-FM-2p}
     \begin{split}
@@ -211,7 +200,7 @@ observable factorizable $A\otimes B$ estará dado por
         =&p\tr(\rho A\tensor B)+(1-p)\tr(S\rho S^\dagger A\otimes B)\\
         =& p\tr(\rho A\tensor B)+(1-p)\tr(\rho B\otimes A),
     \end{split}
-\end{equation}donde este desarrollo es posible por la linealidad y la propiedad cíclica de la traza.  El estado inicial sufre una transformación, donde  con cierta probabilidad las partículas se intercambian. Como resultado, el valor esperado del observable también se modifica.  En este escenario, si se tienen muchas copias del estado posterior $\rho'=\mathcal{F}_{2\text{p}}(\rho)$, entonces al realizar mediciones en cada una de ellas, el promedio de las salidas estará dado por esta ecuación. 
+\end{equation}donde este desarrollo es posible por la linealidad y la propiedad cíclica de la traza.   En este escenario, si se tienen muchas copias del estado posterior $\rho'=\mathcal{F}_{2\text{p}}(\rho)$, entonces al realizar mediciones en cada una de ellas, el promedio de las salidas estará dado por esta ecuación. 
 
 El valor esperado de un observable en un sistema con más de dos partículas es análogo al anterior. En este sistema, la transformación es representada por el operador difuso general de la ecuación {\eqref{eq:fuzzy-op-nparticles}}. En consecuencia, el valor esperado para un observable $\mathcal{O}$ en una medición difusa es\begin{equation}\label{eq:expected-value-fm-general}
     \la \mathcal{O}\ra_{\fuzzy{\rho}}=\tr(\fuzzy{\rho}\mathcal{O})=\sum_{\Pi_i\in S}p_i\tr(\permut{i}{\rho}\mathcal{O}).
@@ -286,23 +275,32 @@ En esta tesis se busca describir completamente una medición difusa. Lo que sign
 % }}}
 \section{Medidas POVM y operadores de Kraus para mediciones difusas} % {{{
 
-\rrnote{Esta seccion me gustaria que fuera corta porque los POVM y los operadores de Kraus se hablaron en el marco teórico y se verán en las implementciones. En esta parte se mencionará como utilizar los operadores POVM y los operadores de Kraus en mediciones imperfectas y especificamente para mediciones difusas.  }
+\rrnote{Esqueleto: Los POVM y los operadores de Kraus se hablaron en el marco teórico y se verán en las implementciones. En esta parte se mencionará como utilizar los operadores POVM y los operadores de Kraus conjuntamente en mediciones imperfectas y específicamente en mediciones difusas}
 
-\rrnote{El formalismo de las mediciones ideales debe modificarse para considerar mediciones que proporcionan información parcial sobre el sistema. Primero, se debe encontrar la probabilidad del resultado $m$ de la medición, y segundo, se debe formular la regla para el estado después de la medición.}
+\rrnote{Esqueleto: En este parrafo dar la razon por que los operadores de proyeccion son insuficientes para describir completamente una medición difusa.}
+
+\rrnote{Esqueleto:En este parrafo revisitar las medidas POVM de forma corta y escribir su utilidad.}
+
+\rrnote{Esqueleto: Explicar la relevancia de los operadores de Kraus y su relación con las medidas POVM\@. }
+
+\rrnote{Esqueleto: Finalmente en el útlimo párrafo, describir como se implementarán en mediciones difusas haciendo uso del operador difuso.}
+
 
 \rrnote{Incluir imágenes de algún ejemplo de una medición difusa en un sistema específico. Tomar en cuenta consideraciones experimentales. Por ejemplo imágenes que ilustren la medición del observable $\sigma_z\otimes \sigma_x$ en un sistema de dos partículas. Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
 % }}}
 \section{Instrumentos cuánticos}\label{sec:instrumentos-cuanticos} % {{{
 
-\rrnote{Definir y explicar qué es un instrumento cuántioo. Aclarar la utilidad de los instrumentos cuánticos para las mediciones cuánticas y difusas}
+\rrnote{Esqueleto: En esta sección se introduce el concepto de instrumento cuántico. Se explica la utilidad de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de utilizarlos. Además se especifican las dos alternativas que se usarán}
 
-\rrnote{ Detallar cómo se realiza el cálculo del valor esperado de un instrumento cuántico}
+\rrnote{Esqueleto: En este párrafo simplemente se define y explica qué es un instrumento cuántico.}
+
+\rrnote{Esqueleto: Exponer cuál es la  utilidad de los instrumentos, y como obtener los elementos que describen completamente una medición.}
+
+\rrnote{Esqueleto: Con base en lo anterior, me gustaria decir por qué es util hablar del valor esperado de los instrumentos cuánticos.}
 
 
-
-\rrnote{Presentar los instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos.}
-
+\rrnote{Esqueleto: Presentar los dos  instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos. En un primer párrafo explicar el primer instrumento, haciendo hincapié en la idea de aplicar el operador difuso en el sistema cuántico. Y en un segundo párrafo explicar el segundo instrumento y detallar por que usar el operador difuso en el sistema clásico.}
 % }}}
 
 

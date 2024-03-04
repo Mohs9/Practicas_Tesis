@@ -53,8 +53,8 @@ Sino que viene dado por el lado derecho de la ecuación {\eqref{ejemplo-fm-peres
 % }}}
 \section{Medición difusa en sistemas cuánticos} % {{{
 % Intro {{{
-\rrnote{En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir/ilustrar un ejemplo concreto como el de la cadena de iones.}
-\rrnote{Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  Se puede plantear las condiciones en las que se puede cuantificar una medición difusa. }
+%\rrnote{En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir/ilustrar un ejemplo concreto como el de la cadena de iones.}
+%\rrnote{Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  Se puede plantear las condiciones en las que se puede cuantificar una medición difusa. }
 
 En esta tesis, el concepto de <<medición difusa>>, es distinta al planteado en el ejemplo del apartado anterior.  Ahora, se procede a estudiar las ideas detrás de las mediciones difusas que se abordan en el resto del documento. 
 Para esto se considera la siguiente situación presentada por Pineda, Davalos, Viviescas y Rosado {\cite{Pineda_2021}}. Supóngase que se tiene una cadena de iones y se realiza una medición a uno solo de ellos. Se hace brillar la cadena de iones y se obtiene una señal fluorescente. Dicha señal se recibe con un dispositivo detector imperfecto, en consecuencia no se puede saber con seguridad de dónde provino {\cite{Pineda_2021}}. No obstante, es posible cuantificar la información que se obtuvo incluso cuando ésta es borrosa.  Con base en lo anterior, una medición difusa puede definirse como sigue. 
@@ -65,7 +65,7 @@ Para esto se considera la siguiente situación presentada por Pineda, Davalos, V
 \begin{definition}Una medición difusa es un proceso no ideal en el cual, debido a ruido del entorno o a fallos en el dispositivo de detección, se presenta la probabilidad de una identificación errónea de las partículas del sistema.
 \end{definition}
 
-\rrnote{Realizar una explicacion de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar qué se obtendría al querer medir un observable.}
+%\rrnote{Realizar una explicacion de lo que sucede en una medición de dos partículas con observable factorizable. Mencionar a que nos referimos con un operador factorizable. Simplificar el sistema a dos partículas y mencionar qué se obtendría al querer medir un observable.}
 
 Ahora, se considera un sistema cuántico solo de dos partículas, el cual tiene un espacio de Hilbert dado por $\mathcal{H}=\mathcal{H}_1\otimes \mathcal{H}_2$, y en el que se desea medir un cierto observable $A\tensor B$.  Por simplicidad, se analiza un observable factorizable, cuya representación tensorial se puede expresar en un solo término. Se realiza una medición difusa, si con cierta probabilidad $p$, el aparato mide al observable $A$ en el sistema de la partícula en el espacio $\mathcal{H}_1$ y al observable $B$ en el subsistema de la partícula en el espacio $\mathcal{H}_2$. Sin embargo, existe una probabilidad de $1-p$ de que el detector confunda las partículas y, en su lugar, se mida el observable $B$ en el primer subsistema y a $A$ en el segundo subsistema {\cite{Pineda_2021}}.
 
@@ -76,7 +76,7 @@ Ahora, se considera un sistema cuántico solo de dos partículas, el cual tiene 
 El propósito de este apartado es introducir y establecer de manera formal el operador difuso aplicable a cualquier sistema cuántico que se analizará en las siguientes secciones. Para ello es necesario abordar el formalismo del <<operador de intercambio>> para sistemas de dos o más partículas.
 
 
-\rrnote{Primero se presenta más detalladamente las operaciones de intercambio. Se definen la transformación SWAP, para un sistema de dos partículas, y sus propiedades como que es una matriz unitaria, hermítica.}
+%\rrnote{Primero se presenta más detalladamente las operaciones de intercambio. Se definen la transformación SWAP, para un sistema de dos partículas, y sus propiedades como que es una matriz unitaria, hermítica.}
 
 Se iniciará estudiando el caso de un sistema cuántico que consta de solo dos partículas. El operador intercambio u operador SWAP, con respecto a las partículas en los espacios $\mathcal{H}_1$ y $\mathcal{H}_2$, se define de la siguiente forma\begin{equation}\label{swap}
 S_{12}: |\psi\rangle_{1}\otimes |\varphi \rangle_{2}=\sum_{i,j}\psi_i\varphi_j|i,j\rangle \longmapsto     \sum_{i,j}\varphi_i\psi_j|j,i\rangle= |\varphi\rangle_{1}\otimes |\psi \rangle_{2}.
@@ -92,14 +92,14 @@ Con esta definición es inmediato notar que el operador SWAP para dos partícula
     %\end{split}\]
     \item Es \textit{unitario} $ {S}_{12}^{\dagger}{S}_{12}=\mathds{1}$.
 \end{enumerate} 
-\rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso}
+%\rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso}
 
 Continuando en el espacio de Hilbert  $\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2$ para el sistema de dos partículas. Se construye una operación cuántica que cumpla con el teorema {\ref{teorema:equivalencia_propiedadesaxiomaticas_opKraus}}. A dicha operación se le  llamará \textit{operación difusa} u \textit{operador difuso}\begin{equation}\label{op_F2p}
     \mathcal{F}_{2\text{p}}(\rho):=p\rho + (1-p)S_{12}\rho S_{12}^{\dagger}.
 \end{equation}
 El primer término indica que con una probabilidad $p$  se aplica la identidad es decir que el estado se deja intacto.  Además, el segundo término del operador difuso indica que con una probabilidad $(1-p)$ se aplica el operador SWAP al estado $\rho$, lo que implica que las partículas se intercambian con esa probabilidad.
 
-\rrnote{Luego, quisiera continuar con la generalización de los operadores de intercambio, que serían los operadores de permutación. Presenta  la definición matemática y mostrar si sigue cumpliendo con algunas propiedas de las matrices para dos partículas. }
+%\rrnote{Luego, quisiera continuar con la generalización de los operadores de intercambio, que serían los operadores de permutación. Presenta  la definición matemática y mostrar si sigue cumpliendo con algunas propiedas de las matrices para dos partículas. }
 
 Lo anterior se puede generalizar para sistemas con mayor complejidad, en los que se tiene más de dos partículas.  Es relevante notar que, en sistemas con varias partículas es factible intercambiar solo dos elementos con un operador $S_{ij}$, (los subíndices denotan el intercambio respecto a las partículas $i$ y $j$) dejando a los demás invariantes.  Sin embargo, es viable que en el sistema se lleve a cabo el intercambio de más de dos partículas. Para describir estas acciones de intercambio, es necesario hablar de los operadores de permutación.
 
@@ -122,7 +122,7 @@ No todas las propiedades obtenidas para el operador de intercambio de dos partí
 
 Además, los operadores de permutación forman un grupo. Puesto que, existe un operador de permutación que es igual a la identidad, cada permutación admite una operación inversa y el producto de dos permutaciones produce otra permutación.
 
-\rrnote{Finalmente, escribir detalladamente el resultado generalizado el operador difuso, para más partículas  (ecuación 2 del paper). De nuevo me gustaria puntualizar su definición, explicar lo que realiza en un sistema más grande y verficar si sigue cumpliendo las propiedades del operador disfuso para dos partículas. }
+%\rrnote{Finalmente, escribir detalladamente el resultado generalizado el operador difuso, para más partículas  (ecuación 2 del paper). De nuevo me gustaria puntualizar su definición, explicar lo que realiza en un sistema más grande y verficar si sigue cumpliendo las propiedades del operador disfuso para dos partículas. }
 
 Los operadores de permutación fueron presentados puesto que son necesarios para ampliar el alcance del operador difuso, definido en la ecuación {\eqref{op_F2p}}, para un sistema de más partículas. De forma general en un sistema de $N$ partículas se define como sigue\begin{equation}\label{eq:fuzzy-op-nparticles}
     \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}

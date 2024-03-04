@@ -138,35 +138,22 @@ Los operadores de permutación fueron presentados puesto que son necesarios para
 
 
 En esta sección se ahonda en la relevancia del valor esperado y su aplicación en este estudio. En el apartado {\ref{sec:OpDensidad}} se aludió al valor esperado al referirse por primera vez al valor promedio de un observable $\mathcal{O}$, cuando se realiza un gran número mediciones, sin embargo no se profundizó en el tema. A continuación, se abordará el concepto de valor esperado y se detallará específicamente qué ocurre con esta medida en mediciones difusas.  
+\cpnote{Mejorar la intro a la luz de lo que discutimos.}
+
+% \rrnote{Esqueleto: Decir qué es el valor esperado en mecánica cuántica. Y hacer la aclaración entre salidas de la medicion y el valor esperado.}
 
 
-\cpnote{En la intro arranca con lo más importante y luego expandes. Tambien
-podemos discutir un poco a que me refiero} \rrnote{Está bien, lo cambié, pero me gustaria hablarlo también }
-
-
-
-
-
-
-%En los sistemas cuánticos, no es posible asignar un valor definido a los
-%observables cuando el sistema se encuentra en un estado arbitrario
-\cpnote{claro que si}. %Se suele afirmar que, en términos generales, el valor de los observables no está determinado
-\cpnote{error}. %Por esta razón y con el propósito de relacionar las predicciones con los resultados experimentales, se introduce el concepto de valor esperado{\cite{gomez2010introduccion}}
-\cpnote{No me gusta. Hay problemas}.\rrnote{Está bien, esto lo tomé del libro pero lo quitaré porque no aportaba realmente.}
-
-
-\rrnote{Esqueleto: Decir qué es el valor esperado en mecánica cuántica. Y hacer la aclaración entre salidas de la medicion y el valor esperado.}
-
-
-El valor esperado es un término que se deriva de la teoría básica de la probabilidad y representa el promedio ponderado de los resultados posibles que se pueden obtener, cuando se dispone de muchos sistemas, todos en el mismo estado inicial, y se realiza la misma medición en cada uno de ellos. La ponderación que se le asigna a cada resultado se determina por la probabilidad de obtener dicho resultado {\cite{gomez2010introduccion,sakurai2017modern}}.\cpnote{Ojo, el lenguaje aca cambio. Esto lo copiaste casi literal de alguna fuente? Si es asi, 
-te toca borrarlo y escribirlo con tus propias palabras. Lo mismo para cualquier parte. Una frase completa casi literal igual es problematica.}\rrnote{No todo lo copie literal, pero si la habia tomado la última frase casi literal entonces ya lo corregí}
-Es importante, discernir entre el valor esperado de un observable y las salidas que pueden resultar de una medición del observable. Esto significa que los resultados de la medición podrían diferir pero el promedio será lo presentado en la ecuación {\eqref{expectationvalue_traza}}. 
-\cpnote{Este y los dos parrafos anteriores van dando vueltas sobre lo mismo.
-Trata de reorganizar la informacion, como un pequeño esqueleto dedos lineas, y
-luego ya escribes los parrafos}\rrnote{Reduje los dos párrafos a uno y al inicio coloque las dos ideas principales del parrafo.}
-
-
-
+El valor esperado es un término que se deriva de la teoría básica de la
+probabilidad y representa el promedio ponderado de los resultados posibles que
+se pueden obtener, cuando se dispone de muchos sistemas, todos en el mismo
+estado inicial, y se realiza la misma medición en cada uno de ellos. La
+ponderación que se le asigna a cada resultado se determina por la probabilidad
+de obtener dicho resultado
+{\cite{gomez2010introduccion,sakurai2017modern}}.
+Es importante, discernir entre el valor esperado de un observable y las salidas
+que pueden resultar de una medición del observable. Esto significa que los
+resultados de la medición podrían diferir pero el promedio será lo presentado
+en la ecuación {\eqref{expectationvalue_traza}}. 
 
 \rrnote{Introducir el valor esperado de una medición difusa, y explicar la idea
 detrás de esta ecuación (1) del paper para sistemas de dos partículas. Y
@@ -175,15 +162,15 @@ extenderlo al sistema de N partículas.}
 %El cálculo del valor esperado como la traza del producto del observable
 %$\mathcal{O}$ por el estado inicial del sistema, ya no es aplicable para un
 %sistema que experimenta cambios aleatorios
-\cpnote{como que no? }\rrnote{quité esta parte que no me habia expresado bien.}
+% \cpnote{como que no? }\rrnote{quité esta parte que no me habia expresado bien.}
 Un sistema que experimenta cambios aleatorios tendrá un valor esperado diferente a un sistema que no experimenta tales transformaciones. Estos cambios en el estado inicial, que ocurren como resultado de algún proceso físico, pueden ser capturados por las operaciones cuánticas. Entonces, si $\rho$ es el estado inicial antes del proceso, y $\mathcal{E}(\rho)$ representa la transformación que ocurre, el valor esperado de este estado final se puede expresar como
 \begin{equation}\label{eq:Expected-Value-Op-Cuanticas}
     \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O}).
 \end{equation} 
-\cpnote{Ojo con la puntuacion. También, que es lo que quieres decir en este
-parrafo? Porque hablar de operaciones cuánticas? }\rrnote{inteoduje esto porque es lo que entiendo de la forma general de los valores esperados}
+\cpnote{No veo este parrafo muy util. Discutir con Rubi la utilidad de este. }
 
 
+\cpnote{HAblar con Rubi del situiente parrafo. Lo tiene alrevez :P }
 \cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
 de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
 Considerando lo anterior, se puede analizar una medición difusa en un sistema

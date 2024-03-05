@@ -94,7 +94,7 @@ Con esta definición es inmediato notar que el operador SWAP para dos partícula
 \end{enumerate} 
 %\rrnote{Segundo se propone la operación difusa para un sistema de dos partículas y la intuición que existe detrás del operador. Me gustaría definir el operador difuso}
 
-Continuando en el espacio de Hilbert  $\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2$ para el sistema de dos partículas. Se construye una operación cuántica que cumpla con el teorema {\ref{teorema:equivalencia_propiedadesaxiomaticas_opKraus}}. A dicha operación se le  llamará \textit{operación difusa} u \textit{operador difuso}\begin{equation}\label{op_F2p}
+Continuando en el espacio de Hilbert  $\mathcal{H}=\mathcal{H}_1\otimes\mathcal{H}_2$ para el sistema de dos partículas. Se construye una operación cuántica que cumpla con el teorema {\ref{teorema:equivalencia_propiedadesaxiomaticas_opKraus}}. A dicha operación se le  llamará \textit{operación difusa} u \textit{operador difuso}\begin{equation}\label{eq:op_F2p}
     \mathcal{F}_{2\text{p}}(\rho):=p\rho + (1-p)S_{12}\rho S_{12}^{\dagger}.
 \end{equation}
 El primer término indica que con una probabilidad $p$  se aplica la identidad es decir que el estado se deja intacto.  Además, el segundo término del operador difuso indica que con una probabilidad $(1-p)$ se aplica el operador SWAP al estado $\rho$, lo que implica que las partículas se intercambian con esa probabilidad.
@@ -124,7 +124,7 @@ Además, los operadores de permutación forman un grupo. Puesto que, existe un o
 
 %\rrnote{Finalmente, escribir detalladamente el resultado generalizado el operador difuso, para más partículas  (ecuación 2 del paper). De nuevo me gustaria puntualizar su definición, explicar lo que realiza en un sistema más grande y verficar si sigue cumpliendo las propiedades del operador disfuso para dos partículas. }
 
-Los operadores de permutación fueron presentados puesto que son necesarios para ampliar el alcance del operador difuso, definido en la ecuación {\eqref{op_F2p}}, para un sistema de más partículas. De forma general en un sistema de $N$ partículas se define como sigue\begin{equation}\label{eq:fuzzy-op-nparticles}
+Los operadores de permutación fueron presentados puesto que son necesarios para ampliar el alcance del operador difuso, definido en la ecuación {\eqref{eq:op_F2p}}, para un sistema de más partículas. De forma general en un sistema de $N$ partículas se define como sigue\begin{equation}\label{eq:fuzzy-op-nparticles}
     \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
  \end{equation}donde $\mathcal{S}$ es un subconjunto del grupo simétrico de $N$ partículas y $\sum_{i=1}^{N!} p_i=1$.  La idea detrás de este operador es análoga a la anterior. Cada uno de los términos representa que con cierta probabilidad $p_i$ el estado $\rho$ sufre una permutación. En otras palabras, las partículas son intercambiadas en alguna disposición dictada por el operador $\Pi_{i}$, con dicha probabilidad.
 
@@ -137,8 +137,10 @@ Los operadores de permutación fueron presentados puesto que son necesarios para
 \subsection{Valores esperados en mediciones difusas}\label{subsec:Valores_esperados} % {{{
 
 
-En esta sección se ahonda en la relevancia del valor esperado y su aplicación en este estudio. En el apartado {\ref{sec:OpDensidad}} se aludió al valor esperado al referirse por primera vez al valor promedio de un observable $\mathcal{O}$, cuando se realiza un gran número mediciones, sin embargo no se profundizó en el tema. A continuación, se abordará el concepto de valor esperado y se detallará específicamente qué ocurre con esta medida en mediciones difusas.  
-\cpnote{Mejorar la intro a la luz de lo que discutimos.}
+En esta sección se ahonda en la relevancia del valor esperado y su aplicación en este estudio.  Se presenta el concepto del valor esperado y se detalla qué sucede con él en una medición difusa y su relación con el operador difuso. Además, se ejemplifica la diferencia entre los valores esperados en una medición ideal y una medición difusa. Por último, se argumenta la utilidad de esta medida y se expone para qué se usará en este proyecto. 
+
+ 
+\cpnote{Mejorar la intro a la luz de lo que discutimos.}\rrnote{Detalle más que se hará en esta sección }
 
 % \rrnote{Esqueleto: Decir qué es el valor esperado en mecánica cuántica. Y hacer la aclaración entre salidas de la medicion y el valor esperado.}
 
@@ -159,34 +161,40 @@ en la ecuación {\eqref{expectationvalue_traza}}.
 detrás de esta ecuación (1) del paper para sistemas de dos partículas. Y
 extenderlo al sistema de N partículas.}
 
-%El cálculo del valor esperado como la traza del producto del observable
-%$\mathcal{O}$ por el estado inicial del sistema, ya no es aplicable para un
-%sistema que experimenta cambios aleatorios
-% \cpnote{como que no? }\rrnote{quité esta parte que no me habia expresado bien.}
-Un sistema que experimenta cambios aleatorios tendrá un valor esperado diferente a un sistema que no experimenta tales transformaciones. Estos cambios en el estado inicial, que ocurren como resultado de algún proceso físico, pueden ser capturados por las operaciones cuánticas. Entonces, si $\rho$ es el estado inicial antes del proceso, y $\mathcal{E}(\rho)$ representa la transformación que ocurre, el valor esperado de este estado final se puede expresar como
-\begin{equation}\label{eq:Expected-Value-Op-Cuanticas}
-    \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O}).
-\end{equation} 
-\cpnote{No veo este parrafo muy util. Discutir con Rubi la utilidad de este. }
 
+
+%Un sistema que experimenta cambios aleatorios tendrá un valor esperado diferente a un sistema que no experimenta tales transformaciones. Estos cambios en el estado inicial, que ocurren como resultado de algún proceso físico, pueden ser capturados por las operaciones cuánticas. Entonces, si $\rho$ es el estado inicial antes del proceso, y $\mathcal{E}(\rho)$ representa la transformación que ocurre, el valor esperado de este estado final se puede expresar como
+%\begin{equation}\label{eq:Expected-Value-Op-Cuanticas}
+ %   \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O}).
+%\end{equation} 
+\cpnote{No veo este parrafo muy util. Discutir con Rubi la utilidad de este. }
+ \rrnote{Quité el párrafo para arreglar el párrafo siguiente.}
 
 \cpnote{HAblar con Rubi del situiente parrafo. Lo tiene alrevez :P }
 \cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
-de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
-Considerando lo anterior, se puede analizar una medición difusa en un sistema
-de dos partículas.  El estado inicial sufre una transformación, donde  con cierta probabilidad las partículas se intercambian.  El operador difuso $\mathcal{F}_{2\text{p}}$
-registra esta evolución del estado inicial $\rho$. Como resultado, el valor esperado del observable también se modifica. El valor esperado del
-observable factorizable $A\otimes B$ estará dado por
-{\cite{Pineda_2021}}\begin{equation}\label{eq:Expected-Value-FM-2p}
+de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }%\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
+
+
+Ahora, se puede analizar una medición difusa en un sistema
+de dos partículas. En este sistema se desea realizar la medición del observable factorizable $A\otimes B$. Sin embargo, la medición es imperfecta, y con cierta probabilidad se realizará, en su lugar, la medición del observable $B\otimes A$. Como resultado, el valor esperado de la medición difusa se obtendrá mediante un promedio ponderado de los valores esperados. Este se calculará sumando el valor esperado del observable $A\otimes B$ ponderado por la probabilidad que se realice la medición correctamente, más el valor esperado de $B\otimes A$ ponderado por la probabilidad de medir este otro observable {\cite{Pineda_2021}}\begin{equation}\label{eq:Expected-Value-FM-2p}
     \begin{split}
-        \la {A\otimes B}\ra_{\mathcal{F}_{2\text{p}}(\rho)}=&\tr(\mathcal{F}_{2\text{p}}(\rho)A\otimes B)\\
-        =&p\tr(\rho A\tensor B)+(1-p)\tr(S\rho S^\dagger A\otimes B)\\
-        =& p\tr(\rho A\tensor B)+(1-p)\tr(\rho B\otimes A),
+        \la {A\otimes B}\ra_{\mathcal{F}_{2\text{p}}(\rho)}=& p\tr(\rho A\tensor B)+(1-p)\tr(\rho B\otimes A).\\
     \end{split}
-\end{equation}donde este desarrollo es posible por la linealidad y la propiedad cíclica de la traza.   En este escenario, si se tienen muchas copias del estado posterior $\rho'=\mathcal{F}_{2\text{p}}(\rho)$, entonces al realizar mediciones en cada una de ellas, el promedio de las salidas estará dado por esta ecuación. 
+\end{equation}
+
+%
+Es posible desarrollar la parte derecha de esta última ecuación con el fin de simplificar la expresión, aprovechando la linealidad y la propiedad cíclica de la traza \begin{equation}\label{eq:Expected-Value-FM-2p-desarrollo}
+    \begin{split}
+         p\tr(\rho A\tensor B)+(1-p)\tr(\rho B\otimes A)
+        =&p\tr(\rho A\tensor B)+(1-p)\tr(S\rho S^\dagger A\otimes B)\\
+        =&\tr(\mathcal{F}_{2\text{p}}(\rho)A\otimes B).\\
+    \end{split}
+\end{equation} Este desarrollo permite justificar la introducción del operador difuso explicado en la ecuación {\eqref{eq:op_F2p}}. En este escenario, el estado inicial sufre una transformación, donde  con cierta probabilidad las partículas se intercambian. El operador difuso $\mathcal{F}_{2\text{p}}$ registra esta evolución del estado inicial $\rho$. En consecuencia, si se tienen muchas copias del estado posterior $\rho'=\mathcal{F}_{2\text{p}}(\rho)$, entonces al realizar mediciones en cada una de ellas, el promedio de las salidas estará dado por esta ecuación.  La última expresión es análoga al lado derecho de la ecuación {\eqref{expectationvalue_traza}}, con la diferencia que no se calcula con $\rho$ sino con el operador $\mathcal{F}_{2\text{p}}(\rho)$.
+
+
 
 El valor esperado de un observable en un sistema con más de dos partículas es análogo al anterior. En este sistema, la transformación es representada por el operador difuso general de la ecuación {\eqref{eq:fuzzy-op-nparticles}}. En consecuencia, el valor esperado para un observable $\mathcal{O}$ en una medición difusa es\begin{equation}\label{eq:expected-value-fm-general}
-    \la \mathcal{O}\ra_{\fuzzy{\rho}}=\tr(\fuzzy{\rho}\mathcal{O})=\sum_{\Pi_i\in S}p_i\tr(\permut{i}{\rho}\mathcal{O}).
+    \la \mathcal{O}\ra_{\fuzzy{\rho}}=\sum_{\Pi_i\in S}p_i\tr(\permut{i}{\rho}\mathcal{O}) =\tr(\fuzzy{\rho}\mathcal{O}).
 \end{equation}
 
 
@@ -222,8 +230,8 @@ Considere un sistema de dos partículas con el siguiente estado inicial \[\rho= 
     -1/3&0&-1/3&-1/3\\
 \end{pmatrix}\right]=-2/3. \end{split}\] Los valores propios del observable son $\pm 1$, como se ve las salidas de la medición no coinciden con el valor esperado. Puesto que, este es el promedio ponderado de las salidas de la medición.  En este estado $\rho$, la probabilidad de obtener  la salida $-1$ es $\tr(\rho P_{0-})+\tr(\rho P_{1+})=5/6$. Mientras que la probabilidad de obtener $+1$ es solamente $\tr(\rho P_{0+})+\tr(\rho P_{1-})=1/6$. Donde, $ P_{0-}, P_{1+}$ son los operadores de proyección correspondientes al valor propio $-1$ y $ P_{0+}, P_{1-}$, corresponden al valor propio $+1$. De ello, al realizar el promedio ponderado con estos valores se comprueba fácilmente el resultado obtenido.
 
-Sin embargo, en una medición difusa este valor esperado cambia puesto que el estado experimenta transformaciones aleatorias capturadas por el operador difuso. Para este caso el valor esperado estará dado por \[\begin{split}\tr(\mathcal{F}_{2\text{p}}(\rho)\sigma_z\tensor \sigma_x)=&p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_x )\\
-    =& \frac{p}{3}\tr\left[ \begin{pmatrix}
+Sin embargo, en una medición difusa este valor esperado cambia puesto que el estado experimenta transformaciones aleatorias capturadas por el operador difuso. Para este caso el valor esperado estará dado por \[\begin{split}\langle A\tensor B\rangle_{\mathcal{F}_{2\text{p}}}&=p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_x )\\
+    & =\frac{p}{3}\tr\left[ \begin{pmatrix}
         0&0&0&0\\
         1&0&1&1\\
         -1&0&-1&-1\\
@@ -234,8 +242,8 @@ Sin embargo, en una medición difusa este valor esperado cambia puesto que el es
         1&0&1&1\\
         0&0&0&0\\
     \end{pmatrix}\right]\\
-    =&-\frac{2p}{3}+\frac{2(1-p)}{3}=\frac{2(1-2p)}{3}.
-\end{split}\]Si $p<1$, se obtiene un valor esperado distinto. Esto se debe a que las probabilidades de obtener cada una de las salidas son $\tr(\mathcal{F}_{2\text{p}}(\rho)P_{0+})+\tr(\mathcal{F}_{2\text{p}}(\rho)P_{1-})=\frac{5-4p}{6}$ y $\tr(\mathcal{F}_{2\text{p}}(\rho)P_{0-})+\tr(\mathcal{F}_{2\text{p}}(\rho)P_{1+})=\frac{1+4p}{6}$. Estas probabilidades ahora varían en función de la probabilidad $p$. En la siguiente figura puede apreciarse gráficamente estos resultados.
+    &=-\frac{2p}{3}+\frac{2(1-p)}{3}=\frac{2(1-2p)}{3}.
+\end{split}\]Dado que $0<p<1$, se obtiene un valor esperado distinto. Esto se debe a que las probabilidades de obtener cada una de las salidas son $\tr(\mathcal{F}_{2\text{p}}(\rho)P_{0+})+\tr(\mathcal{F}_{2\text{p}}(\rho)P_{1-})=\frac{5-4p}{6}$ y $\tr(\mathcal{F}_{2\text{p}}(\rho)P_{0-})+\tr(\mathcal{F}_{2\text{p}}(\rho)P_{1+})=\frac{1+4p}{6}$. Estas probabilidades ahora varían en función de la probabilidad $p$. En la siguiente figura puede apreciarse gráficamente estos resultados.
 
 
 

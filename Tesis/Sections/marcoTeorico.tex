@@ -1,8 +1,8 @@
 \chapter[OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS]{1. OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 \section{Introducción}\label{cap:IntroduccionMarcoteorico} % {{{
 
-Para estudiar la completa descripción \cpnote{redundante} de las mediciones difusas para sistemas
-de varias partículas primero será indispensable examinar el formalismo de
+Para lograr los objetivos de este trabajo  \cpnote{redundante} 
+primero será indispensable examinar el formalismo de
 algunas herramientas tales como el operador densidad, las medidas POVM y las
 operaciones cuánticas. El operador de densidad también conocido como <<matriz
 de densidad>> describe el estado cuántico de un sistema físico y generaliza los
@@ -229,9 +229,9 @@ estado $\rho_i$, entonces \cpnote{redaccion} \rrnote{cambié lo anteiror}el esta
 Con esta reformulación de los postulados de la mecánica cuántica se tiene la
 ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cuyos estados son mixtos y la descripción de subsistemas de un sistema cuántico compuesto. Ahora, es necesario discutir estos conceptos, nuevas definiciones y hechos sobre operadores de densidad. 
 
-Un sistema cuántico cuyo estado no es conocido exactamente, se dice que se encuentra un {estado mixto}\footnote{En algunas referencias, se  usa el término <<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen de este uso puede ser que no se asume necesariamente que un estado es puro. Además, el término <<estado puro>> se usa a menudo en referencia a un vector de estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$.};  es una mezcla estadística de los diferentes estado puros en el ensamble de $\rho$ {\cite{nielsen_chuang_2010}}. 
+%Un sistema cuántico cuyo estado no es conocido exactamente, se dice que se encuentra un {estado mixto}\footnote{En algunas referencias, se  usa el término <<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen de este uso puede ser que no se asume necesariamente que un estado es puro. Además, el término <<estado puro>> se usa a menudo en referencia a un vector de estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$.};  es una mezcla estadística de los diferentes estado puros en el ensamble de $\rho$ {\cite{nielsen_chuang_2010}}. 
 
-\cpnote{Esto lo vas a ocupar en la tesis?}
+\cpnote{Esto lo vas a ocupar en la tesis?}\rrnote{ Esto directamente no, solo sirve para entender el toerema en la seccion 1.4 que tampoco he usado pero no sé si lo usaré en algun punto (no creo.)}
 Antes de pasar a la siguiente sección, es indispensable discutir qué clase de
 ensambles pueden dar una matriz de densidad particular y cuándo dos conjuntos
 de vectores $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador de
@@ -405,19 +405,13 @@ propiedad {\cite{nielsen_chuang_2010}}.
 
 \cpnote{Muy bien!}
 
-%Con el operador de densidad reducido se finaliza el marco teórico del lenguaje del operador de densidad necesario para el objetivo de este proyecto. En la siguiente sección, se estará hablando sobre operadores POVM que son de interés en este trabajo.
-
-
-
-
 % }}}
 % }}}
 \section{Medidas POVM}\label{sec:Cap1:MedidaPOVM} % {{{
 % Intro {{{
 Hasta ahora, se ha descrito el espacio de estados cuánticos. Ahora se abordará
 el tema del proceso de medición cuántica utilizando herramientas como las
-medidas proyectivas y las medidas POVM, también conocidas como medidas
-generalizadas. Aunque el proceso de medición  sigue siendo algo enigmático,
+medidas proyectivas y las medidas POVM\@. Aunque el proceso de medición  sigue siendo algo enigmático,
 aquí simplemente se toma como cierto el postulado relacionado al colapso de la
 función de onda, mencionado en el capítulo anterior (sección
 {\ref{subsec:postulates}}). Según Nielsen y Chuang
@@ -425,9 +419,7 @@ función de onda, mencionado en el capítulo anterior (sección
 dos elementos. El primero, proporciona una regla que describe las estadísticas
 de medición, es decir, las probabilidades respectivas de los diferentes
 resultados de medición posibles. En segundo lugar, da una regla que describe el
-estado posterior a la medición del sistema. En esta sección, se hablará de un
-caso particular de las mediciones, las mediciones proyectivas. Asimismo, se
-discutirá acerca de los operadores POVM\@.\cpnote{repetitivas las ultimas frases}
+estado posterior a la medición del sistema.\cpnote{repetitivas las ultimas frases}\rrnote{quité esas frases.}
 
 %A diferencia de las medidas PVM o proyectivas, las cuales son un caso particular de las medidas aquí tratadas, y son válidas solo para sistemas cerrados, las medidas POVM, también conocidas como medidas generalizadas, tienen en cuenta la interacción del sistema con el entorno.
 
@@ -449,8 +441,8 @@ posibles, dado por
 \begin{equation}\label{eq: non-selective-measure}
 	\rho'=\sum_m M_m\rho M_m^\dagger.
 \end{equation}
-Esto es un estado mixto que  describe una medición cuántica \textit{no selectiva}, incluso si el estado inicial $\rho$ es puro {\cite{2007geometry}}.
-\cpnote{Esto ya lo habías dicho. Porfa dale una pasada y trata de no repetir conceptos}
+
+\cpnote{Esto ya lo habías dicho. Porfa dale una pasada y trata de no repetir conceptos}\rrnote{quité donde hablaba de esto antes, porque ne parecio que antes estaba la idea desconectada y solo lo dejé acá}
 
 En una medida proyectiva PVM (por sus siglas en inglés, projection-valued
 measure) los operadores de medición son operadores proyectores ortogonales
@@ -460,9 +452,7 @@ de la medición están etiquetadas por los valores propios de $\mathcal{O}$. Dad
 que el $\mathcal{O}$ es operador hermítico, se puede utilizar la descomposición
 espectral para representarlo como \begin{equation}
 	\mathcal{O}=\sum_m \lambda_m P_m,
-\end{equation} puede obtenerse un conjunto ortogonal de operadores de medición \[P_m=\sum_i
-|e_i^{(m)}\rala e_i^{(m)}|,\] que satisfacen la relación de completitud
-{\cite{2007geometry}}. \cpnote{redaccion}
+\end{equation} donde los operadores de medición del conjunto ortogonal $\{P_m\}$ satisfacen la relación de completitud {\cite{2007geometry}}. \cpnote{redaccion}\rrnote{cambié la redacción.}
 
 En una medición proyectiva selectiva la salida etiquetada por $\lambda_m$
 ocurre con probabilidad $p(m)=\tr(P_m\rho P_m)$, y por la propiedad cíclica de
@@ -471,42 +461,24 @@ la traza,  $p(m)=\tr(P_m\rho)$; el estado inicial es transformado como
 	\rho\to	\rho_m=\dfrac{P_m\rho P_m}{\tr(P_m \rho)}.
 \end{equation}
 
- En una medición proyectiva no selectiva, el estado inicial es transformado en
-una mezcla  
+ En una medición proyectiva no selectiva, el estado inicial es transformado así
 \begin{equation}
 	\rho \to \rho'=\sum_m P_m \rho P_m.
 \end{equation} 
-
-
-El estado conmuta con el observable $\mathcal{O}$. El valor esperado del
-observable estará dado por 
-\begin{equation}
-	\la \mathcal{O} \ra=\sum_m p_m\lambda_m=\sum_m \lambda_m
-\tr(P_m\rho)=\tr(\mathcal{O}\rho).
-\end{equation}
-\cpnote{Para que este parrafo? Además esta raro de redaccion}
-
-Una característica clave de las mediciones proyectivas consiste en la
-repetibilidad. Esto significa que si la medición es repetida, el estado en
-({\ref{stateProjective}}) sigue siendo el mismo, y da el mismo resultado
-{\cite{2007geometry}}.
-\cpnote{Para que queremos decir esto?}
+%El estado conmuta con el observable $\mathcal{O}$. El valor esperado del observable estará dado por 
+%\begin{equation}
+%	\la \mathcal{O} \ra=\sum_m p_m\lambda_m=\sum_m \lambda_m
+%\tr(P_m\rho)=\tr(\mathcal{O}\rho).
+%\end{equation}
+\cpnote{Para que este parrafo? Además esta raro de redaccion} %Una característica clave de las mediciones proyectivas consiste en la repetibilidad. Esto significa que si la medición es repetida, el estado en ({\ref{stateProjective}}) sigue siendo el mismo, y da el mismo resultado {\cite{2007geometry}}.
+\cpnote{Para que queremos decir esto?}\rrnote{ Este párrafo estaba de más. }
 % }}}
 \subsection{Operadores POVM}\label{subsec:operadoresPOVM} % {{{
-\cpnote{Lo de las mediciones ya lo has dicho varias veces. Vas a tener que darle una organizada
-a la intro para no repetir ideas y que quede un poco mejor. }
+\cpnote{Lo de las mediciones ya lo has dicho varias veces. Vas a tener que darle una organizada a la intro para no repetir ideas y que quede un poco mejor.}\rrnote{recorté la introducción para no repetir}
 
 
-Para algunas aplicaciones, el estado posterior a la medición del sistema es de poco interés, siendo el
-principal elemento de interés las probabilidades de los respectivos resultados
-de medición. En tales casos, existe una herramienta matemática conocida como
-formalismo POVM que es especialmente bien adaptado al análisis de las medidas
-(el acrónimo POVM significa <<medida valorada por el operador positivo>>). Este
-formalismo es una simple consecuencia de la descripción general de las medidas
-introducidas en el Postulado 3, pero la teoría de es bastante elegante y
-ampliamente utilizada que se discutirá en esta sección
-{\cite{nielsen_chuang_2010}}. Se procede a dar una definición de las medidas
-POVM\@. 
+%Para algunas aplicaciones, el estado posterior a la medición del sistema es de poco interés, siendo el principal elemento de interés las probabilidades de los respectivos resultados de medición. En tales casos, 
+En esta sección se discutirá sobre el formalismo POVM (el acrónimo POVM significa <<medida valorada por el operador positivo>>), el cual es bastante elegante y ampliamente utilizado {\cite{nielsen_chuang_2010}}. Se procede a dar una definición de las medidas POVM\@. 
 
 \begin{definition}[\textbf{POVM}] Una medida POVM (positive operator-valued measure) es un conjunto $\{E_{m}\}$ de operadores llamados <<efectos>> que satisfacen las siguientes condiciones {\cite{2007geometry}}:
 	\begin{enumerate}

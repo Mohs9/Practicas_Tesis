@@ -1,23 +1,25 @@
 \chapter[OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS]{1. OPERADORES DE DENSIDAD Y OPERACIONES CUÁNTICAS}
 \section{Introducción}\label{cap:IntroduccionMarcoteorico} % {{{
 
-Con el propósito de lograr los objetivos de esta tesis  \cpnote{redundante} \rrnote{Cambie la primera frase}
-primero será indispensable examinar el formalismo de
-algunas herramientas tales como el operador densidad, las medidas POVM y las
-operaciones cuánticas. El operador de densidad también conocido como <<matriz
-de densidad>> describe el estado cuántico de un sistema físico y generaliza los
-vectores de estado, puesto que éstos pueden representar estados mixtos. Este
-operador contiene todas las propiedades estadísticas de un sistema cuántico,
-incluso cuando no es posible describir el sistema mediante un estado puro. Por
-otro lado, las medidas POVM, también llamadas medidas generalizadas, son apropiadas debido a que consideran la interacción del sistema con su entorno.\cpnote{mala redaccion} \rrnote{Borré unas frase y separe ideas.}Estas medidas son especialmente útiles
-porque proporcionan las estadísticas de medición. Por último, el formalismo de las operaciones cuánticas describe los efectos de la medición en un sistema cuántico y representa la descripción de los cambios  de estados discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado final $\rho'$, sin necesidad de referenciar al paso del tiempo {\cite{nielsen_chuang_2010}}\cpnote{no solo
-eso, hablar con Rubi}.  
+Con el propósito de lograr los objetivos de esta tesis primero será
+indispensable examinar el formalismo de algunas herramientas tales como el
+operador densidad, las medidas POVM y las operaciones cuánticas. El operador de
+densidad también conocido como <<matriz de densidad>> describe el estado
+cuántico de un sistema físico y generaliza los vectores de estado, puesto que
+éstos pueden representar estados mixtos. Este operador contiene todas las
+propiedades estadísticas de un sistema cuántico, incluso cuando no es posible
+describir el sistema mediante un estado puro. Por otro lado, las medidas POVM,
+también llamadas medidas generalizadas, son apropiadas debido a que consideran
+la interacción del sistema con su entorno. Estas medidas son especialmente
+útiles porque proporcionan las estadísticas de medición. Por último, el
+formalismo de las operaciones cuánticas describe los efectos de la medición en
+un sistema cuántico y representa la descripción de los cambios  de estados
+discretos, esto es transformaciones entre el estado inicial $\rho$ y el estado
+final $\rho'$, sin necesidad de referenciar al paso del tiempo
+{\cite{nielsen_chuang_2010}}.  
 
 
-En la sección {\ref{sec:Cap1:OpDensidad}}\cpnote{Me confunde un poco
-esto. Esta es la primera seccion. Ayudar a Rubi con la 
-numeracion y/o corregir que esta no tenga seccion. Decir que es 
-mejor con las refs y labels}\rrnote{ Ya lo compuse con labels y ref }, se presentan la definición y las propiedades del
+En la sección {\ref{sec:Cap1:OpDensidad}}, se presentan la definición y las propiedades del
 operador de densidad y se reformulan los postulados de la mecánica cuántica
 utilizando este operador. Además se expone el operador de densidad reducido,
 una de las aplicaciones más importantes del operador de densidad. En la sección {\ref{sec:Cap1:MedidaPOVM}}, se hablará de un caso particular de las mediciones, las mediciones proyectivas, así como se discutirá acerca de los operadores POVM\@. Finalmente, en la sección {\ref{sec:Cap1:OpCuanticas}} se aborda el formalismo de las operaciones cuánticas que permitirá familiarizarse con la teoría básica de las mismas e involucra a los operadores conocidos como operadores de Kraus. Asimismo se presenta un teorema importante sobre la libertad unitaria en la representación de suma de
@@ -27,7 +29,11 @@ operadores para una operación cuántica.
 % Intro {{{
 El lenguaje de los operadores de densidad proporciona un  medio conveniente
 para describir los sistemas cuánticos, tales que su estado no es completamente
-conocido. Cuando un sistema cuántico está representado por un único vector de estado $|\psi_j\rangle $, completamente conocido, se le llama estado puro. No obstante, es posible que un sistema esté en un conjunto estadístico de distintos vectores puros de estado, por esta razón se puede enunciar la siguiente definición.\cpnote{redaccion} \rrnote{Cambié la frase }.
+conocido. Cuando un sistema cuántico está representado por un único vector de
+estado $|\psi_j\rangle $, completamente conocido, se le llama estado puro. No
+obstante, es posible que un sistema esté en un conjunto estadístico de
+distintos vectores puros de estado, por esta razón se puede enunciar la
+siguiente definición.
 
 \begin{definition}[\textbf{Operador de densidad}] El operador de densidad
 $\rho$ correspondiente al ensamble de estados puros $\{p_j,|\psi_j \rangle \}$
@@ -54,18 +60,16 @@ promedio $\langle \mathcal{O} \rangle$ del ensamble, el cual se define por
  		&=\sum_{j}\sum_k  \langle \phi_k| \left(\sum_{i} p_i |\psi_i\rangle  \langle\psi_i|\right)|\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle, 
  	\end{split}
 \end{equation} 
-donde $\{|\phi_j\rangle \}$ es una base ortonormal \cpnote{Que es una base mas general? 
-en tu caso, la base es ortogonal? Normalizada?}\rrnote{Sí, me refería a ina base ortonormal }
+donde $\{|\phi_j\rangle \}$ es una base ortonormal 
 del espacio de Hilbert del
 sistema. La matriz que se encuentra dentro del paréntesis en última línea en la ecuación ({\ref{expectationvalue}}) es una motivación para  definir el operador de densidad  en la forma de la ecuación
-({\ref{defdensityoperator}})\cpnote{No veo porque...}\rrnote{cambie los parentesis que causaban confusión}. Notar que $\langle \phi_k| \rho|\phi_j\rangle$ son los elementos de la matriz $\rho$, escrita en la base $|\phi_j\rangle$. Por lo tanto, el valor promedio del observable es {\cite{sakurai2017modern}}\begin{equation}
+({\ref{defdensityoperator}}). Notar que $\langle \phi_k| \rho|\phi_j\rangle$ son los elementos de la matriz $\rho$, escrita en la base $|\phi_j\rangle$. Por lo tanto, el valor promedio del observable es {\cite{sakurai2017modern}}\begin{equation}
 	\label{expectationvalue_traza}
 	\begin{split}
 		\langle \mathcal{O} \rangle_{\rho} &=\sum_{j}\sum_k \langle \phi_k|\rho|\phi_j\rangle \langle \phi_j|\mathcal{O}|\phi_k\rangle\\
 		&= \rm{tr}(\rho \mathcal{O}).
 	\end{split}
 \end{equation}
-\cpnote{croe qeu sobran cosas aca para hacerlo mas claro. De la ecuacion anterior, los parentesis no adyudan tampoco}\rrnote{Quite algunas frases y agregué otras.}
 
 Además las mediciones se pueden describir fácilmente utilizando matrices de
 densidad. Si se realiza una medición descrita por lo operadores $M_m$ y con un
@@ -92,7 +96,6 @@ conocería el valor real de $m$. El estado del sistema cuántico estaría descri
 por el operador densidad siguiente \begin{equation}
 	\rho'=\sum_m p(m)\rho_m=\sum_m\tr(M^{\dagger}_m M_m\rho )\dfrac{M_m\rho M_m^{\dagger}}{\tr (M^{\dagger}_m M_m \rho )}=\sum_{m} M_m\rho M_m^{\dagger}.
 \end{equation}
-\cpnote{La ecuacion está mal}\rrnote{agregué la suma.}
 
 
 Supóngase que la evolución de un sistema cerrado es descrito por el operador
@@ -109,8 +112,6 @@ Hasta el momento se puede ver con estas motivaciones que los postulados básicos
 de la mecánica cuántica relacionados con la medición y la evolución unitaria
 pueden ser reformulados en el lenguaje de los operadores de densidad. En la
 siguiente sección se profundiza esta reformulación de los postulados.
-\cpnote{Los postulados ya lo estas diciendo acá. Me parece un poco repetitivo 
-que los des de nuevo en la siguiente seccion. Hablamos a ver que hacemos.} \rrnote{Es verdad, a mi megustaria quitar esta parte y dejar los postulados en la siguiente.}
 
 
 % }}}
@@ -216,7 +217,7 @@ Los operadores de medición satisfacen la relación de completitud \begin{equati
 	\mathcal{H}_{\text{total}}=\mathcal{H}_1\otimes \mathcal{H}_2\otimes \cdots \otimes \mathcal{H}_N.
 \end{equation}
  Más aún, si el $i$-ésimo sistema, se encuentra en el
-estado $\rho_i$, entonces \cpnote{redaccion} \rrnote{cambié lo anteiror}el estado del sistema total será
+estado $\rho_i$, entonces el estado del sistema total será
 \begin{equation}\label{rhototal4postulado}
 	\rho_{\text{total}}=\rho_1\otimes \rho_2 \otimes \cdots \otimes \rho_N.
 \end{equation}
@@ -229,7 +230,6 @@ ventaja que es más fácil trabajar en la descripción de sistemas cuánticos cu
 
 %Un sistema cuántico cuyo estado no es conocido exactamente, se dice que se encuentra un {estado mixto}\footnote{En algunas referencias, se  usa el término <<estado mixto>> para incluir ambos estados cuánticos puros y mixtos. El origen de este uso puede ser que no se asume necesariamente que un estado es puro. Además, el término <<estado puro>> se usa a menudo en referencia a un vector de estado $|\psi\rangle $, para distinguirlo de un operador de densidad	$\rho$.};  es una mezcla estadística de los diferentes estado puros en el ensamble de $\rho$ {\cite{nielsen_chuang_2010}}. 
 
-\cpnote{Esto lo vas a ocupar en la tesis?}\rrnote{ Esto directamente no, solo sirve para entender el toerema en la seccion 1.4 que tampoco he usado pero no sé si lo usaré en algun punto (no creo.)}
 Antes de pasar a la siguiente sección, es indispensable discutir qué clase de
 ensambles pueden dar una matriz de densidad particular y cuándo dos conjuntos
 de vectores $\{|\psi_i\ra\}$ y$ \{|\phi_j\ra \}$ generan el mismo operador de
@@ -280,7 +280,7 @@ u_{ij}|\phi_j\ra$, donde  $u=vw^\dagger$ es unitaria. De manera similar se concl
 
 Una de las aplicaciones más importantes del operador de densidad es el operador
 de densidad reducido. Este operador es una herramienta descriptiva para subsistemas de un
-sistema cuántico y su discusión se llevará a cabo a continuación. \cpnote{redundante}\rrnote{quité lo último.}
+sistema cuántico y su discusión se llevará a cabo a continuación. 
 
 
 Supóngase que se tiene sistemas $A$ y $B$, cuyos estados están descritos por el
@@ -401,8 +401,6 @@ de ello se sigue que $f$ está únicamente determinada por la ecuación
 ({\ref{promedioDeMedicion}}), entonces es la única función que tiene esta
 propiedad {\cite{nielsen_chuang_2010}}.
 
-\cpnote{Muy bien!}
-
 % }}}
 % }}}
 \section{Medidas POVM}\label{sec:Cap1:MedidaPOVM} % {{{
@@ -417,7 +415,7 @@ función de onda, mencionado en el capítulo anterior (sección
 dos elementos. El primero, proporciona una regla que describe las estadísticas
 de medición, es decir, las probabilidades respectivas de los diferentes
 resultados de medición posibles. En segundo lugar, da una regla que describe el
-estado posterior a la medición del sistema.\cpnote{repetitivas las ultimas frases}\rrnote{quité esas frases.}
+estado posterior a la medición del sistema.
 
 %A diferencia de las medidas PVM o proyectivas, las cuales son un caso particular de las medidas aquí tratadas, y son válidas solo para sistemas cerrados, las medidas POVM, también conocidas como medidas generalizadas, tienen en cuenta la interacción del sistema con el entorno.
 
@@ -440,8 +438,6 @@ posibles, dado por
 	\rho'=\sum_m M_m\rho M_m^\dagger.
 \end{equation}
 
-\cpnote{Esto ya lo habías dicho. Porfa dale una pasada y trata de no repetir conceptos}\rrnote{quité donde hablaba de esto antes, porque ne parecio que antes estaba la idea desconectada y solo lo dejé acá}
-
 En una medida proyectiva PVM (por sus siglas en inglés, projection-valued
 measure) los operadores de medición son operadores proyectores ortogonales
 tales que $M_{m}=M_{m}^{\dagger}=P_{m}$, y $P_{m}P_{n}=\delta_{mn}P_{m}$. Una
@@ -450,7 +446,7 @@ de la medición están etiquetadas por los valores propios de $\mathcal{O}$. Dad
 que el $\mathcal{O}$ es operador hermítico, se puede utilizar la descomposición
 espectral para representarlo como \begin{equation}
 	\mathcal{O}=\sum_m \lambda_m P_m,
-\end{equation} donde los operadores de medición del conjunto ortogonal $\{P_m\}$ satisfacen la relación de completitud {\cite{2007geometry}}. \cpnote{redaccion}\rrnote{cambié la redacción.}
+\end{equation} donde los operadores de medición del conjunto ortogonal $\{P_m\}$ satisfacen la relación de completitud {\cite{2007geometry}}. 
 
 En una medición proyectiva selectiva la salida etiquetada por $\lambda_m$
 ocurre con probabilidad $p(m)=\tr(P_m\rho P_m)$, y por la propiedad cíclica de
@@ -463,13 +459,6 @@ la traza,  $p(m)=\tr(P_m\rho)$; el estado inicial es transformado como
 \begin{equation}
 	\rho \to \rho'=\sum_m P_m \rho P_m.
 \end{equation} 
-%El estado conmuta con el observable $\mathcal{O}$. El valor esperado del observable estará dado por 
-%\begin{equation}
-%	\la \mathcal{O} \ra=\sum_m p_m\lambda_m=\sum_m \lambda_m
-%\tr(P_m\rho)=\tr(\mathcal{O}\rho).
-%\end{equation}
-\cpnote{Para que este parrafo? Además esta raro de redaccion} %Una característica clave de las mediciones proyectivas consiste en la repetibilidad. Esto significa que si la medición es repetida, el estado en ({\ref{stateProjective}}) sigue siendo el mismo, y da el mismo resultado {\cite{2007geometry}}.
-\cpnote{Para que queremos decir esto?}\rrnote{ Este párrafo estaba de más. }
 % }}}
 \subsection{Operadores POVM}\label{subsec:operadoresPOVM} % {{{
 \cpnote{Lo de las mediciones ya lo has dicho varias veces. Vas a tener que darle una organizada a la intro para no repetir ideas y que quede un poco mejor.}\rrnote{recorté la introducción para no repetir}

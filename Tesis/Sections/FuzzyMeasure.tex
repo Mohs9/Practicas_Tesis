@@ -6,7 +6,7 @@ La estructura de este capítulo se presenta a continuación. En la primera secci
 %Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial.  Además se exponen dos instrumentos cuánticos, los cuales son una herramienta conveniente para describir completamente un medición difusa sintetizadamente. Finalmente, en la cuarta sección se presentan algunos ejemplos de las mediciones y su descripción utilizando los operadores en la tercera sección.
 
 % }}}
-\section{Mediciones no ideales} % {{{
+\section{Mediciones no ideales}\label{sec:cap2MedicionesNoIdeales} % {{{
 
 Los sistemas cuánticos ideales son sistemas cerrados sujetos a la teoría
 cuántica, que no interactúan con su entorno y por lo tanto, no están sometidos
@@ -51,7 +51,7 @@ Sino que viene dado por el lado derecho de la ecuación {\eqref{ejemplo-fm-peres
 
 
 % }}}
-\section{Medición difusa en sistemas cuánticos} % {{{
+\section{Medición difusa en sistemas cuánticos}\label{sec:Cap2MedicionesDifusas} % {{{
 % Intro {{{
 %\rrnote{En esta sección, se pretende discutir cómo se pueden entender las mediciones difusas, y expandir/ilustrar un ejemplo concreto como el de la cadena de iones.}
 %\rrnote{Explicar el resultado experimental de una medición difusa. Ejemplificando el  experimento de una cadena iones en la que se  realiza una medición con un detector imperfecto, el cual realiza una señal, sin embargo  no es posible determinar exactamente de qué ion proviene.  Se puede plantear las condiciones en las que se puede cuantificar una medición difusa. }
@@ -71,7 +71,7 @@ Ahora, se considera un sistema cuántico solo de dos partículas, el cual tiene 
 
 
 % }}}
-\subsection{Operador difuso} % {{{
+\subsection{Operador difuso}\label{subsec:Cap2OperadorDifusas} % {{{
 
 El propósito de este apartado es introducir y establecer de manera formal el operador difuso aplicable a cualquier sistema cuántico que se analizará en las siguientes secciones. Para ello es necesario abordar el formalismo del <<operador de intercambio>> para sistemas de dos o más partículas.
 
@@ -257,14 +257,14 @@ Sin embargo, en una medición difusa este valor esperado cambia puesto que el es
 
 Es importante destacar que el valor esperado es una medida de tendencia central que proporciona una característica del mapeo que asocia las salidas de la medición, con la probabilidad de ocurrencia de cada una de ellas. En otras palabras, el valor esperado permite caracterizar distribuciones de probabilidad. El valor esperado es útil porque la información capturada por un estado cuántico puede ser representada por una distribución de probabilidad. Aunque, el valor esperado solo proporciona una idea aproximada de dicha distribución, es una condición necesaria para identificarla. 
 
- En este trabajo se hará uso de distintas herramientas, para describir completamente las mediciones difusas. En primer lugar, el valor esperado servirá como punto de partida para implementar las medidas POVM, las cuales se detallarán en la siguiente sección. Además, se empleará para corroborar que distintas interpretaciones de los instrumentos cuánticos que se exponen en la sección {\ref{sec:instrumentos-cuanticos}} no describan mapeos de resultados distintos. En este contexto, el valor esperado, es una medida necesaria que se empleará como primera instancia para comprobar que dichos instrumentos sean equivalentes.
+ En este trabajo se hará uso de distintas herramientas, para describir completamente las mediciones difusas. En primer lugar, el valor esperado servirá como punto de partida para implementar las medidas POVM, las cuales se detallarán en la siguiente sección. Además, se empleará para corroborar que distintas interpretaciones de los instrumentos cuánticos que se exponen en la sección {\ref{sec:cap2instrumentos-cuanticos}}, no describan mapeos de resultados distintos. En este contexto, el valor esperado, es una medida necesaria que se empleará como primera instancia para comprobar que dichos instrumentos sean equivalentes.
 
 
 
 
 % }}}
 % }}}
-\section{Medidas POVM y operadores de Kraus para mediciones difusas} % {{{
+\section{Medidas POVM y operadores de Kraus para mediciones difusas}\label{sec:Cap2POVM_Kraus_mediciones_difusas} % {{{
 
 \rrnote{Esqueleto: Los POVM y los operadores de Kraus se hablaron en el marco teórico y se verán en las implementciones. En esta parte se mencionará como utilizar los operadores POVM y los operadores de Kraus conjuntamente para describir mediciones imperfectas y específicamente en mediciones difusas.}
 
@@ -281,7 +281,7 @@ Es importante destacar que el valor esperado es una medida de tendencia central 
 \rrnote{Incluir imágenes de algún ejemplo de una medición difusa en un sistema específico. Tomar en cuenta consideraciones experimentales. Por ejemplo imágenes que ilustren la medición del observable $\sigma_z\otimes \sigma_x$ en un sistema de dos partículas. Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
 % }}}
-\section{Instrumentos cuánticos}\label{sec:instrumentos-cuanticos} % {{{
+\section{Instrumentos cuánticos}\label{sec:cap2instrumentos-cuanticos} % {{{
 
 \rrnote{Esqueleto: En esta sección se introduce el concepto de instrumento cuántico. Se explica la utilidad de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de utilizarlos. Además se especifican las dos alternativas que se usarán}
 

@@ -250,13 +250,7 @@ difusa, así como el estado posterior a la medición.
 %El problema de la medición ha jugado un papel muy importante en la física cuántica desde su fundación. Ciertamente,  se ha logrado avanzar en este problema a través de los años, gracias al desarrollo y al entendimiento de los procesos de medición en mecánica cuántica {\cite{jacobs2014quantum}} \cpnote{Creo que no es una buena referencia para ese comentario. También creo qeu la frase anterior le faltan comas o le  sobran palabras}.\rrnote{Quite algunas palabras y agregué algunas comas. Cambié la referencia a la que toman en el paper}
 
 
-\cpnote{El salto que das acá está demasiado grande. No contextualizas lo que estaoms
-discutiendo. Croe que para el siguiente documento toca primero plantear un esqueleto 
-y luego ya escribir.}
-
-
-
-
+\cpnote{El salto que das acá está demasiado grande. No contextualizas lo que estaoms discutiendo. Croe que para el siguiente documento toca primero plantear un esqueleto  y luego ya escribir.}
 
 %Debido a que en la naturaleza es posible obtener mediciones imperfectas
 %En este trabajo se trata particularmente con \textit{mediciones difusas}, en las que en un sistema de varias partículas existe una posibilidad finita de identificar erróneamente las partículas. Una descripción completa de una medición debe proporcionar las probabilidades respectivas de los diferentes resultados posibles de la medición y el estado posterior a la medición del sistema.
@@ -266,17 +260,45 @@ y luego ya escribir.}
 
 \rrnote{Esqueleto: Relatar que la medición en mecanica cuántica ha jugado un papel importante y que se ha logrado avanzar en este campo gracias a técnicas y herraminetas. }
 
+
+En el transcurso del último siglo, la medición ha destacado como uno de los campos de estudio más notables dentro del ámbito de la mecánica cuántica. La medición es un tipo de evolución que puede experimentar un sistema cuántico, y que permite recuperar información clásica de un estado cuántico, y es la forma en la cual la información puede ser interpretada {\cite{wilde2011classical}}. El esfuerzo de muchos investigadores por comprender el proceso de medición en sistemas cuánticos ha llevado al desarrollo de instrumentos y técnicas que se utilizan ampliamente en ramas de investigación aplicadas {\cite{de2019introduction}}. %En este trabajo se ofrece una introducción a algunas de las herramientas básicas utilizadas para analizar el proceso de medición de manera amplia y una discusión de un tipo de medición no ideal, la medición difusa.
+
+
+
+
 \rrnote{Esqueleto: Explicar que en la mayoria de literatura se exponen las mediciones ideales, sin embargo en la vida real las mediciones no son perfectas y es por ello que se utilizan otras herramientas.}
 
-\rrnote{Esqueleto: Decir que este trabajo ofrece explorar un tipo de medición no ideal y estudiar algunas de estas herramientas. Se explica que esta tesis se enfocará en una medición no ideal en particular, que son las mediciones difusas.}
+
+La mayoría de literatura introductoria a la mecánica cuántica suele enfocarse en las mediciones proyectivas en sistemas ideales. %En este enfoque, es posible seleccionar una base del observable que se desea medir y al hacerlo se encontrará que el sistema se proyecta a uno de los estados de la misma. pudo haber estado en cualquier estado antes de la medición. Este estado es aleatorio y la probabilidad de que se encuentre en cualquiera de estos estados está dictada por la regla de Born {\cite{jacobs2014quantum}}. 
+Sin embargo, en la práctica las mediciones que se realizan son imperfectas, es por ello que es necesario emplear un formalismo más extenso, tal como el de las operaciones cuánticas y las mediciones POVM o generalizadas. Dichas herramientas pueden proporcionar una descripción total de las mediciones no ideales. 
 
 
-\rrnote{Esuqeleto: Se presenta la estructura de los tres capítulos. En el
-primer capitulo se expone el marco conceptual para analizar mediciones. En el
-segundo capitulo se presenta el problema de las mediciones difusas y las
-herramientas concretas que se usarán en el trabajo. En el tercer capítulo se
-abordan los resultados que se han obtenido, empezando en sistemas de dos
-partículas y generalizando para más partícualas.}
+
+%\rrnote{Esqueleto: Decir que este trabajo ofrece explorar un tipo de medición no ideal y estudiar algunas de estas herramientas. Se explica que esta tesis se enfocará en una medición no ideal en particular, que son las mediciones difusas.}
+
+
+%Esta tesis se enfoca {mediciones difusas}, las cuales son un tipo concreto de mediciones imperfectas. 
+En este trabajo se ofrece una introducción a algunas de las herramientas básicas utilizadas para analizar el proceso de medición de manera amplia y una discusión de un tipo de medición no ideal, la medición difusa. Estas ocurren cuando se lleva a cabo el proceso de medición en un sistema de múltiples partículas y hay una posibilidad de error en la identificación de las partículas. Aun así, es posible cuantificar los resultados de esta medición utilizando las herramientas formales mencionadas previamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. %El problema de las mediciones difusas se estudiará inicialmente, en el sistema más simple posible, un sistema de dos partículas. Posteriormente se generalizan los resultados obtenidos para este sistema sencillo, en un sistema de $N$ partículas.
+
+\rrnote{Esuqeleto: Se presenta la estructura de los tres capítulos. En el primer capitulo se expone el marco conceptual para analizar mediciones. En el segundo capitulo se presenta el problema de las mediciones difusas y las herramientas concretas que se usarán en el trabajo. En el tercer capítulo se abordan los resultados que se han obtenido, empezando en sistemas de dos partículas y generalizando para más partícualas.}
+
+
+En los siguientes  tres capítulos se expone un marco que facilita la comprensión del proceso de medición, diseñado específicamente para mediciones difusas. A continuación, se ofrece una breve descripción de la estructura de esta tesis y el contenido de los distintos capítulos.  En el capítulo 1, se aborda un marco conceptual que contiene las herramientas más básicas en la descripción de mediciones en sistemas cuánticos. En el capítulo 2, se presenta el problema de las mediciones difusas de manera formal y las herramientas concretas que se usarán en el trabajo. El capítulo 3, aborda los resultados obtenidos para sistemas de dos partículas y se generalizan utilizando como base las herramientas desarrolladas en los capítulos anteriores. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{comment}
 Para poder abordar el problema es necesario estudiar un marco conceptual previo, iniciando por la reformulación de los postulados de la mecánica cuántica en el lenguaje de la matriz de densidad. Se exponen las medidas cuyos valores son operadores positivos (POVM por sus siglas en inglés) las cuales son una herramienta que generaliza las medidas proyectivas. Asimismo se recurre a lenguaje de las operaciones cuánticas porque permiten representar la evolución de los sistemas más allá de los ideales, de una manera valiosa como suma de operadores, los cuales están relacionados con las medidas POVM\@. Además, la teoría de las operaciones cuánticas propone un formalismo para describir la evolución de los sistemas abiertos de manera discreta {\cite{nielsen_chuang_2010}}.
 
@@ -335,10 +357,6 @@ La investigación es de carácter exploratorio debido a que el tema \textit{medi
 
 
 
-%principalmente el operador de densidad, las medidas POVM y la teoría de las operaciones cuánticas En este proyecto, se estudiará la . Se usará el informe final de prácticas como base inicial así como  otras fuentes especializadas para comprender y analizar algunos teoremas y temas puntuales.
-%Se planteará el problema de mediciones difusas para sistemas de dos partículas. Se revistarán los operadores de Kraus y algunos ejemplos que fueron inspeccionados durante el proyecto de prácticas finales. 
-
- %Finalmente, se aplicará el procedimiento que se utilizó en la segunda parte buscando generalizarlo para sistemas con $n$ partículas. Además se trabajarán con la idea de observables que no son factorizables. Se explorará el concepto de observables degenerados y sus consecuencias en los operadores de Kraus y en los instrumentos cuánticos que describan completamente las mediciones difusas en sistemas de $n$ partículas.
 
 % }}}
 \chapter{DESCRIPCIÓN DE LOS CAPÍTULOS}  % {{{

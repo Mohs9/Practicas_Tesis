@@ -11,13 +11,13 @@
     %Important coordinates. These are used in both figures and can be
     %moved to a seperate settings files
     %% These coordinates deside where boxes start on the y axis
-    \coordinate (alphaas) at ($0.8*(y)$);
-    \coordinate (alphabs) at ($0.2*(y)$);
+    \coordinate (alphaas) at ($2/3*(y)$);
+    \coordinate (alphabs) at ($1/3*(y)$);
     %% These coordinates deside where boxes end on the x axis
     \coordinate (cfas) at ($.2*(x)$);
     \coordinate (cfbs) at ($.9*(x)$);
     %These sets the interest rate lines 
-    \coordinate (rl) at ($(cfas)+.15*(x)$);
+    \coordinate (rl) at ($(cfas)+.25*(x)$);
     \coordinate (rla) at ($(rl)-(x)$);
     \coordinate (rlb) at ($(rl)+(x)$);
     %%%%%%%%%%%%%%%%%%%%%%
@@ -25,15 +25,15 @@
     %%%%%%%%%%%%%%%%%%%%%%
     %First, let us draw a line connecting alpha^\A_s og NV^\A_s
     \draw[important line] let \p1=(alphaas), \p2=(cfas) in 
-    (\p1) node[left] {$\frac{5}{6}$} (\x2, \y1) -- (\p2)
+    (\p1) node[left] {$\frac{2}{3}$} (\x2, \y1) -- (\p2)
     node[below] {$-1$};
     %Second, let us connect alpha^\B_s og NV^B_s
-    \draw[] let \p1=(alphabs), \p2=(cfbs) in 
-    (\p1) node[left] {$\frac{1}{6}$}  (\x2, \y1) -| (\p2)
+    \draw[important line] let \p1=(alphabs), \p2=(cfbs) in 
+    (\p1) node[left] {$\frac{1}{3}$}  (\x2, \y1) -| (\p2)
     node[below] {$1$};
     %A line seperating the boxes.
     \draw[help lines,color=blue] let \p1=(rl), \p2=(y) in
-    (\p1) node[below] {$-\frac{2}{3}$} -- (\x1, \y2);
+    (\p1) node[below] {$-\frac{1}{3}$} -- (\x1, \y2);
     %%%%%%%%%%%%%%%%%%%%%%
     %The small boxes will be assinged letter
     %%%%%%%%%%%%%%%%%%%%%%
@@ -58,8 +58,8 @@
     (\p1) node[left]{$P(\lambda)$};
     \draw[] let \p1=(x), \p2=(x) in
     (\p1) node[above]{$\lambda$};
-    \draw [fill=black] (0.2*5,0.8*5) circle (2pt);
-    \draw [fill=black] (0.9*5,0.2*5) circle (2pt);
+    \draw [fill=black] (0.2*5,2/3*5) circle (2pt);
+    \draw [fill=black] (0.9*5,1/3*5) circle (2pt);
   \end{tikzpicture}
   \hfill
   \caption{}
@@ -75,13 +75,13 @@
     %Important coordinates. These are used in both figures and can be
     %moved to a seperate settings files
     %% These coordinates deside where boxes start on the y axis
-    \coordinate (alphaas) at ($0.35*(y)$);
-    \coordinate (alphabs) at ($0.65*(y)$);
+    \coordinate (alphaas) at ($0.57*(y)$);
+    \coordinate (alphabs) at ($0.43*(y)$);
     %% These coordinates deside where boxes end on the x axis
     \coordinate (cfas) at ($.2*(x)$);
     \coordinate (cfbs) at ($.9*(x)$);
     %These sets the interest rate lines 
-    \coordinate (rl) at ($(cfas)+.45*(x)$);
+    \coordinate (rl) at ($(cfas)+.31*(x)$);
     \coordinate (rla) at ($(rl)-(x)$);
     \coordinate (rlb) at ($(rl)+(x)$);
     %%%%%%%%%%%%%%%%%%%%%%
@@ -89,15 +89,15 @@
     %%%%%%%%%%%%%%%%%%%%%%
     %First, let us draw a line connecting alpha^\A_s og NV^\A_s
     \draw[important line] let \p1=(alphaas), \p2=(cfas) in 
-    (\p1) node[left] {$\frac{1}{3}$} (\x2, \y1) -- (\p2)
+    (\p1) node[left] {$\frac{13}{24}$} (\x2, \y1) -- (\p2)
     node[below] {$-1$};
     %Second, let us connect alpha^\B_s og NV^B_s
     \draw[] let \p1=(alphabs), \p2=(cfbs) in 
-    (\p1) node[left] {$\frac{2}{3}$}  (\x2, \y1) -| (\p2)
+    (\p1) node[left] {$\frac{11}{24}$}  (\x2, \y1) -| (\p2)
     node[below] {$1$};
     %A line seperating the boxes.
     \draw[help lines,color=red] let \p1=(rl), \p2=(y) in
-    (\p1) node[below] {$\frac{1}{3}$} -- (\x1, \y2);
+    (\p1) node[below] {$-\frac{1}{12}$} -- (\x1, \y2);
     %%%%%%%%%%%%%%%%%%%%%%
     %The small boxes will be assinged letter
     %%%%%%%%%%%%%%%%%%%%%%
@@ -122,8 +122,8 @@
     (\p1) node[left]{$P(\lambda)$};
     \draw[] let \p1=(x), \p2=(x) in
     (\p1) node[above]{$\lambda$};
-    \draw [fill=black] (0.2*5,0.35*5) circle (2pt);
-    \draw [fill=black] (0.9*5,0.65*5) circle (2pt);
+    \draw [fill=black] (0.2*5,0.57*5) circle (2pt);
+    \draw [fill=black] (0.9*5,0.43*5) circle (2pt);
   \end{tikzpicture}
   \hfill
   \caption{ }

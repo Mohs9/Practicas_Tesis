@@ -202,14 +202,11 @@ El valor esperado de un observable en un sistema con más de dos partículas es 
 \rrnote{Proponer un ejemplo sencillo de un valor esperado para un estado simple y el observable $\sigma_z\otimes \sigma_x$. Obtener el valor esperado de la medición difusa, del mismo observable y el mismo estado inicial y comparar ambos valores esperados. Incluir una imagen de la funcion de probabilidad de los valores propios del observable y los distintos valores esperados. }
  
 
-Ahora se propone un ejemplo para ilustrar la diferencia entre un valor esperado de un observable en una medición ideal y una medición difusa. 
-
-
-Considere un sistema de dos partículas con el siguiente estado inicial \[\rho= \dfrac{1}{6}(|0+\ra+|0-\ra+2 \cdot|1+\ra)(\la0+|+\la0-|+2 \cdot\la1+|)=\begin{pmatrix}
-    1/3&0&1/3&1/3\\
-    0&0&0&0\\
-    1/3&0&1/3&1/3\\
-    1/3&0&1/3&1/3\\
+Ahora se propone un ejemplo para ilustrar la diferencia entre un valor esperado de un observable en una medición ideal y una medición difusa. Considere un sistema de dos partículas con el siguiente estado inicial \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
+    1/6&1/6&0&0\\
+    1/6&1/6&0&0\\
+    0&0&1/3&1/3\\
+    0&0&1/3&1/3\\
 \end{pmatrix},\] en el que se quiere realizar la medición del observable $\sigma_z\tensor\sigma_x$. En principio, el valor esperado para este observable se puede obtener de la siguiente forma:
 \[\begin{split}
     \tr(\sigma_z\tensor\sigma_x \rho) =& \tr\left[ \begin{pmatrix}
@@ -218,32 +215,32 @@ Considere un sistema de dos partículas con el siguiente estado inicial \[\rho= 
     0&0&0&-1\\
     0&0&-1&0\\
 \end{pmatrix}\begin{pmatrix}
-    1/3&0&1/3&1/3\\
-    0&0&0&0\\
-    1/3&0&1/3&1/3\\
-    1/3&0&1/3&1/3\\
+    1/6&1/6&0&0\\
+    1/6&1/6&0&0\\
+    0&0&1/3&1/3\\
+    0&0&1/3&1/3\\
 \end{pmatrix}\right]\\
 =& \tr\left[ \begin{pmatrix}
-    0&0&0&0\\
-    1/3&0&1/3&1/3\\
-    -1/3&0&-1/3&-1/3\\
-    -1/3&0&-1/3&-1/3\\
-\end{pmatrix}\right]=-2/3. \end{split}\] Los valores propios del observable son $\pm 1$, como se ve las salidas de la medición no coinciden con el valor esperado. Puesto que, este es el promedio ponderado de las salidas de la medición.  En este estado $\rho$, la probabilidad de obtener  la salida $-1$ es $\tr(\rho P_{0-})+\tr(\rho P_{1+})=5/6$. Mientras que la probabilidad de obtener $+1$ es solamente $\tr(\rho P_{0+})+\tr(\rho P_{1-})=1/6$. Donde, $ P_{0-}, P_{1+}$ son los operadores de proyección correspondientes al valor propio $-1$ y $ P_{0+}, P_{1-}$, corresponden al valor propio $+1$. De ello, al realizar el promedio ponderado con estos valores se comprueba fácilmente el resultado obtenido.
+    1/6&1/6&0&0\\
+    1/6&1/6&0&0\\
+    0&0&-1/3&-1/3\\
+    0&0&-1/3&-1/3\\
+\end{pmatrix}\right]=-1/3. \end{split}\] Los valores propios del observable son $\pm 1$, como se ve las salidas de la medición no coinciden con el valor esperado. Puesto que, como ya se explico este es el promedio ponderado de las salidas de la medición.  En este estado $\rho$, la probabilidad de obtener  la salida $-1$ es $\tr(\rho P_{0-})+\tr(\rho P_{1+})=2/3$. Mientras que la probabilidad de obtener $+1$ es solamente $\tr(\rho P_{0+})+\tr(\rho P_{1-})=1/3$. Donde, $ P_{0-}, P_{1+}$ son los operadores de proyección correspondientes al valor propio $-1$ y $ P_{0+}, P_{1-}$, corresponden al valor propio $+1$. De lo anterior, es fácilmente comprobable el resultado obtenido con la traza calculada.
 
-Sin embargo, en una medición difusa este valor esperado cambia puesto que el estado experimenta transformaciones aleatorias capturadas por el operador difuso. Para este caso el valor esperado estará dado por \[\begin{split}\langle A\tensor B\rangle_{\mathcal{F}_{2\text{p}}(\rho)}&=p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_x )\\
-    & =\frac{p}{3}\tr\left[ \begin{pmatrix}
-        0&0&0&0\\
-        1&0&1&1\\
-        -1&0&-1&-1\\
-        -1&0&-1&-1\\
+Sin embargo, en una medición difusa este valor esperado cambia puesto que el estado experimenta transformaciones aleatorias capturadas por el operador difuso. Para este caso el valor esperado estará dado por \[\begin{split}\tr(\mathcal{F}_{2\text{p}}(\rho)\sigma_z\tensor \sigma_x)=&p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_z )\\
+    =& \frac{p}{3}\tr\left[ \begin{pmatrix}
+        \tfrac{1}{2}&\tfrac{1}{2}&0&0\\
+        \tfrac{1}{2}&\tfrac{1}{2}&0&0\\
+        0&0&-1&-1\\
+        0&0&-1&-1\\
     \end{pmatrix}\right]+ \frac{(1-p)}{3}\tr\left[ \begin{pmatrix}
-        1&0&1&1\\
-        -1&0&-1&-1\\
-        1&0&1&1\\
-        0&0&0&0\\
+        0&0&\tfrac{1}{2}&-\tfrac{1}{2}\\
+        0&0&\tfrac{1}{2}&-\tfrac{1}{2}\\
+        1&1&0&0\\
+        1&1&0&0\\
     \end{pmatrix}\right]\\
-    &=-\frac{2p}{3}+\frac{2(1-p)}{3}=\frac{2(1-2p)}{3}.
-\end{split}\]Dado que $0<p<1$, se obtiene un valor esperado distinto. Esto se debe a que las probabilidades de obtener cada una de las salidas son $\tr(\mathcal{F}_{2\text{p}}(\rho)P_{0+})+\tr(\mathcal{F}_{2\text{p}}(\rho)P_{1-})=\frac{5-4p}{6}$ y $\tr(\mathcal{F}_{2\text{p}}(\rho)P_{0-})+\tr(\mathcal{F}_{2\text{p}}(\rho)P_{1+})=\frac{1+4p}{6}$. Estas probabilidades ahora varían en función de la probabilidad $p$. En la siguiente figura puede apreciarse gráficamente estos resultados.
+    =&-\frac{p}{3}.
+\end{split}\]Si $p<1$, se obtiene un valor esperado distinto. Esto se debe a que las probabilidades de obtener cada una de las salidas son $\tr(\mathcal{F}_{2p}(\rho)P_{0+})+\tr(\mathcal{F}_{2p}(\rho)P_{1-})=\frac{3-p}{6}$ y $\tr(\mathcal{F}_{2p}(\rho)P_{0-})+\tr(\mathcal{F}_{2p}(\rho)P_{1+})=\frac{3+p}{6}$. Estas probabilidades ahora varían en función de la probabilidad $p$. En la siguiente figura puede apreciarse gráficamente estos resultados.
 
 
 
@@ -275,7 +272,7 @@ Es importante destacar que el valor esperado es una medida de tendencia central 
 
 
 
-\rrnote{Incluir imágenes de algún ejemplo de una medición difusa en un sistema específico. Tomar en cuenta consideraciones experimentales. Por ejemplo imágenes que ilustren la medición del observable $\sigma_z\otimes \sigma_x$ en un sistema de dos partículas. Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
+\rrnote{Incluir imágenes de algún ejemplo de una medición difusa en un sistema específico.  Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
 % }}}
 \section{Instrumentos cuánticos}\label{sec:cap2instrumentos-cuanticos} % {{{

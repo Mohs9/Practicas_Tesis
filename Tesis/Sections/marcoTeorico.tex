@@ -509,7 +509,10 @@ Una tercera razón para utilizar las mediciones generales esta relacionada con l
 \section{Operaciones cuánticas}\label{sec:Cap1:OpCuanticas} % {{{
 % Intro {{{
 
-Los sistemas reales sufren interacciones indeseadas con el mundo exterior, éstas aparecen como ruido en información cuántica. Las operaciones cuánticas son un herramienta capaz de describir dicho ruido cuántico y el comportamiento de sistemas cuánticos abiertos.  %Adicionalmente, .
+Los sistemas reales sufren interacciones indeseadas con el mundo exterior, y
+éstas aparecen como ruido en información cuántica. Las operaciones cuánticas
+son un herramienta capaz de describir dicho ruido cuántico y el comportamiento
+de sistemas cuánticos abiertos.  %Adicionalmente, .
 
 % }}}
 \subsection{Aproximación axiomática de las operaciones cuánticas} % {{{
@@ -517,7 +520,12 @@ En esta sección se abordan las operaciones cuánticas desde un punto de vista
 axiomático el cual será motivado por requerimientos físicos. 
 Nielsen y
 Chuang {\cite{nielsen_chuang_2010}}
-presentan la siguiente definición de operación cuántica \begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow \mathcal{H}_B$, con las siguientes propiedades axiomáticas:
+presentan la siguiente definición de operación cuántica
+\begin{definition}[\textbf{Operación cuántica}]\label{DefE(rho)} Una operación
+cuántica $\mathcal{E}$ es un mapeo de un conjunto de operadores en un espacio
+de Hilbert $\mathcal{H}_A$ de entrada a otro conjunto de operadores en un
+espacio de Hilbert $\mathcal{H}_B$ de salida, $\E: \mathcal{H}_A \rightarrow
+\mathcal{H}_B$, con las siguientes propiedades axiomáticas:
 
     \begin{itemize}
         \item \textit{Axioma 1:} La traza $\tr (\mathcal{E}(\rho))$ es la probabilidad de que el proceso representado por $\mathcal{E}$ ocurra, cuando $\rho$ es el estado inicial. Consecuentemente, $0 \le \tr (\mathcal{E}(\rho)) \le 1$ para cualquier estado $\rho$.
@@ -580,13 +588,11 @@ sistema $B$. Entonces el mapa $\E\otimes \mathds{1}_{B}$ debe llevar operadores
 positivos a operadores positivos {\cite{nielsen_chuang_2010, preskill2020quantum}}. 
 
 
+\cpnote{Bien}
 % }}}
 \subsection{Operadores de Kraus} % {{{
+\cpnote{Creo qeu hay demasiado detalle. Yo dejaria solo unas 3 o 4 paginas. }
 % Intro {{{
-
-
-
-%
 
 Una operación cuántica puede representarse en una forma elegante 
 como  \textit{suma de operadores}.   La representación de suma de operadores de

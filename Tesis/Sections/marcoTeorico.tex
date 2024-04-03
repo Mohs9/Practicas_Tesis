@@ -665,6 +665,8 @@ La representación de suma de operadores describe la dinámica del sistema princ
 
 
 % }}}
+
+\begin{comment}
 \subsubsection{Mediciones y representación de Kraus}\label{subsubsec:Medicion_RepresentacionDeKraus} % {{{
 
 Considere un sistema primario $\mathcal{H}_Q$, inicialmente en el estado
@@ -725,7 +727,7 @@ las mediciones {\cite{unm2014}}
 \begin{equation}
     \rho'=\sum_\alpha p_\alpha \rho_\alpha=\sum_\alpha \E_\alpha(\rho)=\sum_{\alpha,j,k} M_{\alpha,j,k}\rho M_{\alpha,j,k}^\dagger\equiv\E(\rho).
 \end{equation}
-
+\end{comment}
 
 % }}}
 \subsubsection{No unicidad en la representación de Kraus} % {{{
@@ -736,8 +738,7 @@ pueden generar la misma operación cuántica. Esto es importante puesto que,
 diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y
 entender la libertad de la representación es crucial para una buena comprensión
 de la corrección de errores cuánticos. Nielsen y Chuang
-{\cite{nielsen_chuang_2010}} proponen formalmente el siguiente teorema y su demostración.
-
+{\cite{nielsen_chuang_2010}} proponen formalmente el siguiente teorema.
 
 \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{teorema:Libertad_unitaria}
 Sean \[\{K_1,\ldots,K_n\} \text{ y } \{M_1,\ldots , M_m\}\] conjuntos de
@@ -748,8 +749,10 @@ u_{ij}M_j$, y $u_{ij}$ es una matriz
 unitaria de $m$ por $m$
 \end{theorem}
 
+
+\begin{comment}
 \begin{proof}
-Para probar este teorema se hace uso del teorema ({\ref{teorema2.4}}). Este resultado permite caracterizar la libertad en la representación de Kraus. Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Se definen los siguientes estados
+Suponiendo que $\{K_i\}$ y $\{M_j\}$ son dos conjuntos de operadores para la misma operación cuántica, $\sum_i K_i \rho K_i^\dagger= \sum_j M_j \rho M_j^\dagger$ para todo $\rho$. Se definen los siguientes estados
 \begin{equation}
     |e_i\ra\equiv \sum_k (K_i|k_A\ra)|k_B\ra
 \end{equation}
@@ -781,8 +784,9 @@ Para un estado arbitrario $|\psi\ra$
 
 Con ello se muestra que el conjunto de operadores $\{K_i\}$ es la misma operación cuántica que con el conjunto $\{M_j\}$.
 \end{proof}
+\end{comment}
 
-Para ejemplificar el teorema anterior Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen las siguientes operaciones $\E(\rho)=\sum_i K_i\rho K_i^\dagger$ y $\mathcal{F}(\rho)=\sum_i M_i\rho M_i^\dagger$, donde los conjuntos $\{K_n\}$ y $\{M_m\}$ tienen elementos definidos por 
+La prueba de este teorema se fundamenta en el teorema ({\ref{teorema2.4}}). Para ejemplificarlo, Nielsen y Chuang {\cite{nielsen_chuang_2010}} proponen las siguientes operaciones $\E(\rho)=\sum_i K_i\rho K_i^\dagger$ y $\mathcal{F}(\rho)=\sum_i M_i\rho M_i^\dagger$, donde los conjuntos $\{K_n\}$ y $\{M_m\}$ tienen elementos definidos por 
 \begin{equation}
     \begin{array}{ccc}
         K_1=\dfrac{1}{\sqrt{2}}\begin{bmatrix}

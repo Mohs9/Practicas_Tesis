@@ -26,10 +26,7 @@
 
 
 
-
-\rrnote{Escribir como un poco más físicamente el proceso.}
-
-En sistema de $N$ partículas en el que se realiza una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_N$, y en el que ocurre un error en el aparato de medición y confunde los resultados. Con cierta probabilidad se realiza la medición de acuerdo a la permutación $\Pi$ del observable. 
+En sistema de $N$ partículas en el que se realiza una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_N$, sin embargo por ruido del entorno se produce un  error en el aparato de medición y confunde los resultados. Ahora, existe una probabilidad de una identificación errónea.  Por ejemplo puede realizarse la medición de $A_2\tensor A_1\tensor \hdots \tensor A_N$ con cierta probabilidad $p_2$. Sin embargo, es posible que la partículas experimenten un intercambio de cierta forma tal que la medición que se produzca sea una de las $N{!}$ permutaciones en las que se puede configurar el operador original. En este caso el valor esperado de la medición será el promedio de los valores esperados  ponderado por probabilidad de que se produzca alguna medición del observable erróneo. 
 
 La operación difusa se pude redefinir para un sistema de $N$ partículas de forma más general como\begin{equation}\label{eq:fm-nparticles}
    \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
@@ -46,7 +43,7 @@ Ahora que se generaliza el operador difuso, puede utilizarse para obtener el val
 \subsection*{Medidas POVM en sistemas de varias partículas}
 
 
-\textit{¿Cómo deberían ser las medidas POVM\@? Ahora el operador de permutación no es hermítico, POVM y los operadores de Kraus cambian ligeramente.}
+\rrnote{\textit{¿Cómo deberían ser las medidas POVM\@? Ahora el operador de permutación no es hermítico, POVM y los operadores de Kraus cambian ligeramente.}}
 
 Antes se describió el mapeo que puede realizarse con las medidas POVM, el cual será conveniente para proporcionar la probabilidad de cada posible salida de la medición. En un sistema de dos partículas se propuso intuitivamente un conjunto de efectos, en los cuales a los operadores proyección se les aplicaba el operador difuso para dos partículas.
 
@@ -138,17 +135,18 @@ $(\Leftarrow)$ Suponiendo que se cumple que \[ \left\langle\lambda_j\left|\permu
 
 \section*{Observables degenerados en mediciones difusas}
 
-Cuando se tienen observables $A_j$ que tienen degeneración, \textit{¿Cambia la descripción de los mediciones difusas?} Los operadores POVM se obtienen con la misma idea del valor esperado. Sin embargo lo operadores de proyección de los observable serán distintos por la degeneración. En el caso en el que el observable $A_j$ sea degenerado y el valor propio $a_j$ tenga un grado $g$ de degeneración, el operador de proyección correspondiente será la suma de los operadores de los $g$ vectores propios asociados\[P_{a_j}=\sum_{i=1}^{g} {P}_{i}^{(a_j)}.\] Los operadores del Observable conjunto ahora será para el caso simple $N=2$ \[P_{a_j,b_k}=\sum_{i=1}^{g_{a_j}} {P}_{i}^{(a_j)}\tensor \sum_{l=1}^{g_{b_k}} {P}_{l}^{(b_k)}=\sum_{i,l} {P}_{i}^{(a_j)}\otimes P_{l}^{(b_k)}.\]Los efectos son simplemente \[\{E_{j,k}\}=\left\{\mathcal{F}_{2\text{p}}\left(\sum_{i,l} {P}_{i}^{(a_j)}\otimes P_{l}^{(b_k)}\right)\right\}\] y la implementación de los operadores de Kraus es análoga. 
+Cuando se tienen observables $A_j$ que tienen degeneración, 
+\rrnote{ \textit{¿Cambia la descripción de los mediciones difusas?}} Los operadores POVM se obtienen con la misma idea del valor esperado. Sin embargo lo operadores de proyección de los observable serán distintos por la degeneración. En el caso en el que el observable $A_j$ sea degenerado y el valor propio $a_j$ tenga un grado $g$ de degeneración, el operador de proyección correspondiente será la suma de los operadores de los $g$ vectores propios asociados\[P_{a_j}=\sum_{i=1}^{g} {P}_{i}^{(a_j)}.\] Los operadores del Observable conjunto ahora será para el caso simple $N=2$ \[P_{a_j,b_k}=\sum_{i=1}^{g_{a_j}} {P}_{i}^{(a_j)}\tensor \sum_{l=1}^{g_{b_k}} {P}_{l}^{(b_k)}=\sum_{i,l} {P}_{i}^{(a_j)}\otimes P_{l}^{(b_k)}.\]Los efectos son simplemente \[\{E_{j,k}\}=\left\{\mathcal{F}_{2\text{p}}\left(\sum_{i,l} {P}_{i}^{(a_j)}\otimes P_{l}^{(b_k)}\right)\right\}\] y la implementación de los operadores de Kraus es análoga. 
 
 Para el caso de $N>3$, la notación es más complicada sin embargo la idea es la misma. La clave debe estar en el valor esperado y los operadores de proyección.  Supongamos que se desea medir el observable $\prodtensor A_i$ y se obtiene la salida $\lambda_j$, de las $d^{N}$ salidas posibles, entonces denotamos a $\lambda_{j}^{i}$ como el autovalor correspondiente al observable $A_i$ en la salida $j$. Entonces es posible escribir los operadores de proyección del observable usando esta notación \[P_{\lambda_j}=\prodtensor \left(\sum_{k=1}^{g_{j}^{(i)}} P_k^{(\lambda_j^{i})}\right),\] en este caso $g_j^{(i)}$  es el grado de degeneración de $\lambda_{j}^{i}$. Los efectos son análogos a la ecuación {\eqref{eq:effectsSetNp}}.
 
 \section*{Observables no factorizables en mediciones difusas}
-\textit{¿Cómo se puede describir completamente una medición de un observable que no es factorizable? ¿ ¿Cómo son las salidas en el sistema clásico? ¿La descripción de las mediciones difusas es muy diferente a la de Observables factorizables, en qúe se diferencia? ¿Cómo se aplica el operador difuso?}
+\rrnote{\textit{¿Cómo se puede describir completamente una medición de un observable que no es factorizable? ¿ ¿Cómo son las salidas en el sistema clásico? ¿La descripción de las mediciones difusas es muy diferente a la de Observables factorizables, en qúe se diferencia? ¿Cómo se aplica el operador difuso?}}
 
 Para observables, de dimensión $d^N$ los cuales no pueden escribirse como un producto tensorial de $N$ observables, es decir que si $\mathcal{O}$ es un observable no factorizable no puede escribirse como $\prodtensor A_i$. Sin embargo siempre es posible escribirlo como una combinación lineal de los operadores de la base.  
 
 \section*{Casos particulares de mediciones difusas}
 \rrnote{En esta sección se desea ilustrar ejemplos de sistemas de $N$ partículas en los que se realicen mediciones difusas y poderlos describir completamente. Un caso particular podría ser el de una cadena de iones en una recta o en una fila donde solo puedan intercambiarse con sus vecinos. O una cadena en una circunferencia.} 
 
-\textit{¿Cómo cambia cuando tenemos una circunferencia o una fila de iones? ¿Cómo es el valor esperado? ¿Cuál es el operador difuso? ¿Cómo se describe estas mediciones? }
+\rrnote{\textit{¿Cómo cambia cuando tenemos una circunferencia o una fila de iones? ¿Cómo es el valor esperado? ¿Cuál es el operador difuso? ¿Cómo se describe estas mediciones? }}
 \end{document}

@@ -737,10 +737,8 @@ las mediciones {\cite{unm2014}}
 dinámica de los sistemas cuánticos abiertos sin embargo esta representación no
 es única. Es decir que distintos conjuntos de operadores $\{K_i\}$ y $\{M_j\}$
 pueden generar la misma operación cuántica. Esto es importante puesto que,
-diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema y
-entender la libertad de la representación es crucial para una buena comprensión
-de la corrección de errores cuánticos\cpnote{no veo que tiene que ver eso aca. 
-Croe que hay mas justificaciones}. Nielsen y Chuang
+diferentes procesos físicos pueden dar lugar a la misma dinámica del sistema. \cpnote{no veo que tiene que ver eso aca. 
+Croe que hay mas justificaciones}\rrnote{quité la justificación anterior, sin embargo no veo otra que sea útil}. Nielsen y Chuang
 {\cite{nielsen_chuang_2010}} proponen formalmente el siguiente teorema.
 
 \begin{theorem}[Libertad unitaria en la representación de Kraus]\label{teorema:Libertad_unitaria}
@@ -802,7 +800,7 @@ La prueba de este teorema se fundamenta en el teorema ({\ref{teorema2.4}}). Para
     \end{array}
 \end{equation}
 
-Esta operación $\E$ representa $1/2$ de probabilidad de aplicar el operador unitario y $1/2$ de probabilidad de aplicarle $Z$ al sistema cuántico y
+Esta operación $\E$ representa $1/2$ de probabilidad de aplicar el operador identidad y $1/2$ de probabilidad de aplicarle $Z$ al sistema cuántico y
 \begin{equation}
     \begin{array}{ccc}
         M_1=\begin{bmatrix}
@@ -828,6 +826,7 @@ Las operaciones $\E$ y $\mathcal{F}$ son, matemáticamente la misma operación c
         &=\E(\rho).
     \end{split}
 \end{equation}
+%Esto está asociado a un cambio de base en el entorno, sin embargo, esto no influye en el resultado, ya que sé está trazando sobre el sistema del entorno.
 % }}}
 % }}}
 % }}}

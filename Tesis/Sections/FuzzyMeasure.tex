@@ -137,10 +137,15 @@ Los operadores de permutación fueron presentados puesto que son necesarios para
 \subsection{Valores esperados en mediciones difusas}\label{subsec:Valores_esperados} % {{{
 
 
-En esta sección se ahonda en la relevancia del valor esperado y su aplicación en este estudio.  Se presenta el concepto del valor esperado y se detalla qué sucede con él en una medición difusa y su relación con el operador difuso. Además, se ejemplifica la diferencia entre los valores esperados en una medición ideal y una medición difusa. Por último, se argumenta la utilidad de esta medida y se expone para qué se usará en este proyecto. 
+En esta sección se ahonda en la relevancia del valor esperado y su aplicación
+en este estudio.  Se presenta el concepto del valor esperado y se detalla qué
+sucede con él en una medición difusa y su relación con el operador difuso.
+Además, se ejemplifica la diferencia entre los valores esperados en una
+medición ideal y una medición difusa. Por último, se argumenta la utilidad de
+esta medida y se expone para qué se usará en este proyecto. 
 
  
-\cpnote{Mejorar la intro a la luz de lo que discutimos.}\rrnote{Detalle más que se hará en esta sección }
+% \cpnote{Mejorar la intro a la luz de lo que discutimos.}\rrnote{Detalle más que se hará en esta sección }
 
 % \rrnote{Esqueleto: Decir qué es el valor esperado en mecánica cuántica. Y hacer la aclaración entre salidas de la medicion y el valor esperado.}
 
@@ -157,9 +162,9 @@ que pueden resultar de una medición del observable. Esto significa que los
 resultados de la medición podrían diferir pero el promedio será lo presentado
 en la ecuación {\eqref{expectationvalue_traza}}. 
 
-\rrnote{Introducir el valor esperado de una medición difusa, y explicar la idea
-detrás de esta ecuación (1) del paper para sistemas de dos partículas. Y
-extenderlo al sistema de N partículas.}
+% \rrnote{Introducir el valor esperado de una medición difusa, y explicar la idea
+% detrás de esta ecuación (1) del paper para sistemas de dos partículas. Y
+% extenderlo al sistema de N partículas.}
 
 
 
@@ -167,12 +172,12 @@ extenderlo al sistema de N partículas.}
 %\begin{equation}\label{eq:Expected-Value-Op-Cuanticas}
  %   \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O}).
 %\end{equation} 
-\cpnote{No veo este parrafo muy util. Discutir con Rubi la utilidad de este. }
- \rrnote{Quité el párrafo para arreglar el párrafo siguiente.}
+% \cpnote{No veo este parrafo muy util. Discutir con Rubi la utilidad de este. }
+%  \rrnote{Quité el párrafo para arreglar el párrafo siguiente.}
 
-\cpnote{HAblar con Rubi del situiente parrafo. Lo tiene alrevez :P }
-\cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
-de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }%\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
+% \cpnote{HAblar con Rubi del situiente parrafo. Lo tiene alrevez :P }
+% \cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
+% de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }%\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
 
 
 Ahora, se puede analizar una medición difusa en un sistema
@@ -199,7 +204,12 @@ El valor esperado de un observable en un sistema con más de dos partículas es 
 
 
 
-\rrnote{Proponer un ejemplo sencillo de un valor esperado para un estado simple y el observable $\sigma_z\otimes \sigma_x$. Obtener el valor esperado de la medición difusa, del mismo observable y el mismo estado inicial y comparar ambos valores esperados. Incluir una imagen de la funcion de probabilidad de los valores propios del observable y los distintos valores esperados. }
+% \rrnote{Proponer un ejemplo sencillo de un valor esperado para un estado
+% simple y el observable $\sigma_z\otimes \sigma_x$. Obtener el valor esperado
+% de la medición difusa, del mismo observable y el mismo estado inicial y
+% comparar ambos valores esperados. Incluir una imagen de la funcion de
+% probabilidad de los valores propios del observable y los distintos valores
+% esperados. }
  
 
 Ahora se propone un ejemplo para ilustrar la diferencia entre un valor esperado de un observable en una medición ideal y una medición difusa. Considere un sistema de dos partículas con el siguiente estado inicial \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
@@ -240,22 +250,44 @@ Sin embargo, en una medición difusa este valor esperado cambia puesto que el es
         1&1&0&0\\
     \end{pmatrix}\right]\\
     =&-\frac{p}{3}.
-\end{split}\]Si $p<1$, se obtiene un valor esperado distinto. Esto se debe a que las probabilidades de obtener cada una de las salidas son $\tr(\mathcal{F}_{2p}(\rho)P_{0+})+\tr(\mathcal{F}_{2p}(\rho)P_{1-})=\frac{3-p}{6}$ y $\tr(\mathcal{F}_{2p}(\rho)P_{0-})+\tr(\mathcal{F}_{2p}(\rho)P_{1+})=\frac{3+p}{6}$. Estas probabilidades ahora varían en función de la probabilidad $p$. En la siguiente figura puede apreciarse gráficamente estos resultados.
+\end{split}\]Si $p<1$, se obtiene un valor esperado distinto. Esto se debe a
+que las probabilidades de obtener cada una de las salidas son
+$\tr(\mathcal{F}_{2p}(\rho)P_{0+})+\tr(\mathcal{F}_{2p}(\rho)P_{1-})=\frac{3-p}{6}$
+y
+$\tr(\mathcal{F}_{2p}(\rho)P_{0-})+\tr(\mathcal{F}_{2p}(\rho)P_{1+})=\frac{3+p}{6}$.
+Estas probabilidades ahora varían en función de la probabilidad $p$. En la
+siguiente figura puede apreciarse gráficamente estos resultados.
 
 
 
 
 \input{../Images/valoresperado_prueba.tex}
-\rrnote{Justificar la inclusión del valor esperado en el trabajo. Me gustaría explicar por qué es útil  y para qué se usará.}
+% \rrnote{Justificar la inclusión del valor esperado en el trabajo. Me gustaría
+% explicar por qué es útil  y para qué se usará.}
 
 
 
 
 
-Es importante destacar que el valor esperado es una medida de tendencia central que proporciona una característica del mapeo que asocia las salidas de la medición, con la probabilidad de ocurrencia de cada una de ellas. En otras palabras, el valor esperado permite caracterizar distribuciones de probabilidad. El valor esperado es útil porque la información capturada por un estado cuántico puede ser representada por una distribución de probabilidad. Aunque, el valor esperado solo proporciona una idea aproximada de dicha distribución, es una condición necesaria para identificarla. 
+Es importante destacar que el valor esperado es una medida de tendencia central
+que proporciona una característica del mapeo que asocia las salidas de la
+medición, con la probabilidad de ocurrencia de cada una de ellas. En otras
+palabras, el valor esperado permite caracterizar distribuciones de
+probabilidad. El valor esperado es útil porque la información capturada por un
+estado cuántico puede ser representada por una distribución de probabilidad.
+Aunque, el valor esperado solo proporciona una idea aproximada de dicha
+distribución, es una condición necesaria para identificarla. 
 
- En este trabajo se hará uso de distintas herramientas, en las que el valor esperado es indispensable. En primer lugar, el valor esperado servirá como punto de partida para implementar las medidas POVM, las cuales se detallarán en la siguiente sección. Además, se empleará para corroborar que distintas interpretaciones de los instrumentos cuánticos no describan mapeos de resultados distintos.  En este contexto, el valor esperado, es una medida necesaria que se empleará como primera instancia para comprobar que dichos instrumentos sean equivalentes.
+ En este trabajo se hará uso de distintas herramientas, en las que el valor
+esperado es indispensable. En primer lugar, el valor esperado servirá como
+punto de partida para implementar las medidas POVM, las cuales se detallarán en
+la siguiente sección. Además, se empleará para corroborar que distintas
+interpretaciones de los instrumentos cuánticos no describan mapeos de
+resultados distintos.  En este contexto, el valor esperado, es una medida
+necesaria que se empleará como primera instancia para comprobar que dichos
+instrumentos sean equivalentes.
 
+\cpnote{Aca voy}
 % }}}
 % }}}
 \section{Medidas POVM y operadores de Kraus para mediciones difusas}\label{sec:Cap2POVM_Kraus_mediciones_difusas} % {{{

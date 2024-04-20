@@ -235,7 +235,7 @@ Ahora se propone un ejemplo para ilustrar la diferencia entre un valor esperado 
     1/6&1/6&0&0\\
     0&0&-1/3&-1/3\\
     0&0&-1/3&-1/3\\
-\end{pmatrix}\right]=-1/3. \end{split}\] Los valores propios del observable son $\pm 1$, como se ve las salidas de la medición no coinciden con el valor esperado. Puesto que, como ya se explico este es el promedio ponderado de las salidas de la medición.  En este estado $\rho$, la probabilidad de obtener  la salida $-1$ es $\tr(\rho P_{0-})+\tr(\rho P_{1+})=2/3$. Mientras que la probabilidad de obtener $+1$ es solamente $\tr(\rho P_{0+})+\tr(\rho P_{1-})=1/3$. Donde, $ P_{0-}, P_{1+}$ son los operadores de proyección correspondientes al valor propio $-1$ y $ P_{0+}, P_{1-}$, corresponden al valor propio $+1$. De lo anterior, es fácilmente comprobable el resultado obtenido con la traza calculada.
+\end{pmatrix}\right]=-1/3. \end{split}\] Los valores propios del observable son $\pm 1$, como se ve las salidas de la medición no coinciden con el valor esperado. Puesto que, como ya se explicó este es el promedio ponderado de las salidas de la medición.  En este estado $\rho$, la probabilidad de obtener  la salida $-1$ es $\tr(\rho P_{0-})+\tr(\rho P_{1+})=2/3$. Mientras que la probabilidad de obtener $+1$ es solamente $\tr(\rho P_{0+})+\tr(\rho P_{1-})=1/3$. Donde, $ P_{0-}, P_{1+}$ son los operadores de proyección correspondientes al valor propio $-1$ y $ P_{0+}, P_{1-}$, corresponden al valor propio $+1$. De lo anterior, es fácilmente comprobable el resultado obtenido con la traza calculada.
 
 Sin embargo, en una medición difusa este valor esperado cambia puesto que el estado experimenta transformaciones aleatorias capturadas por el operador difuso. Para este caso el valor esperado estará dado por \[\begin{split}\tr(\mathcal{F}_{2\text{p}}(\rho)\sigma_z\tensor \sigma_x)=&p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_z )\\
     =& \frac{p}{3}\tr\left[ \begin{pmatrix}
@@ -300,7 +300,7 @@ proyeccion, sin embargo en operaciones difusas no son suficientes. Dar la razon
 por que los operadores de proyeccion son insuficientes para describir
 completamente una medición difusa. }
 \cpnote{Expande esto aca dentro del esuqeleto. Caules son las razones?}
-\rrnote{Los operadores de proyección no son suficiente para describir
+\rrnote{Los operadores de proyección por sí solos no son suficiente para describir
 mediciones difusas porque el sistema experimenta transformaciones aleatorias,
 como el posible intercambio de partículas. Al realizar la medición de un
 observable, la probabilidad de obtener cada una de las salidas ahora está
@@ -309,6 +309,12 @@ partículas, y el estado posterior también difiere de una medición ideal.}
 \cpnote{Ok, me gusta la idea de probar que las mediciones proyectivas son insuficientes, 
 y creo que se debe hacer, pero no lo veo bien estructurado. A ver que escribes aca 
 y como lo justificas. }
+
+
+En una medición ideal en la que se desea medir el observable de la forma $A\tensor B$ para un estado inicial $\rho$, los operadores que describen completamente esta medición son los operadores de proyección del observable, en este caso $P_{a_j, b_k}$ debido a que estos proporcionan la probabilidad de obtener cada una de las salidas posibles. La probabilidad de obtener la salida $a_j b_k$ será $\tr(P_{a_j,b_k}\rho )$ y el estado posterior a la medición estará dado por $\dfrac{P_{a_j,b_k}\rho P_{a_j,b_k}}{\tr(P_{a_j,b_k}\rho )}$.Además el valor esperado de esta medición es simplemente \[\sum_{j,k}a_j b_k\tr(P_{a_j,b_k}\rho)= \tr(A\otimes B \rho)=\langle A\otimes B\rangle_{\rho},\] sin embargo este valor esperado no es el mismo que el presentado en la ecuación {\eqref{eq:Expected-Value-FM-2p}}. Es por ello que para describir una medición difusa estos operadores no son suficientes por si solos, puesto que la probabilidad de obtener cada una de las salidas ahora está condicionada a la posibilidad $p$ de identificar de manera equivocada a las partículas. En está medición la probabilidad de cada una de las salidas está capturada por la acción del operador difuso en el estado inicial, en general $\tr(\fuzzy{\rho}P_{a_j,b_k})\ne\tr(P_{a_j,b_k}\rho ) $, y a su vez el estado posterior no puede estar determinada por la simple proyección a los espacios propios del observable que se desea medir. 
+
+
+
 
 
 %\cpnote{Cual es la utilidad? porque aca?} \rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
@@ -337,9 +343,9 @@ y como lo justificas. }
 
 
 \rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
-valor esperado para obtener las medidas POVM, en un sistema de dos partículas para simplificar la explicación}.
+valor esperado para obtener las medidas POVM, en un sistema de dos partículas para simplificar la explicación.}.
 
-Es posible utilizar el valor esperado calculado en la ecuación \ref{eq:Expected-Value-FM-2p-desarrollo} y reescribirlo de la siguiente forma \begin{equation}\label{eq:ordenar-valoresperado-povm}\begin{split}
+Es posible utilizar el valor esperado calculado en la ecuación {\eqref{eq:Expected-Value-FM-2p-desarrollo}} y reescribirlo de la siguiente forma \begin{equation}\label{eq:ordenar-valoresperado-povm}\begin{split}
     p\tr(\rho A\otimes B)+ (1-p)\tr(\rho B\otimes A)=& \tr(\rho (pA\otimes B+(1-p)B\otimes A))\\
     =&\sum_{j,k}{a_j b_k}\tr(\rho (pP_{a_j,b_k}+(1-p)P_{b_k, a_j}))\\
     =&\sum_{j, k}{a_j b_k}\tr(\rho \mathcal{F}_{2\text{p}}(P_{a_j,b_k})),\\

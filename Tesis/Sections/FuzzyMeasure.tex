@@ -310,38 +310,44 @@ partículas, y el estado posterior también difiere de una medición ideal.}
 y creo que se debe hacer, pero no lo veo bien estructurado. A ver que escribes aca 
 y como lo justificas. }
 
-\rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las medidas POVM\@.}
-\cpnote{Cual es la utilidad? porque aca?} \rrnote{Más bien es revisitar la
-utilidad pero para las mediciones difusas particularmente, son útiles porque
-con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}
-\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y
-me dices cuando hablamos}
 
-\rrnote{Esqueleto: Explicar la relevancia de los operadores de Kraus y su
-relación con las medidas POVM\@. }
-\cpnote{Porque aca? Que son?}  \rrnote{ Porque quiero vincular los operadores
-de POVM y los operadores de Kraus para proponer el estado posterior a la
-medición difusa}
-\cpnote{Entonces lo que quieres no es hablar de la relevancia de los operadores de Kraus. 
-Que es lo que quieres hacer en este párrafo? Aun no lo entiendo claramente.}
+%\cpnote{Cual es la utilidad? porque aca?} \rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
+
+\rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las medidas POVM\@. Explicar que la medidas POVM son útiles porque con ellas es posible realizar un mapeo qde probabilidades para describir la medición difusa. Este mapeo que toma dos argumentos. El primero es una salida de medición $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de la medición, y el segundo es un estado cuántico. }  \rrnote{volvi a reescribir la idea del esqueleto}
+
+
+
+
+
+\rrnote{Esqueleto: Explicar la relación de los operadores de Kraus y con las medidas POVM\@. Para describir una medida difusa también se necesita el estado posterior a la medición y este no puede ser especificado solamente por una medida POVM\@. Es por ello que para describir el efecto de la medición difusa en un estado de entrada $\rho$, es conveniente establecer un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que $E_\alpha=K_\alpha^\dagger K_\alpha$ } \rrnote{volvi a reescribir la idea del esqueleto}
+
+
+%\cpnote{Porque aca? Que son?}  \rrnote{ Porque quiero vincular los operadores
+%de POVM y los operadores de Kraus para proponer el estado posterior a la
+%medición difusa}
+%\cpnote{Entonces lo que quieres no es hablar de la relevancia de los operadores de Kraus. 
+%Que es lo que quieres hacer en este párrafo? Aun no lo entiendo claramente.}
+
+%\rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
+%valor esperado para obtener las medidas POVM, en un
+%sistema de dos partículas para simplificar la explicación (EN el siguiente
+%capítulo se extiende a un sistema más complejo).}
+%\cpnote{Esto va a tomar mas que un parrafo. Expande mas, o dime mas explicitamente que quieres decir.} \rrnote{Lo que pensaba era detallar cómo usar la ecuación \ref{eq:Expected-Value-FM-2p-desarrollo} desarrollándola para encontrar primero los operadores POVM y luego mencionar que se debe hacer una descomposición apropiada pueden obtenerse los operadores de Kraus. Sin embargo creo que llevará más de un párrafo o  no sé si sería más apropiado para el proximo capitulo.  }
+%\cpnote{Ok, ya entiendo como va la cosa. }
+
 
 \rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
-valor esperado para obtener las medidas POVM, en un
-sistema de dos partículas para simplificar la explicación (EN el siguiente
-capítulo se extiende a un sistema más complejo).}
-\cpnote{Esto va a tomar mas que un parrafo. Expande mas, o dime mas
-explicitamente que quieres decir.} \rrnote{Lo que pensaba era detallar cómo
-usar la ecuación \ref{eq:Expected-Value-FM-2p-desarrollo} desarrollándola para
-encontrar primero los operadores POVM y luego mencionar que se debe hacer una
-descomposición apropiada pueden obtenerse los operadores de Kraus. Sin embargo
-creo que llevará más de un párrafo o  no sé si sería más apropiado para el
-proximo capitulo.  }
-\cpnote{Ok, ya entiendo como va la cosa. }
+valor esperado para obtener las medidas POVM, en un sistema de dos partículas para simplificar la explicación}.
+
+Es posible utilizar el valor esperado calculado en la ecuación \ref{eq:Expected-Value-FM-2p-desarrollo} y reescribirlo de la siguiente forma \begin{equation}\label{eq:ordenar-valoresperado-povm}\begin{split}
+    p\tr(\rho A\otimes B)+ (1-p)\tr(\rho B\otimes A)=& \tr(\rho (pA\otimes B+(1-p)B\otimes A))\\
+    =&\sum_{j,k}{a_j b_k}\tr(\rho (pP_{a_j,b_k}+(1-p)P_{b_k, a_j}))\\
+    =&\sum_{j, k}{a_j b_k}\tr(\rho \mathcal{F}_{2\text{p}}(P_{a_j,b_k})),\\
+\end{split}
+\end{equation}donde con $a_j$ y $b_k$ son los valores propios de los operadores $A$ y $B$ respectivamente y $P_{a_j,b_k}=|a_j b_k\rala a_j b_k|$ son lo operadores de proyección del observable $A\otimes B$ y $P_{a_j,b_k}$ son los operadores de proyección de $B\otimes A$. Los operadores de Kraus se obtienen al realizar alguna descomposición apropiada de estos operadores.
 
 
 
-
-% }}}
 \section{Instrumentos cuánticos}\label{sec:cap2instrumentos-cuanticos} % {{{
 
 \rrnote{Esqueleto: En esta sección se introduce el concepto de instrumento cuántico. Se explica la utilidad de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de utilizarlos. Además se especifican las dos alternativas que se usarán}

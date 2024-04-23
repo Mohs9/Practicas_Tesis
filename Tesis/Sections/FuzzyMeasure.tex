@@ -287,52 +287,110 @@ resultados distintos.  En este contexto, el valor esperado, es una medida
 necesaria que se empleará como primera instancia para comprobar que dichos
 instrumentos sean equivalentes.
 
-\cpnote{Aca voy}
 % }}}
 % }}}
 \section{Medidas POVM y operadores de Kraus para mediciones difusas}\label{sec:Cap2POVM_Kraus_mediciones_difusas} % {{{
 
-\rrnote{Esqueleto Intro: Los POVM y los operadores de Kraus se hablaron en el marco teórico y se verán en las implementciones. En esta parte se mencionará como utilizar los operadores POVM y los operadores de Kraus conjuntamente para describir mediciones imperfectas y específicamente en mediciones difusas.}
+% \rrnote{Esqueleto Intro: Los POVM y los operadores de Kraus se hablaron en el
+% marco teórico y se verán en las implementciones. En esta parte se mencionará
+% como utilizar los operadores POVM y los operadores de Kraus conjuntamente
+% para describir mediciones imperfectas y específicamente en mediciones
+% difusas.}
 
-En este apartado se revisitan las medidas POVM y los operadores de Kraus conjuntamente. Debido a que el formalismo de las mediciones ideales es insuficiente para describir mediciones imperfectas, en esta sección se introduce la forma en la que se implementan las medidas generalizadas, con el fin de explicar cómo se emplearán estas herramientas para asegurar una especificación completa de las mediciones difusas.
+En este apartado se revisitan las medidas POVM y los operadores de Kraus
+conjuntamente. Debido a que el formalismo de las mediciones ideales es
+insuficiente para describir mediciones imperfectas, en esta sección se
+introduce la forma en la que se implementan las medidas generalizadas, con el
+fin de explicar cómo se emplearán estas herramientas para asegurar una
+especificación completa de las mediciones difusas.
 
+% \rrnote{Esqueleto: En este parrafo se menciona que en una medicion ideal los
+% operadores que describen completamente  una medicion  son los operadores de
+% proyeccion, sin embargo en operaciones difusas no son suficientes. Dar la razon
+% por que los operadores de proyeccion son insuficientes para describir
+% completamente una medición difusa. }
+% \cpnote{Expande esto aca dentro del esuqeleto. Caules son las razones?}
+% \rrnote{Los operadores de proyección por sí solos no son suficiente para describir
+% mediciones difusas porque el sistema experimenta transformaciones aleatorias,
+% como el posible intercambio de partículas. Al realizar la medición de un
+% observable, la probabilidad de obtener cada una de las salidas ahora está
+% condicionada a la posibilidad de identificar de manera equivocada a las
+% partículas, y el estado posterior también difiere de una medición ideal.}
+% \cpnote{Ok, me gusta la idea de probar que las mediciones proyectivas son insuficientes, 
+% y creo que se debe hacer, pero no lo veo bien estructurado. A ver que escribes aca 
+% y como lo justificas. }
 
-
-
-
-\rrnote{Esqueleto: En este parrafo se menciona que en una medicion ideal los
-operadores que describen completamente  una medicion  son los operadores de
-proyeccion, sin embargo en operaciones difusas no son suficientes. Dar la razon
-por que los operadores de proyeccion son insuficientes para describir
-completamente una medición difusa. }
-\cpnote{Expande esto aca dentro del esuqeleto. Caules son las razones?}
-\rrnote{Los operadores de proyección por sí solos no son suficiente para describir
-mediciones difusas porque el sistema experimenta transformaciones aleatorias,
-como el posible intercambio de partículas. Al realizar la medición de un
-observable, la probabilidad de obtener cada una de las salidas ahora está
-condicionada a la posibilidad de identificar de manera equivocada a las
-partículas, y el estado posterior también difiere de una medición ideal.}
-\cpnote{Ok, me gusta la idea de probar que las mediciones proyectivas son insuficientes, 
-y creo que se debe hacer, pero no lo veo bien estructurado. A ver que escribes aca 
-y como lo justificas. }
-
-En una medición ideal en la que se desea medir el observable $A\tensor B$ sobre un estado inicial $\rho$, los operadores que proporcionan la descripción entera son los operadores de proyección del observable. En este caso, los operadores $P_{a_j, b_k}$ son los que proporcionan tanto la probabilidad de obtener cada una de las salidas posibles, dada por $\tr(P_{a_j,b_k}\rho )$, siendo $a_j$ y $b_k$ los valores propios de los operadores $A$ y $B$ respectivamente. Además, determinarán el estado posterior a la medición, $\dfrac{P_{a_j,b_k}\rho P_{a_j,b_k}}{\tr(P_{a_j,b_k}\rho )}$. Además, utilizando estos operadores se puede calcular el valor esperado de esta medición como \[\sum_{j,k}a_j b_k\tr(P_{a_j,b_k}\rho)= \tr(A\otimes B \rho)=\langle A\otimes B\rangle_{\rho}.\] No obstante, este valor esperado no coincide en general con el valor observado de una medición difusa que se presenta en la ecuación {\eqref{eq:Expected-Value-FM-2p}}. Por lo tanto, estos operadores por sí solos no son suficientes para especificar una medición difusa. En este tipo de mediciones, el sistema experimenta transformaciones aleatorias, como el intercambio potencial de partículas. Por consiguiente, al llevar a cabo la medición de un observable, la probabilidad de obtener cada una de las salidas ahora está condicionada a la probabilidad $p$ de identificar de manera incorrecta a las partículas, lo cual difiere de una medición ideal. En esta medición, la probabilidad de cada una de las salidas está capturada por la acción del operador difuso en el estado inicial $\tr(P_{a_j,b_k}\fuzzy{\rho})\ne\tr(P_{a_j,b_k}\rho ) $, y a su vez el estado posterior no puede ser determinado por la simple proyección a los espacios propios del observable que se desea medir.
+En una medición ideal en la que se desea medir el observable $A\tensor B$ sobre
+un estado inicial $\rho$, los operadores que proporcionan la descripción entera
+son los operadores de proyección del observable. En este caso, los operadores
+$P_{a_j, b_k}$ son los que proporcionan tanto la probabilidad de obtener cada
+una de las salidas posibles, dada por $\tr(P_{a_j,b_k}\rho )$, siendo $a_j$ y
+$b_k$ los valores propios de los operadores $A$ y $B$ respectivamente. Además,
+determinarán el estado posterior a la medición, $P_{a_j,b_k}\rho
+P_{a_j,b_k}/\tr(P_{a_j,b_k}\rho )$. Además, utilizando estos operadores se
+puede calcular el valor esperado de esta medición como \[\sum_{j,k}a_j
+b_k\tr(P_{a_j,b_k}\rho)= \tr(A\otimes B \rho)=\langle A\otimes
+B\rangle_{\rho}.\] No obstante, este valor esperado no coincide en general con
+el valor observado de una medición difusa que se presenta en la ecuación
+{\eqref{eq:Expected-Value-FM-2p}}. Por lo tanto, estos operadores por sí solos
+no son suficientes para especificar una medición difusa. En este tipo de
+mediciones, el sistema experimenta transformaciones aleatorias, como el
+intercambio potencial de partículas. Por consiguiente, al llevar a cabo la
+medición de un observable, la probabilidad de obtener cada una de las salidas
+ahora está condicionada a la probabilidad $p$ de identificar de manera
+incorrecta a las partículas, lo cual difiere de una medición ideal. En esta
+medición, la probabilidad de cada una de las salidas está capturada por la
+acción del operador difuso en el estado inicial
+$\tr(P_{a_j,b_k}\fuzzy{\rho})\ne\tr(P_{a_j,b_k}\rho ) $, y a su vez el estado
+posterior no puede ser determinado por la simple proyección a los espacios
+propios del observable que se desea medir.
 
 %\cpnote{Cual es la utilidad? porque aca?} \rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
 
-\rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las medidas POVM\@. Explicar que la medidas POVM son útiles porque con ellas es posible realizar un mapeo qde probabilidades para describir la medición difusa. Este mapeo que toma dos argumentos. El primero es una salida de medición $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de la medición, y el segundo es un estado cuántico. } 
+% \rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las
+% medidas POVM\@. Explicar que la medidas POVM son útiles porque con ellas es
+% posible realizar un mapeo qde probabilidades para describir la medición difusa.
+% Este mapeo que toma dos argumentos. El primero es una salida de medición
+% $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de
+% la medición, y el segundo es un estado cuántico. } 
 
-Por lo anterior, se recurre al formalismo de las medidas POVM\@. Estas medidas son útiles porque con ellas es posible realizar un mapeo que toma dos argumentos. El primero es una salida de medición $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de la medición, y el segundo es un estado cuántico. El mapeo es de la forma 
+Por lo anterior, se recurre al formalismo de las medidas POVM\@. Estas medidas
+son útiles porque con ellas es posible realizar un mapeo que toma dos
+argumentos. El primero es una salida de medición $\alpha \in S $, donde $S$ es
+el conjunto de todos los posibles resultados de la medición, y el segundo es un
+estado cuántico. El mapeo es de la forma 
 \begin{equation}\begin{split}
     E:S\times \mathcal{H}\longrightarrow [0,1]\\
     E(\alpha,\rho)=\tr(E_\alpha\rho),
-\end{split}\end{equation}siendo $\mathcal{H}$ el conjunto de operadores de densidad. Este proceso constituye el mapeo de resultados o la función de distribución de probabilidad necesaria para la especificación de las mediciones difusas.
+\end{split}\end{equation}siendo $\mathcal{H}$ el conjunto de operadores de
+densidad. Este proceso constituye el mapeo de resultados o la función de
+distribución de probabilidad necesaria para la especificación de las mediciones
+difusas. \cpnote{Normalmente reservamos la $\mathcal{H}$ para espacios de Hilbert. Checa
+a ver que otra notacion usa la gente}
 
 
-\rrnote{Esqueleto: Explicar la relación de los operadores de Kraus y con las medidas POVM\@. Para describir una medida difusa también se necesita el estado posterior a la medición y este no puede ser especificado solamente por una medida POVM\@. Es por ello que para describir el efecto de la medición difusa en un estado de entrada $\rho$, es conveniente establecer un conjunto de operadores de Kraus $\{K_\alpha\}$ tales que $E_\alpha=K_\alpha^\dagger K_\alpha$ }
+% \rrnote{Esqueleto: Explicar la relación de los operadores de Kraus y con las
+% medidas POVM\@. Para describir una medida difusa también se necesita el estado
+% posterior a la medición y este no puede ser especificado solamente por una
+% medida POVM\@. Es por ello que para describir el efecto de la medición difusa
+% en un estado de entrada $\rho$, es conveniente establecer un conjunto de
+% operadores de Kraus $\{K_\alpha\}$ tales que $E_\alpha=K_\alpha^\dagger
+% K_\alpha$ }
 
-Sin embargo, es necesario también proporcionar el estado posterior a la medición, lo cual no puede lograrse únicamente con una medida POVM\@. Por esta razón, para explicar el efecto de la medición difusa en un estado de entrada $\rho$, es conveniente definir un conjunto de operadores de Kraus $\{K_\alpha\}$ de manera que se cumpla la ecuación $E_\alpha=K_\alpha^\dagger K_\alpha$. Este proceso se conoce como la descomposición del operador de medición. Es importante destacar que la descomposición en operadores de Kraus no es única, ya que al multiplicar por la derecha una matriz unitaria $U$, $UK_{\alpha}$ también será un nuevo operador de Kraus que define la misma medida generalizada. Una vez introducidos los operadores de Kraus, el estado posterior a la medición POVM será \begin{equation}\rho'_\alpha=\dfrac{K_\alpha \rho
-    K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.\end{equation}
+Sin embargo, es necesario también proporcionar el estado posterior a la
+medición, lo cual no puede lograrse únicamente con una medida POVM\@. Por esta
+razón, para explicar el efecto de la medición difusa en un estado de entrada
+$\rho$, es conveniente definir un conjunto de operadores de Kraus
+$\{K_\alpha\}$ de manera que se cumpla la ecuación $E_\alpha=K_\alpha^\dagger
+K_\alpha$. Este proceso se conoce como la descomposición del operador de
+medición. Es importante destacar que la descomposición en operadores de Kraus
+no es única, ya que al multiplicar por la derecha una matriz unitaria $U$,
+$UK_{\alpha}$ también será un nuevo operador de Kraus que define la misma
+medida generalizada. Una vez introducidos los operadores de Kraus, el estado
+posterior a la medición POVM será 
+\begin{equation}
+\rho'_\alpha=\dfrac{K_\alpha \rho K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.
+\end{equation}
 
 
 
@@ -351,18 +409,35 @@ Sin embargo, es necesario también proporcionar el estado posterior a la medici�
 %\cpnote{Ok, ya entiendo como va la cosa. }
 
 
-\rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
-valor esperado para obtener las medidas POVM, en un sistema de dos partículas para simplificar la explicación.}.
+% \rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
+% valor esperado para obtener las medidas POVM, en un sistema de dos partículas
+% para simplificar la explicación.}.
 
-Para mediciones difusas, la medida que será útil para encontrar el conjunto de efectos $\{E_\alpha\}$, es el valor esperado junto con el operador difuso. En este apartado será más conveniente analizar inicialmente el ejemplo de dos partículas antes de extender la idea.  Es posible utilizar el valor esperado calculado en la ecuación {\eqref{eq:Expected-Value-FM-2p}} y reescribirlo de la siguiente forma\begin{equation}\label{eq:ordenar-valoresperado-povm}\begin{split}
-    p\tr(\rho A\otimes B)+ (1-p)\tr(\rho B\otimes A)=& \tr(\rho (pA\otimes B+(1-p)B\otimes A))\\
+Para mediciones difusas, la medida que será útil para encontrar el conjunto de
+efectos $\{E_\alpha\}$, es el valor esperado junto con el operador difuso. En
+este apartado será más conveniente analizar inicialmente el ejemplo de dos
+partículas antes de extender la idea.  Es posible utilizar el valor esperado
+calculado en la ecuación {\eqref{eq:Expected-Value-FM-2p}} y reescribirlo de la
+siguiente forma
+\begin{equation}\label{eq:ordenar-valoresperado-povm}
+\begin{split}
+    p\tr(\rho A\otimes B)+ (1-p)\tr(\rho B\otimes A)
+    =& \tr(\rho (pA\otimes B+(1-p)B\otimes A))\\
     =&\sum_{j,k}{a_j b_k}\tr(\rho (pP_{a_j,b_k}+(1-p)P_{b_k, a_j}))\\
     =&\sum_{j, k}{a_j b_k}\tr(\rho \mathcal{F}_{2\text{p}}(P_{a_j,b_k})),\\
 \end{split}
-\end{equation} donde $P_{b_k,a_j}$ son los operadores de proyección de $B\otimes A$. Luego, de esta última ecuación se puede obtener el conjunto de efectos $\{\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\}$. Finalmente, los operadores de Kraus que servirán para proporcionar el estado posterior a la medición se obtendrán más adelante al realizar alguna descomposición apropiada de estos operadores. Esta idea será generalizada y analizada para sistemas con más partículas en el siguiente capítulo. 
+\end{equation} 
+donde $P_{b_k,a_j}$ son los operadores de proyección de $B\otimes A$. De
+esta última ecuación se puede obtener el conjunto de efectos
+$\{\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\}$. Finalmente, los operadores de Kraus
+que servirán para proporcionar el estado posterior a la medición se obtendrán
+más adelante al realizar alguna descomposición apropiada de estos operadores.
+Esta idea será generalizada y analizada para sistemas con más partículas en el
+siguiente capítulo. 
 
-
+% }}}
 \section{Instrumentos cuánticos}\label{sec:cap2instrumentos-cuanticos} % {{{
+\cpnote{Aca voy}
 
 \rrnote{Esqueleto: En esta sección se introduce el concepto de instrumento cuántico. Se explica la utilidad de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de utilizarlos. Además se especifican las dos alternativas que se usarán}
 
@@ -375,6 +450,8 @@ Para mediciones difusas, la medida que será útil para encontrar el conjunto de
 
 \rrnote{Esqueleto: Presentar los dos  instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos. En un primer párrafo explicar el primer instrumento, haciendo hincapié en la idea de aplicar el operador difuso en el sistema cuántico. Y en un segundo párrafo explicar el segundo instrumento y detallar por que usar el operador difuso en el sistema clásico.}
 % }}}
+
+
 
 
 

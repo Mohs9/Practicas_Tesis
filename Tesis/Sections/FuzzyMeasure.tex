@@ -345,7 +345,8 @@ $\tr(P_{a_j,b_k}\fuzzy{\rho})\ne\tr(P_{a_j,b_k}\rho ) $, y a su vez el estado
 posterior no puede ser determinado por la simple proyección a los espacios
 propios del observable que se desea medir.
 
-%\cpnote{Cual es la utilidad? porque aca?} \rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
+%\cpnote{Cual es la utilidad? porque aca?
+ \rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
 
 % \rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las
 % medidas POVM\@. Explicar que la medidas POVM son útiles porque con ellas es
@@ -360,14 +361,13 @@ argumentos. El primero es una salida de medición $\alpha \in S $, donde $S$ es
 el conjunto de todos los posibles resultados de la medición, y el segundo es un
 estado cuántico. El mapeo es de la forma 
 \begin{equation}\begin{split}
-    E:S\times \mathcal{H}\longrightarrow [0,1]\\
+    E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
     E(\alpha,\rho)=\tr(E_\alpha\rho),
-\end{split}\end{equation}siendo $\mathcal{H}$ el conjunto de operadores de
-densidad. Este proceso constituye el mapeo de resultados o la función de
+\end{split}\end{equation} donde $\mathcal{B(H)}$ denota el conjunto de operadores de densidad en algún espacio de Hilbert $\mathcal{H}$. 
+Este proceso constituye el mapeo de resultados o la función de
 distribución de probabilidad necesaria para la especificación de las mediciones
 difusas. \cpnote{Normalmente reservamos la $\mathcal{H}$ para espacios de Hilbert. Checa
-a ver que otra notacion usa la gente}
-
+a ver que otra notacion usa la gente} \rrnote{ Lo cambié por como lo vi en algunos libros y en internet. }
 
 % \rrnote{Esqueleto: Explicar la relación de los operadores de Kraus y con las
 % medidas POVM\@. Para describir una medida difusa también se necesita el estado
@@ -439,16 +439,44 @@ siguiente capítulo.
 \section{Instrumentos cuánticos}\label{sec:cap2instrumentos-cuanticos} % {{{
 \cpnote{Aca voy}
 
-\rrnote{Esqueleto: En esta sección se introduce el concepto de instrumento cuántico. Se explica la utilidad de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de utilizarlos. Además se especifican las dos alternativas que se usarán}
+\rrnote{Esqueleto Intro: En esta sección se introduce el concepto de instrumento cuántico. Se explica la función de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de emplearlos. Además se especifican las dos alternativas que se usan.}
 
-\rrnote{Esqueleto: En este párrafo simplemente se define y explica qué es un instrumento cuántico.}
+\rrnote{Esqueleto: En este párrafo simplemente se explica qué es un instrumento cuántico. Un instrumento cuántico se compone  de una base ortonormal $\{|\alpha\rala \alpha |\}$ e incluye al conjunto de mapeos $\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador de densidad $\rho$ es un canal cuántico, que presenta una salida clásica y cuántica. }
 
-\rrnote{Esqueleto: Exponer cuál es la  utilidad de los instrumentos, y como obtener los elementos que describen completamente una medición.}
+\rrnote{Esqueleto: Exponer cuál es la utilidad de los instrumentos, y como obtener los elementos que describen completamente una medición. Esta herramienta establece una conexión directa entre los estados y los resultados de la medición. Por consiguiente, ya no es preciso tener en cuenta mediciones selectivas de manera explícita. Además, es posible obtener el mapeo de los resultados mediante la traza parcial del sistema cuántico.}
 
-\rrnote{Esqueleto: Con base en lo anterior, me gustaria decir por qué es util hablar del valor esperado de los instrumentos cuánticos.}
+\rrnote{Esqueleto: Con base en lo anterior, me gustaria decir por qué es util hablar del valor esperado de los instrumentos cuánticos. Dado que con los instrumentos cuánticos se puede obtener un mapeo de resultados, vale la pena considerar una medida de central que caracterice el mapeo que se obtiene con ellos.} 
+
+
+\rrnote{Esqueleto: Detallar cómo se realiza el cálculo del valor esperado de un instrumento cuántico y cuál es la idea detrás de éste cálculo. El valor esperado para un instrumento cuántico se calcula como $\la\mathcal{O}\ra_{\mathcal{I}(\rho)}=\tr\left[\mathcal{I}(\rho)(\mathcal{O}\tensor\mathds{1})\right]$. El valor esperado es el promedio ponderado de las salidas. En consecuencia, al desarrollar esta expresión se puede ver que  es un promedio ponderado de las posibles salidas de la medición, donde la probabilidad es el peso asignado a cada una de las salidas}
+
+
+
+
 
 
 \rrnote{Esqueleto: Presentar los dos  instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos. En un primer párrafo explicar el primer instrumento, haciendo hincapié en la idea de aplicar el operador difuso en el sistema cuántico. Y en un segundo párrafo explicar el segundo instrumento y detallar por que usar el operador difuso en el sistema clásico.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % }}}
 
 

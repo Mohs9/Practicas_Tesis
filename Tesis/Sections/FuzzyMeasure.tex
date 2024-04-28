@@ -441,16 +441,71 @@ siguiente capítulo.
 
 \rrnote{Esqueleto Intro: En esta sección se introduce el concepto de instrumento cuántico. Se explica la función de ellos además de detallar en cómo se calcula el valor esperado del instrumento y la razón de emplearlos. Además se especifican las dos alternativas que se usan.}
 
+Una forma útil de aproximarse a describir completamente las mediciones difusas
+es considerar una herramienta conocida como \textit{instrumento cuántico}, el
+cual es un mapeo que toma un operador de entrada y tiene como salida un
+ensamble que correlaciona un sistema clásico, que contiene la salida de la
+medición y un sistema cuántico, que contiene el estado posterior a la medición. Esto es muy conveniente debido a que es una forma resumida de caracterizar totalmente la medición difusa y no es necesario considerar mediciones selectivas. 
+
+
+
+
+
+
 \rrnote{Esqueleto: En este párrafo simplemente se explica qué es un instrumento cuántico. Un instrumento cuántico se compone  de una base ortonormal $\{|\alpha\rala \alpha |\}$ e incluye al conjunto de mapeos $\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador de densidad $\rho$ es un canal cuántico, que presenta una salida clásica y cuántica. }
 
+Un instrumento cuántico se define de la siguiente manera.\begin{definition}[\textbf{Instrumento Cuántico}] Un instrumento cuántico se compone  de una base ortonormal $\{|\alpha\rala \alpha |\}$. Además, incluye al conjunto de mapeos completamente positivos que preservan la traza $\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador de densidad $\rho$, es el siguiente canal cuántico, que presenta una salida clásica y cuántica:\begin{equation}
+    \begin{split}
+        \mathcal{I}: \mathcal{B(H)}\rightarrow\mathcal{B(H)}_{\text{cl}}\otimes \mathcal{B(H)}_{\text{qu}},\\
+    \mathcal{I}(\rho)=\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho).
+    \end{split}
+\end{equation}
+\end{definition}
+El sistema clásico, también llamado <<ancilla>>, es una colección de operadores de proyección que representan al conjunto de salidas de la medición. Conforme a la definición, se puede apreciar que el sistema clásico funcionará como un apuntador que registra un resultado $\alpha$ e indica que operador actúa en el estado inicial. Por su parte, los operadores $\E_\alpha(\rho)$ serán usados para describir  el estado posterior a la medición condicionados por la salida clásica de la medición $\alpha$.
+
+
+
+
 \rrnote{Esqueleto: Exponer cuál es la utilidad de los instrumentos, y como obtener los elementos que describen completamente una medición. Esta herramienta establece una conexión directa entre los estados y los resultados de la medición. Por consiguiente, ya no es preciso tener en cuenta mediciones selectivas de manera explícita. Además, es posible obtener el mapeo de los resultados mediante la traza parcial del sistema cuántico.}
+
+
+Esta nueva herramienta vincula los estados directamente a los resultados de la medición. Por esta razón, ya no es necesario considerar mediciones selectivas, explícitamente.  Es importante destacar que, en principio, se puede obtener el mapeo de resultados realizando la traza parcial sobre el sistema cuántico. De esta manera, se obtiene el operador que modela la salida de la medición y su respectiva probabilidad \begin{equation}
+    \begin{split}
+    \tr_{\text{qu}}(\mathcal{I}(\rho))&=\tr_{\text{qu}}(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
+    &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)).
+\end{split}
+\end{equation}Por otro lado, al trazar parcialmente sobre el sistema clásico se obtendrán  las operaciones completamente positivas que preservan la traza para mediciones no selectivas\begin{equation}
+    \begin{split}
+        \tr_{\text{cl}}(\mathcal{I}(\rho))&=\tr_{\text{cl}} (\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
+        &=\sum_\alpha \tr(|\alpha\rala\alpha|)\E_\alpha(\rho).
+    \end{split}
+\end{equation}Teniendo en cuenta esto, se puede apreciar que la utilidad de los instrumentos cuánticos radica en que una medición difusa se puede describir enteramente de forma sucinta. 
+
+
+
+
+
+
+
 
 \rrnote{Esqueleto: Con base en lo anterior, me gustaria decir por qué es util hablar del valor esperado de los instrumentos cuánticos. Dado que con los instrumentos cuánticos se puede obtener un mapeo de resultados, vale la pena considerar una medida de central que caracterice el mapeo que se obtiene con ellos.} 
 
 
+
+
+Debido a que con los instrumentos cuánticos se puede obtener un mapeo de resultados, vale la pena considerar una medida de central que caracterice el mapeo que se obtiene con ellos. Esta medida es obviamente el valor esperado, sin embargo calcularlo para un instrumento cuántico es un poco más general que la ecuación {\eqref{eq:expected-value-fm-general}}, puesto que el instrumento cuántico es un ensamble de sistemas.
+
 \rrnote{Esqueleto: Detallar cómo se realiza el cálculo del valor esperado de un instrumento cuántico y cuál es la idea detrás de éste cálculo. El valor esperado para un instrumento cuántico se calcula como $\la\mathcal{O}\ra_{\mathcal{I}(\rho)}=\tr\left[\mathcal{I}(\rho)(\mathcal{O}\tensor\mathds{1})\right]$. El valor esperado es el promedio ponderado de las salidas. En consecuencia, al desarrollar esta expresión se puede ver que  es un promedio ponderado de las posibles salidas de la medición, donde la probabilidad es el peso asignado a cada una de las salidas}
 
-
+El valor esperado para un instrumento cuántico se calcula de la siguiente forma\begin{equation}\label{eq:expected-value-quantum-instrument}\begin{split}
+    \la\mathcal{O}\ra_{\mathcal{I}(\rho)}&=\tr\left[\mathcal{I}(\rho)(\mathcal{O}\tensor\mathds{1})\right]\\
+\end{split}
+\end{equation} La razón de calcularlo de esta manera puede entenderse al desarrollar la expresión de la derecha, utilizando la linealidad de la traza y algunas propiedades del producto tensorial\footnote{Si $C, D, F$ y $G$ son matrices de manera que se puedan formar los productos $CF$ y $DG$, entonces\begin{itemize}\item $(C\tensor D)(F\tensor G)=CF\tensor DG$ \item $\tr(C\tensor D)=\tr(C)\tr(D)$\end{itemize}}\[\begin{split}
+   \tr\left[\mathcal{I}(\rho)(\mathcal{O}\tensor\mathds{1})\right]&=\tr\left[\left(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho)\right)(\mathcal{O}\tensor\mathds{1})\right]\\
+   &=\tr\left[\left(\sum_\alpha |\alpha\rala\alpha|\mathcal{O}\otimes \E_\alpha(\rho)\right)\right]\\
+   &=\sum_\alpha\tr\left[|\alpha\rala\alpha|\mathcal{O}\otimes \E_\alpha(\rho)\right]\\
+   &=\sum_\alpha\tr\left[|\alpha\rala\alpha|\mathcal{O}\right]\tr\left[\E_\alpha(\rho)\right].
+\end{split}\] Observe que $\tr[\E_\alpha(\rho)]$ es la probabilidad que el proceso representado por $\E_\alpha$ ocurra, condicionado a la salida dictada por el sistema clásico.  Además, $|\alpha\rala \alpha|$ es un operador de proyección ortonormal, por consiguiente, con $\tr(|\alpha\rala\alpha|\mathcal{O})$ se obtiene el posible resultado de observar $\mathcal{O}$. Como se explicó en la sección  {\ref{subsec:Valores_esperados}}, el valor esperado es el promedio ponderado de las salidas. En consecuencia, la última igualdad es un promedio ponderado de las posibles salidas de la medición, donde la probabilidad es el peso asignado a cada una de las salidas.
 
 
 
@@ -458,17 +513,34 @@ siguiente capítulo.
 \rrnote{Esqueleto: Presentar los dos  instrumentos para mediciones difusas, explicando el sentido que hay detrás de ellos. En un primer párrafo explicar el primer instrumento, haciendo hincapié en la idea de aplicar el operador difuso en el sistema cuántico. Y en un segundo párrafo explicar el segundo instrumento y detallar por que usar el operador difuso en el sistema clásico.}
 
 
+Una de las ventajas de los instrumentos cuánticos, para mediciones difusas concretamente, es que permiten analizar las mediciones desde algunas perspectivas que se presentan a continuación, para un sistema de  dos partículas y que se seguirán analizando en el siguiente capítulo.
+
+
+La primera de las alternativas es pensar que debido a un ruido en el sistema, las partículas podrían experimentar un intercambio y por ello se realiza una medición borrosa. El operador difuso captura esta transformación del estado inicial $\rho$. Después de medir un observable ${A \tensor B}$ en el sistema, se obtiene un resultado que puede ser cualquiera de los valores propios $a_j b_k$. Para describir este estado posterior, se aplican los operadores de proyección del observable al estado difuso, condicionados a la salida obtenida.  Es por ello que el instrumento cuántico que proporcionará una descripción completa de la medición difusa es \begin{equation}\label{eq:primer-instrumento-general}
+    \mathcal{I}_{1}(\rho)=\sum_{a_j, b_k} P_{a_j,b_k}\tensor P_{a_j,b_k}\mathcal{F}_{2\text{p}}(\rho)P_{a_j,b_k}^\dagger,
+    \end{equation}  donde $P_{a_j,b_k}$ son lo operadores de proyección del observable.
 
 
 
+    La segunda alternativa tiene una interpretación distinta a la anterior. En este caso se realiza una medición ideal en el sistema cuántico, pero después por alguna imperfección en el dispositivo detector ocurre una confusión de los resultados en el sistema clásico. El detalle consiste en qué después de realizar la medición, es necesario realizar la lectura de los datos en el sistema clásico. Por esta razón, el operador difuso, se le aplica al sistema ancilla para representar la confusión en los resultados. El estado posterior a la medición está representado por la proyección de estado inicial $\rho$ a los posibles espacios propios del observable. El instrumento cuántico para esta segunda perspectiva es\begin{equation}\label{eq:segundo-instrumento-ciuantico}
+        \mathcal{I}_2(\rho)=\sum_i\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\tensor P_{a_j,b_k}\rho P_{a_j,b_k}^\dagger
+    \end{equation} 
+    
+
+    Para la tercera alternativa se considera una interpretación de la medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
 
+    Sea $L$ el conjunto de pares ordenados $(i,l)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus operadores  cumplen con la característica $P_{a_i b_l}\ne P_{b_l, a_i}$ además de ser ortogonales. Ahora, se introduce un nuevo operador de proyección dado po,  \[P^{L}_{a_i,b_l}=|a_i b_l\rala a_i b_l|+|b_l a_i\rala b_l a_i|=P_{a_i,b_l}+P_{b_l,a_i}.\]El operador $P^L_{a_i,b_l}$ se interpreta como la falta de conocimiento si el estado se encuentra en el espacios de los operadores $P_{a_i,b_l}$ o en $P_{b_l, a_i}$. 
 
+    De igual forma, sea $K$ el conjunto de pares ordenados $(j,k)$ de los índices de valores propios tales que su primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$.  El operador de proyección asociado a los valores propios indexados por los elementos del conjunto $K$ es tal que \[P^{K}_{a_j,b_k}=|a_j b_k\rala a_j b_k|=|b_k a_j \rala b_k a_j |.\] Luego, con una probabilidad $q$ se tiene que la descripción sería \[\sum_{m,n} P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n},\] y con una probabilidad $(1-q)$ es \[\sum_{(j,k)\in K} P_{a_j, b_k}\otimes  P^{K}_{a_j,b_k}\rho P^K_{a_j,b_k}+\sum_{(i,l) \in L}P_{a_i b_l} \otimes  \dfrac{1}{2}P^{L}_{a_i,b_l}\rho P^L_{a_i,b_l}.\]
 
-
-
-
-
+     Entonces, este instrumento es la suma convexa de las posibilidades de realizar una medición ideal o la posibilidad de obtener una medición en la que no es posible diferenciar en qué estado se encuentra el sistema después de la medición\begin{equation}
+        \begin{split}
+            \mathcal{I}_3(\rho)&=q\sum_{m,n}  P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n}\\
+            &+(1-q)\left[\sum_{(j,k)\in K}P_{a_j,b_k} \otimes P^{K}_{a_j,b_k}\rho P^{K}_{a_j,b_k}+\sum_{(i,l) \in L}P_{a_i,b_l} \otimes  \dfrac{1}{2}P^{L}_{a_i,b_l}\rho P^L_{a_i,b_l}\right].\\
+        \end{split}
+    \end{equation}El factor $\frac{1}{2}$ en la última suma es la probabilidad con la que el sistema clásico indica que el sistema está en $P_{a_i b_l}$ o en $P_{b_l,a_i}$. 
+    
 
 
 

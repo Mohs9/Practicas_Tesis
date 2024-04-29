@@ -366,8 +366,8 @@ estado cuántico. El mapeo es de la forma
 \end{split}\end{equation} donde $\mathcal{B(H)}$ denota el conjunto de operadores de densidad en algún espacio de Hilbert $\mathcal{H}$. 
 Este proceso constituye el mapeo de resultados o la función de
 distribución de probabilidad necesaria para la especificación de las mediciones
-difusas. \cpnote{Normalmente reservamos la $\mathcal{H}$ para espacios de Hilbert. Checa
-a ver que otra notacion usa la gente} \rrnote{ Lo cambié por como lo vi en algunos libros y en internet. }
+difusas.\cpnote{Normalmente reservamos la $\mathcal{H}$ para espacios de Hilbert. Checa
+a ver que otra notación usa la gente} \rrnote{ Lo cambié por como lo vi en algunos libros y en internet. }
 
 % \rrnote{Esqueleto: Explicar la relación de los operadores de Kraus y con las
 % medidas POVM\@. Para describir una medida difusa también se necesita el estado
@@ -443,19 +443,17 @@ instrumento cuántico. Se explica la función de ellos además de detallar en c�
 se calcula el valor esperado del instrumento y la razón de emplearlos. Además
 se especifican las dos alternativas que se usan.}
 \cpnote{Dices que se especifican las dos alternativas que vas a usar, pero finalmente
-no lo pones.}
+no lo pones.}\rrnote{ Sí, lo siento esa parte la borré por error, pero ya la agregué y en realidad son tres alternativas}
 
-Una forma útil de aproximarse a describir completamente las mediciones difusas
+
+
+
+Un \textit{instrumento cuántico} es una representación matemática que integra  los conceptos de medición y operación cuántica, registrando tanto la información clásica como la cuántica. Esta herramienta es útil para aproximarse a describir completamente las mediciones de forma resumida y sin necesidad de considerar mediciones selectivas, siendo especialmente útil para trabajar con mediciones difusas. En esta sección se detalla algunas de sus características más importantes en la especificación de las mediciones difusas, además del cálculo para obtener su valor esperado.  Adicionalmente, se presentan tres alternativas de instrumentos cuánticos que representan distintas interpretaciones para la especificación entera de mediciones difusas.
+
 \cpnote{Creo qeu se da la impresion que los instrumentos cuánticos son utiles
 solo para mediciones difusas, pero no es asi. Quizá convenga reformular esta
-frase (y otra mas adelante de este párrafo)}
-es considerar una herramienta conocida como \textit{instrumento cuántico}, el
-cual es un mapeo que toma un operador de entrada y tiene como salida un
-ensamble que correlaciona un sistema clásico, que contiene la salida de la
-medición y un sistema cuántico, que contiene el estado posterior a la medición.
-Esto es muy conveniente debido a que es una forma resumida de caracterizar
-totalmente la medición difusa y no es necesario considerar mediciones
-selectivas. 
+frase (y otra mas adelante de este párrafo)}\rrnote{Reformulé el párrafo anterior}
+
 
 
 \rrnote{Esqueleto: En este párrafo simplemente se explica qué es un instrumento
@@ -465,7 +463,7 @@ $\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador
 de densidad $\rho$ es un canal cuántico, que presenta una salida clásica y
 cuántica. }
 
-Un instrumento cuántico se define de la siguiente manera.\begin{definition}[\textbf{Instrumento Cuántico}] Un instrumento cuántico se compone  de una base ortonormal $\{|\alpha\rala \alpha |\}$. Además, incluye al conjunto de mapeos completamente positivos que preservan la traza $\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador de densidad $\rho$, es el siguiente canal cuántico, que presenta una salida clásica y cuántica:\begin{equation}
+Un instrumento cuántico se define de la siguiente manera {\cite{wilde2011classical}}.\begin{definition}[\textbf{Instrumento Cuántico}] Es un mapeo que toma un operador de entrada y tiene como salida un ensamble que correlaciona un sistema clásico, que contiene la salida de la medición y un sistema cuántico, que contiene el estado posterior a la medición.  Sea $\{|\alpha\rangle \}$ la base ortonormal para un espacio de Hilbert $\mathcal{H}_{\alpha}$. Además, sea $\{\E_\alpha(\rho)\}$ el conjunto de mapeos completamente positivos que preservan la traza. La acción de un instrumento cuántico sobre un operador de densidad $\rho$, es el siguiente canal cuántico, que presenta una salida clásica y cuántica:\begin{equation}
     \begin{split}
         \mathcal{I}: \mathcal{B(H)}\rightarrow\mathcal{B(H)}_{\text{cl}}\otimes \mathcal{B(H)}_{\text{qu}},\\
     \mathcal{I}(\rho)=\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho).

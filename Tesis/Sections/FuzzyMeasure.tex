@@ -346,10 +346,7 @@ posterior no puede ser determinado por la simple proyección a los espacios
 propios del observable que se desea medir.
 
 %\cpnote{Cual es la utilidad? porque aca?
- \rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas
-particularmente, son útiles porque con ellas es posible realizar el mapeo de
-probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos
-toca hablar de este punto. Preparate y me dices cuando hablamos} 
+ %\rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas  particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
 
 % \rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las
 % medidas POVM\@. Explicar que la medidas POVM son útiles porque con ellas es
@@ -465,10 +462,9 @@ correlaciona un sistema clásico, que contiene la salida de la medición y un
 sistema cuántico, que contiene el estado posterior a la medición.  Sea
 $\{|\alpha\rangle \}$ la base ortonormal para un espacio de Hilbert
 $\mathcal{H}_{\alpha}$. Además, sea $\{\E_\alpha(\rho)\}$ el conjunto de mapeos
-completamente positivos que preservan la traza. La acción de un instrumento
-cuántico sobre un operador de densidad $\rho$, es el siguiente canal cuántico,
-que presenta una salida clásica y cuántica: \cpnote{Esta rara la frase ``La accion es
-el siguiente canal cuantico'', arregla}
+completamente positivos que preservan la traza. El instrumento
+cuántico que actúa sobre un operador de densidad $\rho \in \mathcal{B(H)}$, es el siguiente canal cuántico: \cpnote{Esta rara la frase ``La accion es
+el siguiente canal cuantico'', arregla}\rrnote{ cambié esa frase.}
 \begin{equation}
     \begin{split}
         \mathcal{I}: \mathcal{B(H)}\rightarrow\mathcal{B(H)}_{\text{cl}}\otimes \mathcal{B(H)}_{\text{qu}},\\
@@ -496,25 +492,23 @@ clásica de la medición $\alpha$.
 Esta nueva herramienta vincula los estados directamente a los resultados de la
 medición. Por esta razón, ya no es necesario considerar mediciones selectivas,
 explícitamente.  Es importante destacar que, en principio, se puede obtener el
-mapeo de resultados realizando la traza parcial sobre el sistema cuántico. De
+mapeo de resultados trazando parcialmente sobre el sistema cuántico. De
 esta manera, se obtiene el operador que modela la salida de la medición y su
 respectiva probabilidad 
 \begin{equation}
     \begin{split}
     \tr_{\text{qu}}(\mathcal{I}(\rho))&=\tr_{\text{qu}}(\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
-    &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)).
+    &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)),
 \end{split}
-\end{equation}
-\cpnote{que es la qu en la traza? Creo qeu no lo has definido. lo mismo para la otra ecuacion. }
-Por otro lado, al trazar parcialmente sobre el sistema clásico se obtendrán
-las operaciones completamente positivas que preservan la traza para mediciones
-no selectivas
+\end{equation}siendo $\tr_{\text{qu}}=(\mathcal{I}(\rho))$ el operador de densidad reducido para el sistema clásico. 
+\cpnote{que es la qu en la traza? Creo qeu no lo has definido.lo mismo para la otra ecuacion. }\rrnote{ ya lo explicité mejor.}
+Por otro lado, con el operador de densidad reducido para el sistema cuántico $\tr_{\text{cl}}(\mathcal{I}(\rho))$, se obtienen las operaciones completamente positivas que preservan la traza para mediciones no selectivas
 \begin{equation}
     \begin{split}
         \tr_{\text{cl}}(\mathcal{I}(\rho))&=\tr_{\text{cl}} (\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho))\\
         &=\sum_\alpha \tr(|\alpha\rala\alpha|)\E_\alpha(\rho).
     \end{split}
-\end{equation}Teniendo en cuenta esto, se puede apreciar que la utilidad de los instrumentos cuánticos radica en que una medición difusa se puede describir enteramente de forma sucinta. 
+\end{equation} Teniendo en cuenta esto, se puede apreciar que la utilidad de los instrumentos cuánticos radica en que una medición difusa se puede describir enteramente de forma sucinta. 
 
 % \rrnote{Esqueleto: Con base en lo anterior, me gustaria decir por qué es util
 % hablar del valor esperado de los instrumentos cuánticos. Dado que con los
@@ -523,7 +517,7 @@ no selectivas
 % ellos.} 
 
 Debido a que con los instrumentos cuánticos se puede obtener un mapeo de
-resultados, vale la pena considerar una medida de central que caracterice el
+resultados, vale la pena considerar una medida de tendencia central que caracterice el
 mapeo que se obtiene con ellos. Esta medida es obviamente el valor esperado,
 sin embargo calcularlo para un instrumento cuántico es un poco más general que
 la ecuación {\eqref{eq:expected-value-fm-general}}, puesto que el instrumento
@@ -606,7 +600,7 @@ donde $P_{a_j,b_k}$ son lo operadores de proyección del observable.
     Para la tercera alternativa se considera una interpretación de la medición difusa diferente a las dos anteriores. En esta alternativa se asume que con una probabilidad $q$ se realiza una medida proyectiva ideal, pero con una probabilidad $(1-q)$ se realiza una medición en la que no es posible distinguir entre los posibles estados.
 
 
-    Sea $L$ el conjunto de pares ordenados $(i,l)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus operadores  cumplen con la característica $P_{a_i b_l}\ne P_{b_l, a_i}$ además de ser ortogonales. Ahora, se introduce un nuevo operador de proyección dado po,  \[P^{L}_{a_i,b_l}=|a_i b_l\rala a_i b_l|+|b_l a_i\rala b_l a_i|=P_{a_i,b_l}+P_{b_l,a_i}.\]El operador $P^L_{a_i,b_l}$ se interpreta como la falta de conocimiento si el estado se encuentra en el espacios de los operadores $P_{a_i,b_l}$ o en $P_{b_l, a_i}$. 
+    Sea $L$ el conjunto de pares ordenados $(i,l)$ de índices de  valores propios tales que el primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$. Sus operadores  cumplen con la característica $P_{a_i b_l}\ne P_{b_l, a_i}$ además de ser ortogonales. Ahora, se introduce un nuevo operador de proyección dado por,  \[P^{L}_{a_i,b_l}=|a_i b_l\rala a_i b_l|+|b_l a_i\rala b_l a_i|=P_{a_i,b_l}+P_{b_l,a_i}.\]El operador $P^L_{a_i,b_l}$ se interpreta como la falta de conocimiento si el estado se encuentra en el espacios de los operadores $P_{a_i,b_l}$ o en $P_{b_l, a_i}$. 
 
     De igual forma, sea $K$ el conjunto de pares ordenados $(j,k)$ de los índices de valores propios tales que su primer índice indica un valor propio del operador $A$ y el segundo índice indica algún valor propio del operador $B$.  El operador de proyección asociado a los valores propios indexados por los elementos del conjunto $K$ es tal que \[P^{K}_{a_j,b_k}=|a_j b_k\rala a_j b_k|=|b_k a_j \rala b_k a_j |.\] Luego, con una probabilidad $q$ se tiene que la descripción sería \[\sum_{m,n} P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n},\] y con una probabilidad $(1-q)$ es \[\sum_{(j,k)\in K} P_{a_j, b_k}\otimes  P^{K}_{a_j,b_k}\rho P^K_{a_j,b_k}+\sum_{(i,l) \in L}P_{a_i b_l} \otimes  \dfrac{1}{2}P^{L}_{a_i,b_l}\rho P^L_{a_i,b_l}.\]
 

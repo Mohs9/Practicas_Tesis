@@ -1,8 +1,8 @@
 \chapter[MEDICIONES DIFUSAS ]{2. MEDICIONES DIFUSAS}
 \section{Introducción} % Intro {{{
- En este capítulo se presentan las mediciones difusas de sistemas cuánticos las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente. Estas detecciones imperfectas se exponen en la referencia {\cite{Pineda_2021}}. %También se utiliza el lenguaje de las operaciones cuánticas por medio de los operadores de Kraus para poder describir las mediciones en los sistemas cuánticos de dos partículas.
+    En este capítulo se presentan las mediciones de sistemas cuánticos en las que se pueden identificar partículas individuales, sin embargo siempre hay una probabilidad de identificarlas erróneamente.  Adicionalmente, se explica detalladamente las herramientas que se utilizarán a lo largo de este trabajo para abordar la cuantificación de la información de estas mediciones difusas.
 
-La estructura de este capítulo se presenta a continuación. En la primera sección se exponen las mediciones no ideales y un ejemplo. En la siguiente sección se establece el problema de las mediciones difusas para un sistema cuántico. 
+    La estructura de este capítulo se presenta a continuación. En la sección {\ref{sec:cap2MedicionesNoIdeales}} se exponen las mediciones no ideales y un ejemplo de una medición imperfecta. El problema de las mediciones difusas para un sistema cuántico se establece en la sección {\ref{sec:Cap2MedicionesDifusas}}. En esa misma sección, se introduce una operación cuántica, llamada \textit{operación difusa} y se profundiza en el concepto de valores esperados en mediciones difusas, el cual motiva la definición de esta operación. En la sección {\ref{sec:Cap2POVM_Kraus_mediciones_difusas}} se discute la aplicación de las mediciones POVM y de los operadores de Kraus específicamente para mediciones difusas. En  la sección {\ref{sec:cap2instrumentos-cuanticos}} se expone el concepto de instrumento cuántico, el cual es una operación cuántica que determina una evolución más extensa, al combinar las salidas de un sistema clásico y uno cuántico. Además,  se presentan algunas instrumentos cuánticos con distintas interpretaciones para mediciones difusas.
 %Luego, en la tercera sección, se discutirán algunos conjuntos de operadores de Kraus que describan los efectos de las mediciones en el estado de entrada del sistema para dos partículas y que proporcionen la probabilidad de cada resultado posible en la medición para cualquier estado inicial.  Además se exponen dos instrumentos cuánticos, los cuales son una herramienta conveniente para describir completamente un medición difusa sintetizadamente. Finalmente, en la cuarta sección se presentan algunos ejemplos de las mediciones y su descripción utilizando los operadores en la tercera sección.
 
 % }}}
@@ -448,12 +448,7 @@ cálculo para obtener su valor esperado.  Adicionalmente, se presentan tres
 alternativas de instrumentos cuánticos que representan distintas
 interpretaciones para la especificación entera de mediciones difusas.
 
-\rrnote{Esqueleto: En este párrafo simplemente se explica qué es un instrumento
-cuántico. Un instrumento cuántico se compone  de una base ortonormal
-$\{|\alpha\rala \alpha |\}$ e incluye al conjunto de mapeos
-$\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador
-de densidad $\rho$ es un canal cuántico, que presenta una salida clásica y
-cuántica. }
+%\rrnote{Esqueleto: En este párrafo simplemente se explica qué es un instrumento cuántico. Un instrumento cuántico se compone  de una base ortonormal $\{|\alpha\rala \alpha |\}$ e incluye al conjunto de mapeos $\{\E_\alpha(\rho)\}$. La acción de un instrumento cuántico sobre un operador de densidad $\rho$ es un canal cuántico, que presenta una salida clásica y cuántica. }
 
 Un instrumento cuántico se define de la siguiente manera
 {\cite{wilde2011classical}}.\begin{definition}[\textbf{Instrumento Cuántico}]

@@ -1,37 +1,100 @@
 \chapter[RESULTADOS PARA N PARTÍCULAS]{3. Resultados para \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
 \section{ Introducción}
 
+\rrnote{Esqueleto: Intro: En los capítulos anteriores se estableció un base conceptual para realiza un análisis de las mediciones difusas. En este capítulo se utilizará este marco para realizar la descripción completa de las mediciones difusas en sistemas cuánticos.}
 
 
 
-
-\section{Sistemas de dos partículas} % {{{
+\section{Mediciones difusas en sistemas de dos partículas} % {{{
 % }}}
 % }}}
-\rrnote{ En esta sección exponer los resultados ya trabajados y explorar más opciones. Primero especificar condiciones del sistema de dos partículas y de los observables.}
+\rrnote{Esqueleto: En esta sección exponer los resultados ya trabajados y explorar más opciones. Primero especificar condiciones del sistema de dos partículas y de los observables. Inicialmente, el estado del sistema es $\rho=\rho_1\otimes \rho_2$, donde $\rho_1 \in  \mathcal{H}_1$ y $\rho_2\in \mathcal{H}_2$,  en las que se quiere realizar la medición de un observable $A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}$, donde $A$ y $B$ son ambos de dimensión $d$.}
 
-\rrnote{Incluir imágenes de algún ejemplo de una medición difusa en un sistema específico.  Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
+\rrnote{Esqueleto:Incluir imágenes de algún ejemplo de una medición difusa en un sistema.  Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
-\subsection{POVM para mediciones difusas para dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
+\subsection{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
+    
+\rrnote{Partiendo del valor esperado para dos particulas, se realiza una implementación de los operadores de Kraus. Recordando la ecuación que se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades$E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}))$. Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo se puede asumir que $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$}
 
-\rrnote{Detallar algunas implementaciones}
 
-
-\rrnote{Agregar más de una implentación de efectos en esta sección (?)}
 
 \subsection{Instrumentos cuánticos para dos partículas}
 
-
+\rrnote{Esqueleto:Intro: En este apartado se busca hacer un análisis sobre las formulaciones de las alternativas de los instrumentos presentadas en la sección {\ref{sec:cap2instrumentos-cuanticos}}. Se obtiene el sistema clásico y cuántico para comparar las descripciones que proporcionan. Se verificar que las dos primeras alternativas cumplan con la condición necesaria para verificar que tengan  la misma distribución de probabilidad, con el valor esperado. Además de analizar el tercer instrumento y compararlo con el primero}
 
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
 
+
+\rrnote{Esqueleto: Se revisita la primera alternativa de los intrumentos cuánticos, en sistemas simples de dos partículas y con observables factorizables. En esta parte se  aplica la traza parcial sobre el sistema cuántico y el clásico para realizar el análisis del instrumento. Se calcula su valor esperado para saber si cumple con la ecuación del valor esperado}
+
+\rrnote{Esqueleto:Para una medida no selectiva el mapea de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico. Se calcula esta traza parcial. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva. }
+
+
+\rrnote{Esqueleto:  Mientras que el estado posterior se obtiene realizando la traza parcial sobre el sistema clásico. Se realiza el desarrollo }
+
+\rrnote{Esqueleto: Por otro lado, se calcula el valor esperado del primer instrumento y se compara con el valor esperado original de la medición difusa  }
+
+
+
 \subsubsection{Segunda alternativa de instrumento cuántico}
 
+\rrnote{Esqueleto:Después de haber hecho el cálculo para el valor esperado del primer instrumento, el siguiente es el caso en el que se supone que el error ocurre en la lectura de los resultados y se desarrolla el segundo instrumento para un sistema de dos partículas.}
+
+\rrnote{Esqueleto: Se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva es el siguiente. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva. Se interpretan los resultados comparando con los obtenidos con el primer instruemento.}
+
+\rrnote{Esqueleto: En el contexto de esta interpretación, se calcula el valor esperado de esta alternativa.}
+
+
+
+\subsubsection{Tercera alternativa}
+
+\rrnote{Esqueleto:De igual forma que en los otros instruementos se desarrolla el calculo de la traza parcial para obtener el mapeo de resultados y el operador de densidad para el sistema cuántico.  Se interpretan los resultados comparando con los obtenidos con el primer instruemento y segundo instrumento.}
+
+\rrnote{Esqueleto:Finalmente, se calcula el valor esperado de este último instrumento cuántico. }
+
+
+
 \subsection{Equivalencia de los instrumentos}
-\rrnote{Idea principal: En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
+\rrnote{Esqueleto: Se hace una comparación entre los instrumentos anteriores y se expone por qué resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
+
+\rrnote{Esqueleto: Se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos instrumentos y su demostración.}
 
 
-\subsection{Ejemplos sobre los efectos de una medición difusa} % {{{
+
+\rrnote{Esqueleto: Se hace una comparación con los valores esperados del primer y tercer instrumento para precisar en que condiciones estos son equivalentes. }
+
+
+
+
+
+\subsection{Ejemplos sobre una medición difusa utilizando distintas herramientas} % {{{
+
+\rrnote{Esqueleto: Describir algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos particulas. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
+    1/6&1/6&0&0\\
+    1/6&1/6&0&0\\
+    0&0&1/3&1/3\\
+    0&0&1/3&1/3\\
+\end{pmatrix}.\] }
+
+\subsubsection{Ejemplo utilizando las mediciones POVM y los operadores de Kraus}
+
+\rrnote{Esqueleto: Previamente se graficó el mapeo de probabilidades de obtener los valores propios del observables, los cuales son $1$ y $-1$. Realizar este mapeo con los efectos discutidos}
+
+\rrnote{Esqueleto: ilustrar de sitinta forma las probabilidades del observable $\sigma_z\otimes \sigma_x$, cuando se realiza una medición difusa con una probabilidad $p=0.25$. En el eje $x$ se encuentran los valores propios del observable $\sigma_z$ y en el eje $y$ se ilustran los valores propios del observable $\sigma_x$ y en el eje $z$ las probabilidades de obtener las  salidas $a_1 b_1=(1)(1)$, $a_1 b_2=(1)(-1)$ $a_2 b_1=(-1)(1)$, $a_2 b_2=(-1)(-1)$}
+
+\rrnote{Esqueleto: Ilustrar uno de los operadores de Kraus si se obtiene la salida  $a_1=1$ y  $b_{1}=1$, el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \]Representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
+\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] }
+
+\rrnote{Esqueleto colocar como se vería el estado posterior matricialmente.}
+
+\subsubsection{Ejemplo utilizando los instrumentos cuánticos}
+
+\rrnote{Esqueleto: Utilizando el mismo estado inicial del sistema y el mismo observable del ejemplo anterior se utiliza para describir de manera detallada el instrumento cuántico y cómo se utiliza para la medición difusa en este sistema. Además se obtiene el mapeo de resultados y el canal cuántico luego de la medición. } 
+
+
+\rrnote{Esqueleto: Análogamente se realiza este procedimiento con el instrumento dos y tres. Calculo el mapeo de resultados y el canal cuántico luego de la medición con las trazas parciales . }
+
+
 
 
 

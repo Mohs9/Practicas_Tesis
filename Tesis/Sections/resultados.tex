@@ -1,4 +1,4 @@
-\chapter[RESULTADOS PARA N PARTÍCULAS]{3. Resultados para \texorpdfstring{\boldmath{$N$}}{N} PARTÍCULAS}
+\chapter[RESULTADOS]{3. Resultados}
 \section{ Introducción}
 
 \rrnote{Esqueleto: Intro: En los capítulos anteriores se estableció un base conceptual para realiza un análisis de las mediciones difusas. En este capítulo se utilizará este marco para realizar la descripción completa de las mediciones difusas en sistemas cuánticos.}
@@ -10,17 +10,45 @@
 % }}}
 \rrnote{Esqueleto: En esta sección exponer los resultados ya trabajados y explorar más opciones. Primero especificar condiciones del sistema de dos partículas y de los observables. Inicialmente, el estado del sistema es $\rho=\rho_1\otimes \rho_2$, donde $\rho_1 \in  \mathcal{H}_1$ y $\rho_2\in \mathcal{H}_2$,  en las que se quiere realizar la medición de un observable $A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}$, donde $A$ y $B$ son ambos de dimensión $d$.}
 
+
+Las mediciones difusas solo cobran sentido en un sistema compuesto por dos o más partículas, razón por la cual el sistema más básico para comenzar a analizar una medición difusa es aquel conformado únicamente por dos partículas. Inicialmente, el estado del sistema es \[\rho=\rho_1\otimes \rho_2,\] donde $\rho_1 \in  \mathcal{H}_1$ y $\rho_2\in \mathcal{H}_2$,  en ellos se quiere realizar la medición de un observable factorizable \[A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}=\sum_{j,k}a_j b_k P_{a_j}\otimes P_{b_k},\] siendo $P_{a_j}$ y $P_{b_k}$ los operadores de proyección que corresponden al valor propio $a_j$ del observable $A$ y el valor propio $b_k$ de $B$ respectivamente, ambos de dimensión $d$. Sin embargo, la medición realizada es difusa y siguiendo con la definición {\ref{def:medicion-difusa}}, la probabilidad que se realice la medición del observable $B\otimes A$ no es cero, sino $1-p$ y la posibilidad de realizar una medición ideal en el sistema  es $p$. 
+
 \rrnote{Esqueleto:Incluir imágenes de algún ejemplo de una medición difusa en un sistema.  Con algún diagrama de cajas en las que se realiza una medición del observable particular. Comparar  una medición ideal en un sistema de dos partículas. Luego, en una segunda imagen agregar un diagrama que represente la matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
+En la siguiente imagen se ilustra un esquema de medición del observable $\sigma_z\otimes \sigma_x$ en la que debido a ruido del entorno, existe una posibilidad de realizar la medición errónea y en su lugar medir el observable $\sigma_x\otimes \sigma_z$\input{../Images/circuitoprueba.tex}
 \subsection{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
-    
+ 
+
+
 \rrnote{Partiendo del valor esperado para dos particulas, se realiza una implementación de los operadores de Kraus. Recordando la ecuación que se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades$E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}))$. Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo se puede asumir que $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$}
+
+
+Como se mencionó en el capítulo anterior una forma de aproximarse a la describir enteramente estas mediciones es utilizando conjuntamente las medidas POVM y los operadores de Kraus. Recordando la ecuación {\eqref{eq:ordenar-valoresperado-povm}} se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$, donde $P_{a_j,b_k}$ son los operadores de proyección del observable, correspondiente al valor propio ${a_j b_k}$. Estos efectos proporcionan el mapeo de probabilidades\begin{equation}\label{eq:mapeo-probabilidades-2p}
+    E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})).
+    \end{equation} Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo se puede asumir que
+    $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$. Luego de introducir los operadores de Kraus el
+    estado de la medición es posterior a la medición POVM será
+    \begin{equation}\label{eq:estado-posterior-povm1-2p}\begin{split}\rho'_{a_j,b_k}&=\dfrac{K_{a_j,b_k} \rho
+    K_{a_j,b_k}^\dagger}{\tr(K_{a_j,b_k}^\dagger K_{a_j,b_k} \rho)}\\
+    &=\dfrac{\sqrt{\mathcal{F}_{2\text{p}}(P_{a_j,b_k})} \rho
+    \sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}}{\tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}) \rho)}\\
+    &=\dfrac{\sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}\rho\sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}}{\tr((p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger) \rho)}\\
+    &=\dfrac{\sqrt{p P_{a_j,b_k}+(1-p)P_{b_k,a_j}}\rho\sqrt{p P_{a_j,b_k}+(1-p)P_{b_k,a_j}}}{\tr((p P_{a_j,b_k}+(1-p)P_{b_k,a_j}) \rho)}.
+    \end{split}\end{equation}La descomposición en operadores de Kraus
+    no es única. Como se mencionó anteriormente, cuando se realiza una medición, lo que pasa con el estado exactamente depende en como los POVM son implementados en el laboratorio.
+
+
+
 
 
 
 \subsection{Instrumentos cuánticos para dos partículas}
 
 \rrnote{Esqueleto:Intro: En este apartado se busca hacer un análisis sobre las formulaciones de las alternativas de los instrumentos presentadas en la sección {\ref{sec:cap2instrumentos-cuanticos}}. Se obtiene el sistema clásico y cuántico para comparar las descripciones que proporcionan. Se verificar que las dos primeras alternativas cumplan con la condición necesaria para verificar que tengan  la misma distribución de probabilidad, con el valor esperado. Además de analizar el tercer instrumento y compararlo con el primero}
+
+En este apartado se busca hacer un análisis sobre las formulaciones de las tres alternativas de los instrumentos presentadas en la sección {\ref{sec:cap2instrumentos-cuanticos}}. En éste, se obtiene el sistema clásico y cuántico para comparar las descripciones que proporcionan. Para una plena especificación de las mediciones difusas, las interpretaciones son intuitivamente equivalentes. Sin embargo, es indispensable verificar que las dos proporcionen el mismo mapeo de resultados. En principio, una condición necesaria para corroborar que tengan la misma distribución de probabilidad es que el valor esperado de los instrumentos genere el mismo resultado que el de la ecuación {\eqref{eq:Expected-Value-FM-2p}}. 
+
+
 
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
 
@@ -236,7 +264,7 @@ $(\Leftarrow)$ Suponiendo que se cumple que \[ \left\langle\lambda_j\left|\permu
 
 %Para observables, de dimensión $d^N$ los cuales no pueden escribirse como un producto tensorial de $N$ observables, es decir que si $\mathcal{O}$ es un observable no factorizable no puede escribirse como $\prodtensor A_i$. Sin embargo siempre es posible escribirlo como una combinación lineal de los operadores de la base.  
 
-\section{Observables no factorizables en mediciones difusas}
+
 
 
 \section{Casos particulares de mediciones difusas}

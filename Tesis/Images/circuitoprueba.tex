@@ -1,0 +1,66 @@
+
+\begin{figure}[H]
+    \centering
+    
+  \begin{subfigure}{1\textwidth}
+    \centering
+    \resizebox{10cm}{!}{\begin{quantikz}[font=\small, row sep=0.3cm,column sep=0.4cm]%
+    \lstick{$\rho_1$}& \qw& \qw& \qw& \gate[wires=3,style={
+    starburst,fill=yellow,draw=red,line width=2pt,inner
+    xsep=-2pt,inner ysep=-5pt},label style=blue]{\text{
+    noise}} & \qw& \qw& \qw& \meter[style={draw=blue}]{$\sigma_z$} \vcwdouble{1-9}{5-9}{1}&\qw&\qw&\qw\rstick[wires=3]{}&\\
+    &&&&&&&&&&&&\rstick{$p \sigma_z \tensor \sigma_x+$  $(1-p)\sigma_x \tensor \sigma_z$}\\
+    \lstick{$\rho_2$} & \qw&\qw&\qw& \qw& \qw& \qw& \qw& \qw&\qw&\meter[style={draw=blue}]{$\sigma_x$}\vcwdouble{3-11}{5-11}{-1}\qw&\qw&\\
+    &&&&&&&&&&&&\\
+    \lstick{cl}& \cw& \cw& \cw& \cw& \cw& \cw& \cw&\cw&\cw&\cw&\cw&\cw\\
+  \end{quantikz}}
+\hfill
+\caption{}
+\end{subfigure}
+\hfill
+
+\begin{subfigure}{0.4\textwidth}
+  \begin{flushleft}
+    \resizebox{6cm}{!}{
+      \begin{quantikz}[font=\small,row sep=0.3cm,column sep=0.4cm]%
+      \lstick{$\rho_{1}$}&   \qw& \qw& \meter[style={draw=blue}]{$\sigma_z$} \vcwdouble{1-4}{4-4}{1}&\qw &\qw&\qw\rstick[wires=2]{$p \sigma_z \tensor \sigma_x$}&\\[0.1cm]
+      \lstick{$\rho_2$} &  \qw& \qw& \qw& \qw&\meter[style={draw=blue}]{$\sigma_x$}\vcwdouble{2-6}{4-6}{-1}&\qw& \\[0.1cm]
+      &&&&&&&\\
+      \lstick{cl}& \cw&  \cw&\cw&\cw&\cw&\cw&\\
+    \end{quantikz}}
+    \hfill
+  \caption{}
+  \end{flushleft}
+   
+\end{subfigure}
+
+
+%  \begin{subfigure}[a]{0.5\textwidth}
+ % \centering
+  %\resizebox{6cm}{!}{
+   % \begin{quantikz}[scale=1, row sep=0.3cm,column sep=0.4cm]%
+    %\lstick{$\rho_{1}$}&  \qw& \qw& \qw& \qw& \qw&\qw\rstick[wires=3]{}\\ \\
+    %&&&&&&& |[meter]| \vcwdouble{2-8}{5-8}{a_jb_k}\rstick{$A \tensor B$} \\
+    %\lstick{$\rho_2$} & \qw& \qw& \qw& \qw& \qw&\qw&\\
+    %\meter[style={draw=blue}]{B}\vcwdouble{2-11}{4-11}{b_k} \\
+  %  & & && &&&\\
+   % \lstick{cl}&  \cw& \cw& \cw& \cw&\cw&\cw&\cw\\
+  %\end{quantikz}}
+  %\hfill
+%\caption{}
+%\end{subfigure}
+
+\begin{subfigure}{0.4\textwidth}
+  \centering
+\resizebox{7.5cm}{!}{
+\begin{quantikz}[font=\small,scale=1, row sep=0.3cm,column sep=0.4cm]%
+  \lstick{$\rho_1$}&\qw& \gate[swap]{} & \qw&  \meter[style={draw=blue}]{$\sigma_z$} \vcwdouble{1-5}{4-5}{ 1}&\qw&\qw&\qw\rstick[wires=2]{$(1-p)\sigma_x \tensor \sigma_x$}& \\
+  \lstick{$\rho_2$} & \qw& \qw& \qw& \qw& \qw&\meter[style={draw=blue}]{$\sigma_x$}\vcwdouble{2-7}{4-7}{-1}&\qw& \\
+  & &&&&&&&\\
+  \lstick{cl}& \cw& \cw& \cw&\cw&\cw&\cw&\cw&\\
+\end{quantikz}}
+\hfill
+\caption{}
+\end{subfigure}
+\caption{\textbf{(a)} En la primera imagen se ilustran un estado inicial $\rho_1\otimes \rho_2$, sin embargo el entorno no es ideal y es posible que ocurra una identificación errónea.\textbf{ (b)} En esta imagen se ilustra que con una probabilidad $p$ la identificación del sistema sea correcta y se realice la medición del observable $\sigma_z\tensor \sigma_x$.\textbf{ (c)} La imagen muestra que debido al ruido del entorno, las partículas experimentan un intercambio y con una probabilidad $(1-p)$ se realiza la medición del observable $\sigma_x\otimes \sigma_z$ }\label{diagrama-cajas}\source{elaboración propia}
+\end{figure}

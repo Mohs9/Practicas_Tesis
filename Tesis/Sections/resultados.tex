@@ -36,7 +36,7 @@ las dos mediciones que son verosímiles, es decir $p \tr(\sigma_z\otimes \sigma
 )$.\input{../Images/circuitoprueba.tex}
 
 \cpnote{No entiendo el objetivo de esta seccion. Se me hace un poco repetitiva. Pero 
-quizá si hay un buen motivo para ponerla. Cuentame, antes de borrar!!}\rrnote{EN esta sección quería especificar la condiciones en las que se presentan los resultados de las 3.2.1,3.2.2 y 3.2.4. Y quería poner la imagen para ilustrar mejor la idea }
+quizá si hay un buen motivo para ponerla. Cuentame, antes de borrar!!}
 
 % }}}
 \subsection{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
@@ -46,10 +46,9 @@ quizá si hay un buen motivo para ponerla. Cuentame, antes de borrar!!}\rrnote{E
 \rrnote{Partiendo del valor esperado para dos particulas, se realiza una implementación de los operadores de Kraus. Recordando la ecuación que se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades$E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}))$. Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo se puede asumir que $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$}
 
 
-Como se mencionó en el capítulo anterior una forma de aproximarse a la describir enteramente estas mediciones es utilizando conjuntamente las medidas POVM y los operadores de Kraus. Recordando la ecuación {\eqref{eq:ordenar-valoresperado-povm}} se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$, donde $P_{a_j,b_k}$ son los operadores de proyección del observable, correspondiente al valor propio ${a_j b_k}$. Estos efectos proporcionan el mapeo de probabilidades\begin{equation}\label{eq:mapeo-probabilidades-2p}
-    E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})).
-    \end{equation} Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo se puede asumir que
-    $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$. Luego de introducir los operadores de Kraus el
+A continuación se especifica la forma de utilizar las medidas generalizadas conjuntamente con los operadores de Kraus para aproximarse a describir enteramente estas mediciones. En la ecuación {\eqref{eq:ordenar-valoresperado-povm}} se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades\begin{equation}\label{eq:mapeo-probabilidades-2p}
+    E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\rho).
+    \end{equation} Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que los operadores $P_{a_j,b_k }$ y $P_{b_k,a_j}$ son  positivos, entonces  $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es positivo y por tanto se puede considerar los siguientes operadores\[K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}.\] Luego de introducir los operadores de Kraus el
     estado de la medición es posterior a la medición POVM será
     \begin{equation}\label{eq:estado-posterior-povm1-2p}\begin{split}\rho'_{a_j,b_k}&=\dfrac{K_{a_j,b_k} \rho
     K_{a_j,b_k}^\dagger}{\tr(K_{a_j,b_k}^\dagger K_{a_j,b_k} \rho)}\\
@@ -58,8 +57,7 @@ Como se mencionó en el capítulo anterior una forma de aproximarse a la describ
     &=\dfrac{\sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}\rho\sqrt{p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger}}{\tr((p P_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger) \rho)}\\
     &=\dfrac{\sqrt{p P_{a_j,b_k}+(1-p)P_{b_k,a_j}}\rho\sqrt{p P_{a_j,b_k}+(1-p)P_{b_k,a_j}} }{\tr((p P_{a_j,b_k}+(1-p)P_{b_k,a_j}) \rho)}.
     \end{split}\end{equation}La descomposición en operadores de Kraus
-    no es única. Como se mencionó anteriormente, cuando se realiza una medición, lo que pasa con el estado exactamente depende en como los POVM son implementados en el laboratorio.
-
+    no es única. No obstante, el conjunto de operadores $\{K_{a_j,b_k}\}$ es adecuado para ofrecer una explicación detallada de las mediciones difusas, puesto que con ellos se puede obtener tanto el mapeo de probabilidades $\tr(K_{a_j,b_k}K_{a_j,b_k}^\dagger \rho)$, como el estado posterior a la medición $\rho_{a_j,b_k}'$.
 
 
 

@@ -6,24 +6,44 @@
 % }}}
 \section{Mediciones difusas en sistemas de dos partículas} % {{{
 % Intro {{{
-\rrnote{Esqueleto: En esta sección exponer los resultados ya trabajados y 
-explorar más opciones. Primero especificar condiciones del sistema de dos 
-partículas y de los observables. Inicialmente, el estado del sistema es $\rho  
-\in  \mathcal{H}_1\otimes \mathcal{H}_2$,  en las que se quiere realizar la 
-medición de un observable $A\otimes B$, donde $A$ y $B$ son ambos de dimensión 
-$d$.}
+% \rrnote{Esqueleto: En esta sección exponer los resultados ya trabajados y 
+% explorar más opciones. Primero especificar condiciones del sistema de dos 
+% partículas y de los observables. Inicialmente, el estado del sistema es $\rho  
+% \in  \mathcal{H}_1\otimes \mathcal{H}_2$,  en las que se quiere realizar la 
+% medición de un observable $A\otimes B$, donde $A$ y $B$ son ambos de dimensión 
+% $d$.}
 
 
-%Con fines ilustrativos, en este apartado se presentan los resultados principales obtenidos al trabajar con las siguientes condiciones. Inicialmente, el estado del sistema es $\rho  \in \mathcal{H}$ \cpnote{porque un estado factorizable?}\rrnote{agregué que se trebajar con estas condiciones en esta sección.},  en él  se quiere realizar la medición de un observable factorizable \[A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}=\sum_{j,k}a_j b_k P_{a_j}\otimes P_{b_k},\] siendo $P_{a_j}$ y $P_{b_k}$ los operadores de proyección que corresponden al valor propio $a_j$ del observable $A$ y el valor propio $b_k$ de $B$ respectivamente, de dimensión $d\times d$. Sin embargo, la medición realizada es difusa y siguiendo con la definición {\ref{def:medicion-difusa}}, la probabilidad que se realice la medición del observable $B\otimes A$ no es cero, sino $1-p$ y la posibilidad de realizar una medición ideal en el sistema  es $p$. 
-Las mediciones difusas solo cobran sentido en un sistema compuesto por dos o más partículas. Con fines explicativos en el capítulo anterior se comenzó a analizar una medición difusa en el sistema más simple, el cual está conformado únicamente por dos partículas. Antes de ampliar el análisis a sistemas más complejos, con el propósito de acabar de clarificar e ilustrar de manera intuitiva el concepto de medición difusa, en esta sección se presentan los resultados principales y algunos ejemplos obtenidos al trabajar con un sistema que tiene un estado inicial $\rho \in \mathcal{H}_1\otimes \mathcal{H}_2$ y un observable de la forma $A\otimes B$.
+%Con fines ilustrativos, en este apartado se presentan los resultados
+%principales obtenidos al trabajar con las siguientes condiciones.
+%Inicialmente, el estado del sistema es $\rho  \in \mathcal{H}$ \cpnote{porque
+%un estado factorizable?}\rrnote{agregué que se trebajar con estas condiciones
+%en esta sección.},  en él  se quiere realizar la medición de un observable
+%factorizable \[A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}=\sum_{j,k}a_j b_k
+%P_{a_j}\otimes P_{b_k},\] siendo $P_{a_j}$ y $P_{b_k}$ los operadores de
+%proyección que corresponden al valor propio $a_j$ del observable $A$ y el
+%valor propio $b_k$ de $B$ respectivamente, de dimensión $d\times d$. Sin
+%embargo, la medición realizada es difusa y siguiendo con la definición
+%{\ref{def:medicion-difusa}}, la probabilidad que se realice la medición del
+%observable $B\otimes A$ no es cero, sino $1-p$ y la posibilidad de realizar
+%una medición ideal en el sistema  es $p$. 
+Las mediciones difusas solo cobran sentido en un sistema compuesto por dos o
+más partículas. Con fines explicativos en el capítulo anterior se comenzó a
+analizar una medición difusa en el sistema más simple, el cual está conformado
+únicamente por dos partículas. Antes de ampliar el análisis a sistemas más
+complejos, con el propósito de acabar de clarificar e ilustrar de manera
+intuitiva el concepto de medición difusa, en esta sección se presentan los
+resultados principales y algunos ejemplos obtenidos al trabajar con un sistema
+que tiene un estado inicial $\rho \in \mathcal{H}_1\otimes \mathcal{H}_2$ y un
+observable de la forma $A\otimes B$. \par
 
 
 
-\rrnote{Esqueleto:Incluir imágenes de algún ejemplo de una medición difusa en 
-un sistema.  Con algún diagrama de cajas en las que se realiza una medición del 
-observable particular. Comparar  una medición ideal en un sistema de dos 
-partículas. Luego, en una segunda imagen agregar un diagrama que represente la 
-matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
+% \rrnote{Esqueleto:Incluir imágenes de algún ejemplo de una medición difusa en 
+% un sistema.  Con algún diagrama de cajas en las que se realiza una medición del 
+% observable particular. Comparar  una medición ideal en un sistema de dos 
+% partículas. Luego, en una segunda imagen agregar un diagrama que represente la 
+% matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
 En la siguiente imagen se ilustra un esquema de medición del observable
 $\sigma_z\otimes \sigma_x$ en la que debido a ruido del entorno, existe una
@@ -32,18 +52,25 @@ $\sigma_x\otimes \sigma_z$. La salida clásica de los observables es $(1)$  para
 el observable $\sigma _z$ y $(-1)$ para el observable $\sigma_x$. Sin embargo
 su valor esperado será la suma ponderada de los valores esperados de realizar
 las dos mediciones que son verosímiles, es decir $p \tr(\sigma_z\otimes \sigma
-\rho )+ (1-p)\tr(\sigma_x\otimes\sigma_z \rho
-)$.\input{../Images/circuitoprueba.tex}
+\rho )+ (1-p)\tr(\sigma_x\otimes\sigma_z \rho)$.
+\input{../Images/circuitoprueba.tex}
 
-\cpnote{No entiendo el objetivo de esta seccion. Se me hace un poco repetitiva. Pero 
-quizá si hay un buen motivo para ponerla. Cuentame, antes de borrar!!}
+% \cpnote{No entiendo el objetivo de esta seccion. Se me hace un poco repetitiva. Pero 
+% quizá si hay un buen motivo para ponerla. Cuentame, antes de borrar!!}
 
 % }}}
 \subsection{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
  
-
-
-\rrnote{Partiendo del valor esperado para dos particulas, se realiza una implementación de los operadores de Kraus. Recordando la ecuación que se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades$E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}))$. Sin embargo para obtener el estado posterior es a la medición es necesario descomponer estos efectos. Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo se puede asumir que $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$}
+% \rrnote{Partiendo del valor esperado para dos particulas, se realiza una
+% implementación de los operadores de Kraus. Recordando la ecuación que se
+% encontró intuitivamente que los efectos para una medición difusa, son
+% $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el
+% mapeo de probabilidades$E(a_j b_k, \rho)=
+% \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}))$. Sin embargo para obtener el
+% estado posterior es a la medición es necesario descomponer estos efectos.
+% Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo
+% se puede asumir que
+% $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$}
 
 
 A continuación se especifica la forma de utilizar las medidas generalizadas conjuntamente con los operadores de Kraus para aproximarse a describir enteramente estas mediciones. En la ecuación {\eqref{eq:ordenar-valoresperado-povm}} se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades\begin{equation}\label{eq:mapeo-probabilidades-2p}
@@ -61,11 +88,18 @@ A continuación se especifica la forma de utilizar las medidas generalizadas con
 
 
 
-
+\cpnote{Ok}
 % }}}
 \subsection{Instrumentos cuánticos para dos partículas} % {{{
 % Intro subsection {{{
-\rrnote{Esqueleto:Intro: En este apartado se busca hacer un análisis sobre las formulaciones de las alternativas de los instrumentos presentadas en la sección {\ref{sec:cap2instrumentos-cuanticos}}. Se obtiene el sistema clásico y cuántico para comparar las descripciones que proporcionan. Se verificar que las dos primeras alternativas cumplan con la condición necesaria para verificar que tengan  la misma distribución de probabilidad, con el valor esperado. Además de analizar el tercer instrumento y compararlo con el primero}
+% \rrnote{Esqueleto:Intro: En este apartado se busca hacer un análisis sobre
+% las formulaciones de las alternativas de los instrumentos presentadas en la
+% sección {\ref{sec:cap2instrumentos-cuanticos}}. Se obtiene el sistema clásico
+% y cuántico para comparar las descripciones que proporcionan. Se verificar que
+% las dos primeras alternativas cumplan con la condición necesaria para
+% verificar que tengan  la misma distribución de probabilidad, con el valor
+% esperado. Además de analizar el tercer instrumento y compararlo con el
+% primero}
 
 En este apartado se busca hacer un análisis sobre las formulaciones de las tres alternativas de los instrumentos presentadas en la sección {\ref{sec:cap2instrumentos-cuanticos}}. En éste, se obtiene el sistema clásico y cuántico para comparar las descripciones que proporcionan. Para una plena especificación de las mediciones difusas, las interpretaciones son intuitivamente equivalentes. Sin embargo, es indispensable verificar que las dos proporcionen el mismo mapeo de resultados. En principio, una condición necesaria para corroborar que tengan la misma distribución de probabilidad es que el valor esperado de los instrumentos genere el mismo resultado que el de la ecuación {\eqref{eq:Expected-Value-FM-2p}}. 
 

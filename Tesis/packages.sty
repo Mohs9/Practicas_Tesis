@@ -172,7 +172,6 @@
 \usepackage{tikz}
 \usepackage{mathtools}
 \usetikzlibrary{arrows.meta}
-\usepackage{subcaption}
 \usetikzlibrary{calc,patterns,angles,quotes}
 \usepackage{float}
 \usepackage{lipsum}
@@ -259,8 +258,11 @@ connection/.style={thick, dotted},
 \newcommand\A{\ensuremath{\mathcal{A}}}
 \newcommand\B{\ensuremath{\mathcal{B}}}
 
+\usepackage{relsize}
+
+\tikzset{fontscale/.style = {font=\relsize{#1}}}
 \tikzset{
-    operator/.append style={fill=blue!20,  color=blue!20},
+    operator/.append style={fill=violet!30,  color=violet!30},
 }
 
 \newcommand{\vcwdouble}[3]{
@@ -270,3 +272,4 @@ connection/.style={thick, dotted},
 \newcommand{\qwbundledouble}[1]{
             \arrow[phantom,strike arrow]{l}[xshift=\pgfkeysvalueof{/quantikz/Strike Width}, yshift=\pgfkeysvalueof{/quantikz/Strike Height},anchor=south east, inner sep=0pt, xshift=-2pt]{\scriptstyle #1}\cw
     }
+

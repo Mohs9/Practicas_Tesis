@@ -1,0 +1,42 @@
+
+\begin{figure}[H]
+    \centering
+    
+\begin{subfigure}{0.4\textwidth}
+  \begin{flushleft}
+   \resizebox{7cm}{!}{
+      \begin{quantikz}[font=\large,row sep=0.3cm,column sep=0.4cm]%
+      \lstick[wires=4]{$p$}&&\lstick{\color{blue}{$\rho_{1}$}}&\qw& \qw&\meter[style={draw=blue}]{$A$} \vcwdouble{1-6}{4-6}{}&\qw&\qw&\qw&\qw\rstick{$P_{a_j}${\color{blue}{$\rho_1$}}$P_{a_j}$}&\\[0.1cm]
+      &&\lstick{\color{red}{$\rho_2$}} &  \qw& \qw& \qw& \qw&\meter[style={draw=red}]{$B$}\vcwdouble{2-8}{4-8}{}&\qw&\qw\rstick{$P_{b_k}${\color{red}{$\rho_2$}}$P_{b_k}$} \\[0.1cm]
+      &&&&&&&&&&\\
+      &&\lstick{cl}& \cw&  \cw&\cw&\cw&\cw&\cw&\cw&\\
+      &&&&&\rstick{$a_j$}&&\rstick{$b_k$}&&&\\
+    \end{quantikz}
+    }
+    \hfill
+  \caption{}
+  \end{flushleft}
+\end{subfigure}
+
+\hfill
+
+\begin{subfigure}{0.4\textwidth}
+    \begin{flushleft}
+     \resizebox{7.5cm}{!}{
+        \begin{quantikz}[font=\large,row sep=0.3cm,column sep=0.4cm]%
+          \lstick[wires=4]{$1-p$}&&\lstick{\color{blue}{$\rho_{1}$}}&   \qw& \qw& \meter[style={draw=blue}]{$A$} \vcwdouble{1-6}{4-6}{}&\qw&\qw&\qw&\qw\rstick{$P_{a_j}${\color{blue}{$\rho_1$}}$P_{a_j}$}&\\[0.1cm]
+        &&\lstick{\color{red}{$\rho_2$}} &  \qw& \qw& \qw& \qw&\meter[style={draw=red}]{$B$}\vcwdouble{2-8}{4-8}{}&\qw&\qw\rstick{$P_{b_k}${\color{red}{$\rho_2$}}$P_{b_k}$} \\[0.1cm]
+        &&&&\gate[wires=2,style={
+          starburst,fill=yellow,draw=red,line width=2pt,inner
+          xsep=1pt,inner ysep=-7pt},label style=blue]{\text{\small
+          noise}}&&&&&&\\
+        &&\lstick{cl}& \cw&\cw&\cw&\cw&\cw&\cw&\cw&\\
+        &&&&&\rstick{$b_k$}&&\rstick{$a_j$}&&&\\
+      \end{quantikz}
+      }
+      \hfill
+    \caption{}
+    \end{flushleft}
+  \end{subfigure}
+\caption{\textbf{(a)}.\textbf{ (b)}}\label{diagrama-cajas-primer-instrumento}\source{elaboración propia}
+\end{figure}

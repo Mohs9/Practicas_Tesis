@@ -1,0 +1,37 @@
+
+\begin{figure}[H]
+  \centering
+\begin{subfigure}[b]{0.4\textwidth}
+\centering
+   \resizebox{7cm}{!}{
+      \begin{quantikz}[font=\normalsize,row sep=0.3cm,column sep=0.4cm]%
+      \lstick[wires=4]{$q$}&&\lstick{\color{blue}{$\rho_{1}$}}& \qw& \qw& \meter[style={draw=blue}]{$A$} \vcwdouble{1-6}{4-6}{}&\qw&\qw&\qw&\qw\rstick{$P_{a_j}${\color{blue}{$\rho_1$}}$P_{a_j}$}&\\[0.1cm]
+      &&\lstick{\color{red}{$\rho_2$}} &  \qw& \qw& \qw& \qw&\meter[style={draw=red}]{$B$}\vcwdouble{2-8}{4-8}{}&\qw&\qw\rstick{$P_{b_k}${\color{red}{$\rho_2$}}$P_{b_k}$} \\[0.1cm]
+      &&&&&&&&&&&\\
+      &&\lstick{cl}& \cw&  \cw&\cw&\cw&\cw&\cw&\cw&\\
+      &&&&&\rstick{$a_j$}&&\rstick{$b_k$}&&&&\\
+    \end{quantikz}
+    }
+    \hfill
+  \caption{}\label{fig:1-instrumento-ideal}
+\end{subfigure}
+
+\hfill
+
+\begin{subfigure}[a]{0.5\textwidth}
+\begin{flushleft}
+    \resizebox{11cm}{!}{
+        \begin{quantikz}[font=\normalsize,scale=1, row sep=0.3cm,column sep=0.4cm]%
+          \lstick[wires=4]{$1-q$}&&\lstick{\color{blue}{$\rho_{1}$}}&\qw&\gate[wires=2]{?}& \qw&\meter[style={draw=blue}]{$A$} \vcwdouble{1-7}{4-7}{}&\qw&\qw&\qw&\qw\rstick[wires=2]{$\dfrac{P_{a_j,b_k}+P_{b_k,a_j}}{2}${\color{blue}{$\rho_1$}}$\otimes${\color{red}{$\rho_2$}}$\dfrac{P_{a_j,b_k}+P_{b_k,a_j}}{2}$}\\
+          &&\lstick{\color{red}{$\rho_{2}$}} & \qw& \qw& \qw& \qw& \qw&\meter[style={draw=red}]{$B$}\vcwdouble{2-9}{4-9}{}&\qw&\qw\\
+          &&&&&&&&&&&\\
+          &&\lstick{cl}& \cw& \cw& \cw&\cw&\cw&\cw&\cw&\cw&\\
+          &&&&&&\rstick{$a_j$}&&\rstick{$b_k$}&&&\\
+        \end{quantikz}
+        }
+        \hfill
+        \caption{}\label{fig:1-instrumento-non-ideal}
+\end{flushleft}
+\end{subfigure}
+\caption{\textbf{(a)}Con una probabilidad $q$ se realiza una medición ideal del observable $A\tensor B$, con un estado posterior dado por $P_{a_j,b_k}\rho_1\otimes \rho_2P_{a_j,b_k}$, cuando la salida indicada es $a_j b_k$. \textbf{ (b)}Con probabilidad $1-q$ ocurre un error y no se conoce con certeza el estado posterior correspondiente a la salida $a_j b_k$, estará dado por una superposición de dos estados $\dfrac{P_{a_j,b_k}+P_{b_k,a_j}}{2}\rho_1\otimes \rho_2\dfrac{P_{a_j,b_k}+P_{b_k,a_j}}{2}$.}\label{diagrama-cajas-primer-instrumento}\source{elaboración propia}
+\end{figure}

@@ -35,7 +35,7 @@ complejos, con el propósito de acabar de clarificar e ilustrar de manera
 intuitiva el concepto de medición difusa, en esta sección se presentan los
 resultados principales y algunos ejemplos obtenidos al trabajar con un sistema
 que tiene un estado inicial $\rho \in \mathcal{H}_1\otimes \mathcal{H}_2$ y un
-observable de la forma $A\otimes B$. \par
+observable de la forma $A\otimes B$.\par
 
 
 
@@ -61,17 +61,6 @@ las dos mediciones que son verosímiles, es decir $p \tr(\sigma_z\otimes \sigma
 % }}}
 \subsection{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
  
-% \rrnote{Partiendo del valor esperado para dos particulas, se realiza una
-% implementación de los operadores de Kraus. Recordando la ecuación que se
-% encontró intuitivamente que los efectos para una medición difusa, son
-% $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el
-% mapeo de probabilidades$E(a_j b_k, \rho)=
-% \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}}))$. Sin embargo para obtener el
-% estado posterior es a la medición es necesario descomponer estos efectos.
-% Debido a que $\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})$ es un operador positivo
-% se puede asumir que
-% $K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})}$}
-
 
 A continuación se especifica la forma de utilizar las medidas generalizadas conjuntamente con los operadores de Kraus para aproximarse a describir enteramente estas mediciones. En la ecuación {\eqref{eq:ordenar-valoresperado-povm}} se encontró intuitivamente que los efectos para una medición difusa, son $\{\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\}$. Estos efectos proporcionan el mapeo de probabilidades\begin{equation}\label{eq:mapeo-probabilidades-2p}
     E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\rho).
@@ -107,20 +96,83 @@ En este apartado se busca hacer un análisis sobre las formulaciones de las tres
 % }}}
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
 
-
 \rrnote{Esqueleto: Se revisita la primera alternativa de los intrumentos cuánticos, en sistemas simples de dos partículas y con observables factorizables. En esta parte se  aplica la traza parcial sobre el sistema cuántico y el clásico para realizar el análisis del instrumento. Se calcula su valor esperado para saber si cumple con la ecuación del valor esperado}
+
+
+El primer instrumento consiste en considerar que debido a un error en el sistema cuántico, las partículas posiblemente experimenten un intercambio. Al medir un observable ${A \tensor B}$ en el sistema, se obtiene un resultado  en el sistema clásico que puede ser cualquiera de los valores propios de este observable. Luego, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. Sin embargo también es posible que el estado inicial sufra una transformación, y sea este cambio del sistema el que se proyecte en el espacio propio correspondiente a la salida del observable $A\tensor B$.
+
+
+En la siguiente imagen se puede apreciar a lo que esto se refiere gráficamente. En la figura {\ref{fig:1-instrumento-ideal}} con una probabilidad $p$ se realiza una medición ideal, se desea medir el observable $A$ en el sistema $\rho_1$ y el observable $B$ en el sistema $\rho_2$ y el estado posterior a la medición será la proyección del sistema $\rho_1$ al espacio propio correspondiente a la salida proporcionada en el sistema clásico $a_j$  conjuntamente con la proyección del sistema $\rho_2$ al espacio propio de las salida $b_k$. No obstante, la figura {\ref{fig:1-instrumento-non-ideal}} muestra la parte borrosa de la medición en la que con una probabilidad $1-p$, la medición del observable $B$ se realiza en el sistema $\rho_1$ y la medición del observable $A$ se realiza en el sistema $\rho_2$, en consecuencia el sistema $\rho_2$ se proyecta al espacio propio que corresponde a la salida $a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$.
+\input{../Images/primer_instrumento.tex}
+
+Para un sistema de dos partículas el instrumento dado en la ecuación {\eqref{eq:primer-instrumento-general}}, puede escribirse como\begin{equation}\label{eq:fisrtinstrument2p}
+    \begin{split}
+        \mathcal{I}_1{(\rho)}&=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}\\
+        &=\sum_{j,k}P_{a_j,b_k}\otimes[p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k}]\\
+        &=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} [p \bra{a_j b_k}\rho \ket{a_j,b_k}+(1-p)\bra{b_k a_j }\rho \ket {b_k a_j}],
+\end{split}
+\end{equation}
+
+
+
 
 \rrnote{Esqueleto:Para una medida no selectiva el mapea de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico. Se calcula esta traza parcial. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva. }
 
 
+Es importante notar que el sistema clásico  puede diferir del estado inicial, pero  indica correctamente el estado posterior a la medición en todos los casos. Además, para una medida no selectiva el mapeo de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico \begin{equation}\label{eq:traza_q_1instrument2p}
+    \begin{split}
+        \tr_{\text{qu}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{qu}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
+        &=\sum_{j,k}P_{a_j,b_k}\tr(p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k})\\
+        &=\sum_{j,k}P_{a_j,b_k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}].
+\end{split}
+\end{equation} 
+
+
 \rrnote{Esqueleto:  Mientras que el estado posterior se obtiene realizando la traza parcial sobre el sistema clásico. Se realiza el desarrollo }
 
+Para obtener el mapa de resultados para una medición selectiva simplemente se multiplica el operador de proyección correspondiente a la salida obtenida al resultado anterior, y se calcula la traza\[\begin{split}
+    E(a_i,b_l,\rho)&=\tr\left(P_{a_i, b_l}\left[\sum_{j,k}\tr_{\text{qu}}(P_{a_i,b_l}\otimes P_{a_i,b_l} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\right]\right)\\
+    &=\tr\left(\sum_{j,k} P_{a_i,b_l}P_{a_j,b_k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\right)\\
+    &=\sum_{j,k}\tr\left( P_{a_i,b_l}P_{a_i,b_l}\right)[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
+    &=\sum_{j,k}\delta^{i,l}_{j,k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
+    &=p \bra{a_i b_l}\rho\ket{a_i b_l} +(1-p)\bra{b_l a_i}\rho \ket{b_l a_i}.
+\end{split}\] El cual es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}. Mientras que el estado posterior se obtiene realizando la traza parcial sobre el sistema clásico. En este caso es fácil ver que \begin{equation}\label{eq:traza_cl_1instrument2p}
+    \begin{split}
+      \tr_{\text{cl}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{cl}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
+    &=\sum_{j,k}P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.
+\end{split}
+\end{equation} Para una medida selectiva el estado posterior estará dado por \[\E_{a_j,b_k}(\rho)=P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.\]
+
+
+
 \rrnote{Esqueleto: Por otro lado, se calcula el valor esperado del primer instrumento y se compara con el valor esperado original de la medición difusa  }
+  
+
+Por otro lado, el valor esperado del primer instrumento se calcula de la siguiente forma \begin{equation*}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_1}&=\tr([(A\otimes B) \otimes \mathds{1}]\mathcal{I}_1) \\
+        &=\tr\left([(A\otimes B) \otimes \mathds{1}]\sum_{jk}P_{a_j b_k}\otimes (pP_{a_j b_k}\rho P_{a_j b_k}+ (1-p)P_{a_j b_k}S\rho S P_{a_j b_k})\right)\\
+        &=\sum_{jk} \tr((A\otimes B) P_{a_j b_k}) \tr\left((pP_{a_j b_k}\rho P_{a_j b_k}+ (1-p)P_{a_j b_k}S\rho S P_{a_j b_k})\right) \\
+        &=\sum_{jk} \tr\left(\sum_{il}a_{il}P_{a_i b_l} P_{a_j b_k}\right) \tr((pP_{a_j b_k}\rho P_{a_j b_k}+ (1-p)P_{a_j b_k}S\rho S P_{a_j b_k})) \\
+        &=\sum_{jk} p\tr(a_{j}b_k P_{a_j b_k}) \tr(P_{a_j b_k}\rho)+ (1-p)\tr(a_{j}b_k P_{a_j b_k})\tr(P_{a_j b_k}S\rho S P_{a_j b_k}) \\
+        &=\sum_{jk}  (a_{j}b_k)p  \tr(P_{a_j b_k}\rho)+(a_{j}b_k) (1-p) \tr(P_{a_j b_k}S\rho S P_{a_j b_k}),\\
+    \end{split}
+\end{equation*}  finalmente el valor esperados del instrumento es \begin{equation}\label{eq:expectedValueFirstInstrument2p}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_1}&=p \tr(A\otimes B \rho)+ (1-p)\tr(B\tensor A \rho ). \\
+    \end{split}
+\end{equation} Claramente con este instrumento se obtiene el valor esperado correcto para describir una medición difusa.
+
 
 % }}}
 \subsubsection{Segunda alternativa de instrumento cuántico} % {{{
 
 \rrnote{Esqueleto:Después de haber hecho el cálculo para el valor esperado del primer instrumento, el siguiente es el caso en el que se supone que el error ocurre en la lectura de los resultados y se desarrolla el segundo instrumento para un sistema de dos partículas.}
+
+
+\input{../Images/segundo_instrumento.tex}
+
+
 
 \rrnote{Esqueleto: Se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva es el siguiente. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva. Se interpretan los resultados comparando con los obtenidos con el primer instruemento.}
 
@@ -129,6 +181,7 @@ En este apartado se busca hacer un análisis sobre las formulaciones de las tres
 % }}}
 \subsubsection{Tercera alternativa} % {{{
 
+\input{../Images/tercer_instrumento.tex}
 \rrnote{Esqueleto:De igual forma que en los otros instruementos se desarrolla el calculo de la traza parcial para obtener el mapeo de resultados y el operador de densidad para el sistema cuántico.  Se interpretan los resultados comparando con los obtenidos con el primer instruemento y segundo instrumento.}
 
 \rrnote{Esqueleto:Finalmente, se calcula el valor esperado de este último instrumento cuántico. }
@@ -193,126 +246,9 @@ En este apartado se busca hacer un análisis sobre las formulaciones de las tres
 
 
 
-\begin{comment}
-En un sistema de $N$ partículas en el que se pretende medir el observable $A_1\otimes A_2\otimes \hdots \otimes A_N$, pero ocurre un error en  el aparato y confunde los resultados.
-
-Se redefine la operación difusa, para un sistema de $N$ partículas utilizando los operadores de permutación y se mencionan algunas características de los operadores de permutación. 
-
-Se calcula el valor esperado de realizar la medición del nuevo observable.
-  %Se plantea la primera alternativa de instrumento cuántico utilizando la %nueva operación difusa y el nuevo observable, a su vez se calcula el valor %esperado. 
-  
-  %De igual forma, se plantea la segunda alternativa y su valor esperado. 
-  
-  %Finalmente se demuestra la proposición que explica en que condiciones los %instrumentos para un sistema de $N$ partículas son equivalentes.
-
-
-En sistema de $N$ partículas en el que se realiza una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_N$, y en el que ocurre un error en el aparato de medición y confunde los resultados. Con cierta probabilidad se realiza la medición de acuerdo a la permutación $\Pi$ del observable. 
-
-La operación difusa definida en la ecuación ({\ref{eq:operador_difuso2p}}), ahora se pude redefinir para un sistema de $N$ partículas de forma más general como\begin{equation}\label{eq:fm-nparticles}
-   \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
-\end{equation}donde $\mathcal{S}$ es un subconjunto del grupo simétrico de $n$ partículas y $\sum_{i=1}^{N!} p_i=1$.  Los elementos de este grupo simétrico $\mathcal{S}$ pueden escribirse como producto de operaciones de intercambio $S_{ij}$. Si se requiere un número par de operadores de intercambio $S_{ij}$, se dice que la permutación tiene paridad par, de otro modo, se dice que la permutación tiene paridad impar. Algunas de las propiedades destacables de los operadores de permutación es que son unitarios, el operador adjunto tiene la misma paridad y no son hermíticos.
-
-Ahora que se generaliza el operador difuso, puede utilizarse para obtener el valor esperado de esta medición para el sistema de $N$ partículas {\cite{Pineda_2021}}\begin{equation}\label{eq:ExpectedValue-generalForm}\begin{split}
-    \left \langle \prodtensor A_i\right \rangle_{\mathcal{F}(\rho)} &=\tr\left(\fuzzy{\rho}\prodtensor A_i\right)\\
-    &=\sum_{\Pi_j \in S}p_{j}\tr \left(\permut{j}{\rho} \prodtensor A_i\right).
-\end{split}
-\end{equation} 
-
-Aunque los operadores del grupo simétrico, en general no son hermíticos, la operación difusa sí lo es y por tanto usando la propiedad cíclica de la traza, el valor esperado de la medición difusa puede escribirse también como \begin{equation}\label{eq:ExpectedValue-generalForm-2}\begin{split}
-    \left \langle \prodtensor A_i\right \rangle_{\mathcal{F}(\rho)} &=\sum_{\Pi_j \in S}\tr \left(\fuzzy{\prodtensor A_i}\rho\right).
-\end{split}
-\end{equation} 
-
-
-
-\subsection{Medidas POVM en sistemas de varias partículas}
-En el capítulo anterior se describió el mapeo que puede realizarse con las medidas POVM, el cual será conveniente para proporcionar la probabilidad de cada posible salida de la medición. En un sistema de dos partículas se propuso intuitivamente un conjunto de efectos cuya generalización para $N$ partículas puede ser escrita como \begin{equation}\label{eq:effectsSetNp}
-    {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\{\fuzzy{P_{\lambda_i}}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi_j \in S} p_j \permut{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
-\end{equation}  
-donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$. El conjunto de valores propios del observable es \begin{equation}\label{eq:lambdaeigenvalues}
-    \Lambda=\{a_{11}\cdot a_{21}\cdot \hdots \cdot a_{N1},\hdots,a_{1J}\cdot a_{2K}\cdot \hdots \cdot a_{NM}\},
-\end{equation} donde $a_{jk}$ es el $k$-ésimo valor propio correspondiente al observable $A_j$. Es fácilmente comprobable que estos operadores $E_{\lambda_i}$ son hermíticos, cumplen con la propiedad de completitud y son positivos \rrnote{Creo que deberia probarlo.}.
-
-Para obtener el estado posterior a la medición se requiere utilizar la descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. Para mediciones difusas en sistema de $N$ partículas se propone utilizar \begin{equation}
-   K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permut{j}{P_{\lambda_i} }},
-\end{equation} esto se puede realizar debido a la positividad de los efectos. De nuevo, esta descomposición no es única y el estado posterior de la medición dependerá de como se implementen las medidas POVM en el laboratorio. 
-
-
-
-\subsection{Instrumentos cuánticos en sistemas de \texorpdfstring{\boldmath{$N$}}{N} partículas}
-En esta parte también se consideran las dos alternativas de instrumentos cuánticos de la sección ({\ref{sec:instrumentos-cuanticos}}). 
-
-
-La primera alternativa es el instrumento en el que las partículas se intercambian y luego se aplica una medición proyectiva \begin{equation}\label{eq:1instrumentnp}
-    \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i},
-\end{equation} donde $P_{\lambda_i}$ son los operadores de proyección y $\lambda_i \in \Lambda$ son los valores propios del observable.  
-
-
-El valor esperado del resultado de la medición modelado con este instrumento puede calcularse de la siguiente manera \begin{equation*}
-    \begin{split}
-        \left \la \prodtensor A_i \right \ra_{\mathcal{I}_1}&=\tr\left( \left[\left(\prodtensor A_i\right) \otimes \mathds{1}\right]\mathcal{I}_1\right) \\
-        &=\tr\left(\left[ \left(\prodtensor A_i\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}P_{\lambda_j}\otimes P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j} \right)\\
-        &=\sum_{\lambda_j\in \Lambda} \tr\left(\left(\prodtensor A_i\right) P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho} P_{\lambda_j}\right) \\
-        &=\sum_{\lambda_j\in \Lambda} \tr\left(\sum_{{\lambda_j, \lambda_k \in \Lambda}}\lambda_k P_{\lambda_k} P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho} P_{\lambda_j}\right)  \\
-        &=\sum_{\lambda_j \in\Lambda} \tr\left(\lambda_j P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j}\right) \\
-        &=\sum_{\lambda_j \in \Lambda} \lambda_j \tr\left(P_{\lambda_j}\fuzzy{\rho}\right) \\
-    \end{split}
-\end{equation*} con lo que se puede concluir que el valor esperado correspondiente a este instrumento es \begin{equation}\label{eq:valor-esperado-1instrumentnp}
-        \left \la \prodtensor A_i \right \ra_{\mathcal{I}_1}= \tr\left( \prodtensor A_i \fuzzy{\rho}\right),
-\end{equation}el mismo que el valor esperado correcto ({\ref{eq:ExpectedValue-generalForm}}).
-
-La segunda alternativa presentada en ({\ref{second-instrument}}) es igualmente generalizable para un sistema de $N$ partículas como \begin{equation}\label{eq:second-instrumentnp}
-    \mathcal{I}_2(\rho)= \sum_{\lambda_i \in \Lambda } \fuzzy{P_{\lambda_i}}\tensor P_{\lambda_i}\rho P_{\lambda_i},
-\end{equation}  en esta alternativa se interpreta una confusión en la lectura de los resultados.
-
-
-
-
-Con esta alternativa el valor esperado se calcula como 
-\begin{equation*}
-    \begin{split}
-        \left \la \prodtensor A_i \right \ra_{\mathcal{I}_2}&=\tr\left( \left[\left(\prodtensor A_i\right) \otimes \mathds{1}\right]\mathcal{I}_2\right) \\
-        &=\tr\left(\left[ \left(\prodtensor A_i\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}\fuzzy{P_{\lambda_j}}\otimes P_{\lambda_j}{\rho}P_{\lambda_j} \right)\\
-        &=\sum_{\lambda_j\in \Lambda} \tr\left(\prodtensor A_i\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right). \\
-    \end{split}
-\end{equation*} finalmente el valor esperado es \begin{equation}\label{eq:valor-esperado-2instrumentnp}
-    \left \la \prodtensor A_i \right \ra_{\mathcal{I}_2}=\sum_{\lambda_j\in \Lambda} \tr\left(\prodtensor A_i\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right).
-\end{equation} Este valor esperado no corresponde a (\ref{eq:ExpectedValue-generalForm}) por lo que análogamente a (\ref{prop:Equivalencia-instruments}) se tiene una proposición más general para la equivalencia de estos instrumentos en sistema de $N$ partículas.
-
-\begin{proposition}\label{prop:Equivalencia-instrumentos-np}
-    Para todo estado inicial $\rho$, los instrumentos cuánticos {\ref{eq:1instrumentnp}} y {\ref{eq:second-instrumentnp}} son equivalentes si y solo si \[\left \langle \lambda_j \left|{\permut{l}{\prodtensor A_i}}\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y } \forall \Pi_l \in \mathcal{S}\]
-\end{proposition}
-
-\begin{proof}
-    $(\Rightarrow)$ Suponiendo que para todo estado inicial $\rho$ los valores esperados de los instrumentos son iguales \[ \tr\left( \prodtensor A_i \fuzzy{\rho}\right)=\sum_{\lambda_j\in \Lambda} \tr\left(\prodtensor A_i\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right)\]
-o bien, \[ \tr\left( \fuzzy{\prodtensor A_i }\rho\right)=\sum_{\lambda_j\in \Lambda} \tr\left(\fuzzy{\prodtensor A_i}P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\rho\right).\] Aplicando la linealidad de la traza, \[ \tr\left( \fuzzy{\prodtensor A_i }\rho\right)=\tr\left(\sum_{\lambda_j\in \Lambda} \tr\left(\fuzzy{\prodtensor A_i}P_{\lambda_j}\right) P_{\lambda_j}\rho\right),\]de ello  \[ \begin{split}\tr\left( \left(\fuzzy{\prodtensor A_i }-\sum_{\lambda_j\in \Lambda} \tr\left(\fuzzy{\prodtensor A_i}P_{\lambda_j}\right) P_{\lambda_j}\right)\rho\right)&=0\\,\end{split}\] para todo estado inicial $\rho$ entonces\[\begin{split}\fuzzy{\prodtensor A_i }-\sum_{\lambda_j\in \Lambda} \tr\left(\fuzzy{\prodtensor A_i}P_{\lambda_j}\right) P_{\lambda_j}&=0\\
-    \sum_{\Pi_l\in \mathcal{S}}p_l\permut{l}{\prodtensor A_i }-\sum_{\lambda_l\in \Lambda} \tr\left(\sum_{\Pi_l\in \mathcal{S}}p_l\permut{l}{\prodtensor A_i}P_{\lambda_j}\right) P_{\lambda_j}&=0, 
-\end{split}\] de esta última ecuación se deduce que para cada $j$ se puede ver que \[\begin{split}
-    \permut{l}{\prodtensor A_i }-\sum_{\lambda_l\in \Lambda} \tr\left(\permut{l}{\prodtensor A_i}P_{\lambda_j}\right) P_{\lambda_j}&=0.
-\end{split}\] 
-
-Si el primer término se escribe en la base de los vectores propios del observable que se desea medir  \[\begin{split}
-    \sum_{\lambda_j, \lambda_k\in \Lambda} \tr\left(\permut{l}{\prodtensor A_i}|\lambda_j\rala \lambda_k|\right) |\lambda_j\rala\lambda_k|-\sum_{\lambda_j\in \Lambda} \tr\left(\permut{l}{\prodtensor A_i}P_{\lambda_j}\right) P_{\lambda_j}&=0,\\
-    \sum_{\lambda_j\neq\lambda_k\in \Lambda} \tr\left(\permut{l}{\prodtensor A_i}|\lambda_j\rala \lambda_k|\right) |\lambda_j\rala\lambda_k|&=0,
-\end{split}\] finalmente por la independencia lineal de los operadores\[ \tr\left(\permut{l}{\prodtensor A_i}|\lambda_j\rala \lambda_k|\right)= \left\langle\lambda_j\left|\permut{l}{\prodtensor A_i}\right|\lambda_k\right\rangle=0, \forall j\neq k, \forall \Pi_l \in \mathcal{S}.\]
-
-
-
-$(\Leftarrow)$ Suponiendo que se cumple que \[ \left\langle\lambda_j\left|\permut{l}{\prodtensor A_i}\right|\lambda_k\right\rangle=0, \forall j\neq k, \forall \Pi_l \in \mathcal{S},\] se puede  escribir a la permutación $l$ como una combinación lineal de los operadores de proyección\[\permut{l}{\prodtensor A_i}=\sum_{\lambda_k \in \Lambda}d_{lk}P_{k}.\]Entonces en el valor esperado ({\ref{eq:valor-esperado-2instrumentnp}})
- \[\begin{split}\left \la \prodtensor A_i \right \ra_{\mathcal{I}_2}&=\sum_{\lambda_j\in \Lambda} \tr\left(\sum_{l}p_l{\sum_{\lambda_k \in \Lambda}d_{lk}P_{\lambda_k}}P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\rho\right)\\ &=\sum_{\lambda_j\in \Lambda} \sum_{l}p_l d_{lj}\tr\left(P_{\lambda_j}\right)\\ &=\sum_{l}p_l \tr\left( \sum_{\lambda_j\in \Lambda} d_{lj}P_{\lambda_j}\rho\right)\\ &=\sum_{l}p_l\tr\left(\permut{l}{\prodtensor A_i}\rho\right)\\ 
-    &=\tr\left(\fuzzy{\prodtensor A_i}\rho\right)=\left \la \prodtensor A_i \right \ra_{\mathcal{I}_1}
-\end{split}\]
-
-\end{proof}
-
-\end{comment}
-
-
 % }}}
 \section{Observables degenerados en mediciones difusas} % {{{
-\rrnote{\textit{¿Cómo se puede describir completamente una medición de un observable que no es factorizable? ¿ ¿Cómo son las salidas en el sistema clásico? ¿La descripción de las mediciones difusas es muy diferente a la de Observables factorizables, en qúe se diferencia? ¿Cómo se aplica el operador difuso?}}
 
-%Para observables, de dimensión $d^N$ los cuales no pueden escribirse como un producto tensorial de $N$ observables, es decir que si $\mathcal{O}$ es un observable no factorizable no puede escribirse como $\prodtensor A_i$. Sin embargo siempre es posible escribirlo como una combinación lineal de los operadores de la base.  
 
 
 % }}}

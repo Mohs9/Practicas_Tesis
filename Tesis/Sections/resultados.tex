@@ -96,13 +96,43 @@ En este apartado se busca hacer un análisis sobre las formulaciones de las tres
 % }}}
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
 
-\rrnote{Esqueleto: Se revisita la primera alternativa de los intrumentos cuánticos, en sistemas simples de dos partículas y con observables factorizables. En esta parte se  aplica la traza parcial sobre el sistema cuántico y el clásico para realizar el análisis del instrumento. Se calcula su valor esperado para saber si cumple con la ecuación del valor esperado}
+% \rrnote{Esqueleto: Se revisita la primera alternativa de los intrumentos
+% cuánticos, en sistemas simples de dos partículas y con observables
+% factorizables. En esta parte se  aplica la traza parcial sobre el sistema
+% cuántico y el clásico para realizar el análisis del instrumento. Se calcula su
+% valor esperado para saber si cumple con la ecuación del valor esperado}
 
 
-El primer instrumento consiste en considerar que debido a un error en el sistema cuántico, las partículas posiblemente experimenten un intercambio. Al medir un observable ${A \tensor B}$ en el sistema, se obtiene un resultado  en el sistema clásico que puede ser cualquiera de los valores propios de este observable. Luego, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. Sin embargo también es posible que el estado inicial sufra una transformación, y sea este cambio del sistema el que se proyecte en el espacio propio correspondiente a la salida del observable $A\tensor B$.
+El primer instrumento consiste en considerar que debido a un error en el
+sistema cuántico, las partículas posiblemente experimenten un intercambio. Al
+medir un observable ${A \tensor B}$ en el sistema, se obtiene un resultado  en
+el sistema clásico que puede ser cualquiera de los valores propios de este
+observable. Luego, con cierta probabilidad el estado posterior será la
+proyección del estado inicial del sistema al estado propio correspondiente a
+las salida proporcionada. Sin embargo también es posible que el estado inicial
+sufra una transformación, y sea este cambio del sistema el que se proyecte en
+el espacio propio correspondiente a la salida del observable $A\tensor B$.
 
 
-En la siguiente imagen se puede apreciar a lo que esto se refiere gráficamente. En la figura {\ref{fig:1-instrumento-ideal}} con una probabilidad $p$ se realiza una medición ideal, se desea medir el observable $A$ en el sistema $\rho_1$ y el observable $B$ en el sistema $\rho_2$. El estado posterior a la medición será la proyección del sistema $\rho_1$ al espacio propio correspondiente a la salida proporcionada en el sistema clásico $a_j$, conjuntamente con la proyección del sistema $\rho_2$ al espacio propio de las salida $b_k$. No obstante, la figura {\ref{fig:1-instrumento-non-ideal}} muestra la parte borrosa de la medición en la que con una probabilidad $1-p$, la medición del observable $B$ se realiza en el sistema $\rho_1$ y la medición del observable $A$ se realiza en el sistema $\rho_2$, en consecuencia el sistema $\rho_2$ se proyecta al espacio propio que corresponde a la salida $a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$.
+En la siguiente imagen \cpnote{A veces latex mueve las imagenes. Mejor refierete a 
+ella por medio del comando ref y en la siguiente frase ya hablas de ``la figura'' para
+no repetir la referencia.} se puede apreciar a lo que esto se refiere gráficamente.
+En la figura {\ref{fig:1-instrumento-ideal}} con una probabilidad $p$ se
+realiza una medición ideal, se desea medir el observable $A$ en el sistema
+$\rho_1$ y el observable $B$ en el sistema $\rho_2$. El estado posterior a la
+medición será la proyección del sistema $\rho_1$ \cpnote{rho 1 no es un sistema. 
+corrige la escritura aca y en el resto del parrafo} al espacio propio
+correspondiente a la salida proporcionada en el sistema clásico $a_j$,
+conjuntamente con la proyección del sistema $\rho_2$ al espacio propio de las
+salida $b_k$ \cpnote{Corrige teniendo en cuenta que el estado inicial quiza
+no es factorizable}. No obstante, la figura {\ref{fig:1-instrumento-non-ideal}}
+muestra la parte borrosa de la medición en la que con una probabilidad $1-p$,
+la medición del observable $B$ se realiza en el sistema $\rho_1$ y la medición
+del observable $A$ se realiza en el sistema $\rho_2$, en consecuencia el
+sistema $\rho_2$ se proyecta al espacio propio que corresponde a la salida
+$a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$. \cpnote{Ajusta todo 
+el parrafo teniendo en cuenta lo del estado  y lo de los sistemas}
+
 \input{../Images/primer_instrumento.tex}
 
 Para un sistema de dos partículas el instrumento dado en la ecuación {\eqref{eq:primer-instrumento-general}}, puede escribirse como\begin{equation}\label{eq:fisrtinstrument2p}
@@ -116,32 +146,46 @@ Para un sistema de dos partículas el instrumento dado en la ecuación {\eqref{e
 
 
 
-\rrnote{Esqueleto:Para una medida no selectiva el mapea de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico. Se calcula esta traza parcial. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva. }
+% \rrnote{Esqueleto:Para una medida no selectiva el mapea de resultados se
+% obtiene simplemente aplicando una traza parcial sobre el sistema cuántico. Se
+% calcula esta traza parcial. Además el se calcula la traza parcial del sistema
+% clásico para obtener un canal cuántico para una medición selectiva. }
+% 
 
-
-Es importante notar que el sistema clásico  puede diferir del estado inicial, pero  indica correctamente el estado posterior a la medición en todos los casos. Además, para una medida no selectiva el mapeo de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico \begin{equation}\label{eq:traza_q_1instrument2p}
+Es importante notar que el sistema clásico  puede diferir del estado inicial, pero  indica correctamente el estado posterior a la medición en todos los casos. Además, para una medida no selectiva el mapeo de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico 
+\begin{equation}\label{eq:traza_q_1instrument2p}
     \begin{split}
         \tr_{\text{qu}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{qu}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
         &=\sum_{j,k}P_{a_j,b_k}\tr(p P_{a_j,b_k}\rho P_{a_j,b_k}+(1-p)P_{a_j,b_k}S\rho S^\dagger P_{a_j,b_k})\\
         &=\sum_{j,k}P_{a_j,b_k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}].
 \end{split}
 \end{equation} 
+\cpnote{chido el párrafo anterior!}
 
 
 \rrnote{Esqueleto:  Mientras que el estado posterior se obtiene realizando la traza parcial sobre el sistema clásico. Se realiza el desarrollo }
 
-Para obtener el mapa de resultados para una medición selectiva simplemente se multiplica el operador de proyección correspondiente a la salida obtenida al resultado anterior, y se calcula la traza\[\begin{split}
+Para obtener el mapa de resultados para una medición selectiva simplemente se
+multiplica el operador de proyección correspondiente a la salida obtenida al
+resultado anterior, y se calcula la traza\[\begin{split}
     E(a_i,b_l,\rho)&=\tr\left(P_{a_i, b_l}\left[\sum_{j,k}\tr_{\text{qu}}(P_{a_i,b_l}\otimes P_{a_i,b_l} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\right]\right)\\
     &=\tr\left(\sum_{j,k} P_{a_i,b_l}P_{a_j,b_k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\right)\\
     &=\sum_{j,k}\tr\left( P_{a_i,b_l}P_{a_i,b_l}\right)[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=\sum_{j,k}\delta^{i,l}_{j,k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=p \bra{a_i b_l}\rho\ket{a_i b_l} +(1-p)\bra{b_l a_i}\rho \ket{b_l a_i}.
-\end{split}\] El cual es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}. Mientras que el estado posterior se obtiene realizando la traza parcial sobre el sistema clásico. En este caso es fácil ver que \begin{equation}\label{eq:traza_cl_1instrument2p}
+\end{split}\] 
+El cual es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
+\cpnote{esta frase aparece suelta. Conecta mejor ocn la ecuacion}. Mientras que
+el estado posterior se obtiene realizando la traza parcial sobre el sistema
+clásico\cpnote{También esta frase está como volando}. En este caso es fácil ver que
+\begin{equation}\label{eq:traza_cl_1instrument2p}
     \begin{split}
       \tr_{\text{cl}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{cl}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
     &=\sum_{j,k}P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.
 \end{split}
-\end{equation} Para una medida selectiva el estado posterior estará dado por \[\E_{a_j,b_k}(\rho)=P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.\]
+\end{equation} 
+Para una medida selectiva el estado posterior estará dado por
+\[\E_{a_j,b_k}(\rho)=P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.\]
 
 
 

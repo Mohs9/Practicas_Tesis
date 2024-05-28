@@ -114,23 +114,23 @@ sufra una transformación, y sea este cambio del sistema el que se proyecte en
 el espacio propio correspondiente a la salida del observable $A\tensor B$.
 
 
-En la siguiente imagen \cpnote{A veces latex mueve las imagenes. Mejor refierete a 
+En la imagen {\ref{diagrama-cajas-primer-instrumento}} \cpnote{A veces latex mueve las imagenes. Mejor refierete a 
 ella por medio del comando ref y en la siguiente frase ya hablas de ``la figura'' para
-no repetir la referencia.} se puede apreciar a lo que esto se refiere gráficamente.
+no repetir la referencia.}\rrnote{de acuerdo, agregé lareferencia} se puede apreciar a lo que esto se refiere gráficamente.
 En la figura {\ref{fig:1-instrumento-ideal}} con una probabilidad $p$ se
-realiza una medición ideal, se desea medir el observable $A$ en el sistema
-$\rho_1$ y el observable $B$ en el sistema $\rho_2$. El estado posterior a la
-medición será la proyección del sistema $\rho_1$ \cpnote{rho 1 no es un sistema. 
+realiza una medición ideal, se desea medir el observable $A$ en el subsistema
+de la primera partícula y el observable $B$ en el subsistema de la segunda partícula. El estado posterior a la
+medición será la proyección del estado $\rho_1=\tr_2(\rho_{1,2})$ que representa al sistema correspondiente a la primera partícula \cpnote{rho 1 no es un sistema. 
 corrige la escritura aca y en el resto del parrafo} al espacio propio
 correspondiente a la salida proporcionada en el sistema clásico $a_j$,
-conjuntamente con la proyección del sistema $\rho_2$ al espacio propio de las
+conjuntamente con la proyección del estado $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de las
 salida $b_k$ \cpnote{Corrige teniendo en cuenta que el estado inicial quiza
 no es factorizable}. No obstante, la figura {\ref{fig:1-instrumento-non-ideal}}
 muestra la parte borrosa de la medición en la que con una probabilidad $1-p$,
-la medición del observable $B$ se realiza en el sistema $\rho_1$ y la medición
-del observable $A$ se realiza en el sistema $\rho_2$, en consecuencia el
-sistema $\rho_2$ se proyecta al espacio propio que corresponde a la salida
-$a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$. \cpnote{Ajusta todo 
+la medición del observable $B$ se realiza en el primer sistema y la medición
+del observable $A$ se realiza en el segundo sistema, en consecuencia el
+estado $\rho_2$ se proyecta al espacio propio que corresponde a la salida
+$a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$.\cpnote{Ajusta todo 
 el parrafo teniendo en cuenta lo del estado  y lo de los sistemas}
 
 \input{../Images/primer_instrumento.tex}
@@ -173,18 +173,16 @@ resultado anterior, y se calcula la traza\[\begin{split}
     &=\sum_{j,k}\tr\left( P_{a_i,b_l}P_{a_i,b_l}\right)[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=\sum_{j,k}\delta^{i,l}_{j,k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=p \bra{a_i b_l}\rho\ket{a_i b_l} +(1-p)\bra{b_l a_i}\rho \ket{b_l a_i}.
-\end{split}\] 
-El cual es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
-\cpnote{esta frase aparece suelta. Conecta mejor ocn la ecuacion}. Mientras que
-el estado posterior se obtiene realizando la traza parcial sobre el sistema
-clásico\cpnote{También esta frase está como volando}. En este caso es fácil ver que
+\end{split}\]Es importante notar que este mapeo de resultados resultante es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
+\cpnote{esta frase aparece suelta. Conecta mejor ocn la ecuacion}.\rrnote{Conecte la frase anterior} 
+
+Por otro lado, para obtener el estado posterior luego de haber realizado la medición, se debe realizar la traza parcial sobre el sistema clásico\cpnote{También esta frase está como volando}. En este caso es fácil ver que
 \begin{equation}\label{eq:traza_cl_1instrument2p}
     \begin{split}
       \tr_{\text{cl}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{cl}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
     &=\sum_{j,k}P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.
 \end{split}
-\end{equation} 
-Para una medida selectiva el estado posterior estará dado por
+\end{equation}Para una medida selectiva el estado posterior estará dado por
 \[\E_{a_j,b_k}(\rho)=P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.\]
 
 
@@ -192,7 +190,7 @@ Para una medida selectiva el estado posterior estará dado por
 \rrnote{Esqueleto: Por otro lado, se calcula el valor esperado del primer instrumento y se compara con el valor esperado original de la medición difusa  }
   
 
-Por otro lado, el valor esperado del primer instrumento se calcula de la siguiente forma \begin{equation*}
+Por otra parte, el valor esperado del primer instrumento se calcula de la siguiente forma \begin{equation*}
     \begin{split}
         \la A\otimes B \ra_{\mathcal{I}_1}&=\tr([(A\otimes B) \otimes \mathds{1}]\mathcal{I}_1) \\
         &=\tr\left([(A\otimes B) \otimes \mathds{1}]\sum_{jk}P_{a_j b_k}\otimes (pP_{a_j b_k}\rho P_{a_j b_k}+ (1-p)P_{a_j b_k}S\rho S P_{a_j b_k})\right)\\

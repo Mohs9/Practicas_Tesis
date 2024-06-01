@@ -10,11 +10,9 @@
 
 Los sistemas cuánticos ideales son sistemas cerrados sujetos a la teoría
 cuántica, que no interactúan con su entorno y por lo tanto, no están sometidos
-a perturbaciones que pueden provocar pérdida de información en el sentido de ruido clásico {\cite{wilde2011classical}}. %\cpnote{Como disturbios?}, \cpnote{Comose pierde informacion?}\rrnote{agregué lo que estaba en la referencia}.
-%Aunque estos sistemas sufren cierto tipo de ruido cuántico\cpnote{que es ruido cuantico? Evita hablar de cosas que no tienes totalmente claras}\rrnote{de acuerdo, quite esa primera frase}
-%, como el del principio de incertidumbre, 
+a perturbaciones que pueden provocar pérdida de información en el sentido de ruido clásico {\cite{wilde2011classical}}. 
 La medición de estos sistemas puede describirse con mediciones
-proyectivas o ideales. %\cpnote{porque la restriccion para sistemas no degenerados?}\rrnote{lo había puesto porque estaba en una referencia simplificada pero no es necesario.}
+proyectivas o ideales. 
 Estos sistemas con mediciones ideales son una
 simplificación de la realidad difícil de justificar en la práctica. Las
 mediciones cuánticas proyectivas son inadecuadas por varias razones. Una de
@@ -24,20 +22,19 @@ que
 %pueden producirse errores en la medición es debido a al acoplamiento con  otros grados de libertad ajenos al sistema que se está controlando. O bien, que
 en sistemas abiertos, en los que se intercambia constantemente información con
 su entorno de forma incontrolable, lo que resulta en una decoherencia del
-estado en estudio. %\cpnote{en que se diferencia esto del acoplamiento?}\rrnote{Dejé solo la última frase}. 
+estado en estudio. 
 En el caso de sistemas cuánticos no ideales puede utilizarse
 una definición más general de medición {\cite{wilde2011classical,
-jaeger2007quantum}}.%\cpnote{Esta informacion de donde la sacaste? Está padre} \rrnote{De este libro \href{https://arxiv.org/pdf/1106.1445.pdf}{de Wilde}}
+jaeger2007quantum}}.
 
 
 El siguiente ejemplo permite visualizar el concepto de una medición no ideal de forma que clarifica la diferencia entre una medición ideal y una en la que se involucran imperfecciones en el sistema.
-%\cpnote{Si no lo vamos a ver en el trabajo, para que lo mencionamos? Toca justificar!}\rrnote{Agregué una pequeña justificación} 
 A. Peres {\cite{peres1997quantum}} ejemplifica una situación de una medición no
 ideal a la que llama <<medición difusa>>, sin embargo, es importante subrayar
 que no es el enfoque que se trabajará en el documento. En este ejemplo existe
-una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector y debe ser tratado como un sistema cuántico. %entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico %\cpnote{Me da cosa que esto lo copiaste textual de algun lado. No lo entiendo.}\rrnote{Sí,lo habia tomado casi literal del libro de A. Peres, el ejemplo trata sobre señales débiles que causan un conflicto con el detector y se agrega un aparato que mide al detector}
-% Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios \cpnote{Porque no?}. 
- El detector  tiene que <<medirse>> por un aparato adecuado al que se le llama <<el medidor>>, que luego produce otra señal clásica.%\cpnote{El detector no mide? como?}.
+una señal clásica extremadamente débil, por lo cual no es posible ignorar las propiedades cuánticas del detector y debe ser tratado como un sistema cuántico. %entre la naturaleza continua de una señal clásica y el espectro discreto de un dispositivo cuántico 
+% Además, el resultado final no puede ser registrado por un sistema cuántico, que puede estar en una superposición de estados propios
+ El detector  tiene que <<medirse>> por un aparato adecuado al que se le llama <<el medidor>>, que luego produce otra señal clásica.
 
 
 Considérese una partícula de espín-$\frac{1}{2}$ cuyo estado inicial está descrito por $|\phi\rangle=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$. Se desea medir el observable $\sigma_z$, el cual tiene valores propios $\pm 1$. Además, se supone que el medidor tiene un solo grado de libertad y es adimensional, $q$, que indica el valor de la variable medida y su función de onda inicial está dada por $\phi(q)$.
@@ -46,7 +43,7 @@ Luego, el vector de estado se transforma de la siguiente manera\begin{equation}\
     \begin{pmatrix}\alpha\\\beta\end{pmatrix}\otimes \phi(q)\to \begin{pmatrix}\alpha\\0\end{pmatrix}\otimes \phi(q-1)+\begin{pmatrix}0\\\beta\end{pmatrix}\otimes \phi(q+1).
 \end{equation}Suponiendo que antes de la medición es más probable encontrar el medidor cerca de $q = 0$. Entonces, existe una amplitud de probabilidad $\alpha\phi(q-1)$ para encontrar el medidor cerca de $q = 1$ y una amplitud de probabilidad $\beta \phi(q + 1)$ para encontrarlo cerca de $q = -1$.
 %Lo que llamamos “el valor observado de $\sigma_z$” es la posición final del medidor.
-Idealmente, $\phi(q\mp 1)$ debería tener un ancho cero y el resultado de la medición debería ser uno de los valores propios de $\sigma_z$.   Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q>2$. Esta discrepancia no es una <<dificultad técnica trivial>>. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$ es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen, el estado final de la partícula no es un estado propio de $\sigma_z$.%\cpnote{Mejora la redaccion y porfa tambien explicame porque el estado de la particula no es un estado propio de sigma z}\rrnote{Agregué algunas oraciones y quité otras}.
+Idealmente, $\phi(q\mp 1)$ debería tener un ancho cero y el resultado de la medición debería ser uno de los valores propios de $\sigma_z$.   Sin embargo, el valor realmente observado de $\sigma_z$ puede diferir del resultado ideal en una cantidad de orden $\Delta q>2$. Esta discrepancia no es una <<dificultad técnica trivial>>. La probabilidad de observar el medidor entre $q_0$ y $q_0 + d q_0$ es\[P(q_0)dq_0=[|\alpha|^2|\phi(q_0-1)|^2+|\beta|^2|\phi(q_0+1)|^2]dq_0,\]si el valor observado $q_0$ es tal que ambos términos del lado derecho contribuyen, el estado final de la partícula no es un estado propio de $\sigma_z$.
 Sino que viene dado por el lado derecho de la ecuación {\eqref{ejemplo-fm-peres}}, evaluada en $q = q_0$. La ubicación inicial del medidor es incierta, de modo que a esta medición A. Peres la llama <<difusa>>.   
 
 
@@ -145,10 +142,6 @@ medición ideal y una medición difusa. Por último, se argumenta la utilidad de
 esta medida y se expone para qué se usará en este proyecto. 
 
  
-% \cpnote{Mejorar la intro a la luz de lo que discutimos.}\rrnote{Detalle más que se hará en esta sección }
-
-% \rrnote{Esqueleto: Decir qué es el valor esperado en mecánica cuántica. Y hacer la aclaración entre salidas de la medicion y el valor esperado.}
-
 
 El valor esperado es un término que se deriva de la teoría básica de la
 probabilidad y representa el promedio ponderado de los resultados posibles que
@@ -172,12 +165,6 @@ en la ecuación {\eqref{expectationvalue_traza}}.
 %\begin{equation}\label{eq:Expected-Value-Op-Cuanticas}
  %   \la \mathcal{O}\ra_{\mathcal{E}(\rho)}=\tr(\mathcal{E}(\rho)\mathcal{O}).
 %\end{equation} 
-% \cpnote{No veo este parrafo muy util. Discutir con Rubi la utilidad de este. }
-%  \rrnote{Quité el párrafo para arreglar el párrafo siguiente.}
-
-% \cpnote{HAblar con Rubi del situiente parrafo. Lo tiene alrevez :P }
-% \cpnote{En este parrafo no está la motiacion de la medicion difusa. porque es ese y no otro? Creo que eso es lo mas improtante de esta seccion y te falto. Corrige eso e itera 
-% de acá en adelante. Para el 2.4 y 2.5 voy a querer esqueletos mas detallados. }%\rrnote{La motivacion de la medición difusa la habia puesto en una sección anterior entonces me parecio redundante. Aca solo me estaba centrando en el valor esperado al calculo del valor esperado y mecionando que el operador difuso registra el posible intercambio de particulas. Y de acuerdo, más detallado en las siguientes secciones.}
 
 
 Ahora, se puede analizar una medición difusa en un sistema
@@ -309,14 +296,12 @@ especificación completa de las mediciones difusas.
 % proyeccion, sin embargo en operaciones difusas no son suficientes. Dar la razon
 % por que los operadores de proyeccion son insuficientes para describir
 % completamente una medición difusa. }
-% \cpnote{Expande esto aca dentro del esuqeleto. Caules son las razones?}
 % \rrnote{Los operadores de proyección por sí solos no son suficiente para describir
 % mediciones difusas porque el sistema experimenta transformaciones aleatorias,
 % como el posible intercambio de partículas. Al realizar la medición de un
 % observable, la probabilidad de obtener cada una de las salidas ahora está
 % condicionada a la posibilidad de identificar de manera equivocada a las
 % partículas, y el estado posterior también difiere de una medición ideal.}
-% \cpnote{Ok, me gusta la idea de probar que las mediciones proyectivas son insuficientes, 
 % y creo que se debe hacer, pero no lo veo bien estructurado. A ver que escribes aca 
 % y como lo justificas. }
 
@@ -345,15 +330,6 @@ $\tr(P_{a_j,b_k}\fuzzy{\rho})\ne\tr(P_{a_j,b_k}\rho ) $, y a su vez el estado
 posterior no puede ser determinado por la simple proyección a los espacios
 propios del observable que se desea medir.
 
-%\cpnote{Cual es la utilidad? porque aca?
- %\rrnote{Más bien es revisitar la utilidad pero para las mediciones difusas  particularmente, son útiles porque con ellas es posible realizar el mapeo de probabilidades de forma selectiva.}\cpnote{Nop entiendo. Croe que quizá nos toca hablar de este punto. Preparate y me dices cuando hablamos} 
-
-% \rrnote{Esqueleto:En este parrafo, describir de forma corta la utilidad de las
-% medidas POVM\@. Explicar que la medidas POVM son útiles porque con ellas es
-% posible realizar un mapeo qde probabilidades para describir la medición difusa.
-% Este mapeo que toma dos argumentos. El primero es una salida de medición
-% $\alpha \in S $, donde $S$ es el conjunto de todos los posibles resultados de
-% la medición, y el segundo es un estado cuántico. } 
 
 Por lo anterior, se recurre al formalismo de las medidas POVM\@. Estas medidas
 son útiles porque con ellas es posible realizar un mapeo que toma dos
@@ -390,23 +366,6 @@ posterior a la medición POVM será
 \begin{equation}
 \rho'_\alpha=\dfrac{K_\alpha \rho K_\alpha^\dagger}{\tr(K_\alpha^\dagger K_\alpha \rho)}.
 \end{equation}
-
-
-
-
-%\cpnote{Porque aca? Que son?}  \rrnote{ Porque quiero vincular los operadores
-%de POVM y los operadores de Kraus para proponer el estado posterior a la
-%medición difusa}
-%\cpnote{Entonces lo que quieres no es hablar de la relevancia de los operadores de Kraus. 
-%Que es lo que quieres hacer en este párrafo? Aun no lo entiendo claramente.}
-
-%\rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
-%valor esperado para obtener las medidas POVM, en un
-%sistema de dos partículas para simplificar la explicación (EN el siguiente
-%capítulo se extiende a un sistema más complejo).}
-%\cpnote{Esto va a tomar mas que un parrafo. Expande mas, o dime mas explicitamente que quieres decir.} \rrnote{Lo que pensaba era detallar cómo usar la ecuación \ref{eq:Expected-Value-FM-2p-desarrollo} desarrollándola para encontrar primero los operadores POVM y luego mencionar que se debe hacer una descomposición apropiada pueden obtenerse los operadores de Kraus. Sin embargo creo que llevará más de un párrafo o  no sé si sería más apropiado para el proximo capitulo.  }
-%\cpnote{Ok, ya entiendo como va la cosa. }
-
 
 % \rrnote{Esqueleto: Finalmente, describir como se usará el operador difuso y el
 % valor esperado para obtener las medidas POVM, en un sistema de dos partículas
@@ -496,7 +455,6 @@ respectiva probabilidad
     &=\sum_\alpha |\alpha\rala\alpha|\tr(\E_\alpha(\rho)),
 \end{split}
 \end{equation}siendo $\tr_{\text{qu}}(\mathcal{I}(\rho))$ el operador de densidad reducido para el sistema clásico. 
-\cpnote{Ahora esto está muy raro. Quizá un typo.} \rrnote{Sí lo siento, era un typo}
 Por otro lado, con el operador de densidad reducido para el sistema cuántico
 $\tr_{\text{cl}}(\mathcal{I}(\rho))$, se obtienen las operaciones completamente
 positivas que preservan la traza para mediciones no selectivas
@@ -585,7 +543,6 @@ completa de la medición difusa es
     \mathcal{I}_{1}(\rho)=\sum_{a_j, b_k} P_{a_j,b_k}\tensor P_{a_j,b_k}\mathcal{F}_{2\text{p}}(\rho)P_{a_j,b_k}^\dagger,
 \end{equation}  
 donde $P_{a_j,b_k}$ son lo operadores de proyección del observable.
-\cpnote{No se si vayas a poner ejemplos, pero sugiero hacerlo}
 
 
 

@@ -16,9 +16,7 @@
 
 %Con fines ilustrativos, en este apartado se presentan los resultados
 %principales obtenidos al trabajar con las siguientes condiciones.
-%Inicialmente, el estado del sistema es $\rho  \in \mathcal{H}$ \cpnote{porque
-%un estado factorizable?}\rrnote{agregué que se trebajar con estas condiciones
-%en esta sección.},  en él  se quiere realizar la medición de un observable
+%Inicialmente, el estado del sistema es $\rho  \in \mathcal{H}$ ,  en él  se quiere realizar la medición de un observable
 %factorizable \[A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}=\sum_{j,k}a_j b_k
 %P_{a_j}\otimes P_{b_k},\] siendo $P_{a_j}$ y $P_{b_k}$ los operadores de
 %proyección que corresponden al valor propio $a_j$ del observable $A$ y el
@@ -55,9 +53,6 @@ las dos mediciones que son verosímiles, es decir $p \tr(\sigma_z\otimes \sigma
 \rho )+ (1-p)\tr(\sigma_x\otimes\sigma_z \rho)$.
 \input{../Images/circuitoprueba.tex}
 
-% \cpnote{No entiendo el objetivo de esta seccion. Se me hace un poco repetitiva. Pero 
-% quizá si hay un buen motivo para ponerla. Cuentame, antes de borrar!!}
-
 % }}}
 \subsection{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}\label{Sec_POVM_para_mediciones_difusas} % {{{
  
@@ -77,7 +72,6 @@ A continuación se especifica la forma de utilizar las medidas generalizadas con
 
 
 
-\cpnote{Ok}
 % }}}
 \subsection{Instrumentos cuánticos para dos partículas} % {{{
 % Intro subsection {{{
@@ -114,22 +108,19 @@ sufra una transformación, y sea este cambio del sistema el que se proyecte en
 el espacio propio correspondiente a la salida del observable $A\tensor B$.
 
 
-En la imagen {\ref{diagrama-cajas-primer-instrumento}} \cpnote{A veces latex mueve las imagenes. Mejor refierete a 
-ella por medio del comando ref y en la siguiente frase ya hablas de ``la figura'' para
-no repetir la referencia.}\rrnote{de acuerdo, agregé lareferencia} se puede apreciar a lo que esto se refiere gráficamente.
-En la figura, con una probabilidad $p$ se realiza una medición ideal en la que se mide el observable $A$ en la primera partícula y el observable $B$ en la segunda partícula. En esta medición ideal el estado posterior será la proyección de $\rho_1=\tr_2(\rho_{1,2})$ \cpnote{rho 1 no es un sistema. 
-corrige la escritura aca y en el resto del parrafo} al espacio propio
+En la imagen {\ref{diagrama-cajas-primer-instrumento}} se puede apreciar a lo
+que esto se refiere gráficamente.  En la figura, con una probabilidad $p$ se
+realiza una medición ideal en la que se mide el observable $A$ en la primera
+partícula y el observable $B$ en la segunda partícula. En esta medición ideal
+el estado posterior será la proyección de $\rho_1=\tr_2(\rho_{1,2})$
+al espacio propio
 correspondiente a la salida proporcionada en el sistema clásico $a_j$,
 conjuntamente con la proyección de $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de las
-salida $b_k$ \cpnote{Corrige teniendo en cuenta que el estado inicial quiza
-no es factorizable}. 
-%Siendo $\rho_1$ y $\rho_2$ los estados asociados a los espacios $\mathcal{H}_1$ y $\mathcal{H}_2$ respectivamente. 
+salida $b_k$. 
 No obstante, la figura también muestra la parte borrosa de la medición en la que con una probabilidad $1-p$,
 la medición del observable $B$ se realiza en el primer sistema y la medición
 del observable $A$ se realiza en el segundo sistema, en consecuencia $\rho_2$ se proyecta al espacio propio que corresponde a la salida
-$a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$.\cpnote{Ajusta todo 
-el parrafo teniendo en cuenta lo del estado  y lo de los sistemas}
-
+$a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$.
 \input{../Images/primer_instrumento.tex}
 
 Para un sistema de dos partículas el instrumento dado en la ecuación {\eqref{eq:primer-instrumento-general}}, puede escribirse como\begin{equation}\label{eq:fisrtinstrument2p}
@@ -157,10 +148,7 @@ Es importante notar que el sistema clásico  puede diferir del estado inicial, p
         &=\sum_{j,k}P_{a_j,b_k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}].
 \end{split}
 \end{equation} 
-\cpnote{chido el párrafo anterior!}
 
-
-\rrnote{Esqueleto:  Mientras que el estado posterior se obtiene realizando la traza parcial sobre el sistema clásico. Se realiza el desarrollo }
 
 Para obtener el mapa de resultados para una medición selectiva simplemente se
 multiplica el operador de proyección correspondiente a la salida obtenida al
@@ -171,7 +159,6 @@ resultado anterior, y se calcula la traza\[\begin{split}
     &=\sum_{j,k}\delta^{i,l}_{j,k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=p \bra{a_i b_l}\rho\ket{a_i b_l} +(1-p)\bra{b_l a_i}\rho \ket{b_l a_i}.
 \end{split}\]Es importante notar que este mapeo de resultados resultante es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
-\cpnote{esta frase aparece suelta. Conecta mejor ocn la ecuacion}.\rrnote{Conecte la frase anterior} 
 
 Por otro lado, para obtener el estado posterior luego de haber realizado la medición, se debe realizar la traza parcial sobre el sistema clásico\cpnote{También esta frase está como volando}. En este caso es fácil ver que
 \begin{equation}\label{eq:traza_cl_1instrument2p}

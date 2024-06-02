@@ -158,9 +158,9 @@ resultado anterior, y se calcula la traza\[\begin{split}
     &=\sum_{j,k}\tr\left( P_{a_i,b_l}P_{a_i,b_l}\right)[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=\sum_{j,k}\delta^{i,l}_{j,k}[p \bra{a_j b_k}\rho\ket{a_j b_k} +(1-p)\bra{b_k a_j}\rho \ket{b_k a_j}]\\
     &=p \bra{a_i b_l}\rho\ket{a_i b_l} +(1-p)\bra{b_l a_i}\rho \ket{b_l a_i}.
-\end{split}\]Es importante notar que este mapeo de resultados resultante es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
+\end{split}\]Es importante notar que este mapeo de probabilidades resultante es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
 
-Por otro lado, para obtener el estado posterior luego de haber realizado la medición, se debe realizar la traza parcial sobre el sistema clásico\cpnote{También esta frase está como volando}. En este caso es fácil ver que
+Por otro lado, para obtener el estado posterior luego de haber realizado la medición, se debe realizar la traza parcial sobre el sistema clásico de la siguiente manera\cpnote{También esta frase está como volando} \rrnote{quité la frase anterior.}
 \begin{equation}\label{eq:traza_cl_1instrument2p}
     \begin{split}
       \tr_{\text{cl}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{cl}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
@@ -196,21 +196,114 @@ Por otra parte, el valor esperado del primer instrumento se calcula de la siguie
 \rrnote{Esqueleto:Después de haber hecho el cálculo para el valor esperado del primer instrumento, el siguiente es el caso en el que se supone que el error ocurre en la lectura de los resultados y se desarrolla el segundo instrumento para un sistema de dos partículas.}
 
 
+Tras haber analizado el primer instrumento, el siguiente escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$.
+
+En la figura {\ref{fig; diagrama-cajas-segundo-instrumento}} se ilustra las dos posibilidades mencionadas anteriormente. En la primera de ellas se realiza una medición proyectiva ideal, donde se mide el observable $A$ en el primer subsistema y el observable $B$ en el segundo, con probabilidad $p$. El estado posterior a la medición será el estado $\rho_1=\tr_2(\rho_{1,2})$ proyectándose al espacio propio de la salida $a_j$, junto con la proyección del estado $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de $b_k$. Adicionalmente, la figura muestra la parte imperfecta de la medición en la que con una probabilidad $1-p$, se realiza la medición de $A$ en la primera partícula y la medición de $B$ en la segunda, sin embargo la salida de la medición para el primer subsistema es $b_k$,un resultado correspondiente al observable $B$, y la salida que se ofrece en la medición del segundo subsistema es un valor propio de $A$, $a_j$. Aunque los estados posteriores a la medición sean correctos, las salidas clásicas están intercambiadas.
+
+
+
 \input{../Images/segundo_instrumento.tex}
 
+El segundo instrumento para un sistema de dos partículas es \begin{equation}\label{eq:second-instrument-2p}
+    \begin{split}
+        \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k}[pP_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger]\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
+        &=\sum_{j,k} p |a_j b_k\rala a_j b_k| \otimes P_{a_j,b_k} \rho P_{a_j,b_k}+(1-p)|b_k a_j\rala b_k a_j|\otimes P_{a_j,b_k} \rho P_{a_j,b_k}.\\
+    \end{split}
+\end{equation} 
+
+\rrnote{Esqueleto: Se interpretan los resultados comparando con los obtenidos con el primer instruemento. Se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva es el siguiente. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva.}
 
 
-\rrnote{Esqueleto: Se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva es el siguiente. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva. Se interpretan los resultados comparando con los obtenidos con el primer instruemento.}
+En este caso es posible notar que el sistema clásico no siempre coincide con el estado posterior. La salida de la medición puede indicar que es $\ket{b_k a_j}$, y el estado posterior no será éste. De la misma manera al instrumento anterior, se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva \begin{equation}\label{eq:tr_q_second-instrument-2p}
+    \begin{split}
+        \tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\sum_{j,k}\tr_{\text{qu}}(\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k})\\
+        &=\sum_{j,k} (pP_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger) \bra{a_j,b_k} \rho \ket{a_j,b_k}.\\
+    \end{split}
+\end{equation} 
+
 
 \rrnote{Esqueleto: En el contexto de esta interpretación, se calcula el valor esperado de esta alternativa.}
 
+Adicionalmente, el valor esperado de este instrumento, se calcula de la siguiente manera\begin{equation*}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_2}&=\tr([(A\otimes B) \otimes \mathds{1}]\mathcal{I}_2)\\
+        &=\tr\left([(A\otimes B) \otimes \mathds{1}]\sum_{j,k}\mathcal{F}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\right)\\
+        &=\sum_{j,k} p\tr((A\otimes B)P_{a_j,b_k}) \tr (P_{a_j,b_k} \rho P_{a_j,b_k})\\&
+        +(1-p )\tr((A\otimes B)SP_{a_j,b_k}S) \tr(P_{a_j,b_k} \rho P_{a_j,b_k})\\
+        &=\sum_{j,k}[a_{j} b_k p\tr(P_{a_j,b_k})+(1-p)\tr( (B\otimes A)P_{a_j,b_k}) ]\tr(P_{a_j,b_k} \rho),\\
+    \end{split}
+\end{equation*}simplificando se obtiene que \begin{equation}\label{eq:expectationvalueSecondInstrument2p}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_2}&=p\tr(A\tensor B\rho)+\sum_{j,k}{\color{blue}(1-p)\tr( (B\otimes A)P_{a_j,b_k})}\tr(P_{a_j,b_k} \rho). \\
+    \end{split}
+\end{equation}
+Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante.
+
+
+
+
 % }}}
 \subsubsection{Tercera alternativa} % {{{
+    Esta última interpretación de la medición difusa incluye la posibilidad de no saber en que estado se encuentra el sistema luego de realizar la medición. En este instrumento se representa la posibilidad que al medirse el observable $A\otimes B$ se realice con cierta probabilidad una medición proyectiva ideal. Pero, también es verosímil que se realice una medición en la que no sea posible saber en que espacio se haya proyectado el sistema. Es igual de posible que se haya proyectado sobre un espacio propio del observable $A\otimes B$ como es posible que se haya proyectado en un espacio propio de $B\otimes A$,  condicionados ambos espacios por las salidas clásicas. 
+
+    En la figura {\ref{fig: diagrama-cajas-tercer-instrumento}} se muestra esta tercera interpretación. Primero, se ilustra de la posibilidad de realizar una medición proyectiva ideal del observable $A\otimes B$ con una probabilidad $q$, al igual que en los dos casos anteriores. Sin embargo con una probabilidad $1-q$, se realiza una medición en la que no es posible saber si la partículas se intercambian o no, por esta razón el estado será proyectado al espacio dado por la superposición de los operadores de proyección de $A\otimes B$ y $B\otimes A$ correspondientes a la salidas $a_j$ y $ b_k$, las cuales son indicadas por el sistema clásico, es decir los operadores  $P_{a_j,b_k}$ y $P_{b_k,a_j}$ respectivamente. 
+
+
+
 
 \input{../Images/tercer_instrumento.tex}
-\rrnote{Esqueleto:De igual forma que en los otros instruementos se desarrolla el calculo de la traza parcial para obtener el mapeo de resultados y el operador de densidad para el sistema cuántico.  Se interpretan los resultados comparando con los obtenidos con el primer instruemento y segundo instrumento.}
+El tercer instrumento cuántico puede desarrollarse de la siguiente forma
+\begin{equation}\label{eq:quantum-instrument-3-desarrollo}
+    \begin{split}
+        \mathcal{I}_3(\rho)&=q\sum_{m,n}  P_{a_m,b_n}\otimes P_{a_m,b_n}\rho P_{a_m,b_n}\\
+        &+(1-q)\left[\sum_{(j,k)\in K}P_{a_j,b_k} \otimes P^{K}_{a_j,b_k}\rho P^{K}_{a_j,b_k}+\sum_{(i,l) \in L}P_{a_i,b_l} \otimes  \dfrac{1}{2}P^{L}_{a_i,b_l}\rho P^L_{a_i,b_l}\right]\\
+        &=\sum_{(j,k)\in K}  P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}+q\sum_{(i,l)\in L}P_{a_i,b_l} \otimes P_{a_i,b_l}\rho P_{a_i,b_l}\\
+        &(1-q)\sum_{(i,l) \in L}P_{a_i,b_l} \otimes  \dfrac{1}{2}P^{L}_{a_i,b_l}\rho P^L_{a_i,b_l}\\
+        &=\sum_{(j,k)\in K}  P_{a_j,b_k}\otimes P_{a_j,b_k}\rho P_{a_j,b_k}+q\sum_{(i,l)\in L}P_{a_i,b_l} \otimes P_{a_i,b_l}\rho P_{a_i,b_l}\\
+        &(1-q)\sum_{(i,l) \in L}P_{a_i,b_l} \otimes  \dfrac{1}{2}\left[P_{a_i,b_l}+P_{b_l,a_i}\right]\rho \left[P_{a_i,b_l}+P_{b_l,a_i}\right].\\
+    \end{split}
+\end{equation}En este instrumento se asume que los operadores de proyección de los observables $A\otimes B$ y $B\otimes A$ tales que comparten el mismo valor propio, son ortogonales. En este caso, la salida clásica no difiere del estado inicial pero existe la posibilidad que se desconozca si la salida clásica coincida o no  con el estado posterior. 
 
-\rrnote{Esqueleto:Finalmente, se calcula el valor esperado de este último instrumento cuántico. }
+\rrnote{Esqueleto:De igual forma que en los otros instruementos se desarrolla el calculo de la traza parcial para obtener el mapeo de resultados y el operador de densidad para el sistema cuántico.  }
+
+Para este instrumento, se obtiene el mapeo de resultados, de igual forma que los dos anteriores, realizando la traza parcial sobre el sistema cuántico como sigue\begin{equation}\label{eq:traza_q_3instrument2p}
+    \begin{split}
+       \tr_{\text{qu}}\left( \mathcal{I}_3(\rho)\right)&=\sum_{(j,k)\in K}  P_{a_j,b_k}\tr(P_{a_j,b_k}\rho)+q\sum_{(i,l)\in L}P_{a_i,b_l} \tr(P_{a_i,b_l}\rho) \\
+        &+\dfrac{(1-q)}{2}\sum_{(i,l) \in L}P_{a_i,b_l} \tr(\left[P_{a_i,b_l}+P_{b_l,a_i}\right]\rho)\\
+        &=\sum_{(j,k)\in K}  P_{a_j,b_k}\la a_i b_l|\rho|a_i b_l\ra +q\sum_{(i,l)\in L}P_{a_i,b_l} \la a_i b_l|\rho|a_i b_l\ra \\
+        &+\dfrac{(1-q)}{2}\sum_{(i,l) \in L}P_{a_i,b_l} \left[ \la a_i b_l|\rho|a_i b_l\ra + \la b_l a_i|\rho| b_l a_i\ra \right].\\
+        &=\sum_{(j,k)\in K}  P_{a_j,b_k}\la a_i b_l|\rho|a_i b_l\ra \\
+        &+\dfrac{(1+q)}{2}\sum_{(i,l)\in L}P_{a_i,b_l} \la a_i b_l|\rho|a_i b_l\ra +\dfrac{(1-q)}{2}\sum_{(i,l) \in L}P_{a_i,b_l} \la b_l a_i|\rho| b_l a_i\ra.\\
+    \end{split}
+\end{equation}Nótese que el último término de la primera igualdad  se puede simplificar de esta manera puesto que se supone que los operadores $P_{a_j,b_k}^L$ son de proyección. 
+
+%Esta ecuación puede compararse con la ecuación {\eqref{eq:traza_q_1instrument2p}} y ciertamente puede realizarse el mismo análisis para obtener el mapeo de resultados.
+
+
+
+
+\rrnote{Esqueleto:Finalmente, se calcula el valor esperado de este último instrumento cuántico.}
+
+Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin{equation*}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_3}&=\tr([(A\otimes B) \otimes \mathds{1}]\mathcal{I}_3)\\
+        &=\sum_{(j,k)\in K} \tr((A\otimes B )P_{a_j,b_k})\tr(P_{a_j,b_k}\rho)+q\sum_{(i,l)\in L}\tr((A\otimes B)P_{a_i,b_l}) \tr(P_{a_i,b_l}\rho)\\
+        &+\dfrac{(1-q)}{2}\sum_{(i,l) \in L}\tr((A\otimes B )P_{a_i,b_l}) \tr(\left[P_{a_i,b_l}+P_{b_l,a_i}\right]\rho)\\
+        &=\sum_{(j,k)\in K} a_j b_k\tr(P_{a_j,b_k}\rho)+q\sum_{(i,l)\in L}a_i b_l \tr(P_{a_i,b_l}\rho)\\
+        &+\dfrac{(1-q)}{2}\sum_{(i,l) \in L} a_i b_l\tr(\left[P_{a_i,b_l}+P_{b_l,a_i}\right]\rho)\\
+        &=\sum_{(j,k)\in K} a_j b_k \tr(P_{a_j, b_k}\rho)\\
+        &+\dfrac{(1+q)}{2}\sum_{(i,l)\in L}a_i b_l \tr(P_{a_i,b_l}\rho) +\dfrac{(1-q)}{2}\sum_{(i,l) \in L}a_i b_l \tr(P_{b_l, a_i}\rho).
+    \end{split}
+\end{equation*}En suma, el valor esperado para este instrumento es \begin{equation}\label{eq:expectedValueThirdInstrument2p}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_3}&=\sum_{(j,k)\in K} a_j b_k \tr(P_{a_j, b_k}\rho)+\sum_{(i,l)\in L}a_i b_l \left[\tfrac{(1+q)}{2} \tr(P_{a_i,b_l}\rho) +\tfrac{(1-q)}{2}\tr(P_{b_l, a_i}\rho)\right].
+    \end{split}
+\end{equation} Este valor esperado puede conllevar más álgebra debido a la interpretación que se le da al estado posterior a la medición, sin embargo el valor esperado en este caso es equivalente al del primer instrumento y esta equivalencia será discutida en la siguiente sección. 
+
+
+
+
 
 
 % }}}
@@ -218,7 +311,62 @@ Por otra parte, el valor esperado del primer instrumento se calcula de la siguie
 \subsection{Equivalencia de los instrumentos} % {{{
 \rrnote{Esqueleto: Se hace una comparación entre los instrumentos anteriores y se expone por qué resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
 
+Debido a la manera en que se diseñaron los tres instrumentos, se esperaba que el valor esperado de cada uno fuera el adecuado. Como se observó en las secciones anteriores, los instrumentos propuestos no son iguales. Lamentablemente, el valor esperado del segundo instrumento  no es el correcto. Por lo tanto, es importante preguntarse, ¿bajo qué condiciones estos instrumentos son equivalentes?
+
+
+
+
 \rrnote{Esqueleto: Se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos instrumentos y su demostración.}
+
+
+A continuación se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos primeros instrumentos y su demostración.
+
+
+\begin{proposition}\label{prop:Equivalencia-instruments1-2}
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas de los instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y {\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.\] 
+\end{proposition}
+
+\begin{proof}
+    $(\Rightarrow)$ Supongamos que para todo estado inicial $\rho$ los valores esperados de los instrumentos son iguales. El primer término del lado derecho de la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} y el primer término de la derecha en {\eqref{eq:expectationvalueSecondInstrument2p}} son iguales, por lo tanto se igualan los segundos términos de estas ecuaciones, i.e.\begin{equation}\label{equivalencia_terminos}\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado derecho de esta última ecuación: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
+        &=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  reescribiendo la ecuación {\ref{equivalencia_terminos}} 
+        \[\tr(B\otimes A \rho)=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\\ \]
+    \begin{equation}\label{trazaCero}\begin{split}
+        \tr\left[\left(B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho \right]=0\\ \end{split}.\end{equation}
+        Al expandir $B\otimes A$ en la base de vectores propios de $A\otimes B$ obtenemos que \[B\otimes A=\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|,\] desarrollando la ecuación {\ref{trazaCero}}   
+    \[\begin{split}
+        \tr\left[\left(B\otimes A-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho\right]&=0\\
+    \tr\left[\left(\sum_{j,k,j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|-\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\right)\rho\right]&=0\\
+    \tr\left[\left(\sum_{j,k\ne j',k'}\tr(B\otimes A |a_j b_k\rala a_{j'}b_{k'}|)|a_j b_k\rala a_{j'}b_{k'}|\right)\rho\right]&=0\\
+    \tr\left[\left(\sum_{j,k\ne j',k'}  \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|\right)\rho\right]&=0.\\
+    \end{split}\]
+    De la última ecuación, para cualquier estado inicial $\rho$, se obtiene que\footnote[1]{ver lema {\ref{lemma_traza_cero}}.} 
+    \[\sum_{j,k\ne j', k'} \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|=\mathbf{0},\] luego por independencia lineal de la base de vectores propios  
+     \[\begin{array}{cc}
+        \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle=0& \forall j,k\ne j',k'.\end{array}\]
+
+        $(\Leftarrow)$
+        Ahora si suponemos que los coeficientes  $\langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle=0$,  $\forall j,k\ne j',k'$. Entonces el operador $B\otimes A=\sum_{i,l}d_{i,l}P_{a_i, b_l}$ escrito en la base de vectores propios de $A\otimes B$.
+        
+        Finalmente, se obtiene la siguiente igualdad \[\begin{split}\sum_{j,k}\tr( \sum_{i,l}d_{i,l}P_{a_i, b_l} P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&=\sum_{j,k}\sum_{i,l}d_{i,l}\delta_{j,k}^{i,l}\tr(P_{a_j b_k}\rho )\\&=\sum_{j,k}d_{j,k}\tr(P_{a_j b_k}\rho )=\tr(B\otimes A\rho)\end{split}.\]
+
+
+\end{proof}
+
+\begin{corollary}
+   Para todo estado inicial $\rho$ si los observables $A\tensor B$ y $B\tensor A$ conmutan y  no son degenerados entonces ambos instrumentos tienen valores esperados equivalentes.
+\end{corollary}
+
+
+
+Debido a que el primer instrumento presenta el valor esperado correcto y el segundo no en todos los casos, lo razonable es comparar el tercer instrumento con el primero únicamente. Anteriormente se vio que estos instrumentos tenían un valor esperado muy similar. Sin embargo, es importante hacer la aclaración que el tercer instrumento solo tiene sentido, en el caso particular en el que los operadores de proyección de los observables $A\tensor B$ y $B\otimes A$ cumplen con $P_{a_m,b_n}P_{b_n,a_m}=\delta_{b_n,a_m}^{a_m,b_n}P_{a_m,b_n}$.
+
+
+
+
+
+
+
+
 
 
 

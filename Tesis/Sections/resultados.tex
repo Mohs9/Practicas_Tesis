@@ -196,7 +196,7 @@ Por otra parte, el valor esperado del primer instrumento se calcula de la siguie
 \rrnote{Esqueleto:Después de haber hecho el cálculo para el valor esperado del primer instrumento, el siguiente es el caso en el que se supone que el error ocurre en la lectura de los resultados y se desarrolla el segundo instrumento para un sistema de dos partículas.}
 
 
-Tras haber analizado el primer instrumento, el siguiente escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$.
+Tras haber analizado el primer instrumento, el siguiente escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$. \cpnote{muy bien!}
 
 En la figura {\ref{fig; diagrama-cajas-segundo-instrumento}} se ilustra las dos posibilidades mencionadas anteriormente. En la primera de ellas se realiza una medición proyectiva ideal, donde se mide el observable $A$ en el primer subsistema y el observable $B$ en el segundo, con probabilidad $p$. El estado posterior a la medición será el estado $\rho_1=\tr_2(\rho_{1,2})$ proyectándose al espacio propio de la salida $a_j$, junto con la proyección del estado $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de $b_k$. Adicionalmente, la figura muestra la parte imperfecta de la medición en la que con una probabilidad $1-p$, se realiza la medición de $A$ en la primera partícula y la medición de $B$ en la segunda, sin embargo la salida de la medición para el primer subsistema es $b_k$,un resultado correspondiente al observable $B$, y la salida que se ofrece en la medición del segundo subsistema es un valor propio de $A$, $a_j$. Aunque los estados posteriores a la medición sean correctos, las salidas clásicas están intercambiadas.
 
@@ -238,8 +238,7 @@ Adicionalmente, el valor esperado de este instrumento, se calcula de la siguient
         \la A\otimes B \ra_{\mathcal{I}_2}&=p\tr(A\tensor B\rho)+\sum_{j,k}{\color{blue}(1-p)\tr( (B\otimes A)P_{a_j,b_k})}\tr(P_{a_j,b_k} \rho). \\
     \end{split}
 \end{equation}
-Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante.
-
+Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante. \cpnote{donde lo piensas discutir?}
 
 
 
@@ -308,6 +307,7 @@ Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin
 
 % }}}
 % }}}
+\cpnote{HAsta aca la cosa va bien}
 \subsection{Equivalencia de los instrumentos} % {{{
 \rrnote{Esqueleto: Se hace una comparación entre los instrumentos anteriores y se expone por qué resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
 

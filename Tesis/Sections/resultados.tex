@@ -196,7 +196,7 @@ Por otra parte, el valor esperado del primer instrumento se calcula de la siguie
 \rrnote{Esqueleto:Después de haber hecho el cálculo para el valor esperado del primer instrumento, el siguiente es el caso en el que se supone que el error ocurre en la lectura de los resultados y se desarrolla el segundo instrumento para un sistema de dos partículas.}
 
 
-Tras haber analizado el primer instrumento, el siguiente escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$. \cpnote{muy bien!}
+Tras haber analizado el primer instrumento, el siguiente escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$.\cpnote{muy bien!}
 
 En la figura {\ref{fig; diagrama-cajas-segundo-instrumento}} se ilustra las dos posibilidades mencionadas anteriormente. En la primera de ellas se realiza una medición proyectiva ideal, donde se mide el observable $A$ en el primer subsistema y el observable $B$ en el segundo, con probabilidad $p$. El estado posterior a la medición será el estado $\rho_1=\tr_2(\rho_{1,2})$ proyectándose al espacio propio de la salida $a_j$, junto con la proyección del estado $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de $b_k$. Adicionalmente, la figura muestra la parte imperfecta de la medición en la que con una probabilidad $1-p$, se realiza la medición de $A$ en la primera partícula y la medición de $B$ en la segunda, sin embargo la salida de la medición para el primer subsistema es $b_k$,un resultado correspondiente al observable $B$, y la salida que se ofrece en la medición del segundo subsistema es un valor propio de $A$, $a_j$. Aunque los estados posteriores a la medición sean correctos, las salidas clásicas están intercambiadas.
 
@@ -238,7 +238,7 @@ Adicionalmente, el valor esperado de este instrumento, se calcula de la siguient
         \la A\otimes B \ra_{\mathcal{I}_2}&=p\tr(A\tensor B\rho)+\sum_{j,k}{\color{blue}(1-p)\tr( (B\otimes A)P_{a_j,b_k})}\tr(P_{a_j,b_k} \rho). \\
     \end{split}
 \end{equation}
-Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante. \cpnote{donde lo piensas discutir?}
+Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante, en la sección {\ref{subsec:Equivalencia }}.\cpnote{donde lo piensas discutir?}\rrnote{agregué que en la siguiente sección  se discutirá}
 
 
 
@@ -298,7 +298,7 @@ Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin
     \begin{split}
         \la A\otimes B \ra_{\mathcal{I}_3}&=\sum_{(j,k)\in K} a_j b_k \tr(P_{a_j, b_k}\rho)+\sum_{(i,l)\in L}a_i b_l \left[\tfrac{(1+q)}{2} \tr(P_{a_i,b_l}\rho) +\tfrac{(1-q)}{2}\tr(P_{b_l, a_i}\rho)\right].
     \end{split}
-\end{equation} Este valor esperado puede conllevar más álgebra debido a la interpretación que se le da al estado posterior a la medición, sin embargo el valor esperado en este caso es equivalente al del primer instrumento y esta equivalencia será discutida en la siguiente sección. 
+\end{equation} Este valor esperado puede conllevar más álgebra debido a la interpretación que se le da al estado posterior a la medición, sin embargo el  este valor esperado equivale matemáticamente al del primer instrumento y esta equivalencia será discutida en la siguiente sección. 
 
 
 
@@ -308,22 +308,27 @@ Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin
 % }}}
 % }}}
 \cpnote{HAsta aca la cosa va bien}
-\subsection{Equivalencia de los instrumentos} % {{{
-\rrnote{Esqueleto: Se hace una comparación entre los instrumentos anteriores y se expone por qué resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
-
-Debido a la manera en que se diseñaron los tres instrumentos, se esperaba que el valor esperado de cada uno fuera el adecuado. Como se observó en las secciones anteriores, los instrumentos propuestos no son iguales. Lamentablemente, el valor esperado del segundo instrumento  no es el correcto. Por lo tanto, es importante preguntarse, ¿bajo qué condiciones estos instrumentos son equivalentes?
+\subsection{Equivalencia de los instrumentos}\label{subsec:Equivalencia } % {{{
+\rrnote{Esqueleto Intro: Se hace una comparación entre los instrumentos anteriores y se expone que resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
 
 
 
+En esta sección se pretende comparar los valores esperados de los diferentes instrumentos cuánticos analizados previamente, con el fin de examinar sus equivalencias.  Dado el enfoque con el que fueron concebidos los tres instrumentos, se anticipaba que el valor esperado de cada uno sería el apropiado. Como se observó en las secciones anteriores, los instrumentos propuestos no son idénticos. Por lo tanto, es importante preguntarse, ¿bajo qué condiciones estos instrumentos son equivalentes?
 
-\rrnote{Esqueleto: Se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos instrumentos y su demostración.}
 
 
-A continuación se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos primeros instrumentos y su demostración.
+
+\rrnote{Esqueleto:Como primer punto se contrasta los valores esperados del primer y segundo instrumento. Se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos instrumentos y su demostración.}
+
+
+En primer lugar, se contrasta los valores esperados del primer y segundo instrumento. Con anterioridad se pudo apreciar que el valor esperado del primero corresponde exactamente al de una medición difusa, sin embargo al analizar el valor esperado del segundo, se puede apreciar que, en términos generales, la parte que distorsiona los resultados de la medición no se corresponde de manera similar con la parte que difumina la medición en el primero. Para verificarlo basta con analizar un caso particular, por ejemplo si $A\otimes B= \sigma_z\otimes \sigma_x$, sin importar cuál sea el estado inicial $\rho$, el segundo término de  la ecuación {\eqref{eq:expectationvalueSecondInstrument2p}} es siempre cero. No obstante, la parte análoga del valor esperado del primer instrumento, el segundo término en la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} no siempre es cero  sino que dependerá del estado inicial del sistema.  
+
+
+Aunque no en todos los casos estos instrumentos son equivalentes, existen una condición en la que sí lo son. A continuación se presenta la proposición que detalla esta condición de equivalencia del valor esperado entre los dos primeros instrumentos y su demostración.
 
 
 \begin{proposition}\label{prop:Equivalencia-instruments1-2}
-    Para todo estado inicial $\rho$, los valores esperados de las alternativas de los instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y {\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.\] 
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas de los instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y {\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.\]
 \end{proposition}
 
 \begin{proof}
@@ -358,19 +363,43 @@ A continuación se presenta la proposición que detalla las condiciones de equiv
 
 
 
-Debido a que el primer instrumento presenta el valor esperado correcto y el segundo no en todos los casos, lo razonable es comparar el tercer instrumento con el primero únicamente. Anteriormente se vio que estos instrumentos tenían un valor esperado muy similar. Sin embargo, es importante hacer la aclaración que el tercer instrumento solo tiene sentido, en el caso particular en el que los operadores de proyección de los observables $A\tensor B$ y $B\otimes A$ cumplen con $P_{a_m,b_n}P_{b_n,a_m}=\delta_{b_n,a_m}^{a_m,b_n}P_{a_m,b_n}$.
-
-
-
-
-
-
-
-
-
-
 
 \rrnote{Esqueleto: Se hace una comparación con los valores esperados del primer y tercer instrumento para precisar en que condiciones estos son equivalentes. }
+
+
+Por otro lado, debido a que el primer instrumento presenta el valor esperado correcto y el segundo no en todos los casos, lo razonable es comparar el tercer instrumento con el primero únicamente. Anteriormente se vio que estos instrumentos tenían un valor esperado similar matemáticamente. Sin embargo, es importante hacer la aclaración que el tercer instrumento solo tiene sentido, en el caso particular en el que los operadores de proyección de los observables $A\tensor B$ y $B\otimes A$ cumplen con $P_{a_m,b_n}P_{b_n,a_m}=\delta_{b_n,a_m}^{a_m,b_n}P_{a_m,b_n}$. Por esta razón, ahora se presenta la proposición que detalla cuando estos instrumentos son análogos.
+
+
+
+
+\begin{proposition}\label{prop:Equivalencia-instruments-1-3}
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas de instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y {\eqref{eq:quantum-instrument-3-desarrollo}} son equivalentes si y solo si $p=\dfrac{1+q}{2}$.
+\end{proposition}
+
+
+\begin{proof}
+El valor esperado del tercer instrumento está dado por la ecuación {\eqref{eq:expectedValueThirdInstrument2p}}, en el que la primera suma toma los operadores de proyección indexados por los elementos del conjunto $K$, es decir que $P_{a_j,b_k}=P_{a_k,b_j}$. Por lo tanto esta ecuación puede reescribirse de la siguiente forma \begin{equation*}
+    \begin{split}
+        \la A\otimes B \ra_{\mathcal{I}_3}&=\sum_{(j,k)\in K} a_j b_k \left[\tfrac{(1+q)}{2} \tr(P_{a_j, b_k}\rho)+ \tfrac{(1-q)}{2} \tr(P_{a_j, b_k}\rho)\right]\\
+        &+\sum_{(i,l)\in L}a_i b_l \left[\tfrac{(1+q)}{2}\tr(P_{a_i,b_l}\rho) +\tfrac{(1-q)}{2} \tr(P_{b_l, a_i}\rho)\right]\\
+        &=\sum_{(j,k)\in K} \tfrac{(1+q)}{2} a_j b_k\tr(P_{a_j, b_k}\rho) + \tfrac{(1-q)}{2} a_j b_k \tr(P_{ b_k,a_j}\rho)\\
+        &+\sum_{(i,l)\in L}\tfrac{(1+q)}{2}a_i b_l \tr(P_{a_i,b_l}\rho) +\tfrac{(1-q)}{2}a_i b_l \tr(P_{b_l, a_i}\rho)\\
+        &=\tfrac{(1+q)}{2}\left[\sum_{(j,k)\in K}  a_j b_k \tr(P_{a_j, b_k}\rho)+\sum_{(i,l)\in L}a_i b_l \tr(P_{a_i,b_l}\rho)  \right] \\
+        &+\tfrac{(1-q)}{2}\left[\sum_{(j,k)\in K}a_j b_k \tr(P_{ b_k,a_j}\rho)+\sum_{(i,l) \in L}a_i b_l \tr(P_{b_l, a_i}\rho)\right]\\
+        &=\tfrac{(1+q)}{2}\left[\tr(A\otimes B \rho)  \right] +\tfrac{(1-q)}{2}\left[\tr(B\otimes A \rho)\right].\\
+    \end{split}
+\end{equation*}De la última igualdad se puede observar que los valores esperados serán equivalentes cuando la probabilidad $p=\dfrac{1+q}{2}$ y $(1-p)=\dfrac{1-q}{2}$.
+\end{proof}
+
+Con base en esta proposición es posible analizar la equivalencia entre las interpretaciones de los instrumentos. Cuando la probabilidad %$(1-p)$
+de obtener una medición donde las partículas experimentan un intercambio, sea igual a la mitad de la probabilidad %$(1-q)$
+ de no poder diferenciar en qué estado se encuentra el sistema después de la medición, el valor esperado de los instrumentos  será exactamente el mismo.   
+
+
+
+
+
+
 % }}}
 \subsection{Ejemplos sobre una medición difusa utilizando distintas herramientas} % {{{
 % Into sub {{{

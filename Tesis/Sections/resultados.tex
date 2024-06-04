@@ -307,32 +307,67 @@ Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin
 
 % }}}
 % }}}
-\cpnote{HAsta aca la cosa va bien}
 \subsection{Equivalencia de los instrumentos}\label{subsec:Equivalencia } % {{{
-\rrnote{Esqueleto Intro: Se hace una comparación entre los instrumentos anteriores y se expone que resultaron no ser equivalentes. En esta sección se comenta que se esperaba que los instrumentos fueran equivalentes pero resultaron distintos y por ello vale la pena proponer en qué condiciones sí lo son.}
+% \rrnote{Esqueleto Intro: Se hace una comparación entre los instrumentos
+% anteriores y se expone que resultaron no ser equivalentes. En esta sección se
+% comenta que se esperaba que los instrumentos fueran equivalentes pero
+% lo son.}
+
+En esta sección se pretende comparar los valores esperados de los diferentes
+instrumentos cuánticos analizados previamente, con el fin de examinar sus
+equivalencias.  Dado el enfoque con el que fueron concebidos los tres
+instrumentos, se anticipaba que el valor esperado de cada uno sería el
+apropiado. Como se observó en las secciones anteriores, los instrumentos
+propuestos no son idénticos. Por lo tanto, es importante preguntarse, ¿bajo qué
+condiciones estos instrumentos son equivalentes?
+
+% \rrnote{Esqueleto:Como primer punto se contrasta los valores esperados del
+% primer y segundo instrumento. Se presenta la proposición que detalla las
+% condiciones de equivalencia del valor esperado entre los dos instrumentos y su
+% demostración.}
 
 
+En primer lugar, se contrasta los valores esperados del primer y segundo
+instrumento. Con anterioridad se pudo apreciar que el valor esperado del
+primero corresponde exactamente al de una medición difusa, sin embargo al
+analizar el valor esperado del segundo, se puede apreciar que, en términos
+generales, la parte que distorsiona los resultados de la medición no se
+corresponde de manera similar con la parte que difumina la medición en el
+primero. Para verificarlo basta con analizar un caso particular, por ejemplo si
+$A\otimes B= \sigma_z\otimes \sigma_x$, sin importar cuál sea el estado inicial
+$\rho$, el segundo término de  la ecuación
+{\eqref{eq:expectationvalueSecondInstrument2p}} es siempre cero. No obstante,
+la parte análoga del valor esperado del primer instrumento, el segundo término
+en la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} no siempre es cero
+sino que dependerá del estado inicial del sistema.  
 
-En esta sección se pretende comparar los valores esperados de los diferentes instrumentos cuánticos analizados previamente, con el fin de examinar sus equivalencias.  Dado el enfoque con el que fueron concebidos los tres instrumentos, se anticipaba que el valor esperado de cada uno sería el apropiado. Como se observó en las secciones anteriores, los instrumentos propuestos no son idénticos. Por lo tanto, es importante preguntarse, ¿bajo qué condiciones estos instrumentos son equivalentes?
 
-
-
-
-\rrnote{Esqueleto:Como primer punto se contrasta los valores esperados del primer y segundo instrumento. Se presenta la proposición que detalla las condiciones de equivalencia del valor esperado entre los dos instrumentos y su demostración.}
-
-
-En primer lugar, se contrasta los valores esperados del primer y segundo instrumento. Con anterioridad se pudo apreciar que el valor esperado del primero corresponde exactamente al de una medición difusa, sin embargo al analizar el valor esperado del segundo, se puede apreciar que, en términos generales, la parte que distorsiona los resultados de la medición no se corresponde de manera similar con la parte que difumina la medición en el primero. Para verificarlo basta con analizar un caso particular, por ejemplo si $A\otimes B= \sigma_z\otimes \sigma_x$, sin importar cuál sea el estado inicial $\rho$, el segundo término de  la ecuación {\eqref{eq:expectationvalueSecondInstrument2p}} es siempre cero. No obstante, la parte análoga del valor esperado del primer instrumento, el segundo término en la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} no siempre es cero  sino que dependerá del estado inicial del sistema.  
-
-
-Aunque no en todos los casos estos instrumentos son equivalentes, existen una condición en la que sí lo son. A continuación se presenta la proposición que detalla esta condición de equivalencia del valor esperado entre los dos primeros instrumentos y su demostración.
+Aunque no en todos los casos estos instrumentos son equivalentes, existen una
+condición en la que sí lo son. A continuación se presenta la proposición que
+detalla esta condición de equivalencia del valor esperado entre los dos
+primeros instrumentos y su demostración.
 
 
 \begin{proposition}\label{prop:Equivalencia-instruments1-2}
-    Para todo estado inicial $\rho$, los valores esperados de las alternativas de los instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y {\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.\]
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas
+de los instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y
+{\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \[\la a_j
+b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.\]
 \end{proposition}
 
 \begin{proof}
-    $(\Rightarrow)$ Supongamos que para todo estado inicial $\rho$ los valores esperados de los instrumentos son iguales. El primer término del lado derecho de la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} y el primer término de la derecha en {\eqref{eq:expectationvalueSecondInstrument2p}} son iguales, por lo tanto se igualan los segundos términos de estas ecuaciones, i.e.\begin{equation}\label{equivalencia_terminos}\tr(B\otimes A \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado derecho de esta última ecuación: \[\begin{split}\sum_{jk}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A) P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
+    $(\Rightarrow)$ Supongamos que para todo estado inicial $\rho$ los valores
+esperados de los instrumentos son iguales. El primer término del lado derecho
+de la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} y el primer término
+de la derecha en {\eqref{eq:expectationvalueSecondInstrument2p}} son iguales,
+por lo tanto se igualan los segundos términos de estas ecuaciones,
+i.e.\begin{equation}\label{equivalencia_terminos}\tr(B\otimes A
+\rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho
+).\end{equation} Por la linealidad de la traza se puede reacomodar el lado
+derecho de esta última ecuación: 
+\[\begin{split}\sum_{jk}\tr((B\otimes A)
+P_{a_j,b_k})\tr(P_{a_j b_k}\rho )&= \sum_{jk}\tr[\tr((B\otimes A)
+P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
         &=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\end{split}.\]  reescribiendo la ecuación {\ref{equivalencia_terminos}} 
         \[\tr(B\otimes A \rho)=\tr\left[\left(\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})P_{a_j b_k}\right)\rho \right]\\ \]
     \begin{equation}\label{trazaCero}\begin{split}
@@ -345,7 +380,7 @@ Aunque no en todos los casos estos instrumentos son equivalentes, existen una co
     \tr\left[\left(\sum_{j,k\ne j',k'}  \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|\right)\rho\right]&=0.\\
     \end{split}\]
     De la última ecuación, para cualquier estado inicial $\rho$, se obtiene que\footnote[1]{ver lema {\ref{lemma_traza_cero}}.} 
-    \[\sum_{j,k\ne j', k'} \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|=\mathbf{0},\] luego por independencia lineal de la base de vectores propios  
+    \[\sum_{j,k\ne j', k'} \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle |a_j b_k\rala a_{j'}b_{k'}|=0,\] luego por independencia lineal de la base de vectores propios  
      \[\begin{array}{cc}
         \langle a_j b_k |B\otimes A|a_{j'}b_{k'}\rangle=0& \forall j,k\ne j',k'.\end{array}\]
 
@@ -358,22 +393,35 @@ Aunque no en todos los casos estos instrumentos son equivalentes, existen una co
 \end{proof}
 
 \begin{corollary}
-   Para todo estado inicial $\rho$ si los observables $A\tensor B$ y $B\tensor A$ conmutan y  no son degenerados entonces ambos instrumentos tienen valores esperados equivalentes.
+   Para todo estado inicial $\rho$ si los observables $A\tensor B$ y $B\tensor
+A$ conmutan y  no son degenerados entonces ambos instrumentos tienen valores
+esperados equivalentes.
 \end{corollary}
+\cpnote{Me gustaria que dieras un ejemplo en el que no conmuten, pero si se cumpla la condicion.  Hay? croe qeu si, segun habíamos visto.}
 
 
 
 
-\rrnote{Esqueleto: Se hace una comparación con los valores esperados del primer y tercer instrumento para precisar en que condiciones estos son equivalentes. }
+% \rrnote{Esqueleto: Se hace una comparación con los valores esperados del primer
+% y tercer instrumento para precisar en que condiciones estos son equivalentes. }
 
 
-Por otro lado, debido a que el primer instrumento presenta el valor esperado correcto y el segundo no en todos los casos, lo razonable es comparar el tercer instrumento con el primero únicamente. Anteriormente se vio que estos instrumentos tenían un valor esperado similar matemáticamente. Sin embargo, es importante hacer la aclaración que el tercer instrumento solo tiene sentido, en el caso particular en el que los operadores de proyección de los observables $A\tensor B$ y $B\otimes A$ cumplen con $P_{a_m,b_n}P_{b_n,a_m}=\delta_{b_n,a_m}^{a_m,b_n}P_{a_m,b_n}$. Por esta razón, ahora se presenta la proposición que establece formalmente cuando estos instrumentos son análogos.
-
-
-
+Por otro lado, debido a que el primer instrumento presenta el valor esperado
+correcto y el segundo no en todos los casos, lo razonable es comparar el tercer
+instrumento con el primero únicamente. Anteriormente se vio que estos
+instrumentos tenían un valor esperado similar matemáticamente. Sin embargo, es
+importante hacer la aclaración que el tercer instrumento solo tiene sentido, en
+el caso particular en el que los operadores de proyección de los observables
+$A\tensor B$ y $B\otimes A$ cumplen con
+$P_{a_m,b_n}P_{b_n,a_m}=\delta_{b_n,a_m}^{a_m,b_n}P_{a_m,b_n}$. Por esta razón,
+ahora se presenta la proposición que establece formalmente cuando estos
+instrumentos son análogos.
 
 \begin{proposition}\label{prop:Equivalencia-instruments-1-3}
-    Para todo estado inicial $\rho$, los valores esperados de las alternativas de instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y {\eqref{eq:quantum-instrument-3-desarrollo}} son equivalentes si y solo si $p=\dfrac{1+q}{2}$.
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas
+de instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y
+{\eqref{eq:quantum-instrument-3-desarrollo}} son equivalentes si y solo si
+$p=\dfrac{1+q}{2}$.
 \end{proposition}
 
 
@@ -401,6 +449,7 @@ de obtener una medición donde las partículas experimentan un intercambio, sea 
 
 
 % }}}
+\cpnote{Muy bien}
 \subsection{Ejemplos sobre una medición difusa utilizando distintas herramientas} % {{{
 % Into sub {{{
 \rrnote{Esqueleto: Describir algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos particulas. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}

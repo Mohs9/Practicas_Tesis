@@ -452,16 +452,43 @@ de obtener una medición donde las partículas experimentan un intercambio, sea 
 \cpnote{Muy bien}
 \subsection{Ejemplos sobre una medición difusa utilizando distintas herramientas} % {{{
 % Into sub {{{
-\rrnote{Esqueleto: Describir algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos particulas. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
+\rrnote{Esqueleto: Describir algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos particulas. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right).\] }
+
+
+En esta sección se realizarán algunos ejemplos que ilustran la descripción completa de la medición de un observable de la forma $A\otimes B$ en un estado inicial $\rho$ utilizando las distintas herramientas discutidas en los apartados anteriores, las medidas POVM conjunto a los operadores de Kraus, así como los distintos instrumentos cuánticos. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \begin{equation}\label{eq:estado-ejemplos-2p}\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
     1/6&1/6&0&0\\
     1/6&1/6&0&0\\
     0&0&1/3&1/3\\
     0&0&1/3&1/3\\
-\end{pmatrix}.\] }
+\end{pmatrix}.\end{equation}
+
+
 % }}}
 \subsubsection{Ejemplo utilizando las mediciones POVM y los operadores de Kraus} % {{{
 
 \rrnote{Esqueleto: Previamente se graficó el mapeo de probabilidades de obtener los valores propios del observables, los cuales son $1$ y $-1$. Realizar este mapeo con los efectos discutidos}
+
+Previamente se graficó el mapeo de probabilidades de obtener los valores propios del observables, los cuales son $1$ y $-1$. Este mapeo puede realizarse con los efectos discutidos como \[\begin{split}E(1,\rho)=&\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho) +\tr(\mathcal{F}_{2\text{p}}(P_{1-})\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0+}+P_{1-})\rho)\\ 
+    =&\frac{1}{3}\tr\left[\left[p\begin{pmatrix}
+        1&1&0&0\\
+        1&1&0&0\\
+        0&0&1&-1\\
+        0&0&-1&1\\
+    \end{pmatrix}+ (1-p)\begin{pmatrix}
+        1&0&1&0\\
+        0&1&0&-1\\
+        1&0&1&0\\
+        0&-1&0&1\\
+    \end{pmatrix}\right]\begin{pmatrix}
+        \tfrac{1}{2}&\tfrac{1}{2}&0&0\\
+        \tfrac{1}{2}&\tfrac{1}{2}&0&0\\
+        0&0&1&1\\
+        0&0&1&1\\
+    \end{pmatrix}\right]\\
+    =&\frac{3-p}{6},
+    \end{split}\]  análogamente para el otro valor propio
+    \[E(-1,\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0-})\rho) +\tr(\mathcal{F}_{2\text{p}}(P_{1+})\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0-}+P_{1+})\rho)=\frac{3+p}{6}.\]
+    
 
 \rrnote{Esqueleto: ilustrar de sitinta forma las probabilidades del observable $\sigma_z\otimes \sigma_x$, cuando se realiza una medición difusa con una probabilidad $p=0.25$. En el eje $x$ se encuentran los valores propios del observable $\sigma_z$ y en el eje $y$ se ilustran los valores propios del observable $\sigma_x$ y en el eje $z$ las probabilidades de obtener las  salidas $a_1 b_1=(1)(1)$, $a_1 b_2=(1)(-1)$ $a_2 b_1=(-1)(1)$, $a_2 b_2=(-1)(-1)$}
 
@@ -469,14 +496,106 @@ de obtener una medición donde las partículas experimentan un intercambio, sea 
 \[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] }
 
 \rrnote{Esqueleto colocar como se vería el estado posterior matricialmente.}
+
+Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\)
+y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \] el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
+\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i}\] y la raíz cuadrada del operador es simplemente \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i}.\] 
+Los operadores de proyección de este operador no son sencillos de calcular con lápiz y papel. Es por esta razón que el estado posterior, para una probabilidad $p=0.25$, se puede calcular con un programa, el cual se encuentra en \href{44}{\textit{este respositorio}}.  Finalmente el estado posterior es \[\rho_{0+}'=\begin{pmatrix}
+    0.6531 &  0.4082 &  0.2449 &  0.0000\\
+    0.4082 &  0.2551 &  0.1531 &  0.0000\\
+    0.2449 &  0.1531 &  0.0918 &  0.0000\\
+    0.0000 &  0.0000 &  0.0000 &  0.0000
+  \end{pmatrix}.\]
+
+
+
+
+
 % }}}
 \subsubsection{Ejemplo utilizando los instrumentos cuánticos} % {{{
 
+
+En las secciones anteriores se ha analizado tres interpretaciones de las mediciones difusas utilizando instrumentos cuánticos, ahora es conveniente analizar un ejemplo para un estado específico para completar la comprensión de estos instrumentos. De igual manera se utilizará el estado propuesto en la ecuación {\eqref{eq:estado-ejemplos-2p}} y el observable $\sigma_z\otimes\sigma_x$.
 \rrnote{Esqueleto: Utilizando el mismo estado inicial del sistema y el mismo observable del ejemplo anterior se utiliza para describir de manera detallada el instrumento cuántico y cómo se utiliza para la medición difusa en este sistema. Además se obtiene el mapeo de resultados y el canal cuántico luego de la medición. } 
 
+Para el primer instrumento  los operadores que integran el sistema clásico son $P_{0+},P_{0-},P_{1+},P_{1-}$, y lo operadores que conforman el sistema cuántico condicionados a sus respectivas salidas serán las proyecciones de estos operadores sobre el operador difuso aplicado a $\rho$. El primer instrumento para este caso es \[\begin{split}\mathcal{I}_1(\rho)&=P_{0+}\otimes P_{0+}\mathcal{F}_{2\text{p}}(\rho)P_{0+}+P_{0-}\otimes P_{0-}\mathcal{F}_{2\text{p}}(\rho)P_{0-}\\
+    &+ P_{1+}\otimes P_{1+}\mathcal{F}_{2\text{p}}(\rho)P_{1+}+P_{1-}\otimes P_{1-}\mathcal{F}_{2\text{p}}(\rho)P_{1-}, \\\end{split}\]donde \[\mathcal{F}_{2\text{p}}(\rho)= p\begin{pmatrix}
+        1/6&1/6&0&0\\
+        1/6&1/6&0&0\\
+        0&0&1/3&1/3\\
+        0&0&1/3&1/3\\
+    \end{pmatrix}+ (1-p)\begin{pmatrix}
+        1/6&0&1/6&0\\
+        0&1/3&0&1/3\\
+        1/6&0&1/6&0\\
+        0&1/3&0&1/3\\
+    \end{pmatrix}\] en el cual el operador difuso representa un potencial intercambio de partículas y al realizar la medición este estado en el que con cierta probabilidad sufre un intercambio y con otra probabilidad no lo hace,  se proyecta en uno de los espacios propios de la salida obtenida. La descripción de esta medición queda condensada en estos cuatro términos,con lo que puede obtenerse su mapa de resultados y el estado posterior. 
+   
+   
+ El mapa de resultados se obtiene utilizando la traza parcial sobre el sistema cuántico \[\begin{split}\tr_{\text{qu}}(\mathcal{I}_1(\rho))&=P_{0+}\tr(P_{0+}\mathcal{F}_{2\text{p}}(\rho))+P_{0-}\tr(P_{0-}\mathcal{F}_{2\text{p}}(\rho))\\
+        &+ P_{1+}\tr(P_{1+}\mathcal{F}_{2\text{p}}(\rho))+P_{1-}\tr( P_{1-}\mathcal{F}_{2\text{p}}(\rho)), \\\end{split}\]si se desea la probabilidad de cada una de las posibles salidas puede proyectarse en el espacio de cada una de ellas y obtener su traza, esto es análogo a utilizar las medidas POVM para los mapeos de cada una de las cuatro posibles salidas. La probabilidad de obtener la salida correspondiente al estado $|0+\ra$, será \[\begin{split}\tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+1})\tr(P_{0+}\mathcal{F}_{2\text{p}}(\rho))=\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\\=&\frac{1}{3}\tr\left[\left[p\begin{pmatrix}
+            1&1&0&0\\
+            1&1&0&0\\
+            0&0&0&0\\
+            0&0&0&0\\
+        \end{pmatrix}+ (1-p)\begin{pmatrix}
+            1&0&1&0\\
+            0&0&0&0\\
+            1&0&1&0\\
+            0&0&0&0\\
+        \end{pmatrix}\right]\begin{pmatrix}
+            \tfrac{1}{2}&\tfrac{1}{2}&0&0\\
+            \tfrac{1}{2}&\tfrac{1}{2}&0&0\\
+            0&0&1&1\\
+            0&0&1&1\\
+        \end{pmatrix}\right]\\
+        &=\frac{3+p}{6}\end{split}.\] Finalmente, si la salida que se obtiene es $a_1 b_1$ correspondiente al estado propio  $|0+\rangle$, el estado posterior será simplemente\[\begin{split}P_{a_1,b_1}(p\rho+(1-p)S\rho S^\dagger) P_{a_1,b_1}=\begin{pmatrix}
+        0.1354 &  0.1354 &  0.0000 &  0.0000\\
+        0.1354 &  0.1354 &  0.0000 &  0.0000\\
+        0.0000 &  0.0000 &  0.0000 &  0.0000\\
+        0.0000 &  0.0000 &  0.0000 &  0.0000
+      \end{pmatrix}.
+    \end{split} \] En este caso el valor esperado es exactamente el mismo que el obtenido en el capítulo anterior\[\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_z )=-\frac{p}{3}\\.
+    \end{split}\] 
 
 \rrnote{Esqueleto: Análogamente se realiza este procedimiento con el instrumento dos y tres. Calculo el mapeo de resultados y el canal cuántico luego de la medición con las trazas parciales.}
 
+
+
+Para la segunda alternativa, el error ocurre al realizar la lectura de los resultados por lo tanto el operador difuso se aplica a los operadores de proyección en el sistema clásico \[\begin{split}\mathcal{I}_2(\rho)&=\mathcal{F}_{2\text{p}}(P_{0+})\otimes P_{0+}\rho P_{0+}+\mathcal{F}_{2\text{p}}(P_{0-})\otimes P_{0-}\rho P_{0-}\\
+    &+ \mathcal{F}_{2\text{p}}({P_{1+}})\otimes P_{1+}\rho P_{1+}+\mathcal{F}_{2\text{p}}(P_{1-})\otimes P_{1-}\rho P_{1-}, \\\end{split}\] en este caso el operador difuso captura la confusión de los resultados. Por ejemplo, con una probabilidad $p$ indicaría que el estado es $|0+\ra$ y con una probabilidad $1-p$ se obtiene una salida correspondiente al estado $|+0\ra$ sin embargo el estado posterior a la medición será la proyección en espacio propio del operador $P_{0+}$. 
+    
+    El valor esperado de este instrumento es \[\begin{split}
+        \la \sigma_z\otimes \sigma_x \ra_{\mathcal{I}_2(\rho)}&=p\tr(\sigma_z\tensor \sigma_x\rho)\\
+        &+{(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0+})}}\tr(P_{0+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0-})}\tr(P_{0-} \rho)\\
+        &+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1+})}\tr(P_{1+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1-})}\tr(P_{1-} \rho)\\
+        &=-\dfrac{p}{3}.
+    \end{split}\] Este observable ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, en este caso los valores esperados son equivalentes porque se cumple la condición en $\la 0+|\sigma_x\otimes \sigma_z|0-\ra=0$, $\la 0+|\sigma_x\otimes \sigma_z|1-\ra=0$, $\la 0-|\sigma_x\otimes \sigma_z|1+\ra=0$ y $\la 0-|\sigma_x\otimes \sigma_z|1-\ra=0$. 
+
+    Aunque el valor esperado es el mismo en este caso, es una condición necesaria pero no suficiente. El mapeo de probabilidades es distinto, para obtenerlo también se utiliza el operador de densidad reducido\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección   \[\begin{split}
+        \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
+        &+\tr(P_{0+} \mathcal{F}_{2\text{p}}({P_{1+}}))\tr( P_{1+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{1-}))\tr(P_{1-}\rho)\\
+        &=\tr(pP_{0+}+(1-p)P_{0+}P_{+0})\tr(P_{0+}\rho)+\tr((1-p)P_{0+}P_{-0})\tr(P_{0-}\rho )\\
+        &+\tr((1-p)P_{0+} P_{+1})\tr( P_{1+}\rho)+\tr((1-p)P_{0+}P_{-1})\tr(P_{1-}\rho)\\
+        &=p\tr(P_{0+}\rho)+\frac{(1-p)}{4}\tr((P_{+0}+P_{-0}+P_{+1}+P_{-1})\rho)=\frac{3+5p}{12}.
+    \end{split}\]
+
+
+
+
+
+
+
+Para el tercer instrumento, el observable $\sigma_z\otimes \sigma_x$ no cumple con una de las condiciones para que esta última alternativa tenga sentido, puesto que $P_{0+}P_{+0}\ne 0$,  $P_{0-}P_{-0}\ne 0$, $P_{1+}P_{+1}\ne 0$ y $P_{1-}P_{-1}\ne 0$. Es por ello que para ejemplificar este instrumento se utilizará el observable $\sigma_z\otimes \sigma_z$ con los operadores de proyección $P_{00},P_{01},P_{10},P_{11}$ y un estado inicial $\rho$. El instrumento es entonces \[\begin{split}\mathcal{I}_3(\rho)=&P_{00}\otimes P_{00}\rho P_{00}+P_{11}\otimes P_{11}\rho P_{11}+q P_{01}\otimes P_{01}\rho P_{01}+q P_{10}\otimes P_{10}\rho P_{10}\\
+&\frac{1-q}{2}\left[P_{01}\otimes (P_{01}+P_{10})\rho(P_{01}+P_{10})+ P_{10}\otimes(P_{10}+P_{01})\rho (P_{10}+P_{01}) \right]\\
+&=P_{00}\otimes P_{00}\rho P_{00}+P_{11}\otimes P_{11}\rho P_{11}\\
+&+P_{01}\otimes \left[q P_{01}\rho P_{01}+\frac{1-q}{2}(P_{01}+P_{10})\rho(P_{01}+P_{10})\right]\\
+&+P_{10}\otimes \left[q P_{10}\rho P_{10}+\frac{1-q}{2}(P_{10}+P_{01})\rho (P_{10}+P_{01}) \right]\\
+ \end{split}\] En esta última ecuación, el sistema clásico indica que para las salidas correspondientes a los operadores $ P_{01}$ y $P_{10}$, con una probabilidad $q$ al sistema se le aplicará una medición ideal, pero con una probabilidad $(1-q)$ no es posible distinguir entre los estados $|01\ra$ y $|10\ra$. Su mapa de resultado se puede obtener realizando la traza parcial sobre el sistema cuántico \[\begin{split}\tr_{\text{qu}}(\mathcal{I}_3(\rho)) &=P_{00} \tr(P_{00}\rho)+P_{11}\tr(P_{11}\rho)+P_{01}\left[q \tr(P_{01}\rho)+\frac{1-q}{2}\tr((P_{01}+P_{10})\rho)\right]\\
+    &+P_{10} \left[q \tr(P_{10}\rho)+\frac{1-q}{2}\tr((P_{10}+P_{01})\rho)\right]\\
+    &=P_{00} \tr(P_{00}\rho)+P_{11}\tr(P_{11}\rho)+P_{01}\left[\frac{1+q}{2} \tr(P_{01}\rho)+\frac{1-q}{2}\tr(P_{10}\rho)\right]\\
+    &+P_{10} \left[\frac{1+q}{2} \tr(P_{10}\rho)+\frac{1-q}{2}\tr(P_{01}\rho)\right]\\
+     \end{split}\] De esta última igualdad es posible notar fácilmente que para este observable el mapa de resultados coincide con el que se podría plantear en el primer instrumento cuando se cumpla que $p=\frac{1+q}{2}$. Además es importante notar que aunque el observable es bastante sencillo, los resultados pueden verse difuminados para dos de los estados, cambiando la probabilidad de obtener las salidas correspondientes a los operadores $P_{01}$ y $P_{10}$.
 
 
 % }}}

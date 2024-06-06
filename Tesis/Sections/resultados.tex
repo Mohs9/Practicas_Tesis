@@ -73,7 +73,7 @@ A continuación se especifica la forma de utilizar las medidas generalizadas con
 
 
 % }}}
-\subsection{Instrumentos cuánticos para dos partículas} % {{{
+\subsection{Instrumentos cuánticos para dos partículas}\label{subsec:Instrumentos_cuanticos_2p_3cap} % {{{
 % Intro subsection {{{
 % \rrnote{Esqueleto:Intro: En este apartado se busca hacer un análisis sobre
 % las formulaciones de las alternativas de los instrumentos presentadas en la
@@ -455,7 +455,7 @@ de obtener una medición donde las partículas experimentan un intercambio, sea 
 \rrnote{Esqueleto: Describir algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos particulas. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right).\] }
 
 
-En esta sección se realizarán algunos ejemplos que ilustran la descripción completa de la medición de un observable de la forma $A\otimes B$ en un estado inicial $\rho$ utilizando las distintas herramientas discutidas en los apartados anteriores, las medidas POVM conjunto a los operadores de Kraus, así como los distintos instrumentos cuánticos. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \begin{equation}\label{eq:estado-ejemplos-2p}\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
+En esta sección se realizarán algunos ejemplos que ilustran la descripción completa de la medición de un observable de la forma $A\otimes B$ en un estado inicial $\rho$ utilizando las distintas herramientas discutidas en los apartados anteriores, es decir, las medidas POVM conjunto a los operadores de Kraus, así como los distintos instrumentos cuánticos. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \begin{equation}\label{eq:estado-ejemplos-2p}\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
     1/6&1/6&0&0\\
     1/6&1/6&0&0\\
     0&0&1/3&1/3\\
@@ -500,7 +500,7 @@ Previamente se graficó el mapeo de probabilidades de obtener los valores propio
 Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\)
 y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \] el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
 \[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i}\] y la raíz cuadrada del operador es simplemente \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i}.\] 
-Los operadores de proyección de este operador no son sencillos de calcular con lápiz y papel. Es por esta razón que el estado posterior, para una probabilidad $p=0.25$, se puede calcular con un programa, el cual se encuentra en \href{44}{\textit{este respositorio}}.  Finalmente el estado posterior es \[\rho_{0+}'=\begin{pmatrix}
+Los operadores de proyección de este operador no son sencillos de calcular con lápiz y papel. Es por esta razón que el estado posterior, para una probabilidad $p=0.25$, se puede calcular con un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio}}.  Finalmente el estado posterior es \[\rho_{0+}'=\begin{pmatrix}
     0.6531 &  0.4082 &  0.2449 &  0.0000\\
     0.4082 &  0.2551 &  0.1531 &  0.0000\\
     0.2449 &  0.1531 &  0.0918 &  0.0000\\
@@ -515,7 +515,7 @@ Los operadores de proyección de este operador no son sencillos de calcular con 
 \subsubsection{Ejemplo utilizando los instrumentos cuánticos} % {{{
 
 
-En las secciones anteriores se ha analizado tres interpretaciones de las mediciones difusas utilizando instrumentos cuánticos, ahora es conveniente analizar un ejemplo para un estado específico para completar la comprensión de estos instrumentos. De igual manera se utilizará el estado propuesto en la ecuación {\eqref{eq:estado-ejemplos-2p}} y el observable $\sigma_z\otimes\sigma_x$.
+En la sección {\ref{subsec:Instrumentos_cuanticos_2p_3cap}} se ha analizado tres interpretaciones de las mediciones difusas utilizando instrumentos cuánticos, ahora es conveniente analizar un ejemplo para un estado específico para completar la comprensión de estos instrumentos. De igual manera se utilizará el estado propuesto en la ecuación {\eqref{eq:estado-ejemplos-2p}} y el observable $\sigma_z\otimes\sigma_x$.
 \rrnote{Esqueleto: Utilizando el mismo estado inicial del sistema y el mismo observable del ejemplo anterior se utiliza para describir de manera detallada el instrumento cuántico y cómo se utiliza para la medición difusa en este sistema. Además se obtiene el mapeo de resultados y el canal cuántico luego de la medición. } 
 
 Para el primer instrumento  los operadores que integran el sistema clásico son $P_{0+},P_{0-},P_{1+},P_{1-}$, y lo operadores que conforman el sistema cuántico condicionados a sus respectivas salidas serán las proyecciones de estos operadores sobre el operador difuso aplicado a $\rho$. El primer instrumento para este caso es \[\begin{split}\mathcal{I}_1(\rho)&=P_{0+}\otimes P_{0+}\mathcal{F}_{2\text{p}}(\rho)P_{0+}+P_{0-}\otimes P_{0-}\mathcal{F}_{2\text{p}}(\rho)P_{0-}\\

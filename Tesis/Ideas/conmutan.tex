@@ -1,0 +1,168 @@
+\documentclass[12pt,oneside]{book}\raggedbottom{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algunos Paquetes Necesarios 
+% Importing document settings from our file "packages.sty"
+\usepackage{packages}
+\usepackage{comment}
+
+
+\begin{document}
+
+\newcommand{\myName}{Si se cumple la condición no conmutan}
+\newcommand{\myDate}{Primer semestre 2021}
+\newcommand{\myCourse}{}
+\newcommand{\degre}{\ensuremath{^\circ}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vi}{\mathbf{\hat{\i}}}
+\newcommand{\vj}{\mathbf{\hat{\j}}}
+\newcommand{\vk}{\mathbf{\hat{\k}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Fancyboxes
+
+
+\newcounter{problem}[section]\setcounter{problem}{0}
+\renewcommand{\theproblem}{%\arabic{section}.
+	\arabic{problem}}
+
+\newenvironment{problem}[1][]{%
+	\refstepcounter{problem}
+	
+	\ifstrempty{#1}%
+	% if condition (without title)
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=purple!20]
+				{\strut{} Problema~\theproblem};}
+		}%
+		% else condition (with title)
+	}{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=purple!20]
+				{\strut{} Problema~\theproblem:~#1};}%
+		}%
+	}%
+	% Both conditions
+	\mdfsetup{%
+		innertopmargin=10pt,linecolor=pink!40,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax%
+	}
+\begin{mdframed}[]\relax%
+	\label{#1}}{\end{mdframed}}
+
+
+\newcounter{solution}[section]\setcounter{solution}{0}
+\renewcommand{\thesolution}{%\arabic{section}.
+	\arabic{solution}}
+\newenvironment{solution}[1][]{%
+	\refstepcounter{solution}%
+	\ifstrempty{#1}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=green!20]
+				{\strut{} Soluci\'on~\thesolution};}}
+	}%
+	{\mdfsetup{%
+			frametitle={%
+				\tikz[baseline= (current bounding box.east), outer sep=0pt]
+				\node[anchor=east,rectangle,fill=green!20]
+				{\strut{} Soluci\'on~\thesolution:~#1};}}%
+	}%
+	\mdfsetup{innertopmargin=10pt,linecolor=green!20,%
+		linewidth=2pt,topline=true,%
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax%
+		\label{#1}}{\end{mdframed}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tema - BEGIN
+\newtheoremstyle{Tema}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {3mm}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bfseries}% name of head font
+  {\newline}% punctuation between head and body
+  {20mm}% space after theorem head
+  {}% Manually specify head
+
+\theoremstyle{Tema} \newtheorem{Tema}{Tema} %%%%% Template para Temas
+\theoremstyle{Tema} \newtheorem{serie}{Serie}              %%%%%  Template para Series de ejercicios
+\theoremstyle{Tema} \newtheorem{ejercicio}{Ejercicio}    %%%%%  Template para Ejercicios
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tema - END
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado - BEGIN %%%%%%%%%%
+\fancypagestyle{firststyle}
+{
+\renewcommand{\headrulewidth}{1.5pt}
+\fancyhead[R]{
+			%\textbf{Universidad de San Carlos de Guatemala} \\
+			%\textbf{Escuela de Ciencias Físicas y Matemáticas}\\
+			%\textbf{\myDate{}} \\
+			%\textbf{\myCourse{} }    %%%%%%%%%% Agregar nombre del curso 
+			  %%%%%%%%%%%%%%%%%%%%%% Agregar fecha en formato: Enero 15, 2015
+			}
+\fancyhead[L]{ 
+%	\includegraphics[height=1.6 cm, width=5.5 cm]{LogoColor}  
+	}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado - END %%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado (pagina 2 en adelante) - BEGIN %%%
+\fancypagestyle{allStyle}
+{
+\renewcommand{\headrulewidth}{0.8 pt}
+\fancyhead[R]{
+			\emph{\myName{} $-$ \myCourse{}} %%%% Modificar n\'umero de examen parcial y nombre del curso
+			}
+\fancyhead[L]{}  
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encabezado (pagina 2 en adelante) - END %%%
+
+\date{}
+\setlength{\headheight}{0.5in} % fixes \headheight warning
+ %%%%%%%%%%%%%%%%%%%%%%%% BEGIN%%%%%%%%%%%%%%
+
+\pagestyle{allStyle}
+
+\thispagestyle{firststyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titulo - BEGIN
+\begin{center}
+\LARGE
+\textsc{\myName}\\% Modificar el N\'umero del examen parcial
+\bigskip
+\hrule height 1.5pt
+\end{center}
+\setcounter{chapter}{1}
+
+\begin{proposition}
+    Si la condición \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'\] se cumple entonces $[A\otimes B,B \otimes A]=0$  
+\end{proposition}
+\begin{proof}
+    Por simplicidad se escribe la condición de forma matricial \[V^\dagger B\otimes A V=\text{Diag}(c_1,c_2,c_3,c_4)=D_{B\otimes A},\] donde $V$ es la yuxtaposición de los vectores propios de $A\otimes B$. De esta forma es fácil ver que $V^\dagger V= \mathds{1}$, puesto que suponemos que son vectores ortonormales. Luego $A\otimes B $ se puede expresar como \[A\otimes B=VD_{A\otimes B} V^\dagger,\] siendo $D_{A\otimes B}$ la matriz diagonal de los valores propios del observable. Luego \[\begin{split}
+        [A\otimes B,B \otimes A]&= (A\otimes B) (B\otimes A)-(B\otimes A) (A\otimes B)\\
+        &=(VD_{A\otimes B} V^\dagger)(VD_{B\otimes A} V^\dagger)-(VD_{B\otimes A} V^\dagger)(VD_{A\otimes B} V^\dagger)\\
+        &= VD_{A\otimes B} D_{B\otimes A} V^\dagger -VD_{B\otimes A} D_{A\otimes B} V^\dagger\\
+        &=V(D_{A\otimes B} D_{B\otimes A} -D_{B\otimes A} D_{A\otimes B})V^\dagger\\
+        &=V\cancelto{0}{[D_{B\otimes A}, D_{A\otimes B}]}V^\dagger=0
+    \end{split}\] donde la última igual de se cumple porque dos matrices diagonales reales siempre conmutan. 
+
+
+
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+\end{document}

@@ -397,10 +397,41 @@ P_{a_j,b_k})(P_{a_j b_k}\rho )]\\
 A$ conmutan y  no son degenerados entonces ambos instrumentos tienen valores
 esperados equivalentes.
 \end{corollary}
-\cpnote{Me gustaria que dieras un ejemplo en el que no conmuten, pero si se cumpla la condicion.  Hay? croe qeu si, segun habíamos visto.}
 
 
 
+Es importante notar que no es suficiente que  $[A\otimes B,B \otimes A]=0$ para que la condición \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'\] se cumpla. Por ejemplo el observable $\sigma_z\tensor \sigma_x$ conmuta con $\sigma_x \tensor \sigma_z$,\[\begin{split}[\sigma_z\tensor \sigma_x,\sigma_x \tensor \sigma_z]&=\sigma_z \sigma_x \tensor \sigma_x \sigma_z- \sigma_x\sigma_z \tensor \sigma_z\sigma_x\\
+&=\sigma_y\tensor \sigma_y -\sigma_y\tensor \sigma_y =0,
+\end{split}\]sin embargo escribir al observable $\sigma_x\tensor \sigma_z $ en la base de vectores propios de $\sigma_z\tensor \sigma_x$, no es una matriz diagonal, basta con calcular \[\begin{split}
+    \la 0+|\sigma_x\otimes \sigma_y|1-\ra&=\begin{pmatrix}
+        1&1&0&0
+    \end{pmatrix}\begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&-1\\
+        1&0&0&0\\
+        0&-1&0&0\\
+    \end{pmatrix}\begin{pmatrix}
+        0\\
+        0\\
+        1\\
+        -1\\
+    \end{pmatrix}=2\\
+\end{split}\]Aunque no es suficiente que los observables conmuten, sí es una condición necesaria. A continuación se presenta la demostración de esta proposición.\begin{proposition}
+    Si la condición \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'\] se cumple, entonces $[A\otimes B,B \otimes A]=0$  
+\end{proposition}
+
+\begin{proof}
+    Con base en la condición es posible escribir el operador $B\otimes A$  en términos de los operadores de proyección del observable $A\otimes B$ \[ B\otimes A = \sum_{i,l} c_{i,l} |a_{i}b_{l}\rala a_i b_l|,\] donde los coeficientes $c_{i,l}$ se encuentran en la diagonal del operador $B\otimes A$ escrito en la base de $A\otimes B$. Luego, $A\otimes B $ también se puede expresar como \[A\otimes B= \sum_{j,k} a_j b_k |a_{j}b_{k}\rala a_j b_k|.\] Ahora es posible conmutar los observables \[\begin{split}
+        [A\otimes B,B \otimes A]&= (A\otimes B) (B\otimes A)-(B\otimes A) (A\otimes B)\\
+        &=\left(\sum_{j,k} a_j b_k |a_{j}b_{k}\rala a_j b_k|\right)\left(\sum_{i,l} c_{i,l} |a_{i}b_{l}\rala a_i b_l|\right)\\
+		&-\left( \sum_{i,l} c_{i,l} |a_{i}b_{l}\rala a_i b_l|\right)\left(\sum_{j,k} a_j b_k |a_{j}b_{k}\rala a_j b_k|\right)\\
+		&=\left(\sum_{j,k} \sum_{i,l} a_j b_k  c_{i,l} \delta_{j,k}^{i,l}|a_{j}b_{k}\rala a_i b_l|\right)-\left( \sum_{i,l} \sum_{j,k} c_{i,l} a_j b_k \delta_{i,l}^{j,k}|a_{i}b_{l}\rala a_j b_k|\right)\\
+		&=\left(\sum_{j,k}  a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)-\left( \sum_{j,k} a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)\\
+		&=0
+	\end{split}\]
+
+\end{proof}
+\cpnote{Me gustaria que dieras un ejemplo en el que no conmuten, pero si se cumpla la condicion.  Hay? croe qeu si, segun habíamos visto.}\rrnote{Agregué el ejemplo y la demostración que hablamos.}
 
 % \rrnote{Esqueleto: Se hace una comparación con los valores esperados del primer
 % y tercer instrumento para precisar en que condiciones estos son equivalentes. }

@@ -143,13 +143,18 @@
     Si la condición \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'\] se cumple entonces $[A\otimes B,B \otimes A]=0$  
 \end{proposition}
 \begin{proof}
-    Por simplicidad se escribe la condición de forma matricial \[V^\dagger B\otimes A V=\text{Diag}(c_1,c_2,c_3,c_4)=D_{B\otimes A},\] donde $V$ es la yuxtaposición de los vectores propios de $A\otimes B$. De esta forma es fácil ver que $V^\dagger V= \mathds{1}$, puesto que suponemos que son vectores ortonormales. Luego $A\otimes B $ se puede expresar como \[A\otimes B=VD_{A\otimes B} V^\dagger,\] siendo $D_{A\otimes B}$ la matriz diagonal de los valores propios del observable. Luego \[\begin{split}
+    Con base en la condición es posible escribir el operador $B\otimes A$  en términos de los operadores de proyección del observable $A\otimes B$ \[ B\otimes A = \sum_{i,l} c_{i,l} |a_{i}b_{l}\rala a_i b_l|,\] donde los coeficientes $c_{i,l}$ se encuentran en la diagonal del operador $B\otimes A$ escrito en la base de $A\otimes B$. Luego, $A\otimes B $ también se puede expresar como \[A\otimes B= \sum_{j,k} a_j b_k |a_{j}b_{k}\rala a_j b_k|.\] Luego \[\begin{split}
         [A\otimes B,B \otimes A]&= (A\otimes B) (B\otimes A)-(B\otimes A) (A\otimes B)\\
-        &=(VD_{A\otimes B} V^\dagger)(VD_{B\otimes A} V^\dagger)-(VD_{B\otimes A} V^\dagger)(VD_{A\otimes B} V^\dagger)\\
-        &= VD_{A\otimes B} D_{B\otimes A} V^\dagger -VD_{B\otimes A} D_{A\otimes B} V^\dagger\\
-        &=V(D_{A\otimes B} D_{B\otimes A} -D_{B\otimes A} D_{A\otimes B})V^\dagger\\
-        &=V\cancelto{0}{[D_{B\otimes A}, D_{A\otimes B}]}V^\dagger=0
-    \end{split}\] donde la última igual de se cumple porque dos matrices diagonales reales siempre conmutan. 
+        &=\left(\sum_{j,k} a_j b_k |a_{j}b_{k}\rala a_j b_k|\right)\left(\sum_{i,l} c_{i,l} |a_{i}b_{l}\rala a_i b_l|\right)\\
+		&-\left( \sum_{i,l} c_{i,l} |a_{i}b_{l}\rala a_i b_l|\right)\left(\sum_{j,k} a_j b_k |a_{j}b_{k}\rala a_j b_k|\right)\\
+		&=\left(\sum_{j,k} \sum_{i,l} a_j b_k  c_{i,l}|a_{j}b_{k}\rala a_j b_k|a_{i}b_{l}\rala a_i b_l|\right)\\
+		&-\left( \sum_{i,l} \sum_{j,k} c_{i,l} a_j b_k |a_{i}b_{l}\rala a_i b_l|a_{j}b_{k}\rala a_j b_k|\right)\\
+		&=\left(\sum_{j,k} \sum_{i,l} a_j b_k  c_{i,l} \delta_{j,k}^{i,l}|a_{j}b_{k}\rala a_i b_l|\right)\\
+		&-\left( \sum_{i,l} \sum_{j,k} c_{i,l} a_j b_k \delta_{i,l}^{j,k}|a_{i}b_{l}\rala a_j b_k|\right)\\
+		&=\left(\sum_{j,k}  a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)-\left( \sum_{i,l} c_{i,l} a_i b_l |a_{i}b_{l}\rala a_i b_l|\right)\\
+		&=\left(\sum_{j,k}  a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)-\left( \sum_{j,k} a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)\\
+		&=0
+	\end{split}\] en la penúltima línea se hizo un cambio de índices solamente. 
 
 
 

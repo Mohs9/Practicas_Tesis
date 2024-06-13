@@ -351,8 +351,10 @@ primeros instrumentos y su demostración.
 \begin{proposition}\label{prop:Equivalencia-instruments1-2}
     Para todo estado inicial $\rho$, los valores esperados de las alternativas
 de los instrumentos cuánticos {\eqref{eq:fisrtinstrument2p}} y
-{\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \[\la a_j
-b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.\]
+{\eqref{eq:second-instrument-2p}}, son equivalentes si y solo si \begin{equation}\label{eq:Condicion-equivalencia1-2}
+    \la a_j
+b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.
+\end{equation}
 \end{proposition}
 
 \begin{proof}
@@ -361,7 +363,7 @@ esperados de los instrumentos son iguales. El primer término del lado derecho
 de la ecuación {\eqref{eq:expectedValueFirstInstrument2p}} y el primer término
 de la derecha en {\eqref{eq:expectationvalueSecondInstrument2p}} son iguales,
 por lo tanto se igualan los segundos términos de estas ecuaciones,
-i.e.\begin{equation}\label{equivalencia_terminos}\tr(B\otimes A
+i.e.\begin{equation}\label{eq: equivalencia_terminos}\tr(B\otimes A
 \rho)=\sum_{j,k}\tr((B\otimes A) P_{a_j,b_k})\tr(P_{a_j b_k}\rho
 ).\end{equation} Por la linealidad de la traza se puede reacomodar el lado
 derecho de esta última ecuación: 
@@ -403,25 +405,10 @@ decir que esa condicion parece qeu es equivalente a que conmunetn, pero que no y
 eso. Luego ya redactas el resto. Por favor no solo es agregar una frase sino reesctructurar un poco 
 los siguiente párrafos}
 
+Según la proposición previa, se concluye que los dos primeros instrumentos tendrán el mismo valor esperado, si y solo si la matriz de $B\otimes A$ es diagonal en la base de vectores propios del observable $A\otimes B$. Esta conclusión podría sugerir que es lo mismo afirmar que los observables cumplen con esta condición si y solo si conmutan. No obstante, esta afirmación no es correcta puesto que no obedece la doble implicación. Es posible demostrar que si se cumple la condición {\eqref{eq:Condicion-equivalencia1-2}}, entonces los observables conmutan. Sin embargo, la afirmación recíproca no es cierta. A continuación se explora sobre estas aseveraciones.
 
-Es importante notar que no es suficiente que  $[A\otimes B,B \otimes A]=0$ para que la condición \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'\] se cumpla. Por ejemplo el observable $\sigma_z\tensor \sigma_x$ conmuta con $\sigma_x \tensor \sigma_z$,\[\begin{split}[\sigma_z\tensor \sigma_x,\sigma_x \tensor \sigma_z]&=\sigma_z \sigma_x \tensor \sigma_x \sigma_z- \sigma_x\sigma_z \tensor \sigma_z\sigma_x\\
-&=\sigma_y\tensor \sigma_y -\sigma_y\tensor \sigma_y =0,
-\end{split}\]sin embargo escribir al observable $\sigma_x\tensor \sigma_z $ en la base de vectores propios de $\sigma_z\tensor \sigma_x$, no es una matriz diagonal, basta con calcular \[\begin{split}
-    \la 0+|\sigma_x\otimes \sigma_y|1-\ra&=\begin{pmatrix}
-        1&1&0&0
-    \end{pmatrix}\begin{pmatrix}
-        0&0&1&0\\
-        0&0&0&-1\\
-        1&0&0&0\\
-        0&-1&0&0\\
-    \end{pmatrix}\begin{pmatrix}
-        0\\
-        0\\
-        1\\
-        -1\\
-    \end{pmatrix}=2\\
-\end{split}\]Aunque no es suficiente que los observables conmuten, sí es una condición necesaria. A continuación se presenta la demostración de esta proposición.\begin{proposition}
-    Si la condición \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'\] se cumple, entonces $[A\otimes B,B \otimes A]=0$  
+Para iniciar se presenta de manera formal la primera implicación y su demostración.\begin{proposition}
+    Si se satisface la condición  \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k', \]  entonces $[A\otimes B,B \otimes A]=0$  
 \end{proposition}
 
 \begin{proof}
@@ -433,8 +420,25 @@ Es importante notar que no es suficiente que  $[A\otimes B,B \otimes A]=0$ para 
 		&=\left(\sum_{j,k}  a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)-\left( \sum_{j,k} a_j b_k  c_{j,k} |a_{j}b_{k}\rala a_j b_k|\right)\\
 		&=0
 	\end{split}\]
-
 \end{proof}
+
+Luego, tal como se mencionó previamente, la condición necesaria para cumplir con {\eqref{eq:Condicion-equivalencia1-2}} es que los observables $A\otimes B$ y $B\otimes A$ conmuten, mas no es suficiente. Para probarlo basta con mostrar el siguiente contraejemplo. El observable $\sigma_z\tensor \sigma_x$ conmuta con $\sigma_x \tensor \sigma_z$,\[\begin{split}[\sigma_z\tensor \sigma_x,\sigma_x \tensor \sigma_z]&=\sigma_z \sigma_x \tensor \sigma_x \sigma_z- \sigma_x\sigma_z \tensor \sigma_z\sigma_x\\
+&=\sigma_y\tensor \sigma_y -\sigma_y\tensor \sigma_y =0,
+\end{split}\]sin embargo escribir al observable $\sigma_x\tensor \sigma_z $ en la base de vectores propios de $\sigma_z\tensor \sigma_x$, no es una matriz diagonal, basta con calcular lo siguiente \[\begin{split}
+    \la 0+|\sigma_x\otimes \sigma_y|1-\ra&=\begin{pmatrix}
+        1&1&0&0
+    \end{pmatrix}\begin{pmatrix}
+        0&0&1&0\\
+        0&0&0&-1\\
+        1&0&0&0\\
+        0&-1&0&0\\
+    \end{pmatrix}\begin{pmatrix}
+         0\\
+         0\\
+         1\\
+        -1\\
+    \end{pmatrix}=2\\
+\end{split}\]
 \cpnote{Me gustaria que dieras un ejemplo en el que no conmuten, pero si se cumpla la condicion.  Hay? croe qeu si, segun habíamos visto.}\rrnote{Agregué el ejemplo y la demostración que hablamos.}
 
 % \rrnote{Esqueleto: Se hace una comparación con los valores esperados del primer

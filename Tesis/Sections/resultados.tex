@@ -529,10 +529,9 @@ Previamente se graficó el mapeo de probabilidades de obtener los valores propio
     \[E(-1,\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0-})\rho) +\tr(\mathcal{F}_{2\text{p}}(P_{1+})\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0-}+P_{1+})\rho)=\frac{3+p}{6}.\]
     
 
-\rrnote{Esqueleto: ilustrar de sitinta forma las probabilidades del observable $\sigma_z\otimes \sigma_x$, cuando se realiza una medición difusa con una probabilidad $p=0.25$. En el eje $x$ se encuentran los valores propios del observable $\sigma_z$ y en el eje $y$ se ilustran los valores propios del observable $\sigma_x$ y en el eje $z$ las probabilidades de obtener las  salidas $a_1 b_1=(1)(1)$, $a_1 b_2=(1)(-1)$ $a_2 b_1=(-1)(1)$, $a_2 b_2=(-1)(-1)$}
+%\rrnote{Esqueleto: ilustrar de sitinta forma las probabilidades del observable $\sigma_z\otimes \sigma_x$, cuando se realiza una medición difusa con una probabilidad $p=0.25$. En el eje $x$ se encuentran los valores propios del observable $\sigma_z$ y en el eje $y$ se ilustran los valores propios del observable $\sigma_x$ y en el eje $z$ las probabilidades de obtener las  salidas $a_1 b_1=(1)(1)$, $a_1 b_2=(1)(-1)$ $a_2 b_1=(-1)(1)$, $a_2 b_2=(-1)(-1)$}
 
-\rrnote{Esqueleto: Ilustrar uno de los operadores de Kraus si se obtiene la salida  $a_1=1$ y  $b_{1}=1$, el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \]Representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
-\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] }
+%\rrnote{Esqueleto: Ilustrar uno de los operadores de Kraus si se obtiene la salida  $a_1=1$ y  $b_{1}=1$, el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \]Representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$ \[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] }
 
 \rrnote{Esqueleto colocar como se vería el estado posterior matricialmente.}
 
@@ -642,15 +641,29 @@ Para el tercer instrumento, el observable $\sigma_z\otimes \sigma_x$ no cumple c
 % }}}
 \section{Generalización de operadores de Kraus en sistemas de \texorpdfstring{\boldmath{$N$}}{N} partículas} % {{{
 
+\rrnote{Esqueleto Intro:En esta seccion se pretende discutir sobre la generalización de las herramientas utilizadas anteriormente para la completa descripción de las mediciones difusas en sistemas más complejos}
+
+El estudio del sistema que se analizó en las secciones anteriores y sus implicaciones para la especificación completa de las mediciones difusas es útil desde un punto de vista ilustrativo, aunque no es general. En esta sección se pretende discutir el problema desde sistemas más generales, con más de dos partículas y en los que se tomen en cuenta observables que no sean factorizables.
+% asimismo analizar las implicaciones de medir los observables con más de dos niveles que tengan algún grado de degeneración. 
+
+
+
+Al generalizar las ideas anteriores para sistemas de $N>2$ partículas, naturalmente se piensa realizar una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_N$, en la cual, por ruido del entorno se produce un  error en el aparato de medición y confunde los resultados. Ahora, existe una probabilidad de una identificación errónea.  Por ejemplo puede realizarse la medición del observable $A_2\tensor A_1\tensor \hdots \tensor A_N$ con cierta probabilidad $p$. Sin embargo, es posible que la partículas experimenten un intercambio de cierta forma tal que la medición que se produzca sea una de las $N{!}$ permutaciones en las que se puede configurar el operador original. En este caso el valor esperado de la medición será el promedio de los valores esperados  ponderado por probabilidad de que se produzca alguna medición del observable incorrecto. 
+
+Para obtener el valor esperado de esta medición en el sistema de $N$ partículas, es necesario el operador difuso presentado en la ecuación {\eqref{eq:fuzzy-op-nparticles}}, el cuál utiliza los operadores de permutación previamente explicados. El valor esperado de medir al observable $\prodtensor A_i$, en un sistema inicial $\rho$,  es el siguiente \begin{equation*}\label{eq:ExpectedValue-generalForm}\begin{split}
+    \left \langle \prodtensor A_i\right \rangle_{\mathcal{F}(\rho)} &=\tr\left(\fuzzy{\rho}\prodtensor A_i\right)=\sum_{\Pi_j \in S}p_{j}\tr \left(\permut{j}{\rho} \prodtensor A_i\right).\\
+\end{split}
+\end{equation*}  
+
+Aunque lo anterior es válido no es la forma más general en la que una medición difusa puede ser estudiada. Estas mediciones pueden analizarse utilizando cualquier tipo de observables, incluyendo los observables no factorizables los cuales no pueden escribirse como un producto tensorial de $N$ observables. Un observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no puede escribirse como un producto de observables como $\prodtensor A_i$, pero sí como la combinación lineal de todos los %${(d\times d)}^N$ 
+posibles productos de los operadores de alguna base del espacio de Hilbert $\mathcal{H}$. 
+
+
+Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar una medición proyectiva ideal, sin embargo, también es factible que la medición efectuada sea la de un observable distinto, en el cual los operadores de cada término de la combinación lineal que conforma el observable original se intercambian de alguna manera.  De otra forma, al realizar una medición difusa, las partículas experimentan un intercambio difuminando los resultados de  la medición del observable original. Por lo tanto es posible utilizar la linealidad del operador difuso  para representar el valor esperado de cualquier observable, tal y como se presenta en el ecuación {\eqref{eq:expected-value-fm-general}}.
+
+
 
 \subsection{Medidas POVM y operadores de Kraus en sistemas de varias partículas}
-
-
-\rrnote{\textit{¿Cómo deberían ser las medidas POVM\@? Ahora el operador de permutación no es hermítico, POVM y los operadores de Kraus cambian ligeramente.}}
-
-\rrnote{Esqueleto: Antes se describió el mapeo que puede realizarse con las medidas POVM, el cual será conveniente para proporcionar la probabilidad de cada posible salida de la medición. En un sistema de dos partículas se propuso intuitivamente un conjunto de efectos, en los cuales a los operadores proyección se les aplicaba el operador difuso para dos partículas.}
-
-
 
 \subsection{Instrumento cuántico en sistemas de varias partículas} 
 

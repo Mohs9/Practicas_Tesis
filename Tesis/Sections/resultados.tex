@@ -425,7 +425,7 @@ Para iniciar se presenta de manera formal la primera implicación y su demostrac
 Luego, tal como se mencionó previamente, la condición necesaria para cumplir con {\eqref{eq:Condicion-equivalencia1-2}} es que los observables $A\otimes B$ y $B\otimes A$ conmuten, mas no es suficiente. Para probarlo basta con mostrar el siguiente contraejemplo. El observable $\sigma_z\tensor \sigma_x$ conmuta con $\sigma_x \tensor \sigma_z$,\[\begin{split}[\sigma_z\tensor \sigma_x,\sigma_x \tensor \sigma_z]&=\sigma_z \sigma_x \tensor \sigma_x \sigma_z- \sigma_x\sigma_z \tensor \sigma_z\sigma_x\\
 &=\sigma_y\tensor \sigma_y -\sigma_y\tensor \sigma_y =0,
 \end{split}\]sin embargo escribir al observable $\sigma_x\tensor \sigma_z $ en la base de vectores propios de $\sigma_z\tensor \sigma_x$, no es una matriz diagonal, basta con calcular lo siguiente \[\begin{split}
-    \la 0+|\sigma_x\otimes \sigma_y|1-\ra&=\begin{pmatrix}
+    \la 0+|\sigma_x\otimes \sigma_z|1-\ra&=\begin{pmatrix}
         1&1&0&0
     \end{pmatrix}\begin{pmatrix}
         0&0&1&0\\
@@ -593,8 +593,8 @@ Para el primer instrumento  los operadores que integran el sistema clásico son 
         0.0000 &  0.0000 &  0.0000 &  0.0000\\
         0.0000 &  0.0000 &  0.0000 &  0.0000
       \end{pmatrix}.
-    \end{split} \] En este caso el valor esperado es exactamente el mismo que el obtenido en el capítulo anterior\[\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\tr(\rho\sigma_z\tensor \sigma_x )+(1-p)\tr(\rho\sigma_x\tensor \sigma_z )=-\frac{p}{3}\\.
-    \end{split}\] 
+    \end{split} \] En este caso el valor esperado es exactamente el mismo que el obtenido en el capítulo anterior\[\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\cancelto{\frac{-1}{3}}{\tr(\rho\sigma_z\tensor \sigma_x )}+(1-p)\cancelto{0}{\tr(\rho\sigma_x\tensor \sigma_z )}=-\frac{p}{3}.\\
+    \end{split}\]Notar que el segundo término se cancela porque particularmente el estado inicial es una combinación lineal de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$ y además se cumple que $\la 0+|\sigma_x\otimes \sigma_z|0+\ra=0$, $\la 0-|\sigma_x\otimes \sigma_z|0-\ra=0$, $\la 1+|\sigma_x\otimes \sigma_z|1+\ra=0$ y $\la 1-|\sigma_x\otimes \sigma_z|1-\ra=0$.
 
 \rrnote{Esqueleto: Análogamente se realiza este procedimiento con el instrumento dos y tres. Calculo el mapeo de resultados y el canal cuántico luego de la medición con las trazas parciales.}
 
@@ -605,12 +605,12 @@ Para la segunda alternativa, el error ocurre al realizar la lectura de los resul
     
     El valor esperado de este instrumento es \[\begin{split}
         \la \sigma_z\otimes \sigma_x \ra_{\mathcal{I}_2(\rho)}&=p\tr(\sigma_z\tensor \sigma_x\rho)\\
-        &+{(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0+})}}\tr(P_{0+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0-})}\tr(P_{0-} \rho)\\
+       &+{(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0+})}}\tr(P_{0+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0-})}\tr(P_{0-} \rho)\\
         &+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1+})}\tr(P_{1+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1-})}\tr(P_{1-} \rho)\\
         &=-\dfrac{p}{3}.
-    \end{split}\] Este observable ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, en este caso los valores esperados son equivalentes porque se cumple la condición en $\la 0+|\sigma_x\otimes \sigma_z|0-\ra=0$, $\la 0+|\sigma_x\otimes \sigma_z|1-\ra=0$, $\la 0-|\sigma_x\otimes \sigma_z|1+\ra=0$ y $\la 0-|\sigma_x\otimes \sigma_z|1-\ra=0$. 
+    \end{split}\] Este observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, este caso en específico los valores esperados son los mismos porque los últimos términos se cancelan, al igual que el último término del valor esperado del primer instrumento debido  a la construcción del estado inicial. Sin embargo la condición de la proposición no se cumple y no serán equivalentes para todo estado inicial.
 
-    Aunque el valor esperado es el mismo en este caso, es una condición necesaria pero no suficiente. El mapeo de probabilidades es distinto, para obtenerlo también se utiliza el operador de densidad reducido\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección   \[\begin{split}
+   Para obtener el mapeo de probabilidades se utiliza el operador de densidad reducido\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección, como sigue   \[\begin{split}
         \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
         &+\tr(P_{0+} \mathcal{F}_{2\text{p}}({P_{1+}}))\tr( P_{1+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{1-}))\tr(P_{1-}\rho)\\
         &=\tr(pP_{0+}+(1-p)P_{0+}P_{+0})\tr(P_{0+}\rho)+\tr((1-p)P_{0+}P_{-0})\tr(P_{0-}\rho )\\

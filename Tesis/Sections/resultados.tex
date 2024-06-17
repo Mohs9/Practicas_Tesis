@@ -593,8 +593,8 @@ Para el primer instrumento  los operadores que integran el sistema clásico son 
         0.0000 &  0.0000 &  0.0000 &  0.0000\\
         0.0000 &  0.0000 &  0.0000 &  0.0000
       \end{pmatrix}.
-    \end{split} \] En este caso el valor esperado es exactamente el mismo que el obtenido en el capítulo anterior\[\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\cancelto{\frac{-1}{3}}{\tr(\rho\sigma_z\tensor \sigma_x )}+(1-p)\cancelto{0}{\tr(\rho\sigma_x\tensor \sigma_z )}=-\frac{p}{3}.\\
-    \end{split}\]Notar que el segundo término se cancela porque particularmente el estado inicial es una combinación lineal de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$ y además se cumple que $\la 0+|\sigma_x\otimes \sigma_z|0+\ra=0$, $\la 0-|\sigma_x\otimes \sigma_z|0-\ra=0$, $\la 1+|\sigma_x\otimes \sigma_z|1+\ra=0$ y $\la 1-|\sigma_x\otimes \sigma_z|1-\ra=0$.
+    \end{split} \] En este caso el valor esperado es exactamente el mismo que el obtenido en el capítulo anterior\begin{equation}\label{eq:1instrument-ejemplo}\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\cancelto{\frac{-1}{3}}{\tr(\rho\sigma_z\tensor \sigma_x )}+(1-p)\cancelto{0}{\tr(\rho\sigma_x\tensor \sigma_z )}=-\frac{p}{3}.\\
+    \end{split}\end{equation} Notar que el segundo término se cancela porque particularmente el estado inicial es una combinación lineal de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$ y además se cumple que $\la 0+|\sigma_x\otimes \sigma_z|0+\ra=0$, $\la 0-|\sigma_x\otimes \sigma_z|0-\ra=0$, $\la 1+|\sigma_x\otimes \sigma_z|1+\ra=0$ y $\la 1-|\sigma_x\otimes \sigma_z|1-\ra=0$.
 
 \rrnote{Esqueleto: Análogamente se realiza este procedimiento con el instrumento dos y tres. Calculo el mapeo de resultados y el canal cuántico luego de la medición con las trazas parciales.}
 
@@ -603,12 +603,12 @@ Para el primer instrumento  los operadores que integran el sistema clásico son 
 Para la segunda alternativa, el error ocurre al realizar la lectura de los resultados por lo tanto el operador difuso se aplica a los operadores de proyección en el sistema clásico \[\begin{split}\mathcal{I}_2(\rho)&=\mathcal{F}_{2\text{p}}(P_{0+})\otimes P_{0+}\rho P_{0+}+\mathcal{F}_{2\text{p}}(P_{0-})\otimes P_{0-}\rho P_{0-}\\
     &+ \mathcal{F}_{2\text{p}}({P_{1+}})\otimes P_{1+}\rho P_{1+}+\mathcal{F}_{2\text{p}}(P_{1-})\otimes P_{1-}\rho P_{1-}, \\\end{split}\] en este caso el operador difuso captura la confusión de los resultados. Por ejemplo, con una probabilidad $p$ indicaría que el estado es $|0+\ra$ y con una probabilidad $1-p$ se obtiene una salida correspondiente al estado $|+0\ra$ sin embargo el estado posterior a la medición será la proyección en espacio propio del operador $P_{0+}$. 
     
-    El valor esperado de este instrumento es \[\begin{split}
+    El valor esperado de este instrumento es \begin{equation}\begin{split}
         \la \sigma_z\otimes \sigma_x \ra_{\mathcal{I}_2(\rho)}&=p\tr(\sigma_z\tensor \sigma_x\rho)\\
        &+{(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0+})}}\tr(P_{0+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0-})}\tr(P_{0-} \rho)\\
         &+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1+})}\tr(P_{1+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1-})}\tr(P_{1-} \rho)\\
         &=-\dfrac{p}{3}.
-    \end{split}\] Este observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, este caso en específico los valores esperados son los mismos porque los últimos términos se cancelan, al igual que el último término del valor esperado del primer instrumento debido  a la construcción del estado inicial. Sin embargo la condición de la proposición no se cumple y no serán equivalentes para todo estado inicial.
+    \end{split}\end{equation} En este caso en específico, el valor esperado de el segundo instrumento es el mismo al de la ecuación {\eqref{eq:1instrument-ejemplo}}. Esto se debe a que los últimos términos también se cancelan, de la misma forma que el último término del valor esperado del primer instrumento. Sin embargo, el observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, puesto que la condición {\eqref{eq:Condicion-equivalencia1-2}} no se cumple y por esta razón no serán equivalentes para todo estado inicial.
 
    Para obtener el mapeo de probabilidades se utiliza el operador de densidad reducido\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección, como sigue   \[\begin{split}
         \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
@@ -664,6 +664,27 @@ Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\ma
 
 
 \subsection{Medidas POVM y operadores de Kraus en sistemas de varias partículas}
+
+Anteriormente se describió el mapeo que puede realizarse con las medidas POVM en un sistema de dos partículas. Se propuso intuitivamente un conjunto de efectos, en los cuales a los operadores proyección se les aplicaba el operador difuso y con base en estos efectos era posible obtener el conjunto de operadores de Kraus que describen la medición. Para sistemas formados por más de dos partículas los efectos son ligeramente diferentes y en consecuencia los operadores de Kraus también.
+
+La clave para lograr los efectos de manera correcta es también emplear el valor esperado de una medición difusa. A pesar de ello, la diferencia de la generalización reside en el hecho que los operadores de permutación para $N>3$ no son hermíticos, por lo que la aplicación del operador difuso debe llevarse a cabo con precaución. Utilizando la propiedad cíclica de la traza, el valor esperado de la medición difusa puede escribirse también como \begin{equation}\label{eq:ExpectedValue-generalForm-2}\begin{split}
+    \left \langle \mathcal{O}\right \rangle_{\mathcal{F}(\rho)} &=\sum_{\Pi_j \in S}p_j\tr \left(\Pi_j^\dagger{\mathcal{O}}\Pi_j\rho\right).\\
+\end{split}
+\end{equation} De esta expresión es fácil ver que se está aplicando un operador al observable, sin embargo no es el mismo operador difuso que el de la ecuación {\eqref{eq:fuzzy-op-nparticles}} debido a que en cada término de la suma el operador aplicado por la izquierda es el adjunto del operador de permutación y por la derecha se aplica el operador de permutación, y debido a que los operadores de permutación no son hermíticos, aplicar un operador por la izquierda es distinto a aplicarlo por la derecha. También es importante aclarar que tampoco se le está aplicando el adjunto del operador difuso puesto que este es hermítico\footnote[2]{ver lema {\ref{lemma:op-difuso-hermiticidad}}}. 
+
+
+Por lo tanto los efectos ya no pueden ser simplemente la aplicación del operador difuso a los operadores de proyección puesto que esto resultaría en un valor esperado distinto a {\eqref{eq:expected-value-fm-general}}, puesto que las permutaciones estarían ponderadas con diferentes probabilidades. En su lugar, los efectos pueden escribirse como \begin{equation}\label{eq:effectsSetNp}
+    {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
+\end{equation}  
+donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$. %\begin{equation}\label{eq:lambdaeigenvalues}
+    %\Lambda=\{a_{11}\cdot a_{21}\cdot \hdots \cdot a_{N1},\hdots,a_{1d}\cdot a_{2d}\cdot \hdots \cdot a_{Nd}\},
+%\end{equation} donde 
+En el caso de un observable factorizable de $N$ partículas,  el valor propio $\lambda_i$ es el producto de los $a_{jk}$ valores propios, donde los subíndices indican que es $k-$ésimo valor propio correspondiente al observable que se desea medir en la $j-$ésima partícula. 
+
+ Luego, para obtener el estado posterior a la medición se requiere utilizar la descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. De manera análoga al sistema de dos partículas es fácilmente comprobable que estos operadores $E_{\lambda_i}$ son hermíticos, cumplen con la propiedad de completitud y son positivos. Por lo tanto para este sistema se propone utilizar la raíz cuadrada de los efectos \begin{equation}
+   K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}},
+\end{equation} esto se puede realizar debido a la positividad de los efectos. De nuevo, esta descomposición no es única y el estado posterior de la medición dependerá de como se implementen las medidas POVM en el laboratorio. 
+
 
 \subsection{Instrumento cuántico en sistemas de varias partículas} 
 

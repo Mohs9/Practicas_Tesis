@@ -528,14 +528,35 @@ Previamente se graficó el mapeo de probabilidades de obtener los valores propio
 
 Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\)
 y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \] el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
-\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i}\] y la raíz cuadrada del operador es simplemente \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i}.\] 
-Los operadores de proyección de este operador no son sencillos de calcular con lápiz y papel. Es por esta razón que el estado posterior, para una probabilidad $p=0.25$, se puede calcular con un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio}}.  Finalmente el estado posterior es \[\rho_{0+}'=\begin{pmatrix}
-    0.6531 &  0.4082 &  0.2449 &  0.0000\\
-    0.4082 &  0.2551 &  0.1531 &  0.0000\\
-    0.2449 &  0.1531 &  0.0918 &  0.0000\\
-    0.0000 &  0.0000 &  0.0000 &  0.0000
-  \end{pmatrix}.\]
+\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] con una probabilidad del 0.25 \[\mathcal{F}_{2\text{p}}(P_{0+})= \begin{pmatrix}
+    1/2 &  1/8 &  3/8 &  0\\
+    1/8 &  1/8 &  0 &  0\\
+    3/8 &  0 &  3/8 &  0\\
+    0&  0&  0&  0
+  \end{pmatrix},\] los valores propios de esta matriz son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2, y los vectores propios de los primeros dos valores son \[\frac{1}{\sqrt{28 - 2 \sqrt{7}}}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7}}}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio}}} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
+    2(4+\sqrt{7}) & (5-\sqrt{7}) &  3(1+\sqrt{7}) &  0\\
+    (5-\sqrt{7}) &  (11-4\sqrt{7}) &  3(-2+\sqrt{7}) &  0\\
+    3(1+\sqrt{7})  &  3(-2+\sqrt{7})  &  9 &  0\\
+    0&  0&  0&  0
+  \end{pmatrix}\right]\\&+ \sqrt{\frac{4-\sqrt{7}}{8}}\left[ \frac{1}{28+2\sqrt{7}} \begin{pmatrix}
+    2(4-\sqrt{7}) & (5+\sqrt{7}) &  3(1-\sqrt{7}) &  0\\
+    (5+\sqrt{7}) &  (11+4\sqrt{7}) &  3(-2-\sqrt{7}) &  0\\
+    3(1+\sqrt{7})  &  3(-2-\sqrt{7})  &  9 &  0\\
+    0&  0&  0&  0
+  \end{pmatrix}\right] \end{split}.\]Finalmente el operador de Kraus estará dado por las siguiente matriz \[K_{0+}=\begin{pmatrix}
+    0.566947& 0.188982& 0.377964& 0\\
+    0.188982 &  0.283473& -0.094491 &  0\\
+    0.377964 & -0.094491  &  0.472456 &  0\\
+    0 &  0&  0 &  0
+  \end{pmatrix}.\] 
 
+  En virtud de lo anterior, el estado posterior a la medición resulta ser 
+\[\rho_{0+}= \dfrac{K_{0 ,+} \rho K^\dagger_{0 ,+}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}=\begin{pmatrix}
+    0.5275 &  0.1758 &  0.3516 &  0.0000\\
+    0.1758 &  0.1483 &  0.0275 &  0.0000\\
+    0.3516 &  0.0275 &  0.3242 &  0.0000\\
+    0.0000 &  0.0000 &  0.0000 &  0.0000
+  \end{pmatrix}.\] 
 
 
 
@@ -679,7 +700,40 @@ En el caso de un observable factorizable de $N$ partículas,  el valor propio $\
 
 \subsection{Instrumento cuántico en sistemas de varias partículas} 
 
+En esta sección se generalizan la idea detrás de los dos primeros instrumentos cuánticos en sistemas más complejos que involucran varias partículas, así como los primeros resultados obtenidos en la sección {\ref{subsec:Equivalencia }}, en la cual se comprobó que los instrumentos no generan las mismas distribuciones de probabilidad en todos los casos.
 
+La primera alternativa es el instrumento en el que por ruido en el sistema ocurre una equivocación y al medir un observable $\mathcal{O}$ es probable que las partículas experimenten un intercambio. Este instrumento representa que la salida clásica corresponderá a los valores propios del observable. Adicionalmente, con cierta probabilidad la medición ocurre de manera ideal, y el estado posterior a la medición será la proyección del estado inicial al espacio propio correspondiente a la salida brinda por el sistema clásico. Sin embargo, también es verosímil que el estado posterior sea la proyección al espacio propio de la salida pero del estado inicial transformado, de forma que represente un sistema en el que las partículas se cambian   \begin{equation}\label{eq:1instrumentnp}
+    \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i}.
+\end{equation} Por otra parte el valor esperado del resultado de la medición modelado con este instrumento puede calcularse de la siguiente manera \begin{equation*}
+    \begin{split}
+        \left \la \mathcal{O} \right \ra_{\mathcal{I}_1}&=\tr\left( \left[\left(\mathcal{O}\right) \otimes \mathds{1}\right]\mathcal{I}_1\right) \\
+        &=\tr\left(\left[ \left(\mathcal{O}\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}P_{\lambda_j}\otimes P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j} \right)\\
+        &=\sum_{\lambda_j\in \Lambda} \tr\left(\left(\mathcal{O}\right) P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho} P_{\lambda_j}\right) \\
+        &=\sum_{\lambda_j\in \Lambda} \tr\left(\sum_{{\lambda_j, \lambda_k \in \Lambda}}\lambda_k P_{\lambda_k} P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho} P_{\lambda_j}\right)  \\
+        &=\sum_{\lambda_j \in\Lambda} \tr\left(\lambda_j P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j}\right) \\
+        &=\sum_{\lambda_j \in \Lambda} \lambda_j \tr\left(P_{\lambda_j}\fuzzy{\rho}\right) \\
+    \end{split}
+\end{equation*} con lo que se puede concluir que el valor esperado correspondiente a este instrumento es \begin{equation}\label{eq:valor-esperado-1instrumentnp}
+        \left \la\mathcal{O} \right \ra_{\mathcal{I}_1}= \tr\left( \mathcal{O} \fuzzy{\rho}\right),
+\end{equation}el mismo que el valor esperado correcto ({\ref{eq:ExpectedValue-generalForm}}).
+
+
+La segunda alternativa es igualmente generalizable para un sistema de $N$ partículas. Este instrumento representa una equivocación en el sistema clásico, y por esto al medir el observable $\mathcal{O}$, con alguna probabilidad el estado inicial se proyectará en el espacio propio de la salida correspondiente. Pero es probable que el estado inicial se proyecte de igual forma a un espacio propio del observable pero la lectura de los resultados de la medición sean las salidas de un observable distinto, el cual puede ser una transformación dada por el operador de permutación $\Pi_j\mathcal{O}\Pi_j$ para algún $\Pi_j\in \mathcal{S}$, lo que indica que las salidas corresponden a una medición en cada partícula, diferente a las que proporcionaría una medición ideal  \begin{equation}\label{eq:second-instrumentnp}
+    \mathcal{I}_2(\rho)= \sum_{\lambda_i \in \Lambda } \fuzzy{P_{\lambda_i}}\tensor P_{\lambda_i}\rho P_{\lambda_i}.
+\end{equation} Con esta alternativa el valor esperado se calcula como 
+\begin{equation*}
+    \begin{split}
+        \left \la \mathcal{O} \right \ra_{\mathcal{I}_2}&=\tr\left( \left[\left(\mathcal{O}\right) \otimes \mathds{1}\right]\mathcal{I}_2\right) \\
+        &=\tr\left(\left[ \left(\mathcal{O}\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}\fuzzy{P_{\lambda_j}}\otimes P_{\lambda_j}{\rho}P_{\lambda_j} \right)\\
+        &=\sum_{\lambda_j\in \Lambda} \tr\left(\mathcal{O}\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right). \\
+    \end{split}
+\end{equation*} finalmente el valor esperado es \begin{equation}\label{eq:valor-esperado-2instrumentnp}
+    \left \la \mathcal{O}\right \ra_{\mathcal{I}_2}=\sum_{\lambda_j\in \Lambda} \tr\left(\mathcal{O}\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right).
+\end{equation} Este valor esperado no corresponde a (\ref{eq:ExpectedValue-generalForm}) por lo que análogamente se tiene una proposición más general para la equivalencia de estos instrumentos en sistema de $N$ partículas.
+
+\begin{proposition}\label{prop:Equivalencia-instrumentos-np}
+    Para todo estado inicial $\rho$, los valores esperados de los instrumentos cuánticos {\ref{eq:1instrumentnp}} y {\ref{eq:second-instrumentnp}} son equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger \mathcal{O} \Pi_l\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y } \forall \Pi_l \in \mathcal{S}\]
+\end{proposition} La demostración es análoga a la de la proposición {\ref{prop:Equivalencia-instruments1-2}}.
 
 % }}}
 \section{Observables degenerados en mediciones difusas} % {{{

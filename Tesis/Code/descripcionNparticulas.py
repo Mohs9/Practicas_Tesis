@@ -61,12 +61,11 @@ for obser in observables:
     operadores.append(obser.obs)
 
 ## Escribir el estado inicial dado que se quiere medir
-state1=[[1,0],[0,0]] 
+state1=[[1/3,0],[0,2/3]] 
 state2=[[0.5,0.5],[0.5,0.5]]
 state3=[[1,0],[0,0]]
 states=[state1,state2]
 rho_inicial=ft.reduce(np.kron,states)
-
 
 ###DESCRIPCIÓN##################################################################
 ###Definir el operador difuso##### 
@@ -133,6 +132,7 @@ def efectos_fm(salidas, probabilidades):
 
     return suma
 print(efectos_fm(outs,probas))
+a2l.to_ltx(efectos_fm(outs,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ####Mapeo de probabilidades###################################################
 def mapeo_fm(salidas,estado,probabilidades):
     '''Realizar un mapeo de probabilidades, toma como entrada, 
@@ -159,8 +159,8 @@ def estado_final(salidas,estado_inicial, probabilidades):
     #Crear el estado final
     estadoFinal= kraus_operator.dot(estado_inicial).dot(kraus_operator.T.conj())
     return estadoFinal/np.trace(estadoFinal)
-print(estado_final(outs,rho_inicial,probas))
-#a2l.to_ltx(estado_final(outs,rho_inicial,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
+print(estado_final([1,1],rho_inicial,[0.25,0.75]))
+a2l.to_ltx(estado_final(outs,rho_inicial,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ######################################################################################
 #####Gráficas#####################################
 

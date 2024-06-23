@@ -5,6 +5,7 @@ En este programa se busca exhibir el mapa de probabilidades y el estado resultan
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.linalg import eigh
 plt.rcParams['font.family'] = 'serif' 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
@@ -24,10 +25,9 @@ class observable:
     def __init__(self, matrix):
         self.obs = matrix
         #Calcular los valores propios y vectores propios de cada uno de los observables
-        self.eigenvectors= LA.eig(matrix)[1]
-        self.eigenvalues=np.array([])
-        for i in range(len(self.eigenvectors)):
-            self.eigenvalues=np.append(self.eigenvalues,round(np.trace(np.matmul(self.obs,proyector(self.eigenvectors[i]))),3))
+        self.eigenvectors= eigh(matrix)[1].T
+        self.eigenvalues=eigh(matrix)[0]
+        self.len=len(self.obs)
 #El observable que se desea medir en el sistema 1
 obs1= observable(np.array([[1, 0], [0,-1]]))
 #El observable que se desea medir en el sistema 2
@@ -70,7 +70,7 @@ def efectos_fm(output1, output2,p=0.5):
     fuzzy_operator=p*operador_proyector+(1-p)*Soperador_proyectorS
     return fuzzy_operator
 
-print(efectos_fm(1,-1,0.25))
+print(efectos_fm(1,1,1/4))
 
 ####Mapeo de probabilidades###################################################
 def mapeo_fm(output1, output2, state,p):
@@ -89,7 +89,7 @@ def estado_final(output1,output2, state, p):
     la salida, el estado inicial y la probabilidad de intercambio de partículas.
     Devuelve el estado posterior dado la salida en una medición difusa.'''
     #Sacar la raiz cuadrada de cada efecto dependiendo la salida
-    eigenvalues, eigenvectors=LA.eig(efectos_fm(output1, output2,p))
+    eigenvalues, eigenvectors=eigh(efectos_fm(output1, output2,p))
     #Sacarle la raiz a los valores propios
     eigenvalues=[round(eigenvalues[i],6) for i in range(len(eigenvalues))]
     eigenvalues_nuevos= np.sqrt(eigenvalues)
@@ -97,12 +97,14 @@ def estado_final(output1,output2, state, p):
     kraus_operator=np.array([[0 for j in range(len(eigenvectors))] for i in range(len(eigenvectors))])
     #Sumar los proyectores del efecto multiplicado por los nuevos valores propios
     for i in range(len(eigenvectors)):
-        proyectores=proyector(eigenvectors[i])
+        proyectores=proyector(eigenvectors.T[i])
         kraus_operator=np.add(kraus_operator,eigenvalues_nuevos[i]*proyectores)
     estadoFinal= np.matmul(np.matmul(kraus_operator,state),kraus_operator)
     return estadoFinal/np.trace(estadoFinal)
 
-######################################################################################
+print(estado_final(1,1,rho_inicial,1/4))
+######
+# ################################################################################
 #####Gráficas#####################################
 
 def graficar_distribucion(p, ax):

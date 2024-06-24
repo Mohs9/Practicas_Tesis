@@ -528,12 +528,12 @@ Previamente se graficó el mapeo de probabilidades de obtener los valores propio
 
 Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\)
 y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \] el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
-\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] con una probabilidad del 0.25 \[\mathcal{F}_{2\text{p}}(P_{0+})= \begin{pmatrix}
+\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0}}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] con una probabilidad $p$ del 0.25 \[\mathcal{F}_{2\text{p}}(P_{0+})= \begin{pmatrix}
     1/2 &  1/8 &  3/8 &  0\\
     1/8 &  1/8 &  0 &  0\\
     3/8 &  0 &  3/8 &  0\\
     0&  0&  0&  0
-  \end{pmatrix},\] los valores propios de esta matriz son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2, y los vectores propios de los primeros dos valores son \[\frac{1}{\sqrt{28 - 2 \sqrt{7}}}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7}}}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio}}} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
+  \end{pmatrix},\] el efecto tiene rango tres y sus valores propios son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2,  los vectores propios de los primeros dos valores son\[\frac{1}{\sqrt{28 - 2 \sqrt{7}}}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7}}}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio}}} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
     2(4+\sqrt{7}) & (5-\sqrt{7}) &  3(1+\sqrt{7}) &  0\\
     (5-\sqrt{7}) &  (11-4\sqrt{7}) &  3(-2+\sqrt{7}) &  0\\
     3(1+\sqrt{7})  &  3(-2+\sqrt{7})  &  9 &  0\\
@@ -543,7 +543,7 @@ y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \df
     (5+\sqrt{7}) &  (11+4\sqrt{7}) &  3(-2-\sqrt{7}) &  0\\
     3(1+\sqrt{7})  &  3(-2-\sqrt{7})  &  9 &  0\\
     0&  0&  0&  0
-  \end{pmatrix}\right] \end{split}.\]Finalmente el operador de Kraus estará dado por las siguiente matriz \[K_{0+}=\begin{pmatrix}
+  \end{pmatrix}\right]. \end{split}\]Finalmente el operador de Kraus estará dado por las siguiente matriz \[K_{0+}=\begin{pmatrix}
     0.566947& 0.188982& 0.377964& 0\\
     0.188982 &  0.283473& -0.094491 &  0\\
     0.377964 & -0.094491  &  0.472456 &  0\\
@@ -552,21 +552,21 @@ y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \df
 
   En virtud de lo anterior, el estado posterior a la medición resulta ser 
 \[\rho_{0+}= \dfrac{K_{0 ,+} \rho K^\dagger_{0 ,+}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}=\begin{pmatrix}
-    0.5275 &  0.1758 &  0.3516 &  0.0000\\
-    0.1758 &  0.1483 &  0.0275 &  0.0000\\
-    0.3516 &  0.0275 &  0.3242 &  0.0000\\
-    0.0000 &  0.0000 &  0.0000 &  0.0000
-  \end{pmatrix}.\] 
+    0.5275 &  0.1758 &  0.3516 &  0\\
+    0.1758 &  0.1483 &  0.0275 &  0\\
+    0.3516 &  0.0275 &  0.3242 &  0\\
+    0 &  0 &  0&  0
+  \end{pmatrix}.\] En este escenario, el estado inicial se proyecta en el espacio dado por la superposición de dos de los estados propios del efecto correspondiente a la salida $a_1 b_1=(1)(1)=1$. El estado posterior a la medición, resulta ser un nuevo estado mixto, con el mismo rango del efecto. Entonces, $\rho_{0+}$ es la combinación de los espacios propios del efecto con distintos coeficientes para cada uno de los dos operadores, los cuales están relacionados con la probabilidad de encontrarse en alguno de estos espacios propios.
 
-
+\rrnote{Realice los cálculos a mano , y escribi lo que creo que representa el resultado, sin embargo no se me ocurre más interpretación física del este resultado.}
 
 
 % }}}
 \subsubsection{Ejemplo utilizando los instrumentos cuánticos} % {{{
-
+    \rrnote{Esqueleto: Utilizando el mismo estado inicial del sistema y el mismo observable del ejemplo anterior se utiliza para describir de manera detallada el instrumento cuántico y cómo se utiliza para la medición difusa en este sistema. Además se obtiene el mapeo de resultados y el canal cuántico luego de la medición. } 
 
 En la sección {\ref{subsec:Instrumentos_cuanticos_2p_3cap}} se ha analizado tres interpretaciones de las mediciones difusas utilizando instrumentos cuánticos, ahora es conveniente analizar un ejemplo para un estado específico para completar la comprensión de estos instrumentos. De igual manera se utilizará el estado propuesto en la ecuación {\eqref{eq:estado-ejemplos-2p}} y el observable $\sigma_z\otimes\sigma_x$.
-\rrnote{Esqueleto: Utilizando el mismo estado inicial del sistema y el mismo observable del ejemplo anterior se utiliza para describir de manera detallada el instrumento cuántico y cómo se utiliza para la medición difusa en este sistema. Además se obtiene el mapeo de resultados y el canal cuántico luego de la medición. } 
+
 
 Para el primer instrumento  los operadores que integran el sistema clásico son $P_{0+},P_{0-},P_{1+},P_{1-}$, y lo operadores que conforman el sistema cuántico condicionados a sus respectivas salidas serán las proyecciones de estos operadores sobre el operador difuso aplicado a $\rho$. El primer instrumento para este caso es \[\begin{split}\mathcal{I}_1(\rho)&=P_{0+}\otimes P_{0+}\mathcal{F}_{2\text{p}}(\rho)P_{0+}+P_{0-}\otimes P_{0-}\mathcal{F}_{2\text{p}}(\rho)P_{0-}\\
     &+ P_{1+}\otimes P_{1+}\mathcal{F}_{2\text{p}}(\rho)P_{1+}+P_{1-}\otimes P_{1-}\mathcal{F}_{2\text{p}}(\rho)P_{1-}, \\\end{split}\]donde \[\mathcal{F}_{2\text{p}}(\rho)= p\begin{pmatrix}

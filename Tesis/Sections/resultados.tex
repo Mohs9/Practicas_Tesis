@@ -526,14 +526,13 @@ Previamente se graficó el mapeo de probabilidades de obtener los valores propio
 
 \rrnote{Esqueleto colocar como se vería el estado posterior matricialmente.}
 
-Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\)
-y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \] el canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
-\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]Para obtener los operadores de Kraus se debe obtener los operadores de proyección del efecto $\mathcal{F}_{2\text{p}}(P_{0+})$, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] con una probabilidad $p$ del 0.25 \[\mathcal{F}_{2\text{p}}(P_{0+})= \begin{pmatrix}
+Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\), con una probabilidad $p=0.25$ de intercambio de las partículas,  el efecto es \[\mathcal{F}_{2\text{p}}(P_{0+})= \begin{pmatrix}
     1/2 &  1/8 &  3/8 &  0\\
     1/8 &  1/8 &  0 &  0\\
     3/8 &  0 &  3/8 &  0\\
     0&  0&  0&  0
-  \end{pmatrix},\] el efecto tiene rango tres y sus valores propios son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2,  los vectores propios de los primeros dos valores son\[\frac{1}{\sqrt{28 - 2 \sqrt{7} }}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7} }}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio} }} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
+  \end{pmatrix}.\]La operación cuántica que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \]  El canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
+\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]  Para obtener estos operadores de Kraus se debe obtener primero los operadores de proyección del efecto, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] El efecto tiene rango tres y sus valores propios son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2,  los vectores propios de los primeros dos valores son\[\frac{1}{\sqrt{28 - 2 \sqrt{7} }}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7} }}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio} }} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
     2(4+\sqrt{7}) & (5-\sqrt{7}) &  3(1+\sqrt{7}) &  0\\
     (5-\sqrt{7}) &  (11-4\sqrt{7}) &  3(-2+\sqrt{7}) &  0\\
     3(1+\sqrt{7})  &  3(-2+\sqrt{7})  &  9 &  0\\
@@ -556,7 +555,7 @@ y el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \df
     0.1758 &  0.1483 &  0.0275 &  0\\
     0.3516 &  0.0275 &  0.3242 &  0\\
     0 &  0 &  0&  0
-  \end{pmatrix}.\] En este escenario, el estado inicial se proyecta en el espacio dado por la superposición de dos de los estados propios del efecto correspondiente a la salida $a_1 b_1=(1)(1)=1$. El estado posterior a la medición, resulta ser un nuevo estado mixto, con el mismo rango del efecto. Entonces, $\rho_{0+}$ es la combinación de los espacios propios del efecto con distintos coeficientes para cada uno de los dos operadores, los cuales están relacionados con la probabilidad de encontrarse en alguno de estos espacios propios.
+  \end{pmatrix}.\] En este escenario, el estado inicial se proyecta en el espacio dado por la superposición de dos de los estados propios del efecto correspondiente a la salida $a_1 b_1=(1)(1)=1$. El estado posterior a la medición, resulta ser un nuevo estado mixto, con el mismo rango del efecto. Entonces, $\rho_{0+}$ se encuentra en el subespacio generado por los espacios propios del efecto, escalados por coeficientes que están asociados con la probabilidad que se encuentre en cada uno de los espacios propios. 
 
 \rrnote{Realice los cálculos a mano, y escribi lo que creo que representa el resultado, sin embargo no se me ocurre más interpretación física del este resultado.}
 
@@ -584,13 +583,9 @@ donde
         0&0&1/3&1/3\\
         0&0&1/3&1/3\\
     \end{pmatrix}
-+ (1-p)\begin{pmatrix} 1/6&0&1/6&0\\ 0&1/3&0&1/3\\ 1/6&0&1/6&0\\ 0&1/3&0&1/3\\ \end{pmatrix}
-\] 
-en el cual el operador difuso representa un potencial intercambio de partículas
-y al realizar la medición este estado en el que con cierta probabilidad sufre
-un intercambio y con otra probabilidad no lo hace,  se proyecta en uno de los
-espacios propios de la salida obtenida\cpnote{frase larga y confusa. Simplifica y/o quizá
-partela en dos}. La descripción de esta medición queda
++ (1-p)\begin{pmatrix} 1/6&0&1/6&0\\ 0&1/3&0&1/3\\ 1/6&0&1/6&0\\ 0&1/3&0&1/3\\ \end{pmatrix}.
+\] Aplicarle el operador difuso al estado inicial representa que al realizarse la medición con probabilidad $p$ se experimenta un intercambio de partículas y con probabilidad $(1-p)$ no lo hace. Luego, este nuevo estado se proyecta en uno de los espacios propios de la salida obtenida\cpnote{frase larga y confusa. Simplifica y/o quizá
+partela en dos} \rrnote{Simplifique y dividi la frase }. La descripción de esta medición queda
 condensada en estos cuatro términos, con lo que puede obtenerse su mapa de
 resultados y el estado posterior. 
    
@@ -604,7 +599,7 @@ proyectarse en el espacio de cada una de ellas y obtener su traza, esto es
 análogo a utilizar las medidas POVM para los mapeos de cada una de las cuatro
 posibles salidas. La probabilidad de obtener la salida correspondiente al
 estado $|0+\ra$, será
-\[\begin{split}\tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+1})\tr(P_{0+}\mathcal{F}_{2\text{p}}(\rho))=\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\\=&\frac{1}{3}\tr\left[\left[p\begin{pmatrix}
+\[\begin{split}\tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+1})\tr(P_{0+}\mathcal{F}_{2\text{p}}(\rho))=\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\\=&\frac{1}{6}\tr\left[\left[p\begin{pmatrix}
             1&1&0&0\\
             1&1&0&0\\
             0&0&0&0\\
@@ -620,7 +615,7 @@ estado $|0+\ra$, será
             0&0&1&1\\
             0&0&1&1\\
         \end{pmatrix}\right]\\
-        &=\frac{3+p}{6}\end{split}.\] 
+        &=\frac{3+p}{12}\end{split}.\] 
 Finalmente, si la salida que se obtiene es $a_1 b_1$ correspondiente al estado
 propio  $|0+\rangle$, el estado posterior será
 simplemente\[\begin{split}P_{a_1,b_1}(p\rho+(1-p)S\rho S^\dagger)
@@ -633,16 +628,13 @@ P_{a_1,b_1}=\begin{pmatrix}
     \end{split} \] 
 \cpnote{Revisa que todos los estdos tengan traza uno. Creo qeu en algunos caoss puedes hacer 
 notar porque ejemplo que el estado es o no puro y comparar con el caso de
-$p=0$.}
-En este caso el valor esperado es exactamente el mismo que el obtenido en el capítulo anterior
+$p=0$.}\rrnote{El estado inicial tiene traza 1, y es mixto pero este canal no preserva la traza porque faltaría sumar las otras proyecciones.}
+Por otro lado, el valor esperado del instrumentos es exactamente el mismo que el obtenido en la ecuación {\eqref{eq:valor-esperado-ejemplo-cap2}}
 \begin{equation}\label{eq:1instrument-ejemplo}\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\cancelto{\frac{-1}{3}}{\tr(\rho\sigma_z\tensor \sigma_x )}+(1-p)\cancelto{0}{\tr(\rho\sigma_x\tensor \sigma_z )}=-\frac{p}{3}.\\
-    \end{split}\end{equation} 
-Notar que el segundo término se cancela porque particularmente el estado
-inicial es una combinación lineal de los operadores de proyección del
-observable $\sigma_z\otimes\sigma_x$ y además se cumple que $\la
-0+|\sigma_x\otimes \sigma_z|0+\ra=0$, $\la 0-|\sigma_x\otimes
-\sigma_z|0-\ra=0$, $\la 1+|\sigma_x\otimes \sigma_z|1+\ra=0$ y $\la
-1-|\sigma_x\otimes \sigma_z|1-\ra=0$. \cpnote{redaccion horrible}
+    \end{split}\end{equation} El segundo término se anula debido a que la traza del producto de cada uno de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$, con el observable $\sigma_x\otimes\sigma_z$ es cero, mientras que el estado inicial es una superposición de dos de estos operadores de proyección.
+
+
+\cpnote{redaccion horrible}\rrnote{Lo redacté de nuevo.}
 
 \rrnote{Esqueleto: Análogamente se realiza este procedimiento con el instrumento dos y tres. Calculo el mapeo de resultados y el canal cuántico luego de la medición con las trazas parciales.}
 
@@ -656,7 +648,7 @@ Para la segunda alternativa, el error ocurre al realizar la lectura de los resul
        &+{(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0+})}}\tr(P_{0+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{0-})}\tr(P_{0-} \rho)\\
         &+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1+})}\tr(P_{1+} \rho)+(1-p)\cancelto{0}{\tr( (\sigma_x\otimes \sigma_z)P_{1-})}\tr(P_{1-} \rho)\\
         &=-\dfrac{p}{3}.
-    \end{split}\end{equation} En este caso en específico, el valor esperado de el segundo instrumento es el mismo al de la ecuación {\eqref{eq:1instrument-ejemplo}}. Esto se debe a que los últimos términos también se cancelan, de la misma forma que el último término del valor esperado del primer instrumento. Sin embargo, el observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, puesto que la condición {\eqref{eq:Condicion-equivalencia1-2}} no se cumple y por esta razón no serán equivalentes para todo estado inicial.
+    \end{split}\end{equation} En este caso en específico, el valor esperado del segundo instrumento es el mismo al de la ecuación {\eqref{eq:1instrument-ejemplo}}. Esto se debe a que los últimos términos también se cancelan, de la misma forma que el último término del valor esperado del primer instrumento. Sin embargo, el observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, puesto que la condición {\eqref{eq:Condicion-equivalencia1-2}} no se cumple y por esta razón no serán equivalentes para todo estado inicial.
 
    Para obtener el mapeo de probabilidades se utiliza el operador de densidad reducido\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección, como sigue   \[\begin{split}
         \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
@@ -703,11 +695,11 @@ Para obtener el valor esperado de esta medición en el sistema de $N$ partícula
 \end{split}
 \end{equation*}  
 
-Aunque lo anterior es válido no es la forma más general en la que una medición difusa puede ser estudiada. Estas mediciones pueden analizarse utilizando cualquier tipo de observables, incluyendo los observables no factorizables los cuales no pueden escribirse como un producto tensorial de $N$ observables. Un observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no puede escribirse como un producto de observables como $\prodtensor A_i$, pero sí como la combinación lineal de todos los %${(d\times d)}^N$ 
+Aunque lo anterior es válido no es la forma más general en la que una medición difusa puede ser estudiada. Estas mediciones pueden analizarse utilizando cualquier tipo de observables, incluyendo los observables no factorizables los cuales no pueden escribirse como un producto tensorial de $N$ observables. Un observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no puede escribirse como un producto de observables como $\prodtensor A_i$, pero sí como la superposición de todos los %${(d\times d)}^N$ 
 posibles productos de los operadores de alguna base del espacio de Hilbert $\mathcal{H}$. 
 
 
-Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar una medición proyectiva ideal, sin embargo, también es factible que la medición efectuada sea la de un observable distinto, en el cual los operadores de cada término de la combinación lineal que conforma el observable original se intercambian de alguna manera.  De otra forma, al realizar una medición difusa, las partículas experimentan un intercambio difuminando los resultados de  la medición del observable original. Por lo tanto es posible utilizar la linealidad del operador difuso  para representar el valor esperado de cualquier observable, tal y como se presenta en el ecuación {\eqref{eq:expected-value-fm-general}}.
+Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar una medición proyectiva ideal, sin embargo, también es factible que la medición efectuada sea la de un observable distinto, en el cual los operadores de cada término de la superposición que conforma el observable original se intercambian de alguna manera.  De otra forma, al realizar una medición difusa, las partículas experimentan un intercambio difuminando los resultados de  la medición del observable original. Por lo tanto es posible utilizar la linealidad del operador difuso  para representar el valor esperado de cualquier observable, tal y como se presenta en el ecuación {\eqref{eq:expected-value-fm-general}}.
 
 
 

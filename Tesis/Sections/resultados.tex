@@ -167,7 +167,7 @@ Por otro lado, para obtener el estado posterior luego de haber realizado la medi
     &=\sum_{j,k}P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.
 \end{split}
 \end{equation}Para una medida selectiva el estado posterior estará dado por
-\[\E_{a_j,b_k}(\rho)=P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}.\]
+\[\E_{a_j,b_k}(\rho)=\dfrac{P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}}{\tr(P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho))}.\]
 
 
 
@@ -618,17 +618,23 @@ estado $|0+\ra$, será
         &=\frac{3+p}{12}\end{split}.\] 
 Finalmente, si la salida que se obtiene es $a_1 b_1$ correspondiente al estado
 propio  $|0+\rangle$, el estado posterior será
-simplemente\[\begin{split}P_{a_1,b_1}(p\rho+(1-p)S\rho S^\dagger)
-P_{a_1,b_1}=\begin{pmatrix}
-        0.1354 &  0.1354 &  0.0000 &  0.0000\\
-        0.1354 &  0.1354 &  0.0000 &  0.0000\\
-        0.0000 &  0.0000 &  0.0000 &  0.0000\\
-        0.0000 &  0.0000 &  0.0000 &  0.0000
-      \end{pmatrix}.
-    \end{split} \] 
+simplemente\[\begin{split}\dfrac{P_{a_1,b_1}(p\rho+(1-p)S\rho S^\dagger)
+P_{a_1,b_1}}{\tr(P_{a_1,b_1} \mathcal{F}_{2\text{p}}(\rho))}&=\dfrac{1}{\frac{3.25}{12}}\begin{pmatrix}
+        0.1354 &  0.1354  &  0 &  0\\
+        0.1354 &  0.1354 &  0 &  0\\
+        0 &  0 &  0&  0\\
+        0 &  0 &  0 &  0
+      \end{pmatrix}\\
+      &=\begin{pmatrix}
+        0.5 &  0.5 &  0 &  0\\
+        0.5 &  0.5 &  0 &  0\\
+        0 &  0 &  0&  0\\
+        0 &  0 &  0 &  0
+      \end{pmatrix}.\\
+    \end{split} \] En esta situación, el estado que sufre un intercambio de partículas es proyectado al espacio del estado propio $|0+\rangle$. El estado resultante ser el operador $P_{0+}$, el cual es un estado puro, en contraste con el estado inicial.
 \cpnote{Revisa que todos los estdos tengan traza uno. Creo qeu en algunos caoss puedes hacer 
 notar porque ejemplo que el estado es o no puro y comparar con el caso de
-$p=0$.}\rrnote{El estado inicial tiene traza 1, y es mixto pero este canal no preserva la traza porque faltaría sumar las otras proyecciones.}
+$p=0$.}\rrnote{Corregí la traza del estado.}
 Por otro lado, el valor esperado del instrumentos es exactamente el mismo que el obtenido en la ecuación {\eqref{eq:valor-esperado-ejemplo-cap2}}
 \begin{equation}\label{eq:1instrument-ejemplo}\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\cancelto{\frac{-1}{3}}{\tr(\rho\sigma_z\tensor \sigma_x )}+(1-p)\cancelto{0}{\tr(\rho\sigma_x\tensor \sigma_z )}=-\frac{p}{3}.\\
     \end{split}\end{equation} El segundo término se anula debido a que la traza del producto de cada uno de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$, con el observable $\sigma_x\otimes\sigma_z$ es cero, mientras que el estado inicial es una superposición de dos de estos operadores de proyección.
@@ -764,17 +770,3 @@ La segunda alternativa es igualmente generalizable para un sistema de $N$ partí
 \end{proposition} La demostración es análoga a la de la proposición {\ref{prop:Equivalencia-instruments1-2}}.
 
 % }}}
-\section{Observables degenerados en mediciones difusas} % {{{
-
-
-
-% }}}
-\section{Casos particulares de mediciones difusas} % {{{
-\rrnote{En esta sección se desea ilustrar ejemplos de sistemas de $N$ partículas en los que se realicen mediciones difusas y poderlos describir completamente. Un caso particular podría ser el de una cadena de iones en una recta o en una fila donde solo puedan intercambiarse con sus vecinos. O una cadena en una circunferencia.} 
-
-\rrnote{\textit{¿Cómo cambia cuando tenemos una circunferencia o una fila de iones? ¿Cómo es el valor esperado? ¿Cuál es el operador difuso? ¿Cómo se describe estas mediciones? }}
-
-
-% }}}
-
-

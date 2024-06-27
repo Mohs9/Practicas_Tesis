@@ -5,7 +5,6 @@ En este programa se busca exhibir el mapa de probabilidades y el estado resultan
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.linalg import eigh
 plt.rcParams['font.family'] = 'serif' 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
@@ -25,9 +24,10 @@ class observable:
     def __init__(self, matrix):
         self.obs = matrix
         #Calcular los valores propios y vectores propios de cada uno de los observables
-        self.eigenvectors= eigh(matrix)[1].T
-        self.eigenvalues=eigh(matrix)[0]
-        self.len=len(self.obs)
+        self.eigenvectors= LA.eig(matrix)[1]
+        self.eigenvalues=np.array([])
+        for i in range(len(self.eigenvectors)):
+            self.eigenvalues=np.append(self.eigenvalues,round(np.trace(np.matmul(self.obs,proyector(self.eigenvectors[i]))),3))
 #El observable que se desea medir en el sistema 1
 obs1= observable(np.array([[1, 0], [0,-1]]))
 #El observable que se desea medir en el sistema 2
@@ -50,14 +50,17 @@ rho_inicial=np.array([[1/6,1/6,0,0],[1/6,1/6,0,0],[0,0,1/3,1/3],[0,0,1/3,1/3]])
 ###Definir el valor esperado###
 def valor_esperado_fm(state,p):
     '''Valor esperado del observable, devuelve un número'''
+    SWAP=np.array([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
     obs=np.kron(obs1.obs,obs2.obs)
-    SobsS=np.kron(obs2.obs,obs1.obs)
-    nuevo_obs=p*obs+(1-p)*SobsS
-    valor= np.trace(np.matmul(state,nuevo_obs))
+    SrhoS=np.matmul(np.matmul(SWAP,state),SWAP)
+    fuzzy_operator=p*state+(1-p)*SrhoS
+    valor= np.trace(np.matmul(fuzzy_operator,obs))
     return valor
+print(valor_esperado_fm(rho_inicial, 0.25))
 
 ###Obtener los efectos par A y B no degenerados####
 def efectos_fm(output1, output2,p=0.5):
+    SWAP=np.array([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
     #Tomar primero los vectores propios  de A y luego los vectores propios de B
     for i in range(len(obs1.eigenvectors)):
         if obs1.eigenvalues[i]==output1:
@@ -66,11 +69,11 @@ def efectos_fm(output1, output2,p=0.5):
         if obs2.eigenvalues[i]==output2:
             operador_proyector2= proyector(obs2.eigenvectors[i])
     operador_proyector=np.kron(operador_proyector1,operador_proyector2)
-    Soperador_proyectorS=np.kron(operador_proyector2,operador_proyector1)
+    Soperador_proyectorS=np.matmul(np.matmul(SWAP,operador_proyector), SWAP)
     fuzzy_operator=p*operador_proyector+(1-p)*Soperador_proyectorS
     return fuzzy_operator
 
-print(efectos_fm(1,1,1/4))
+print(efectos_fm(1,-1,0.25))
 
 ####Mapeo de probabilidades###################################################
 def mapeo_fm(output1, output2, state,p):
@@ -89,7 +92,7 @@ def estado_final(output1,output2, state, p):
     la salida, el estado inicial y la probabilidad de intercambio de partículas.
     Devuelve el estado posterior dado la salida en una medición difusa.'''
     #Sacar la raiz cuadrada de cada efecto dependiendo la salida
-    eigenvalues, eigenvectors=eigh(efectos_fm(output1, output2,p))
+    eigenvalues, eigenvectors=LA.eig(efectos_fm(output1, output2,p))
     #Sacarle la raiz a los valores propios
     eigenvalues=[round(eigenvalues[i],6) for i in range(len(eigenvalues))]
     eigenvalues_nuevos= np.sqrt(eigenvalues)
@@ -97,14 +100,12 @@ def estado_final(output1,output2, state, p):
     kraus_operator=np.array([[0 for j in range(len(eigenvectors))] for i in range(len(eigenvectors))])
     #Sumar los proyectores del efecto multiplicado por los nuevos valores propios
     for i in range(len(eigenvectors)):
-        proyectores=proyector(eigenvectors.T[i])
+        proyectores=proyector(eigenvectors[i])
         kraus_operator=np.add(kraus_operator,eigenvalues_nuevos[i]*proyectores)
     estadoFinal= np.matmul(np.matmul(kraus_operator,state),kraus_operator)
     return estadoFinal/np.trace(estadoFinal)
 
-print(estado_final(1,1,rho_inicial,1/4))
-######
-# ################################################################################
+######################################################################################
 #####Gráficas#####################################
 
 def graficar_distribucion(p, ax):

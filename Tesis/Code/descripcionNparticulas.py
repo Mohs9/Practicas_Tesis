@@ -60,6 +60,11 @@ operadores=[]
 for obser in observables:
     operadores.append(obser.obs)
 
+####Si el operador es no factorizable, puede sustituirse en la variable OBS
+OBS=ft.reduce(np.kron,operadores)
+
+
+
 ## Escribir el estado inicial dado que se quiere medir
 state1=[[1/3,0],[0,2/3]] 
 state2=[[0.5,0.5],[0.5,0.5]]
@@ -68,6 +73,36 @@ states=[state1,state2]
 rho_inicial=ft.reduce(np.kron,states)
 
 ###DESCRIPCIÓN##################################################################
+
+######PRIMERO DEBEN GENERARSE LOS OPERADORES DE PERMUTACIÓN3#################
+
+####definimos la función permutacion que servira para construir las matrices de permutación utilizando la base computacional.
+def PERM(lista,no_fila,N=3):
+    '''Esta función recibe una lista que tiene los números que indican como se permutaran los valores y un número entero que en binario representa un bra de la base computacional. Devuelve un entero que en binario representa un ket en la base computacional'''
+    #Usar un if para tomar un número binario con N dígitos
+    if len(bin(no_fila)[2:])<=N:
+        #Convertimos el numero de fila a binario
+        numero_binario=str(bin(no_fila)[2:].zfill(N))
+    #Escribir el número en una lista para poder cambiar su orden
+    ket_binario=list(numero_binario)
+    #Inicializar el nuevo ket al que se le aplica la permutación
+    nueva_ket=[0 for i in range(N)]
+    #Realizar la permutacion indicada por la lista.
+    for i in range(N):
+      nueva_ket[lista[i]]=ket_binario[i]
+    #Inicializamos el número en base 10 que indicara el numero de columna
+    no_columna= 0
+    #Convertimos a base 10
+    for i in range(N):
+        no_columna+=int(nueva_ket[i])*(2**(N-1)-i)
+    return no_columna
+print(PERM((1,0,2),2,3))
+
+
+def matrices_permutacion(N=3):
+    return 0
+
+print(list(permutations([0,1,2])))
 ###Definir el operador difuso##### 
 def fuzzy_operator(estados,probabilidades):
     '''Aplicar el operador difuso a un estado inicial devuelve otro operador'''

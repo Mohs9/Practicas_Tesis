@@ -34,7 +34,7 @@ def cross_lists(lista1, lista2):
 
 
 ##número de partículas
-n=2
+N=3
 
 class observable:
     def __init__(self, matrix):
@@ -52,7 +52,7 @@ obs2= observable(np.array([[0, 1], [1, 0]]))
 obs3= observable(np.array([[1, 0], [0, -1]]))
 
 #Una lista donde se encuentren todos los observables
-observables=[obs1,obs2]
+observables=[obs1,obs2,obs3]
 
 
 #En la siguiente lista se encuentran los observables
@@ -69,7 +69,7 @@ OBS=ft.reduce(np.kron,operadores)
 state1=[[1/3,0],[0,2/3]] 
 state2=[[0.5,0.5],[0.5,0.5]]
 state3=[[1,0],[0,0]]
-states=[state1,state2]
+states=[state1,state2,state3]
 rho_inicial=ft.reduce(np.kron,states)
 
 ###DESCRIPCIÓN##################################################################
@@ -77,7 +77,7 @@ rho_inicial=ft.reduce(np.kron,states)
 ######PRIMERO DEBEN GENERARSE LOS OPERADORES DE PERMUTACIÓN3#################
 
 ####definimos la función permutacion que servira para construir las matrices de permutación utilizando la base computacional.
-def PERM(lista,no_fila,N=3):
+def PERM(lista,no_fila):
     '''Esta función recibe una lista que tiene los números que indican como se permutaran los valores y un número entero que en binario representa un bra de la base computacional. Devuelve un entero que en binario representa un ket en la base computacional'''
     #Usar un if para tomar un número binario con N dígitos
     if len(bin(no_fila)[2:])<=N:
@@ -94,29 +94,29 @@ def PERM(lista,no_fila,N=3):
     no_columna= 0
     #Convertimos a base 10
     for i in range(N):
-        no_columna+=int(nueva_ket[i])*(2**(N-1)-i)
+        no_columna+=int(nueva_ket[i])*(2**((N-1)-i))
     return no_columna
-print(PERM((1,0,2),2,3))
+
+#print(PERM((1,0,2),7))
 
 
-def matrices_permutacion(N=3):
-    return 0
+def operador_permutacion(lista):
+    #Inicializar una matriz
+    Pi=[[0 for i in range(2**N)] for i in range(2**N)]
+    #Colocar unos en la filas y columnas correspondientes a lo que indica la función perm
+    for fila in range(2**N):
+        columna=PERM(lista,fila)
+        Pi[fila][columna]=1
+    return np.array(Pi)
 
-print(list(permutations([0,1,2])))
-###Definir el operador difuso##### 
-def fuzzy_operator(estados,probabilidades):
-    '''Aplicar el operador difuso a un estado inicial devuelve otro operador'''
-    perm= permutations(estados)
-    suma=0*ft.reduce(np.kron,estados)
-    count=0
-    for i in list(perm):
-        operador_permutado=ft.reduce(np.kron,i)
-        suma= np.add(suma,probabilidades[count]*operador_permutado)
-        count+=1 
-    return suma
+#print(matrices_permutacion((1,0,2)))
 
-
-
+lista_original=list(range(N))
+#Crear las diferentes permutaciones
+diferentes_ordenes=list(permutations(lista_original))
+todos_operadores_permutacion=[] #El array que contenga los N! operadores de permutación
+for lista in diferentes_ordenes:
+    todos_operadores_permutacion.append(operador_permutacion(lista)) #Agregarlos todos.
 
 ##Una lista de probabilidades aleatorias (pueden cambiar)
 ##falta corregir
@@ -130,21 +130,39 @@ def generar_probabilidades(m):
     probabilidades = [p/suma_total for p in probabilidades]
     return probabilidades
 
-probas=generar_probabilidades(np.math.factorial(n))
+probas=generar_probabilidades(np.math.factorial(N))
 #prueba
-probas=[0.25,0.75]
+probas=[0,0,0,0,0,1]
+
+
+###Definir el operador difuso##### 
+def fuzzy_operator(estado,probabilidades):
+    '''Aplicar el operador difuso a un estado inicial devuelve otro operador'''
+    suma=np.zeros([2**N,2**N])
+    count=0
+    for operador in todos_operadores_permutacion:
+        termino= np.matmul(np.matmul(operador, estado), operador.T)
+        suma= np.add(suma,probabilidades[count]*termino)
+        count+=1 
+    return suma
+
+print(fuzzy_operator(rho_inicial,probas))
+
+
+
+
 ###Definir el valor esperado###
 def valor_esperado_fm(probabilidades):
     '''Valor esperado del observable, devuelve un número'''
-    suma=fuzzy_operator(operadores,probabilidades)
-    valor= np.trace(np.matmul(suma, rho_inicial))
+    suma=fuzzy_operator(rho_inicial,probabilidades)
+    valor= np.trace(np.matmul(suma, OBS))
     return valor
 
 print(valor_esperado_fm(probas))
 
 
 ###Obtener los efectos para observables####
-outs=[1,1]
+outs=[1,1,1]
 def efectos_fm(salidas, probabilidades):
     #Tomar primero los vectores propios de cada uno de los observables
     operadores_proyeccion=[]
@@ -157,17 +175,17 @@ def efectos_fm(salidas, probabilidades):
                 operador=np.add(operador,proyector(obser.eigenvectors[i]))
         operadores_proyeccion.append(operador)
         count+=1
-    perm=permutations(operadores_proyeccion)
+    operador_proyeccion=ft.reduce(np.kron,operadores_proyeccion)
     suma=0*ft.reduce(np.kron,operadores_proyeccion)
     count=0
-    for i in list(perm):
-        operador_permutado=ft.reduce(np.kron,i)
-        suma= np.add(suma,probabilidades[count]*operador_permutado)
+    for operador in todos_operadores_permutacion:
+        termino=np.matmul(np.matmul(operador.T,operador_proyeccion),operador)
+        suma= np.add(suma,probabilidades[count]*termino)
         count+=1 
 
     return suma
 print(efectos_fm(outs,probas))
-a2l.to_ltx(efectos_fm(outs,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
+#a2l.to_ltx(efectos_fm(outs,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ####Mapeo de probabilidades###################################################
 def mapeo_fm(salidas,estado,probabilidades):
     '''Realizar un mapeo de probabilidades, toma como entrada, 
@@ -176,7 +194,7 @@ def mapeo_fm(salidas,estado,probabilidades):
     probabilidad= np.trace(np.matmul(efectos_fm(salidas,probabilidades), estado))
     return probabilidad
 
-#print(mapeo_fm(outs,probas))
+print(mapeo_fm(outs,rho_inicial,probas))
 
 ##############Obtener el estado posterior a la medición.
 def estado_final(salidas,estado_inicial, probabilidades):
@@ -194,8 +212,8 @@ def estado_final(salidas,estado_inicial, probabilidades):
     #Crear el estado final
     estadoFinal= kraus_operator.dot(estado_inicial).dot(kraus_operator.T.conj())
     return estadoFinal/np.trace(estadoFinal)
-print(estado_final([1,1],rho_inicial,[0.25,0.75]))
-a2l.to_ltx(estado_final(outs,rho_inicial,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
+print(estado_final([1,1,1],rho_inicial,probas))
+#a2l.to_ltx(estado_final(outs,rho_inicial,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ######################################################################################
 #####Gráficas#####################################
 
@@ -267,14 +285,14 @@ def mostrar_graficas(ncol=2, nrow=3):
     if ncol>1 and nrow>1:
         fig, axes = plt.subplots(ncol, nrow, figsize=(nrow*5, ncol*5))
         for i, axe in enumerate(axes.flat):
-            proba=generar_probabilidades(np.math.factorial(n))
+            proba=generar_probabilidades(np.math.factorial(N))
             graficar_distribucion(proba, ax=axe)
         plt.show()
     else:
         graficar_distribucion(p=0.25,ax=plt.subplot())
         plt.show()
 
-#mostrar_graficas(2,3)
+mostrar_graficas(2,3)
 
 
 
@@ -306,7 +324,7 @@ def sis_cuantico_1ins(estados,salidas,probabilidades):
 def primer_instrumento(estados, probabilidades):
     '''Replica el instrumento cuantico dado por el ensamble de un sistema clasico
     y uno cuantico'''
-    instrumento=np.array([[0 for i in range(len(obs1.obs)**n)] for i in range(len(obs1.obs)**n)])
+    instrumento=np.array([[0 for i in range(len(obs1.obs)**N)] for i in range(len(obs1.obs)**N)])
     instrumento=np.kron(instrumento,instrumento)
 
     eigenvalues=[obs.eigenvalues for obs in observables]

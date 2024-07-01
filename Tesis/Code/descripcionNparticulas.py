@@ -34,7 +34,7 @@ def cross_lists(lista1, lista2):
 
 
 ##número de partículas
-N=3
+N=2
 
 class observable:
     def __init__(self, matrix):
@@ -52,7 +52,7 @@ obs2= observable(np.array([[0, 1], [1, 0]]))
 obs3= observable(np.array([[1, 0], [0, -1]]))
 
 #Una lista donde se encuentren todos los observables
-observables=[obs1,obs2,obs3]
+observables=[obs1,obs2]
 
 
 #En la siguiente lista se encuentran los observables
@@ -69,7 +69,7 @@ OBS=ft.reduce(np.kron,operadores)
 state1=[[1/3,0],[0,2/3]] 
 state2=[[0.5,0.5],[0.5,0.5]]
 state3=[[1,0],[0,0]]
-states=[state1,state2,state3]
+states=[state1,state2]
 rho_inicial=ft.reduce(np.kron,states)
 
 ###DESCRIPCIÓN##################################################################
@@ -132,7 +132,7 @@ def generar_probabilidades(m):
 
 probas=generar_probabilidades(np.math.factorial(N))
 #prueba
-probas=[0,0,0,0,0,1]
+probas=[0.25,0.75]
 
 
 ###Definir el operador difuso##### 
@@ -146,7 +146,7 @@ def fuzzy_operator(estado,probabilidades):
         count+=1 
     return suma
 
-print(fuzzy_operator(rho_inicial,probas))
+#print(fuzzy_operator(rho_inicial,probas))
 
 
 
@@ -158,10 +158,10 @@ def valor_esperado_fm(probabilidades):
     valor= np.trace(np.matmul(suma, OBS))
     return valor
 
-print(valor_esperado_fm(probas))
+#print(valor_esperado_fm(probas))
 
 
-###Obtener los efectos para observables####
+###Obtener los efectos para observables FACTORIZABLES####
 outs=[1,1,1]
 def efectos_fm(salidas, probabilidades):
     #Tomar primero los vectores propios de cada uno de los observables
@@ -170,7 +170,7 @@ def efectos_fm(salidas, probabilidades):
     for obser in observables:
         operador=np.zeros([len(obser.eigenvalues),len(obser.eigenvalues)])
         for i in range(len(obser.eigenvalues)):
-            if obser.eigenvalues[i]==salidas[count]:
+            if obser.eigenvalues[i].round(3)==salidas[count]:
                 #para degenerados deberíamos sumar los de proyeccion
                 operador=np.add(operador,proyector(obser.eigenvectors[i]))
         operadores_proyeccion.append(operador)
@@ -194,7 +194,7 @@ def mapeo_fm(salidas,estado,probabilidades):
     probabilidad= np.trace(np.matmul(efectos_fm(salidas,probabilidades), estado))
     return probabilidad
 
-print(mapeo_fm(outs,rho_inicial,probas))
+#print(mapeo_fm(outs,rho_inicial,probas))
 
 ##############Obtener el estado posterior a la medición.
 def estado_final(salidas,estado_inicial, probabilidades):
@@ -212,11 +212,11 @@ def estado_final(salidas,estado_inicial, probabilidades):
     #Crear el estado final
     estadoFinal= kraus_operator.dot(estado_inicial).dot(kraus_operator.T.conj())
     return estadoFinal/np.trace(estadoFinal)
-print(estado_final([1,1,1],rho_inicial,probas))
+#print(estado_final([1,1,1],rho_inicial,probas))
 #a2l.to_ltx(estado_final(outs,rho_inicial,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ######################################################################################
-#####Gráficas#####################################
 
+#####Gráficas para observables factorizables #####################################
 def graficar_distribucion(probabilidades, ax):
     ##data
  
@@ -292,14 +292,14 @@ def mostrar_graficas(ncol=2, nrow=3):
         graficar_distribucion(p=0.25,ax=plt.subplot())
         plt.show()
 
-mostrar_graficas(2,3)
+#mostrar_graficas(2,3)
 
 
 
 ##################Instrumento###########################################
 
 
-#############PRIMER INSTRUMENTO########################################
+#############PRIMER INSTRUMENTO operadores factorizables ########################################
 
 def sis_clasico_1ins(salidas):
     operadores_proyeccion=[]
@@ -314,14 +314,14 @@ def sis_clasico_1ins(salidas):
     operador_proyector=ft.reduce(np.kron,operadores_proyeccion)
     return operador_proyector
 
-def sis_cuantico_1ins(estados,salidas,probabilidades):
+def sis_cuantico_1ins(estado,salidas,probabilidades):
     proy=sis_clasico_1ins(salidas)
-    canal=np.matmul(proy, np.matmul(fuzzy_operator(estados,probabilidades),proy))
+    canal=np.matmul(proy, np.matmul(fuzzy_operator(estado,probabilidades),proy))
     return canal
 
 
 
-def primer_instrumento(estados, probabilidades):
+def primer_instrumento(estado, probabilidades):
     '''Replica el instrumento cuantico dado por el ensamble de un sistema clasico
     y uno cuantico'''
     instrumento=np.array([[0 for i in range(len(obs1.obs)**N)] for i in range(len(obs1.obs)**N)])
@@ -334,7 +334,89 @@ def primer_instrumento(estados, probabilidades):
     all_outs=ft.reduce(cross_lists,eigenvalues)
 
     for salidas in all_outs:
-        selectivo= np.kron(sis_clasico_1ins(salidas), sis_cuantico_1ins(estados,salidas,probabilidades))
+        selectivo= np.kron(sis_clasico_1ins(salidas), sis_cuantico_1ins(estado,salidas,probabilidades))
+        instrumento=np.add(instrumento,selectivo)
+    return instrumento
+
+#print(primer_instrumento(states, probas))
+#######################################
+
+
+
+
+
+###############Efectos para observables NO factorizables ############################
+def efectos_no_factorizable(salida, probabilidades):
+    #Tomar primero los vectores propios del observable
+    operador_proyector=np.zeros([2**N,2**N])
+    eigenvalues, eigenvectors= eigh(OBS) 
+    for i in range(len(eigenvalues)):
+        if salida==eigenvalues[i].round(3):
+            #para degenerados deberíamos sumar los de proyeccion
+            operador_proyector=np.add(operador_proyector,proyector(eigenvectors[i]))
+    suma=0*np.zeros([2**N,2**N])
+    count=0
+    for operador in todos_operadores_permutacion:
+        termino=np.matmul(np.matmul(operador.T,operador_proyector),operador)
+        suma= np.add(suma,probabilidades[count]*termino)
+        count+=1 
+    return suma
+
+####Mapeo de probabilidades para observables NO FACTORIZABLES###################################################
+def mapeo_no_factorizables(salida,estado,probabilidades):
+    '''Realizar un mapeo de probabilidades, toma como entrada, 
+    la salida, el estado inicial y la probabilidad de intercambio de partículas.
+    Devuelve la probabilidad de obtener esa salida en una medición difusa.'''
+    probabilidad= np.trace(np.matmul(efectos_no_factorizable(salida,probabilidades), estado))
+    return probabilidad
+
+##############Obtener el estado posterior a la medición cuando el observable no es factorizable.
+def estado_final_nf(salida,estado_inicial, probabilidades):
+    '''Realizar un mapeo de estados, toma como entrada, 
+    la salida, el estado inicial y la probabilidad de intercambio de partículas.
+    Devuelve el estado posterior dado la salida en una medición difusa.'''
+    #Sacar la raiz cuadrada de cada efecto dependiendo la salida
+    eigenvalues, eigenvectors=eigh(efectos_no_factorizable(salida,probabilidades))
+    eigenvalues = np.abs(eigenvalues).round(5)
+    #Sacarle la raiz a los valores propios
+    eigenvalues_nuevos= np.sqrt(eigenvalues)
+    #Crear el operador de kraus
+    kraus_operator=eigenvectors.dot(np.diag(eigenvalues_nuevos)).dot(eigenvectors.T.conj())
+    kraus_operator=kraus_operator.round(5)
+    #Crear el estado final
+    estadoFinal= kraus_operator.dot(estado_inicial).dot(kraus_operator.T.conj())
+    return estadoFinal/np.trace(estadoFinal)
+print(estado_final_nf(-1,rho_inicial,probas))
+
+
+##################Instrumento###########################################
+
+
+#############PRIMER INSTRUMENTO operadores factorizables ########################################
+
+def sis_clasico_1ins_nf(salida):
+    operador_proyeccion=np.zeros([2**N,2**N])
+    eigenvalues, eigenvectors=eigh(OBS)
+    for i in range(len(eigenvalues)):
+        if eigenvalues[i].round(3)==salida:
+            operador_proyeccion=np.add(operador_proyeccion,proyector(eigenvectors[i]))
+    return operador_proyeccion
+
+def sis_cuantico_1ins_nf(estado,salidas,probabilidades):
+    proy=sis_clasico_1ins(salidas)
+    canal=np.matmul(proy, np.matmul(fuzzy_operator(estado,probabilidades),proy))
+    return canal
+
+
+
+def primer_instrumento_nf(estado, probabilidades):
+    '''Replica el instrumento cuantico dado por el ensamble de un sistema clasico
+    y uno cuantico'''
+    instrumento=np.array([[0 for i in range(len(obs1.obs)**N)] for i in range(len(obs1.obs)**N)])
+    instrumento=np.kron(instrumento,instrumento)
+    eigenvalues, eigenvectors=eigh(OBS)
+    for salida in eigenvalues:
+        selectivo= np.kron(sis_clasico_1ins_nf(salida), sis_cuantico_1ins_nf(estado,salida,probabilidades))
         instrumento=np.add(instrumento,selectivo)
     return instrumento
 

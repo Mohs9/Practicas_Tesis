@@ -292,7 +292,7 @@ def mostrar_graficas(ncol=2, nrow=3):
         graficar_distribucion(p=0.25,ax=plt.subplot())
         plt.show()
 
-#mostrar_graficas(2,3)
+mostrar_graficas(2,3)
 
 
 

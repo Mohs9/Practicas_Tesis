@@ -2,35 +2,29 @@
 \section{Introducción} % {{{
 
     
-\rrnote{Esqueleto: Intro: En los capítulos anteriores se estableció un base conceptual para realiza un análisis de las mediciones difusas. En este capítulo se utilizará este marco para realizar la descripción completa de las mediciones difusas en sistemas cuánticos.}
 
-    En los capítulos anteriores se estableció un base conceptual para realiza un análisis de las mediciones difusas. En este capítulo se utilizará este marco para realizar la descripción completa de las mediciones difusas en sistemas cuánticos. Asimismo se presentan los resultado más relevantes que se obtuvieron al trabajar con las distintas herramientas presentadas anteriormente. 
+En los capítulos anteriores se estableció un base conceptual para realiza un
+análisis de las mediciones difusas. En este capítulo se utilizará este marco
+para realizar la descripción completa de las mediciones difusas en sistemas
+cuánticos. Asimismo se presentan los resultado más relevantes que se obtuvieron
+al trabajar con las distintas herramientas presentadas anteriormente. 
 
-    La estructura de este capítulo es la siguiente. En la sección {\ref{sec:Cap3 dos particulas}} se inicia la discusión de los resultados principales que se obtuvieron al analizar el sistema más simple, el sistema de dos partículas. En esta sección se presentan tanto las medidas POVM como los operadores de Kraus que proporcionan una correcta descripción de la medición difusa. De igual manera,  se presentan de manera intuitiva y más detallada las interpretaciones de los instrumentos cuánticos, así como las condiciones en las que éstos son equivalentes. Finalmente se expone un ejemplo específico que recopila todos estos elementos para ilustrar de mejor manera la base teórica trabajada. En la sección {\ref{sec:cap3 generalizacion-}} se examina y aborda la generalización de todas las herramientas trabajadas en la sección {\ref{sec:Cap3 dos particulas}}, para sistemas de $N$ partículas.
-    % La sección {\ref{sec cap3 observable degenerado}} considera de manera breve, observables que poseen un grado de degeneración y se discute las implicaciones en la especificación de las mediciones difusas. Por último, en la sección {\ref{sec: cap3 casos particulares}} se abordan algunos casos particulares de sistemas de varias partículas en las que ocurre un error en la medición y se obtienen resultados difusos.
+La estructura de este capítulo es la siguiente. En la sección {\ref{sec:Cap3
+dos particulas}} se inicia la discusión de los resultados principales que se
+obtuvieron al analizar el sistema más simple, el sistema de dos partículas. En
+esta sección se presentan tanto las medidas POVM como los operadores de Kraus
+que proporcionan una correcta descripción de la medición difusa. De igual
+manera,  se presentan de manera intuitiva y más detallada las interpretaciones
+de los instrumentos cuánticos, así como las condiciones en las que éstos son
+equivalentes. Finalmente se expone un ejemplo específico que recopila todos
+estos elementos para ilustrar de mejor manera la base teórica trabajada. En la
+sección {\ref{sec:cap3 generalizacion-}} se examina y aborda la generalización
+de todas las herramientas trabajadas en la sección {\ref{sec:Cap3 dos
+particulas}}, para sistemas de $N$ partículas.
 
 % }}}
 \section{Mediciones difusas en sistemas de dos partículas}\label{sec:Cap3 dos particulas} % {{{
 % Intro {{{
-% \rrnote{Esqueleto: En esta sección exponer los resultados ya trabajados y 
-% explorar más opciones. Primero especificar condiciones del sistema de dos 
-% partículas y de los observables. Inicialmente, el estado del sistema es $\rho  
-% \in  \mathcal{H}_1\otimes \mathcal{H}_2$,  en las que se quiere realizar la 
-% medición de un observable $A\otimes B$, donde $A$ y $B$ son ambos de dimensión 
-% $d$.}
-
-
-%Con fines ilustrativos, en este apartado se presentan los resultados
-%principales obtenidos al trabajar con las siguientes condiciones.
-%Inicialmente, el estado del sistema es $\rho  \in \mathcal{H}$ ,  en él  se quiere realizar la medición de un observable
-%factorizable \[A\otimes B=\sum_{j,k}a_j b_k P_{a_j, b_k}=\sum_{j,k}a_j b_k
-%P_{a_j}\otimes P_{b_k},\] siendo $P_{a_j}$ y $P_{b_k}$ los operadores de
-%proyección que corresponden al valor propio $a_j$ del observable $A$ y el
-%valor propio $b_k$ de $B$ respectivamente, de dimensión $d\times d$. Sin
-%embargo, la medición realizada es difusa y siguiendo con la definición
-%{\ref{def:medicion-difusa}}, la probabilidad que se realice la medición del
-%observable $B\otimes A$ no es cero, sino $1-p$ y la posibilidad de realizar
-%una medición ideal en el sistema  es $p$. 
 Las mediciones difusas solo cobran sentido en un sistema compuesto por dos o
 más partículas. Con fines explicativos en el capítulo anterior se comenzó a
 analizar una medición difusa en el sistema más simple, el cual está conformado
@@ -43,11 +37,6 @@ observable de la forma $A\otimes B$.\par
 
 
 
-% \rrnote{Esqueleto:Incluir imágenes de algún ejemplo de una medición difusa en 
-% un sistema.  Con algún diagrama de cajas en las que se realiza una medición del 
-% observable particular. Comparar  una medición ideal en un sistema de dos 
-% partículas. Luego, en una segunda imagen agregar un diagrama que represente la 
-% matriz swap y obtener salidas intercambiadas  con cierta probabilidad.}
 
 En la siguiente imagen se ilustra un esquema de medición del observable
 $\sigma_z\otimes \sigma_x$ en la que debido a ruido del entorno, existe una
@@ -81,52 +70,47 @@ A continuación se especifica la forma de utilizar las medidas generalizadas con
 % }}}
 \subsection{Instrumentos cuánticos para dos partículas}\label{subsec:Instrumentos_cuanticos_2p_3cap} % {{{
 % Intro subsection {{{
-% \rrnote{Esqueleto:Intro: En este apartado se busca hacer un análisis sobre
-% las formulaciones de las alternativas de los instrumentos presentadas en la
-% sección {\ref{sec:cap2instrumentos-cuanticos}}. Se obtiene el sistema clásico
-% y cuántico para comparar las descripciones que proporcionan. Se verificar que
-% las dos primeras alternativas cumplan con la condición necesaria para
-% verificar que tengan  la misma distribución de probabilidad, con el valor
-% esperado. Además de analizar el tercer instrumento y compararlo con el
-% primero}
 
-En este apartado se busca hacer un análisis sobre las formulaciones de las tres alternativas de los instrumentos presentadas en la sección {\ref{sec:cap2instrumentos-cuanticos}}. En éste, se obtiene el sistema clásico y cuántico para comparar las descripciones que proporcionan. Para una plena especificación de las mediciones difusas, las interpretaciones son intuitivamente equivalentes. Sin embargo, es indispensable verificar que las dos proporcionen el mismo mapeo de resultados. En principio, una condición necesaria para corroborar que tengan la misma distribución de probabilidad es que el valor esperado de los instrumentos genere el mismo resultado que el de la ecuación {\eqref{eq:Expected-Value-FM-2p}}. 
+En este apartado se busca hacer un análisis sobre las formulaciones de las tres
+alternativas de los instrumentos presentadas en la sección
+{\ref{sec:cap2instrumentos-cuanticos}}. En éste, se obtiene el sistema clásico
+y cuántico para comparar las descripciones que proporcionan. Para una plena
+especificación de las mediciones difusas, las interpretaciones son
+intuitivamente equivalentes. Sin embargo, es indispensable verificar que las
+dos proporcionen el mismo mapeo de resultados. En principio, una condición
+necesaria para corroborar que tengan la misma distribución de probabilidad es
+que el valor esperado de los instrumentos genere el mismo resultado que el de
+la ecuación {\eqref{eq:Expected-Value-FM-2p}}. 
 
 
 % }}}
 \subsubsection{Primera alternativa de instrumento cuántico} % {{{
 
-% \rrnote{Esqueleto: Se revisita la primera alternativa de los intrumentos
-% cuánticos, en sistemas simples de dos partículas y con observables
-% factorizables. En esta parte se  aplica la traza parcial sobre el sistema
-% cuántico y el clásico para realizar el análisis del instrumento. Se calcula su
-% valor esperado para saber si cumple con la ecuación del valor esperado}
-
-
 El primer instrumento consiste en considerar que debido a un error en el
 sistema cuántico, las partículas posiblemente experimenten un intercambio. Al
-medir un observable ${A \tensor B}$ en el sistema representado por el estado $\rho$, se obtiene un resultado  en
-el sistema clásico que puede ser cualquiera de los valores propios de este
-observable. Luego, con cierta probabilidad el estado posterior será la
-proyección del estado inicial del sistema al estado propio correspondiente a
-la salida proporcionada. Sin embargo también es posible que el estado inicial
-sufra una transformación, y sea este cambio del sistema el que se proyecte en
-el espacio propio correspondiente a la salida del observable $A\tensor B$.
+medir un observable ${A \tensor B}$ en el sistema representado por el estado
+$\rho$, se obtiene un resultado  en el sistema clásico que puede ser cualquiera
+de los valores propios de este observable. Luego, con cierta probabilidad el
+estado posterior será la proyección del estado inicial del sistema al estado
+propio correspondiente a la salida proporcionada. Sin embargo también es
+posible que el estado inicial sufra una transformación, y sea este cambio del
+sistema el que se proyecte en el espacio propio correspondiente a la salida del
+observable $A\tensor B$.
 
 
 En la imagen {\ref{diagrama-cajas-primer-instrumento}} se puede apreciar a lo
 que esto se refiere gráficamente.  En la figura, con una probabilidad $p$ se
 realiza una medición ideal en la que se mide el observable $A$ en la primera
 partícula y el observable $B$ en la segunda partícula. En esta medición ideal
-el estado posterior será la proyección de $\rho_1=\tr_2(\rho_{1,2})$
-al espacio propio
-correspondiente a la salida proporcionada en el sistema clásico $a_j$,
-conjuntamente con la proyección de $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de las
-salida $b_k$. 
-No obstante, la figura también muestra la parte borrosa de la medición en la que con una probabilidad $1-p$,
-la medición del observable $B$ se realiza en el primer sistema y la medición
-del observable $A$ se realiza en el segundo sistema, en consecuencia $\rho_2$ se proyecta al espacio propio que corresponde a la salida
-$a_j$ y $\rho_1$ se proyecta al espacio de la salida $b_k$.
+el estado posterior será la proyección de $\rho_1=\tr_2(\rho_{1,2})$ al espacio
+propio correspondiente a la salida proporcionada en el sistema clásico $a_j$,
+conjuntamente con la proyección de $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio
+de las salida $b_k$.  No obstante, la figura también muestra la parte borrosa
+de la medición en la que con una probabilidad $1-p$, la medición del observable
+$B$ se realiza en el primer sistema y la medición del observable $A$ se realiza
+en el segundo sistema, en consecuencia $\rho_2$ se proyecta al espacio propio
+que corresponde a la salida $a_j$ y $\rho_1$ se proyecta al espacio de la
+salida $b_k$.
 \input{../Images/primer_instrumento.tex}
 
 Para un sistema de dos partículas el instrumento dado en la ecuación {\eqref{eq:primer-instrumento-general}}, puede escribirse como\begin{equation}\label{eq:fisrtinstrument2p}
@@ -137,16 +121,10 @@ Para un sistema de dos partículas el instrumento dado en la ecuación {\eqref{e
 \end{split}
 \end{equation}
 
-
-
-
-% \rrnote{Esqueleto:Para una medida no selectiva el mapea de resultados se
-% obtiene simplemente aplicando una traza parcial sobre el sistema cuántico. Se
-% calcula esta traza parcial. Además el se calcula la traza parcial del sistema
-% clásico para obtener un canal cuántico para una medición selectiva. }
-% 
-
-Es importante notar que el sistema clásico  puede diferir del estado inicial, pero  indica correctamente el estado posterior a la medición en todos los casos. Además, para una medida no selectiva el mapeo de resultados se obtiene simplemente aplicando una traza parcial sobre el sistema cuántico 
+Es importante notar que el sistema clásico  puede diferir del estado inicial,
+pero  indica correctamente el estado posterior a la medición en todos los
+casos. Además, para una medida no selectiva el mapeo de resultados se obtiene
+simplemente aplicando una traza parcial sobre el sistema cuántico 
 \begin{equation}\label{eq:traza_q_1instrument2p}
     \begin{split}
         \tr_{\text{qu}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{qu}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
@@ -166,7 +144,7 @@ resultado anterior, y se calcula la traza\[\begin{split}
     &=p \bra{a_i b_l}\rho\ket{a_i b_l} +(1-p)\bra{b_l a_i}\rho \ket{b_l a_i}.
 \end{split}\]Es importante notar que este mapeo de probabilidades resultante es exactamente el mismo al de la ecuación {\eqref{eq:mapeo-probabilidades-2p}}
 
-Por otro lado, para obtener el estado posterior luego de haber realizado la medición, se debe realizar la traza parcial sobre el sistema clásico de la siguiente manera\cpnote{También esta frase está como volando} \rrnote{quité la frase anterior.}
+Por otro lado, para obtener el estado posterior luego de haber realizado la medición, se debe realizar la traza parcial sobre el sistema clásico de la siguiente manera
 \begin{equation}\label{eq:traza_cl_1instrument2p}
     \begin{split}
       \tr_{\text{cl}}(\mathcal{I}_1{(\rho)})&=\sum_{j,k}\tr_{\text{cl}}(P_{a_j,b_k}\otimes P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k})\\
@@ -176,9 +154,6 @@ Por otro lado, para obtener el estado posterior luego de haber realizado la medi
 \[\E_{a_j,b_k}(\rho)=\dfrac{P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho) P_{a_j,b_k}}{\tr(P_{a_j,b_k} \mathcal{F}_{2\text{p}}(\rho))}.\]
 
 
-
-\rrnote{Esqueleto: Por otro lado, se calcula el valor esperado del primer instrumento y se compara con el valor esperado original de la medición difusa  }
-  
 
 Por otra parte, el valor esperado del primer instrumento se calcula de la siguiente forma \begin{equation*}
     \begin{split}
@@ -199,18 +174,37 @@ Por otra parte, el valor esperado del primer instrumento se calcula de la siguie
 % }}}
 \subsubsection{Segunda alternativa de instrumento cuántico} % {{{
 
-\rrnote{Esqueleto:Después de haber hecho el cálculo para el valor esperado del primer instrumento, el siguiente es el caso en el que se supone que el error ocurre en la lectura de los resultados y se desarrolla el segundo instrumento para un sistema de dos partículas.}
+Tras haber analizado el primer instrumento, el siguiente escenario involucra un
+error en la interpretación de los resultados. El segundo instrumento implica
+que, debido a un fallo en el sistema clásico, la lectura de las salidas sea
+incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta
+probabilidad el estado posterior será la proyección del estado inicial del
+sistema al estado propio correspondiente a las salida proporcionada. No
+obstante, existe la posibilidad que el estado inicial sea proyectado a algún
+estado propio del observable pero al leer las salidas de la medición estas
+correspondan a salidas del observable $B\otimes A$.
 
-
-Tras haber analizado el primer instrumento, el siguiente escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$.\cpnote{muy bien!}
-
-En la figura {\ref{fig; diagrama-cajas-segundo-instrumento}} se ilustra las dos posibilidades mencionadas anteriormente. En la primera de ellas se realiza una medición proyectiva ideal, donde se mide el observable $A$ en el primer subsistema y el observable $B$ en el segundo, con probabilidad $p$. El estado posterior a la medición será el estado $\rho_1=\tr_2(\rho_{1,2})$ proyectándose al espacio propio de la salida $a_j$, junto con la proyección del estado $\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de $b_k$. Adicionalmente, la figura muestra la parte imperfecta de la medición en la que con una probabilidad $1-p$, se realiza la medición de $A$ en la primera partícula y la medición de $B$ en la segunda, sin embargo la salida de la medición para el primer subsistema es $b_k$,un resultado correspondiente al observable $B$, y la salida que se ofrece en la medición del segundo subsistema es un valor propio de $A$, $a_j$. Aunque los estados posteriores a la medición sean correctos, las salidas clásicas están intercambiadas.
+En la figura {\ref{fig; diagrama-cajas-segundo-instrumento}} se ilustra las dos
+posibilidades mencionadas anteriormente. En la primera de ellas se realiza una
+medición proyectiva ideal, donde se mide el observable $A$ en el primer
+subsistema y el observable $B$ en el segundo, con probabilidad $p$. El estado
+posterior a la medición será el estado $\rho_1=\tr_2(\rho_{1,2})$ proyectándose
+al espacio propio de la salida $a_j$, junto con la proyección del estado
+$\rho_2=\tr_1(\rho_{1,2})$ al espacio propio de $b_k$. Adicionalmente, la
+figura muestra la parte imperfecta de la medición en la que con una
+probabilidad $1-p$, se realiza la medición de $A$ en la primera partícula y la
+medición de $B$ en la segunda, sin embargo la salida de la medición para el
+primer subsistema es $b_k$,un resultado correspondiente al observable $B$, y la
+salida que se ofrece en la medición del segundo subsistema es un valor propio
+de $A$, $a_j$. Aunque los estados posteriores a la medición sean correctos, las
+salidas clásicas están intercambiadas.
 
 
 
 \input{../Images/segundo_instrumento.tex}
 
-El segundo instrumento para un sistema de dos partículas es \begin{equation}\label{eq:second-instrument-2p}
+El segundo instrumento para un sistema de dos partículas es 
+\begin{equation}\label{eq:second-instrument-2p}
     \begin{split}
         \mathcal{I}_2(\rho)&=\sum_{j,k}\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
         &=\sum_{j,k}[pP_{a_j,b_k}+(1-p)SP_{a_j,b_k}S^\dagger]\otimes P_{a_j,b_k} \rho P_{a_j,b_k}\\
@@ -218,7 +212,6 @@ El segundo instrumento para un sistema de dos partículas es \begin{equation}\la
     \end{split}
 \end{equation} 
 
-\rrnote{Esqueleto: Se interpretan los resultados comparando con los obtenidos con el primer instruemento. Se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva es el siguiente. Además el se calcula la traza parcial del sistema clásico para obtener un canal cuántico para una medición selectiva.}
 
 
 En este caso es posible notar que el sistema clásico no siempre coincide con el estado posterior. La salida de la medición puede indicar que es $\ket{b_k a_j}$, y el estado posterior no será éste. De la misma manera al instrumento anterior, se desarrolla la traza parcial sobre el sistema cuántico del instrumento para obtener el mapeo de resultado  para una medición no selectiva \begin{equation}\label{eq:tr_q_second-instrument-2p}
@@ -229,7 +222,6 @@ En este caso es posible notar que el sistema clásico no siempre coincide con el
 \end{equation} 
 
 
-\rrnote{Esqueleto: En el contexto de esta interpretación, se calcula el valor esperado de esta alternativa.}
 
 Adicionalmente, el valor esperado de este instrumento, se calcula de la siguiente manera\begin{equation*}
     \begin{split}
@@ -244,7 +236,7 @@ Adicionalmente, el valor esperado de este instrumento, se calcula de la siguient
         \la A\otimes B \ra_{\mathcal{I}_2}&=p\tr(A\tensor B\rho)+\sum_{j,k}{\color{blue}(1-p)\tr( (B\otimes A)P_{a_j,b_k})}\tr(P_{a_j,b_k} \rho). \\
     \end{split}
 \end{equation}
-Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante, en la sección {\ref{subsec:Equivalencia }}.\cpnote{donde lo piensas discutir?}\rrnote{agregué que en la siguiente sección  se discutirá}
+Nótese que el término remarcado en azul difumina la parte de los resultados. Sin embargo, en general esta ecuación no es igual a la ecuación {\eqref{eq:Expected-Value-FM-2p}}, lo cual se discutirá más adelante, en la sección {\ref{subsec:Equivalencia }}.
 
 
 
@@ -270,8 +262,6 @@ El tercer instrumento cuántico puede desarrollarse de la siguiente forma
     \end{split}
 \end{equation}En este instrumento se asume que los operadores de proyección de los observables $A\otimes B$ y $B\otimes A$ tales que comparten el mismo valor propio, son ortogonales. En este caso, la salida clásica no difiere del estado inicial pero existe la posibilidad que se desconozca si la salida clásica coincida o no  con el estado posterior. 
 
-\rrnote{Esqueleto:De igual forma que en los otros instruementos se desarrolla el calculo de la traza parcial para obtener el mapeo de resultados y el operador de densidad para el sistema cuántico.  }
-
 Para este instrumento, se obtiene el mapeo de resultados, de igual forma que los dos anteriores, realizando la traza parcial sobre el sistema cuántico como sigue\begin{equation}\label{eq:traza_q_3instrument2p}
     \begin{split}
        \tr_{\text{qu}}\left( \mathcal{I}_3(\rho)\right)&=\sum_{(j,k)\in K}  P_{a_j,b_k}\tr(P_{a_j,b_k}\rho)+q\sum_{(i,l)\in L}P_{a_i,b_l} \tr(P_{a_i,b_l}\rho) \\
@@ -287,8 +277,6 @@ Para este instrumento, se obtiene el mapeo de resultados, de igual forma que los
 
 
 
-
-\rrnote{Esqueleto:Finalmente, se calcula el valor esperado de este último instrumento cuántico.}
 
 Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin{equation*}
     \begin{split}
@@ -314,10 +302,6 @@ Asimismo, es posible calcular el valor esperado de este nuevo instrumento \begin
 % }}}
 % }}}
 \subsection{Equivalencia de los instrumentos}\label{subsec:Equivalencia } % {{{
-% \rrnote{Esqueleto Intro: Se hace una comparación entre los instrumentos
-% anteriores y se expone que resultaron no ser equivalentes. En esta sección se
-% comenta que se esperaba que los instrumentos fueran equivalentes pero
-% lo son.}
 
 En esta sección se pretende comparar los valores esperados de los diferentes
 instrumentos cuánticos analizados previamente, con el fin de examinar sus
@@ -327,10 +311,6 @@ apropiado. Como se observó en las secciones anteriores, los instrumentos
 propuestos no son idénticos. Por lo tanto, es importante preguntarse, ¿bajo qué
 condiciones estos instrumentos son equivalentes?
 
-% \rrnote{Esqueleto:Como primer punto se contrasta los valores esperados del
-% primer y segundo instrumento. Se presenta la proposición que detalla las
-% condiciones de equivalencia del valor esperado entre los dos instrumentos y su
-% demostración.}
 
 
 En primer lugar, se contrasta los valores esperados del primer y segundo
@@ -485,10 +465,8 @@ de obtener una medición donde las partículas experimentan un intercambio, sea 
 
 
 % }}}
-\cpnote{Muy bien}
 \subsection{Ejemplos sobre una medición difusa utilizando distintas herramientas} % {{{
 % Into sub {{{
-\rrnote{Esqueleto: Describir algunos ejemplos con estados iniciales y observables particulares de una medición difusa en un sistema de dos particulas. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \[\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right).\] }
 
 
 En esta sección se realizarán algunos ejemplos que ilustran la descripción completa de la medición de un observable de la forma $A\otimes B$ en un estado inicial $\rho$ utilizando las distintas herramientas discutidas en los apartados anteriores, es decir, las medidas POVM conjunto a los operadores de Kraus, así como los distintos instrumentos cuánticos. Continuando con el ejemplo de la sección {\ref{subsec:Valores_esperados}} en el que se quiere medir el observable $\sigma_z\otimes \sigma_x$, con vectores propios $\{\ket{0+},\ket{0-},\ket{1+},\ket{1-}\}$. El estado inicial del sistema es  \begin{equation}\label{eq:estado-ejemplos-2p}\rho= \left(\frac{1}{3}\ket{0}\bra{0}+\frac{2}{3}\ket{1}\bra{1}\right)\otimes\left(\ket{+}\bra{+}\right)=\begin{pmatrix}
@@ -502,7 +480,6 @@ En esta sección se realizarán algunos ejemplos que ilustran la descripción co
 % }}}
 \subsubsection{Ejemplo utilizando las mediciones POVM y los operadores de Kraus} % {{{
 
-\rrnote{Esqueleto: Previamente se graficó el mapeo de probabilidades de obtener los valores propios del observables, los cuales son $1$ y $-1$. Realizar este mapeo con los efectos discutidos}
 
 Previamente se graficó el mapeo de probabilidades de obtener los valores propios del observables, los cuales son $1$ y $-1$. Este mapeo puede realizarse con los efectos discutidos como \[\begin{split}E(1,\rho)=&\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho) +\tr(\mathcal{F}_{2\text{p}}(P_{1-})\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0+}+P_{1-})\rho)\\ 
     =&\frac{1}{3}\tr\left[\left[p\begin{pmatrix}
@@ -526,11 +503,7 @@ Previamente se graficó el mapeo de probabilidades de obtener los valores propio
     \[E(-1,\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0-})\rho) +\tr(\mathcal{F}_{2\text{p}}(P_{1+})\rho)=\tr(\mathcal{F}_{2\text{p}}(P_{0-}+P_{1+})\rho)=\frac{3+p}{6}.\]
     
 
-%\rrnote{Esqueleto: ilustrar de sitinta forma las probabilidades del observable $\sigma_z\otimes \sigma_x$, cuando se realiza una medición difusa con una probabilidad $p=0.25$. En el eje $x$ se encuentran los valores propios del observable $\sigma_z$ y en el eje $y$ se ilustran los valores propios del observable $\sigma_x$ y en el eje $z$ las probabilidades de obtener las  salidas $a_1 b_1=(1)(1)$, $a_1 b_2=(1)(-1)$ $a_2 b_1=(-1)(1)$, $a_2 b_2=(-1)(-1)$}
 
-%\rrnote{Esqueleto: Ilustrar uno de los operadores de Kraus si se obtiene la salida  $a_1=1$ y  $b_{1}=1$, el canal que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \]Representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$ \[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\] }
-
-\rrnote{Esqueleto colocar como se vería el estado posterior matricialmente.}
 
 Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obtener dicha salida será solamente \(\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)\), con una probabilidad $p=0.25$ de intercambio de las partículas,  el efecto es \[\mathcal{F}_{2\text{p}}(P_{0+})= \begin{pmatrix}
     1/2 &  1/8 &  3/8 &  0\\
@@ -563,12 +536,8 @@ Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obte
     0 &  0 &  0&  0
   \end{pmatrix}.\] En este escenario, el estado inicial se proyecta en el espacio dado por la superposición de dos de los estados propios del efecto correspondiente a la salida $a_1 b_1=(1)(1)=1$. El estado posterior a la medición, resulta ser un nuevo estado mixto, con el mismo rango del efecto. Entonces, $\rho_{0+}$ se encuentra en el subespacio generado por los espacios propios del efecto, escalados por coeficientes que están asociados con la probabilidad que se encuentre en cada uno de los espacios propios. 
 
-\rrnote{Realice los cálculos a mano, y escribi lo que creo que representa el resultado, sin embargo no se me ocurre más interpretación física del este resultado.}
-
-
 % }}}
 \subsubsection{Ejemplo utilizando los instrumentos cuánticos} % {{{
-    \rrnote{Esqueleto: Utilizando el mismo estado inicial del sistema y el mismo observable del ejemplo anterior se utiliza para describir de manera detallada el instrumento cuántico y cómo se utiliza para la medición difusa en este sistema. Además se obtiene el mapeo de resultados y el canal cuántico luego de la medición. } 
 
 En la sección {\ref{subsec:Instrumentos_cuanticos_2p_3cap}} se ha analizado tres interpretaciones de las mediciones difusas utilizando instrumentos cuánticos, ahora es conveniente analizar un ejemplo para un estado específico para completar la comprensión de estos instrumentos. De igual manera se utilizará el estado propuesto en la ecuación {\eqref{eq:estado-ejemplos-2p}} y el observable $\sigma_z\otimes\sigma_x$.
 
@@ -590,8 +559,11 @@ donde
         0&0&1/3&1/3\\
     \end{pmatrix}
 + (1-p)\begin{pmatrix} 1/6&0&1/6&0\\ 0&1/3&0&1/3\\ 1/6&0&1/6&0\\ 0&1/3&0&1/3\\ \end{pmatrix}.
-\] Aplicarle el operador difuso al estado inicial representa que al realizarse la medición con probabilidad $p$ se experimenta un intercambio de partículas y con probabilidad $(1-p)$ no lo hace. Luego, este nuevo estado se proyecta en uno de los espacios propios de la salida obtenida\cpnote{frase larga y confusa. Simplifica y/o quizá
-partela en dos} \rrnote{Simplifique y dividi la frase }. La descripción de esta medición queda
+\] Aplicarle el operador difuso al estado inicial representa que al realizarse
+la medición con probabilidad $p$ se experimenta un intercambio de partículas y
+con probabilidad $(1-p)$ no lo hace. Luego, este nuevo estado se proyecta en
+uno de los espacios propios de la salida obtenida.
+La descripción de esta medición queda
 condensada en estos cuatro términos, con lo que puede obtenerse su mapa de
 resultados y el estado posterior. 
    
@@ -621,7 +593,7 @@ estado $|0+\ra$, será
             0&0&1&1\\
             0&0&1&1\\
         \end{pmatrix}\right]\\
-        &=\frac{3+p}{12}\end{split}.\] 
+        &=\frac{3+p}{12}.\end{split}\] 
 Finalmente, si la salida que se obtiene es $a_1 b_1$ correspondiente al estado
 propio  $|0+\rangle$, el estado posterior será
 simplemente\[\begin{split}\dfrac{P_{a_1,b_1}(p\rho+(1-p)S\rho S^\dagger)
@@ -637,20 +609,17 @@ P_{a_1,b_1}}{\tr(P_{a_1,b_1} \mathcal{F}_{2\text{p}}(\rho))}&=\dfrac{1}{\frac{3.
         0 &  0 &  0&  0\\
         0 &  0 &  0 &  0
       \end{pmatrix}.\\
-    \end{split} \] En esta situación, el estado que sufre un intercambio de partículas es proyectado al espacio del estado propio $|0+\rangle$. El estado resultante ser el operador $P_{0+}$, el cual es un estado puro, en contraste con el estado inicial.
-\cpnote{Revisa que todos los estdos tengan traza uno. Creo qeu en algunos caoss puedes hacer 
-notar porque ejemplo que el estado es o no puro y comparar con el caso de
-$p=0$.}\rrnote{Corregí la traza del estado.}
+    \end{split} \] 
+En esta situación, el estado que sufre un intercambio de partículas es
+proyectado al espacio del estado propio $|0+\rangle$. El estado resultante debe
+ser el operador $P_{0+}$, el cual es un estado puro, en contraste con el estado
+inicial.
 Por otro lado, el valor esperado del instrumentos es exactamente el mismo que el obtenido en la ecuación {\eqref{eq:valor-esperado-ejemplo-cap2}}
 \begin{equation}\label{eq:1instrument-ejemplo}\begin{split}\la A\tensor B\ra_{\mathcal{I}_1(\rho)}=&p\cancelto{\frac{-1}{3}}{\tr(\rho\sigma_z\tensor \sigma_x )}+(1-p)\cancelto{0}{\tr(\rho\sigma_x\tensor \sigma_z )}=-\frac{p}{3}.\\
     \end{split}\end{equation} El segundo término se anula debido a que la traza del producto de cada uno de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$, con el observable $\sigma_x\otimes\sigma_z$ es cero, mientras que el estado inicial es una superposición de dos de estos operadores de proyección.
 
 
-\cpnote{redaccion horrible}\rrnote{Lo redacté de nuevo.}
-
-\rrnote{Esqueleto: Análogamente se realiza este procedimiento con el instrumento dos y tres. Calculo el mapeo de resultados y el canal cuántico luego de la medición con las trazas parciales.}
-
-
+\cpnote{Aca voy}
 
 Para la segunda alternativa, el error ocurre al realizar la lectura de los resultados por lo tanto el operador difuso se aplica a los operadores de proyección en el sistema clásico \[\begin{split}\mathcal{I}_2(\rho)&=\mathcal{F}_{2\text{p}}(P_{0+})\otimes P_{0+}\rho P_{0+}+\mathcal{F}_{2\text{p}}(P_{0-})\otimes P_{0-}\rho P_{0-}\\
     &+ \mathcal{F}_{2\text{p}}({P_{1+}})\otimes P_{1+}\rho P_{1+}+\mathcal{F}_{2\text{p}}(P_{1-})\otimes P_{1-}\rho P_{1-}, \\\end{split}\] en este caso el operador difuso captura la confusión de los resultados. Por ejemplo, con una probabilidad $p$ indicaría que el estado es $|0+\ra$ y con una probabilidad $1-p$ se obtiene una salida correspondiente al estado $|+0\ra$ sin embargo el estado posterior a la medición será la proyección en espacio propio del operador $P_{0+}$. 
@@ -662,13 +631,16 @@ Para la segunda alternativa, el error ocurre al realizar la lectura de los resul
         &=-\dfrac{p}{3}.
     \end{split}\end{equation} En este caso en específico, el valor esperado del segundo instrumento es el mismo al de la ecuación {\eqref{eq:1instrument-ejemplo}}. Esto se debe a que los últimos términos también se cancelan, de la misma forma que el último término del valor esperado del primer instrumento. Sin embargo, el observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, puesto que la condición {\eqref{eq:Condicion-equivalencia1-2}} no se cumple y por esta razón no serán equivalentes para todo estado inicial.
 
-   Para obtener el mapeo de probabilidades se utiliza el operador de densidad reducido\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección, como sigue   \[\begin{split}
+   Para obtener el mapeo de probabilidades se utiliza el operador de densidad reducido
+\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] 
+si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección, como sigue   \[\begin{split}
         \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
         &+\tr(P_{0+} \mathcal{F}_{2\text{p}}({P_{1+}}))\tr( P_{1+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{1-}))\tr(P_{1-}\rho)\\
         &=\tr(pP_{0+}+(1-p)P_{0+}P_{+0})\tr(P_{0+}\rho)+\tr((1-p)P_{0+}P_{-0})\tr(P_{0-}\rho )\\
         &+\tr((1-p)P_{0+} P_{+1})\tr( P_{1+}\rho)+\tr((1-p)P_{0+}P_{-1})\tr(P_{1-}\rho)\\
         &=p\tr(P_{0+}\rho)+\frac{(1-p)}{4}\tr((P_{+0}+P_{-0}+P_{+1}+P_{-1})\rho)=\frac{3+5p}{12}.
     \end{split}\]
+\cpnote{Este parrafo también tiene una redaccion fea. por favor revisalo con calma y mejoralo }
 
 
 
@@ -676,16 +648,30 @@ Para la segunda alternativa, el error ocurre al realizar la lectura de los resul
 
 
 
-Para el tercer instrumento, el observable $\sigma_z\otimes \sigma_x$ no cumple con una de las condiciones para que esta última alternativa tenga sentido, puesto que $P_{0+}P_{+0}\ne 0$,  $P_{0-}P_{-0}\ne 0$, $P_{1+}P_{+1}\ne 0$ y $P_{1-}P_{-1}\ne 0$. Es por ello que para ejemplificar este instrumento se utilizará el observable $\sigma_z\otimes \sigma_z$ con los operadores de proyección $P_{00},P_{01},P_{10},P_{11}$ y un estado inicial $\rho$. El instrumento es entonces \[\begin{split}\mathcal{I}_3(\rho)=&P_{00}\otimes P_{00}\rho P_{00}+P_{11}\otimes P_{11}\rho P_{11}+q P_{01}\otimes P_{01}\rho P_{01}+q P_{10}\otimes P_{10}\rho P_{10}\\
+Para el tercer instrumento, el observable $\sigma_z\otimes \sigma_x$ no cumple
+con una de las condiciones para que esta última alternativa tenga sentido,
+puesto que $P_{0+}P_{+0}\ne 0$,  $P_{0-}P_{-0}\ne 0$, $P_{1+}P_{+1}\ne 0$ y
+$P_{1-}P_{-1}\ne 0$. Es por ello que para ejemplificar este instrumento se
+utilizará el observable $\sigma_z\otimes \sigma_z$ con los operadores de
+proyección $P_{00},P_{01},P_{10},P_{11}$ y un estado inicial $\rho$. El
+instrumento es entonces 
+\[\begin{split}\mathcal{I}_3(\rho)=&P_{00}\otimes P_{00}\rho P_{00}+P_{11}\otimes P_{11}\rho P_{11}+q P_{01}\otimes P_{01}\rho P_{01}+q P_{10}\otimes P_{10}\rho P_{10}\\
 &\frac{1-q}{2}\left[P_{01}\otimes (P_{01}+P_{10})\rho(P_{01}+P_{10})+ P_{10}\otimes(P_{10}+P_{01})\rho (P_{10}+P_{01}) \right]\\
 &=P_{00}\otimes P_{00}\rho P_{00}+P_{11}\otimes P_{11}\rho P_{11}\\
 &+P_{01}\otimes \left[q P_{01}\rho P_{01}+\frac{1-q}{2}(P_{01}+P_{10})\rho(P_{01}+P_{10})\right]\\
-&+P_{10}\otimes \left[q P_{10}\rho P_{10}+\frac{1-q}{2}(P_{10}+P_{01})\rho (P_{10}+P_{01}) \right]\\
- \end{split}\] En esta última ecuación, el sistema clásico indica que para las salidas correspondientes a los operadores $ P_{01}$ y $P_{10}$, con una probabilidad $q$ al sistema se le aplicará una medición ideal, pero con una probabilidad $(1-q)$ no es posible distinguir entre los estados $|01\ra$ y $|10\ra$. Su mapa de resultado se puede obtener realizando la traza parcial sobre el sistema cuántico \[\begin{split}\tr_{\text{qu}}(\mathcal{I}_3(\rho)) &=P_{00} \tr(P_{00}\rho)+P_{11}\tr(P_{11}\rho)+P_{01}\left[q \tr(P_{01}\rho)+\frac{1-q}{2}\tr((P_{01}+P_{10})\rho)\right]\\
+&+P_{10}\otimes \left[q P_{10}\rho P_{10}+\frac{1-q}{2}(P_{10}+P_{01})\rho (P_{10}+P_{01}) \right].\\
+ \end{split}\] 
+En esta última ecuación, el sistema clásico indica que para las salidas correspondientes a los operadores $ P_{01}$ y $P_{10}$, con una probabilidad $q$ al sistema se le aplicará una medición ideal, pero con una probabilidad $(1-q)$ no es posible distinguir entre los estados $|01\ra$ y $|10\ra$. Su mapa de resultado se puede obtener realizando la traza parcial sobre el sistema cuántico \[\begin{split}\tr_{\text{qu}}(\mathcal{I}_3(\rho)) &=P_{00} \tr(P_{00}\rho)+P_{11}\tr(P_{11}\rho)+P_{01}\left[q \tr(P_{01}\rho)+\frac{1-q}{2}\tr((P_{01}+P_{10})\rho)\right]\\
     &+P_{10} \left[q \tr(P_{10}\rho)+\frac{1-q}{2}\tr((P_{10}+P_{01})\rho)\right]\\
     &=P_{00} \tr(P_{00}\rho)+P_{11}\tr(P_{11}\rho)+P_{01}\left[\frac{1+q}{2} \tr(P_{01}\rho)+\frac{1-q}{2}\tr(P_{10}\rho)\right]\\
-    &+P_{10} \left[\frac{1+q}{2} \tr(P_{10}\rho)+\frac{1-q}{2}\tr(P_{01}\rho)\right]\\
-     \end{split}\] De esta última igualdad es posible notar fácilmente que para este observable el mapa de resultados coincide con el que se podría plantear en el primer instrumento cuando se cumpla que $p=\frac{1+q}{2}$. Además es importante notar que aunque el observable es bastante sencillo, los resultados pueden verse difuminados para dos de los estados, cambiando la probabilidad de obtener las salidas correspondientes a los operadores $P_{01}$ y $P_{10}$.
+    &+P_{10} \left[\frac{1+q}{2} \tr(P_{10}\rho)+\frac{1-q}{2}\tr(P_{01}\rho)\right].\\
+\end{split}\] 
+De esta última igualdad es posible notar fácilmente que para este observable el
+mapa de resultados coincide con el que se podría plantear en el primer
+instrumento cuando se cumpla que $p=\frac{1+q}{2}$. Además es importante notar
+que aunque el observable es bastante sencillo, los resultados pueden verse
+difuminados para dos de los estados, cambiando la probabilidad de obtener las
+salidas correspondientes a los operadores $P_{01}$ y $P_{10}$.
 
 
 % }}}
@@ -693,10 +679,12 @@ Para el tercer instrumento, el observable $\sigma_z\otimes \sigma_x$ no cumple c
 % }}}
 \section{Generalización de operadores de Kraus en sistemas de \texorpdfstring{\boldmath{$N$}}{N} partículas}\label{sec:cap3 generalizacion-} % {{{
 
-\rrnote{Esqueleto Intro:En esta seccion se pretende discutir sobre la generalización de las herramientas utilizadas anteriormente para la completa descripción de las mediciones difusas en sistemas más complejos}
-
-El estudio del sistema que se analizó en las secciones anteriores y sus implicaciones para la especificación completa de las mediciones difusas es útil desde un punto de vista ilustrativo, aunque no es general. En esta sección se pretende discutir el problema desde sistemas más generales, con más de dos partículas y en los que se tomen en cuenta observables que no sean factorizables.
-% asimismo analizar las implicaciones de medir los observables con más de dos niveles que tengan algún grado de degeneración. 
+El estudio del sistema que se analizó en las secciones anteriores y sus
+implicaciones para la especificación completa de las mediciones difusas es útil
+desde un punto de vista ilustrativo, aunque no es general. En esta sección se
+pretende discutir el problema desde sistemas más generales, con más de dos
+partículas y en los que se tomen en cuenta observables que no sean
+factorizables.
 
 
 

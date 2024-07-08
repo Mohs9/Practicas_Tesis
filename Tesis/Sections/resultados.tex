@@ -679,6 +679,7 @@ salidas correspondientes a los operadores $P_{01}$ y $P_{10}$.
 % }}}
 \section{Generalización de operadores de Kraus en sistemas de \texorpdfstring{\boldmath{$N$}}{N} partículas}\label{sec:cap3 generalizacion-} % {{{
 
+% Intro {{{
 El estudio del sistema que se analizó en las secciones anteriores y sus
 implicaciones para la especificación completa de las mediciones difusas es útil
 desde un punto de vista ilustrativo, aunque no es general. En esta sección se
@@ -718,7 +719,9 @@ cuales no pueden escribirse como un producto tensorial de $N$ observables. Un
 observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no
 puede escribirse como un producto de observables como $\prodtensor A_i$, pero
 sí como la superposición de todos los posibles productos de los operadores de
-alguna base del espacio de Hilbert $\mathcal{H}$. 
+alguna base del espacio de Hilbert $\mathcal{H}$.\cpnote{La ultima frase 
+está coja y creo qeu no transmites la prueba de que vale para todo observale 
+asi no sea factorizable} 
 
 
 Entonces, al llevar a cabo una medición difusa de un observable cualquiera
@@ -732,10 +735,11 @@ medición del observable original. Por lo tanto es posible utilizar la
 linealidad del operador difuso  para representar el valor esperado de cualquier
 observable, tal y como se presenta en el ecuación
 {\eqref{eq:expected-value-fm-general}}.
-
-
-
-\subsection{Medidas POVM y operadores de Kraus en sistemas de varias partículas}
+\cpnote{En este parrafo dices cosas que ya habías dicho y la ultima frase
+es algo como lo que esperaba que concluyeras en el parrafo anterior. Quizá
+mejora porfavor este parrafo}
+% }}}
+\subsection{Medidas POVM y operadores de Kraus en sistemas de varias partículas} % {{{
 
 Anteriormente se describió el mapeo que puede realizarse con las medidas POVM
 en un sistema de dos partículas. Se propuso intuitivamente un conjunto de
@@ -755,13 +759,15 @@ esperado de la medición difusa puede escribirse también como
     \left \langle \mathcal{O}\right \rangle_{\mathcal{F}(\rho)} &=\sum_{\Pi_j \in S}p_j\tr \left(\Pi_j^\dagger{\mathcal{O}}\Pi_j\rho\right).\\
 \end{split}
 \end{equation} 
-De esta expresión es fácil ver que se está aplicando un operador al observable,
+De esta expresión es fácil ver \cpnote{Cambio sutil pero importante, puedes
+cambiar ``ver'' por ``interpretar'' que es justo el meollo del asunto} que se
+está aplicando un operador al observable,
 sin embargo no es el mismo operador difuso que el de la ecuación
 {\eqref{eq:fuzzy-op-nparticles}} debido a que en cada término de la suma el
 operador aplicado por la izquierda es el adjunto del operador de permutación y
 por la derecha se aplica el operador de permutación, y debido a que los
 operadores de permutación no son hermíticos, aplicar un operador por la
-izquierda es distinto a aplicarlo por la derecha. También es importante aclarar
+izquierda es distinto a aplicarlo por la derecha\cpnote{La frase está muy larga y contiene dos ideas. sugiero partirla}. También es importante aclarar
 que tampoco se le está aplicando el adjunto del operador difuso puesto que este
 es hermítico\footnote[2]{ver lema {\ref{lemma:op-difuso-hermiticidad} }}. 
 
@@ -779,7 +785,8 @@ vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$.  En el
 caso de un observable factorizable de $N$ partículas,  el valor propio
 $\lambda_i$ es el producto de los $a_{jk}$ valores propios, donde los
 subíndices indican que es $k-$ésimo valor propio correspondiente al observable
-que se desea medir en la $j-$ésima partícula. 
+que se desea medir en la $j-$ésima partícula. \cpnote{Que pasa si los observables
+no son degenerados, pero el producto es el mismo? Platicar con Rubi}
 
  Luego, para obtener el estado posterior a la medición se requiere utilizar la
 descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. De
@@ -792,8 +799,8 @@ la raíz cuadrada de los efectos
 \end{equation} 
 esto se puede realizar debido a la positividad de los efectos.
 
-
-\subsection{Instrumento cuántico en sistemas de varias partículas} 
+% }}}
+\subsection{Instrumento cuántico en sistemas de varias partículas}  % {{{
 
 En esta sección se generalizan la idea detrás de los dos primeros instrumentos
 cuánticos en sistemas más complejos que involucran varias partículas, así como
@@ -868,7 +875,9 @@ equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger
 \forall \Pi_l \in \mathcal{S}.\]
 \end{proposition} 
 La demostración es análoga a la de la proposición {\ref{prop:Equivalencia-instruments1-2}}.
+\cpnote{Que bonita generalizacion! }
 
+% }}}
 % }}}
 
 

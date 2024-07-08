@@ -688,51 +688,135 @@ factorizables.
 
 
 
-Al generalizar las ideas anteriores para sistemas de $N>2$ partículas, naturalmente se piensa realizar una medición de un observable de la forma $A_1\tensor A_2\tensor \hdots \tensor A_N$, en la cual, por ruido del entorno se produce un  error en el aparato de medición y confunde los resultados. Ahora, existe una probabilidad de una identificación errónea.  Por ejemplo puede realizarse la medición del observable $A_2\tensor A_1\tensor \hdots \tensor A_N$ con cierta probabilidad $p$. Sin embargo, es posible que la partículas experimenten un intercambio de cierta forma tal que la medición que se produzca sea una de las $N{!}$ permutaciones en las que se puede configurar el operador original. En este caso el valor esperado de la medición será el promedio de los valores esperados  ponderado por probabilidad de que se produzca alguna medición del observable incorrecto. 
+Al generalizar las ideas anteriores para sistemas de $N>2$ partículas,
+naturalmente se piensa realizar una medición de un observable de la forma
+$A_1\tensor A_2\tensor \hdots \tensor A_N$, en la cual, por ruido del entorno
+se produce un  error en el aparato de medición y confunde los resultados.
+Ahora, existe una probabilidad de una identificación errónea.  Por ejemplo
+puede realizarse la medición del observable $A_2\tensor A_1\tensor \hdots
+\tensor A_N$ con cierta probabilidad $p$. Sin embargo, es posible que la
+partículas experimenten un intercambio de cierta forma tal que la medición que
+se produzca sea una de las $N{!}$ permutaciones en las que se puede configurar
+el operador original. En este caso el valor esperado de la medición será el
+promedio de los valores esperados  ponderado por probabilidad de que se
+produzca alguna medición del observable incorrecto. 
 
-Para obtener el valor esperado de esta medición en el sistema de $N$ partículas, es necesario el operador difuso presentado en la ecuación {\eqref{eq:fuzzy-op-nparticles}}, el cuál utiliza los operadores de permutación previamente explicados. El valor esperado de medir al observable $\prodtensor A_i$, en un sistema inicial $\rho$,  es el siguiente \begin{equation*}\label{eq:ExpectedValue-generalForm}\begin{split}
+Para obtener el valor esperado de esta medición en el sistema de $N$
+partículas, es necesario el operador difuso presentado en la ecuación
+{\eqref{eq:fuzzy-op-nparticles}}, el cuál utiliza los operadores de permutación
+previamente explicados. El valor esperado de medir al observable $\prodtensor
+A_i$, en un sistema inicial $\rho$,  es el siguiente
+\begin{equation*}\label{eq:ExpectedValue-generalForm}\begin{split}
     \left \langle \prodtensor A_i\right \rangle_{\mathcal{F}(\rho)} &=\tr\left(\fuzzy{\rho}\prodtensor A_i\right)=\sum_{\Pi_j \in S}p_{j}\tr \left(\permut{j}{\rho} \prodtensor A_i\right).\\
 \end{split}
 \end{equation*}  
 
-Aunque lo anterior es válido no es la forma más general en la que una medición difusa puede ser estudiada. Estas mediciones pueden analizarse utilizando cualquier tipo de observables, incluyendo los observables no factorizables los cuales no pueden escribirse como un producto tensorial de $N$ observables. Un observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no puede escribirse como un producto de observables como $\prodtensor A_i$, pero sí como la superposición de todos los %${(d\times d)}^N$ 
-posibles productos de los operadores de alguna base del espacio de Hilbert $\mathcal{H}$. 
+Aunque lo anterior es válido no es la forma más general en la que una medición
+difusa puede ser estudiada. Estas mediciones pueden analizarse utilizando
+cualquier tipo de observables, incluyendo los observables no factorizables los
+cuales no pueden escribirse como un producto tensorial de $N$ observables. Un
+observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no
+puede escribirse como un producto de observables como $\prodtensor A_i$, pero
+sí como la superposición de todos los posibles productos de los operadores de
+alguna base del espacio de Hilbert $\mathcal{H}$. 
 
 
-Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar una medición proyectiva ideal, sin embargo, también es factible que la medición efectuada sea la de un observable distinto, en el cual los operadores de cada término de la superposición que conforma el observable original se intercambian de alguna manera.  De otra forma, al realizar una medición difusa, las partículas experimentan un intercambio difuminando los resultados de  la medición del observable original. Por lo tanto es posible utilizar la linealidad del operador difuso  para representar el valor esperado de cualquier observable, tal y como se presenta en el ecuación {\eqref{eq:expected-value-fm-general}}.
+Entonces, al llevar a cabo una medición difusa de un observable cualquiera
+$\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar
+una medición proyectiva ideal, sin embargo, también es factible que la medición
+efectuada sea la de un observable distinto, en el cual los operadores de cada
+término de la superposición que conforma el observable original se intercambian
+de alguna manera.  De otra forma, al realizar una medición difusa, las
+partículas experimentan un intercambio difuminando los resultados de  la
+medición del observable original. Por lo tanto es posible utilizar la
+linealidad del operador difuso  para representar el valor esperado de cualquier
+observable, tal y como se presenta en el ecuación
+{\eqref{eq:expected-value-fm-general}}.
 
 
 
 \subsection{Medidas POVM y operadores de Kraus en sistemas de varias partículas}
 
-Anteriormente se describió el mapeo que puede realizarse con las medidas POVM en un sistema de dos partículas. Se propuso intuitivamente un conjunto de efectos, en los cuales a los operadores proyección se les aplicaba el operador difuso y con base en estos efectos era posible obtener el conjunto de operadores de Kraus que describen la medición. Para sistemas formados por más de dos partículas los efectos son ligeramente diferentes y en consecuencia los operadores de Kraus también.
+Anteriormente se describió el mapeo que puede realizarse con las medidas POVM
+en un sistema de dos partículas. Se propuso intuitivamente un conjunto de
+efectos, en los cuales a los operadores proyección se les aplicaba el operador
+difuso y con base en estos efectos era posible obtener el conjunto de
+operadores de Kraus que describen la medición. Para sistemas formados por más
+de dos partículas los efectos son ligeramente diferentes y en consecuencia los
+operadores de Kraus también.
 
-La clave para lograr los efectos de manera correcta es también emplear el valor esperado de una medición difusa. A pesar de ello, la diferencia de la generalización reside en el hecho que los operadores de permutación para $N>3$ no son hermíticos, por lo que la aplicación del operador difuso debe llevarse a cabo con precaución. Utilizando la propiedad cíclica de la traza, el valor esperado de la medición difusa puede escribirse también como \begin{equation}\label{eq:ExpectedValue-generalForm-2}\begin{split}
+La clave para lograr los efectos de manera correcta es también emplear el valor
+esperado de una medición difusa. A pesar de ello, la diferencia de la
+generalización reside en el hecho que los operadores de permutación para $N>3$
+no son hermíticos, por lo que la aplicación del operador difuso debe llevarse a
+cabo con precaución. Utilizando la propiedad cíclica de la traza, el valor
+esperado de la medición difusa puede escribirse también como
+\begin{equation}\label{eq:ExpectedValue-generalForm-2}\begin{split}
     \left \langle \mathcal{O}\right \rangle_{\mathcal{F}(\rho)} &=\sum_{\Pi_j \in S}p_j\tr \left(\Pi_j^\dagger{\mathcal{O}}\Pi_j\rho\right).\\
 \end{split}
-\end{equation} De esta expresión es fácil ver que se está aplicando un operador al observable, sin embargo no es el mismo operador difuso que el de la ecuación {\eqref{eq:fuzzy-op-nparticles}} debido a que en cada término de la suma el operador aplicado por la izquierda es el adjunto del operador de permutación y por la derecha se aplica el operador de permutación, y debido a que los operadores de permutación no son hermíticos, aplicar un operador por la izquierda es distinto a aplicarlo por la derecha. También es importante aclarar que tampoco se le está aplicando el adjunto del operador difuso puesto que este es hermítico\footnote[2]{ver lema {\ref{lemma:op-difuso-hermiticidad} }}. 
+\end{equation} 
+De esta expresión es fácil ver que se está aplicando un operador al observable,
+sin embargo no es el mismo operador difuso que el de la ecuación
+{\eqref{eq:fuzzy-op-nparticles}} debido a que en cada término de la suma el
+operador aplicado por la izquierda es el adjunto del operador de permutación y
+por la derecha se aplica el operador de permutación, y debido a que los
+operadores de permutación no son hermíticos, aplicar un operador por la
+izquierda es distinto a aplicarlo por la derecha. También es importante aclarar
+que tampoco se le está aplicando el adjunto del operador difuso puesto que este
+es hermítico\footnote[2]{ver lema {\ref{lemma:op-difuso-hermiticidad} }}. 
 
 
-Por lo tanto los efectos ya no pueden ser simplemente la aplicación del operador difuso a los operadores de proyección puesto que esto resultaría en un valor esperado distinto a {\eqref{eq:expected-value-fm-general}}, puesto que las permutaciones estarían ponderadas con diferentes probabilidades. En su lugar, los efectos pueden escribirse como \begin{equation}\label{eq:effectsSetNp}
+Por lo tanto los efectos ya no pueden ser simplemente la aplicación del
+operador difuso a los operadores de proyección puesto que esto resultaría en un
+valor esperado distinto a {\eqref{eq:expected-value-fm-general}}, puesto que
+las permutaciones estarían ponderadas con diferentes probabilidades. En su
+lugar, los efectos pueden escribirse como
+\begin{equation}\label{eq:effectsSetNp}
     {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
 \end{equation}  
-donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$. %\begin{equation}\label{eq:lambdaeigenvalues}
-    %\Lambda=\{a_{11}\cdot a_{21}\cdot \hdots \cdot a_{N1},\hdots,a_{1d}\cdot a_{2d}\cdot \hdots \cdot a_{Nd}\},
-%\end{equation} donde 
-En el caso de un observable factorizable de $N$ partículas,  el valor propio $\lambda_i$ es el producto de los $a_{jk}$ valores propios, donde los subíndices indican que es $k-$ésimo valor propio correspondiente al observable que se desea medir en la $j-$ésima partícula. 
+donde $P_{\lambda_i}$ es el operador de proyección correspondiente a cada
+vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$.  En el
+caso de un observable factorizable de $N$ partículas,  el valor propio
+$\lambda_i$ es el producto de los $a_{jk}$ valores propios, donde los
+subíndices indican que es $k-$ésimo valor propio correspondiente al observable
+que se desea medir en la $j-$ésima partícula. 
 
- Luego, para obtener el estado posterior a la medición se requiere utilizar la descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. De manera análoga al sistema de dos partículas es fácilmente comprobable que estos operadores $E_{\lambda_i}$ son hermíticos, cumplen con la propiedad de completitud y son positivos. Por lo tanto para este sistema se propone utilizar la raíz cuadrada de los efectos \begin{equation}
+ Luego, para obtener el estado posterior a la medición se requiere utilizar la
+descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. De
+manera análoga al sistema de dos partículas es fácilmente comprobable que estos
+operadores $E_{\lambda_i}$ son hermíticos, cumplen con la propiedad de
+completitud y son positivos. Por lo tanto para este sistema se propone utilizar
+la raíz cuadrada de los efectos 
+\begin{equation}
    K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i} }},
-\end{equation} esto se puede realizar debido a la positividad de los efectos. %De nuevo, esta descomposición no es única y el estado posterior de la medición dependerá de como se implementen las medidas POVM en el laboratorio. 
+\end{equation} 
+esto se puede realizar debido a la positividad de los efectos.
 
 
 \subsection{Instrumento cuántico en sistemas de varias partículas} 
 
-En esta sección se generalizan la idea detrás de los dos primeros instrumentos cuánticos en sistemas más complejos que involucran varias partículas, así como los primeros resultados obtenidos en la sección {\ref{subsec:Equivalencia }}, en la cual se comprobó que los instrumentos no generan las mismas distribuciones de probabilidad en todos los casos.
+En esta sección se generalizan la idea detrás de los dos primeros instrumentos
+cuánticos en sistemas más complejos que involucran varias partículas, así como
+los primeros resultados obtenidos en la sección {\ref{subsec:Equivalencia }},
+en la cual se comprobó que los instrumentos no generan las mismas
+distribuciones de probabilidad en todos los casos.
 
-La primera alternativa es el instrumento en el que por ruido en el sistema ocurre una equivocación y al medir un observable $\mathcal{O}$ es probable que las partículas experimenten un intercambio. Este instrumento representa que la salida clásica corresponderá a los valores propios del observable. Adicionalmente, con cierta probabilidad la medición ocurre de manera ideal, y el estado posterior a la medición será la proyección del estado inicial al espacio propio correspondiente a la salida brinda por el sistema clásico. Sin embargo, también es verosímil que el estado posterior sea la proyección al espacio propio de la salida pero del estado inicial transformado, de forma que represente un sistema en el que las partículas se cambian   \begin{equation}\label{eq:1instrumentnp}
+La primera alternativa es el instrumento en el que por ruido en el sistema
+ocurre una equivocación y al medir un observable $\mathcal{O}$ es probable que
+las partículas experimenten un intercambio. Este instrumento representa que la
+salida clásica corresponderá a los valores propios del observable.
+Adicionalmente, con cierta probabilidad la medición ocurre de manera ideal, y
+el estado posterior a la medición será la proyección del estado inicial al
+espacio propio correspondiente a la salida brinda por el sistema clásico. Sin
+embargo, también es verosímil que el estado posterior sea la proyección al
+espacio propio de la salida pero del estado inicial transformado, de forma que
+represente un sistema en el que las partículas se cambian
+\begin{equation}\label{eq:1instrumentnp}
     \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i}.
-\end{equation} Por otra parte el valor esperado del resultado de la medición modelado con este instrumento puede calcularse de la siguiente manera \begin{equation*}
+\end{equation} 
+Por otra parte el valor esperado del resultado de la medición modelado con este
+instrumento puede calcularse de la siguiente manera 
+\begin{equation*}
     \begin{split}
         \left \la \mathcal{O} \right \ra_{\mathcal{I}_1}&=\tr\left( \left[\left(\mathcal{O}\right) \otimes \mathds{1}\right]\mathcal{I}_1\right) \\
         &=\tr\left(\left[ \left(\mathcal{O}\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}P_{\lambda_j}\otimes P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j} \right)\\
@@ -741,26 +825,50 @@ La primera alternativa es el instrumento en el que por ruido en el sistema ocurr
         &=\sum_{\lambda_j \in\Lambda} \tr\left(\lambda_j P_{\lambda_j}\right) \tr\left(P_{\lambda_j}\fuzzy{\rho}P_{\lambda_j}\right) \\
         &=\sum_{\lambda_j \in \Lambda} \lambda_j \tr\left(P_{\lambda_j}\fuzzy{\rho}\right) \\
     \end{split}
-\end{equation*} con lo que se puede concluir que el valor esperado correspondiente a este instrumento es \begin{equation}\label{eq:valor-esperado-1instrumentnp}
+\end{equation*} 
+con lo que se puede concluir que el valor esperado correspondiente a este instrumento es 
+\begin{equation}\label{eq:valor-esperado-1instrumentnp}
         \left \la\mathcal{O} \right \ra_{\mathcal{I}_1}= \tr\left( \mathcal{O} \fuzzy{\rho}\right),
-\end{equation}el mismo que el valor esperado correcto ({\ref{eq:ExpectedValue-generalForm}}).
+\end{equation}
+el mismo que el valor esperado correcto ({\ref{eq:ExpectedValue-generalForm}}).
 
-
-La segunda alternativa es igualmente generalizable para un sistema de $N$ partículas. Este instrumento representa una equivocación en el sistema clásico, y por esto al medir el observable $\mathcal{O}$, con alguna probabilidad el estado inicial se proyectará en el espacio propio de la salida correspondiente. Pero es probable que el estado inicial se proyecte de igual forma a un espacio propio del observable pero la lectura de los resultados de la medición sean las salidas de un observable distinto, el cual puede ser una transformación dada por el operador de permutación $\Pi_j\mathcal{O}\Pi_j$ para algún $\Pi_j\in \mathcal{S}$, lo que indica que las salidas corresponden a una medición en cada partícula, diferente a las que proporcionaría una medición ideal  \begin{equation}\label{eq:second-instrumentnp}
+La segunda alternativa es igualmente generalizable para un sistema de $N$
+partículas. Este instrumento representa una equivocación en el sistema clásico,
+y por esto al medir el observable $\mathcal{O}$, con alguna probabilidad el
+estado inicial se proyectará en el espacio propio de la salida correspondiente.
+Pero es probable que el estado inicial se proyecte de igual forma a un espacio
+propio del observable pero la lectura de los resultados de la medición sean las
+salidas de un observable distinto, el cual puede ser una transformación dada
+por el operador de permutación $\Pi_j\mathcal{O}\Pi_j$ para algún $\Pi_j\in
+\mathcal{S}$, lo que indica que las salidas corresponden a una medición en cada
+partícula, diferente a las que proporcionaría una medición ideal
+\begin{equation}\label{eq:second-instrumentnp}
     \mathcal{I}_2(\rho)= \sum_{\lambda_i \in \Lambda } \fuzzy{P_{\lambda_i}}\tensor P_{\lambda_i}\rho P_{\lambda_i}.
-\end{equation} Con esta alternativa el valor esperado se calcula como 
+\end{equation} 
+Con esta alternativa el valor esperado se calcula como 
 \begin{equation*}
     \begin{split}
         \left \la \mathcal{O} \right \ra_{\mathcal{I}_2}&=\tr\left( \left[\left(\mathcal{O}\right) \otimes \mathds{1}\right]\mathcal{I}_2\right) \\
         &=\tr\left(\left[ \left(\mathcal{O}\right)\otimes \mathds{1}\right]\sum_{\lambda_j \in \Lambda}\fuzzy{P_{\lambda_j}}\otimes P_{\lambda_j}{\rho}P_{\lambda_j} \right)\\
         &=\sum_{\lambda_j\in \Lambda} \tr\left(\mathcal{O}\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right). \\
     \end{split}
-\end{equation*} finalmente el valor esperado es \begin{equation}\label{eq:valor-esperado-2instrumentnp}
+\end{equation*} 
+finalmente el valor esperado es \begin{equation}\label{eq:valor-esperado-2instrumentnp}
     \left \la \mathcal{O}\right \ra_{\mathcal{I}_2}=\sum_{\lambda_j\in \Lambda} \tr\left(\mathcal{O}\fuzzy{P_{\lambda_j}}\right) \tr\left(P_{\lambda_j}\rho\right).
-\end{equation} Este valor esperado no corresponde a (\ref{eq:ExpectedValue-generalForm}) por lo que análogamente se tiene una proposición más general para la equivalencia de estos instrumentos en sistema de $N$ partículas.
+\end{equation} 
+Este valor esperado no corresponde a (\ref{eq:ExpectedValue-generalForm}) por
+lo que análogamente se tiene una proposición más general para la equivalencia
+de estos instrumentos en sistema de $N$ partículas.
 
 \begin{proposition}\label{prop:Equivalencia-instrumentos-np}
-    Para todo estado inicial $\rho$, los valores esperados de los instrumentos cuánticos {\ref{eq:1instrumentnp}} y {\ref{eq:second-instrumentnp}} son equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger \mathcal{O} \Pi_l\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y } \forall \Pi_l \in \mathcal{S}\]
-\end{proposition} La demostración es análoga a la de la proposición {\ref{prop:Equivalencia-instruments1-2}}.
+    Para todo estado inicial $\rho$, los valores esperados de los instrumentos
+cuánticos {\ref{eq:1instrumentnp}} y {\ref{eq:second-instrumentnp}} son
+equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger
+\mathcal{O} \Pi_l\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y }
+\forall \Pi_l \in \mathcal{S}.\]
+\end{proposition} 
+La demostración es análoga a la de la proposición {\ref{prop:Equivalencia-instruments1-2}}.
 
 % }}}
+
+

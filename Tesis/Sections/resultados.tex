@@ -619,7 +619,6 @@ Por otro lado, el valor esperado del instrumentos es exactamente el mismo que el
     \end{split}\end{equation} El segundo término se anula debido a que la traza del producto de cada uno de los operadores de proyección del observable $\sigma_z\otimes\sigma_x$, con el observable $\sigma_x\otimes\sigma_z$ es cero, mientras que el estado inicial es una superposición de dos de estos operadores de proyección.
 
 
-\cpnote{Aca voy}
 
 Para la segunda alternativa, el error ocurre al realizar la lectura de los resultados por lo tanto el operador difuso se aplica a los operadores de proyección en el sistema clásico \[\begin{split}\mathcal{I}_2(\rho)&=\mathcal{F}_{2\text{p}}(P_{0+})\otimes P_{0+}\rho P_{0+}+\mathcal{F}_{2\text{p}}(P_{0-})\otimes P_{0-}\rho P_{0-}\\
     &+ \mathcal{F}_{2\text{p}}({P_{1+}})\otimes P_{1+}\rho P_{1+}+\mathcal{F}_{2\text{p}}(P_{1-})\otimes P_{1-}\rho P_{1-}, \\\end{split}\] en este caso el operador difuso captura la confusión de los resultados. Por ejemplo, con una probabilidad $p$ indicaría que el estado es $|0+\ra$ y con una probabilidad $1-p$ se obtiene una salida correspondiente al estado $|+0\ra$ sin embargo el estado posterior a la medición será la proyección en espacio propio del operador $P_{0+}$. 
@@ -639,11 +638,6 @@ Para la segunda alternativa, el error ocurre al realizar la lectura de los resul
         &+\tr((1-p)P_{0+} P_{+1})\tr( P_{1+}\rho)+\tr((1-p)P_{0+}P_{-1})\tr(P_{1-}\rho)\\
         &=p\tr(P_{0+}\rho)+\frac{(1-p)}{4}\tr((P_{+0}+P_{-0}+P_{+1}+P_{-1})\rho)=\frac{3+5p}{12}.
     \end{split}\]
-\cpnote{Este parrafo también tiene una redaccion fea. Por favor revisalo con calma y mejoralo }\rrnote{Ya revisé y volvi a redactarlo}
-
-
-
-
 
 
 
@@ -718,13 +712,7 @@ cualquier tipo de observables, incluyendo los observables no factorizables los
 cuales no pueden escribirse como un producto tensorial de $N$ observables, pero
 pueden ser expresados como la superposición de todos los productos posibles de 
 los operadores de una base del espacio de Hilbert $\mathcal{H}$. Por lo tanto, al llevar a cabo una medición difusa de un observable  $\mathcal{O} \in \mathcal{H}^{\otimes N}$, los operadores de cada término de la superposición que conforma el observable original se pueden intercambiar de alguna manera. En consecuencia, es posible  utilizar la linealidad del operador difuso para representar el valor esperado de cualquier observable, tal y como se presenta en el ecuación
-{\eqref{eq:expected-value-fm-general}}.\cpnote{La ultima frase 
-está coja y creo qeu no transmites la prueba de que vale para todo observale 
-asi no sea factorizable}   
-\cpnote{En este parrafo dices cosas que ya habías dicho y la ultima frase
-es algo como lo que esperaba que concluyeras en el parrafo anterior. Quizá
-mejora porfavor este parrafo} \rrnote{ Quité las frases que se reptían y uní los párrafos para completar la frase que estaba como incompleta.}
-
+{\eqref{eq:expected-value-fm-general}}.
 
 %Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar una medición proyectiva ideal, sin embargo, también es factible que la medición efectuada sea la de un observable distinto, las partículas experimentarán un cambio, difuminando los resultados de la medición. 
 
@@ -749,15 +737,15 @@ esperado de la medición difusa puede escribirse también como
     \left \langle \mathcal{O}\right \rangle_{\mathcal{F}(\rho)} &=\sum_{\Pi_j \in S}p_j\tr \left(\Pi_j^\dagger{\mathcal{O}}\Pi_j\rho\right).\\
 \end{split}
 \end{equation} 
-De esta expresión es fácil interpretar \cpnote{Cambio sutil pero importante, puedes
-cambiar ``ver'' por ``interpretar'' que es justo el meollo del asunto}\rrnote{De acuerdo, cambié la palabra.} que se
+De esta expresión es fácil interpretar  que se
 está aplicando un operador al observable,
 sin embargo no es el mismo operador difuso que el de la ecuación
 {\eqref{eq:fuzzy-op-nparticles}} debido a que en cada término de la suma el
 operador aplicado por la izquierda es el adjunto del operador de permutación y
 por la derecha se aplica el operador de permutación. En este contexto, aplicar un operador por la
 izquierda es distinto a aplicarlo por la derecha, puesto que los
-operadores de permutación no son hermíticos\cpnote{La frase está muy larga y contiene dos ideas. sugiero partirla}\rrnote{La dividí en dos frases.}. También es importante aclarar
+operadores de permutación no son hermíticos. También
+es importante aclarar
 que tampoco se le está aplicando el adjunto del operador difuso puesto que este
 es hermítico\footnote[3]{ver lema {\ref{lemma:op-difuso-hermiticidad} }}. 
 
@@ -868,7 +856,7 @@ equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger
 \forall \Pi_l \in \mathcal{S}.\]
 \end{proposition} 
 La demostración es análoga a la de la proposición {\ref{prop:Equivalencia-instruments1-2}}.
-\cpnote{Que bonita generalizacion! }
+
 
 % }}}
 % }}}

@@ -1,6 +1,26 @@
 #####################################################################
 '''
-En este programa se busca exhibir el mapa de probabilidades y el estado resultante luego de la medición, a partir de un estado inicial y un observable dado en un sistema de varias partículas.
+En este programa se busca exhibir el mapa de probabilidades y el estado
+resultante luego de la medición, a partir de un estado inicial y un observable 
+dado en un sistema de varias partículas.
+
+Para ejecutar las rutinas principales de manera adecuada del programa,
+en primer lugar, se debe brindar el número de partículas con las que se desea
+trabajar en la variable N. Luego, el observable de forma matricial. Si el 
+observable es factorizable se deben brindar cada uno de los operadores que 
+lo conforman. Asimismo el estado inicial debe  proporcionarse en forma 
+matricial, si este factorizable se debe dar cada uno de los factores que lo 
+conforman.
+
+Posteriormente, para obtener el mapeo de probabilidades debe ejecutarse
+la rutina "mapeo_fm(salidas,estado,probabilidades )", el cual necesita la 
+lista que contenga las salidas de cada uno de la medición de los observables 
+y la lista que contenga las probabilidades de intercambio. Para obtener el 
+estado posterior a la medición se debe ejecutar la función 
+"estado_final(salidas, probabilidades)".
+
+Adicionalmente es posible graficar la distribución de probabilidad, con la 
+función de mostrar_graficas(1,1). 
 '''
 
 import numpy as np
@@ -30,7 +50,7 @@ def cross_lists(lista1, lista2):
             all_outputs.append(flag)
     return all_outputs
 
-#print(cross_lists([[1],[-1]],[1,-1]))
+print(cross_lists([[1],[-1]],[1,-1]))
 
 
 ##número de partículas
@@ -118,9 +138,8 @@ todos_operadores_permutacion=[] #El array que contenga los N! operadores de perm
 for lista in diferentes_ordenes:
     todos_operadores_permutacion.append(operador_permutacion(lista)) #Agregarlos todos.
 
+print(todos_operadores_permutacion)
 ##Una lista de probabilidades aleatorias (pueden cambiar)
-##falta corregir
-
 def generar_probabilidades(m):
     # Generar una lista de n números aleatorios
     probabilidades = [random.random() for _ in range(m)]
@@ -162,22 +181,28 @@ def valor_esperado_fm(probabilidades):
 
 
 ###Obtener los efectos para observables FACTORIZABLES####
-outs=[1,1,1]
+outs=[1,1]
 def efectos_fm(salidas, probabilidades):
     #Tomar primero los vectores propios de cada uno de los observables
     operadores_proyeccion=[]
     count=0
+    #Se ejecuta un ciclo for que recorra los observables de cada partícula
     for obser in observables:
         operador=np.zeros([len(obser.eigenvalues),len(obser.eigenvalues)])
+        #El ciclo recorre todos los eigenvalues y busca el que se la salida
         for i in range(len(obser.eigenvalues)):
             if obser.eigenvalues[i].round(3)==salidas[count]:
-                #para degenerados deberíamos sumar los de proyeccion
+                #En este caso convertimos el vector propio correspondiente a la
+                #salida en un operador proyector
                 operador=np.add(operador,proyector(obser.eigenvectors[i]))
         operadores_proyeccion.append(operador)
         count+=1
+    #Ejecuta el producto de kronecker de los operadores de proyeccion de cada
+    #operador
     operador_proyeccion=ft.reduce(np.kron,operadores_proyeccion)
     suma=0*ft.reduce(np.kron,operadores_proyeccion)
     count=0
+    #Se le aplica los operadores de permutacion
     for operador in todos_operadores_permutacion:
         termino=np.matmul(np.matmul(operador.T,operador_proyeccion),operador)
         suma= np.add(suma,probabilidades[count]*termino)
@@ -187,17 +212,17 @@ def efectos_fm(salidas, probabilidades):
 print(efectos_fm(outs,probas))
 #a2l.to_ltx(efectos_fm(outs,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ####Mapeo de probabilidades###################################################
-def mapeo_fm(salidas,estado,probabilidades):
+def mapeo_fm(salidas,probabilidades):
     '''Realizar un mapeo de probabilidades, toma como entrada, 
     la salida, el estado inicial y la probabilidad de intercambio de partículas.
     Devuelve la probabilidad de obtener esa salida en una medición difusa.'''
-    probabilidad= np.trace(np.matmul(efectos_fm(salidas,probabilidades), estado))
+    probabilidad= np.trace(np.matmul(efectos_fm(salidas,probabilidades), rho_inicial))
     return probabilidad
 
-#print(mapeo_fm(outs,rho_inicial,probas))
+#print(mapeo_fm(outs,probas))
 
 ##############Obtener el estado posterior a la medición.
-def estado_final(salidas,estado_inicial, probabilidades):
+def estado_final(salidas, probabilidades):
     '''Realizar un mapeo de estados, toma como entrada, 
     la salida, el estado inicial y la probabilidad de intercambio de partículas.
     Devuelve el estado posterior dado la salida en una medición difusa.'''
@@ -210,11 +235,13 @@ def estado_final(salidas,estado_inicial, probabilidades):
     kraus_operator=eigenvectors.dot(np.diag(eigenvalues_nuevos)).dot(eigenvectors.T.conj())
     kraus_operator=kraus_operator.round(5)
     #Crear el estado final
-    estadoFinal= kraus_operator.dot(estado_inicial).dot(kraus_operator.T.conj())
+    estadoFinal= kraus_operator.dot(rho_inicial).dot(kraus_operator.T.conj())
     return estadoFinal/np.trace(estadoFinal)
-#print(estado_final([1,1,1],rho_inicial,probas))
+#print(estado_final([1,1,1],probas))
 #a2l.to_ltx(estado_final(outs,rho_inicial,probas), frmt = '{:6.4f}', arraytype = 'pmatrix')
 ######################################################################################
+
+
 
 #####Gráficas para observables factorizables #####################################
 def graficar_distribucion(probabilidades, ax):
@@ -289,10 +316,18 @@ def mostrar_graficas(ncol=2, nrow=3):
             graficar_distribucion(proba, ax=axe)
         plt.show()
     else:
-        graficar_distribucion(p=0.25,ax=plt.subplot())
+        graficar_distribucion(probas,ax=plt.subplot())
         plt.show()
 
-mostrar_graficas(2,3)
+#mostrar_graficas(1,1)
+
+
+
+
+
+
+
+
 
 
 
@@ -386,7 +421,7 @@ def estado_final_nf(salida,estado_inicial, probabilidades):
     #Crear el estado final
     estadoFinal= kraus_operator.dot(estado_inicial).dot(kraus_operator.T.conj())
     return estadoFinal/np.trace(estadoFinal)
-print(estado_final_nf(-1,rho_inicial,probas))
+#print(estado_final_nf(-1,rho_inicial,probas))
 
 
 ##################Instrumento###########################################

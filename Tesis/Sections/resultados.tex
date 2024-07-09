@@ -511,7 +511,7 @@ Por ejemplo, se obtiene la salida  $a_1=1$ y  $b_{1}=1$, la probabilidad de obte
     3/8 &  0 &  3/8 &  0\\
     0&  0&  0&  0
   \end{pmatrix}.\]La operación cuántica que representa la medición difusa será \[\E_{a_1 ,b_1} (\rho) = \dfrac{K_{a_1 ,b_1} \rho K^\dagger_{a_1 ,b_1}}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}. \]  El canal representará precisamente que con una probabilidad $p$ el estado estará en el espacio propio de $\ket{0+}$ y con una probabilidad $(1 - p)$, en el espacio propio $\ket{+0}$
-\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]  Para obtener estos operadores de Kraus se debe obtener primero los operadores de proyección del efecto, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] El efecto tiene rango tres y sus valores propios son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2,  los vectores propios de los primeros dos valores son\[\frac{1}{\sqrt{28 - 2 \sqrt{7} }}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7} }}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Practicas_Tesis/blob/bca73a98e2a7a5e3020436e42fcb1ebec38831cb/Tesis/Code/descripcion2particulas.py}{\textit{este respositorio} }} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
+\[\rho'_{0+}=\dfrac{\sqrt{p P_{0+}+(1-p)P_{+0}}\rho\sqrt{p P_{0+}+(1-p)P_{+0} }}{\tr(\mathcal{F}_{2\text{p}}(P_{0+})\rho)}.\]  Para obtener estos operadores de Kraus se debe obtener primero los operadores de proyección del efecto, es decir \[\mathcal{F}_{2\text{p}}(P_{0+})= \sum_i \lambda_i \ket{\lambda_i}\bra{\lambda_i},\] El efecto tiene rango tres y sus valores propios son $\dfrac{4+\sqrt{7}}{8}$, $\dfrac{4-\sqrt{7}}{8}$ y $0$ con degeneración 2,  los vectores propios de los primeros dos valores son\[\frac{1}{\sqrt{28 - 2 \sqrt{7} }}\begin{pmatrix}1 + \sqrt{7}\\-2 + \sqrt{7}\\ 3\\0 \end{pmatrix} \text{ y } \frac{1}{\sqrt{28 + 2 \sqrt{7} }}\begin{pmatrix}1 - \sqrt{7}\\-2 - \sqrt{7}\\ 3\\0 \end{pmatrix},\] respectivamente. Para obtener la raíz cuadrada del operador se puede realizar el siguiente cálculo\footnote[2]{En general, los operadores de Kraus no son sencillos de calcular con lápiz y papel. Es por esta razón que se puede utilizar un programa, el cual se encuentra en \href{https://github.com/Mohs9/Descripcion-completa-de-una-medicion-difusa.git}{\textit{este respositorio} }} \[\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}=\sum_i \sqrt{\lambda_i} \ket{\lambda_i}\bra{\lambda_i},\] es decir \[\begin{split}\sqrt{\mathcal{F}_{2\text{p}}(P_{0+})}&=\sqrt{\frac{4+\sqrt{7}}{8}} \left[\frac{1}{28-2\sqrt{7}} \begin{pmatrix}
     2(4+\sqrt{7}) & (5-\sqrt{7}) &  3(1+\sqrt{7}) &  0\\
     (5-\sqrt{7}) &  (11-4\sqrt{7}) &  3(-2+\sqrt{7}) &  0\\
     3(1+\sqrt{7})  &  3(-2+\sqrt{7})  &  9 &  0\\
@@ -631,16 +631,15 @@ Para la segunda alternativa, el error ocurre al realizar la lectura de los resul
         &=-\dfrac{p}{3}.
     \end{split}\end{equation} En este caso en específico, el valor esperado del segundo instrumento es el mismo al de la ecuación {\eqref{eq:1instrument-ejemplo}}. Esto se debe a que los últimos términos también se cancelan, de la misma forma que el último término del valor esperado del primer instrumento. Sin embargo, el observable no ejemplifica la proposición {\ref{prop:Equivalencia-instruments1-2}}, puesto que la condición {\eqref{eq:Condicion-equivalencia1-2}} no se cumple y por esta razón no serán equivalentes para todo estado inicial.
 
-   Para obtener el mapeo de probabilidades se utiliza el operador de densidad reducido
-\[\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho), \\\end{split}\] 
-si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\ra$ se puede calcular utilizando el operador de proyección, como sigue   \[\begin{split}
-        \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_1(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
+   Por otro lado, para determinar el mapeo de probabilidades, primero es necesario encontrar el operador de densidad reducido de la siguiente forma 
+\begin{equation}\label{eq:operador-reducido-instrumento2}\begin{split}\tr_{\text{qu}}(\mathcal{I}_2(\rho))&=\mathcal{F}_{2\text{p}}(P_{0+})\tr(P_{0+}\rho)+\mathcal{F}_{2\text{p}}(P_{0-})\tr(P_{0-}\rho )\\&+ \mathcal{F}_{2\text{p}}({P_{1+}})\tr( P_{1+}\rho)+\mathcal{F}_{2\text{p}}(P_{1-})\tr(P_{1-}\rho). \\\end{split}\end{equation} Particularmente, si se desea conocer la probabilidad de obtener la salida que corresponde al estado $|0+\ra$, es necesario emplear el operador de proyección $P_{0+}$, junto con el cálculo del operador reducido {\eqref{eq:operador-reducido-instrumento2}}, como se muestra a continuación\[\begin{split}
+        \tr(P_{0+}\tr_{\text{qu}}(\mathcal{I}_2(\rho)))&=\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0+}))\tr(P_{0+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{0-}))\tr(P_{0-}\rho )\\
         &+\tr(P_{0+} \mathcal{F}_{2\text{p}}({P_{1+}}))\tr( P_{1+}\rho)+\tr(P_{0+}\mathcal{F}_{2\text{p}}(P_{1-}))\tr(P_{1-}\rho)\\
         &=\tr(pP_{0+}+(1-p)P_{0+}P_{+0})\tr(P_{0+}\rho)+\tr((1-p)P_{0+}P_{-0})\tr(P_{0-}\rho )\\
         &+\tr((1-p)P_{0+} P_{+1})\tr( P_{1+}\rho)+\tr((1-p)P_{0+}P_{-1})\tr(P_{1-}\rho)\\
         &=p\tr(P_{0+}\rho)+\frac{(1-p)}{4}\tr((P_{+0}+P_{-0}+P_{+1}+P_{-1})\rho)=\frac{3+5p}{12}.
     \end{split}\]
-\cpnote{Este parrafo también tiene una redaccion fea. por favor revisalo con calma y mejoralo }
+\cpnote{Este parrafo también tiene una redaccion fea. Por favor revisalo con calma y mejoralo }\rrnote{Ya revisé y volvi a redactarlo}
 
 
 
@@ -650,8 +649,9 @@ si se quiere saber la probabilidad de que la salida corresponda al estado $|0+\r
 
 Para el tercer instrumento, el observable $\sigma_z\otimes \sigma_x$ no cumple
 con una de las condiciones para que esta última alternativa tenga sentido,
-puesto que $P_{0+}P_{+0}\ne 0$,  $P_{0-}P_{-0}\ne 0$, $P_{1+}P_{+1}\ne 0$ y
-$P_{1-}P_{-1}\ne 0$. Es por ello que para ejemplificar este instrumento se
+puesto que los operadores de proyección del observable no son ortogonales con lo operadores de proyección del observable $\sigma_x\otimes \sigma_z$. %$P_{0+}P_{+0}\ne 0$,  $P_{0-}P_{-0}\ne 0$, $P_{1+}P_{+1}\ne 0$ y
+%$P_{1-}P_{-1}\ne 0$. 
+Es por ello que para ejemplificar este instrumento se
 utilizará el observable $\sigma_z\otimes \sigma_z$ con los operadores de
 proyección $P_{00},P_{01},P_{10},P_{11}$ y un estado inicial $\rho$. El
 instrumento es entonces 
@@ -715,29 +715,19 @@ A_i$, en un sistema inicial $\rho$,  es el siguiente
 Aunque lo anterior es válido no es la forma más general en la que una medición
 difusa puede ser estudiada. Estas mediciones pueden analizarse utilizando
 cualquier tipo de observables, incluyendo los observables no factorizables los
-cuales no pueden escribirse como un producto tensorial de $N$ observables. Un
-observable no factorizable $\mathcal{O}\in \mathcal{H}^{\otimes N}$ que no
-puede escribirse como un producto de observables como $\prodtensor A_i$, pero
-sí como la superposición de todos los posibles productos de los operadores de
-alguna base del espacio de Hilbert $\mathcal{H}$.\cpnote{La ultima frase 
+cuales no pueden escribirse como un producto tensorial de $N$ observables, pero
+pueden ser expresados como la superposición de todos los productos posibles de 
+los operadores de una base del espacio de Hilbert $\mathcal{H}$. Por lo tanto, al llevar a cabo una medición difusa de un observable  $\mathcal{O} \in \mathcal{H}^{\otimes N}$, los operadores de cada término de la superposición que conforma el observable original se pueden intercambiar de alguna manera. En consecuencia, es posible  utilizar la linealidad del operador difuso para representar el valor esperado de cualquier observable, tal y como se presenta en el ecuación
+{\eqref{eq:expected-value-fm-general}}.\cpnote{La ultima frase 
 está coja y creo qeu no transmites la prueba de que vale para todo observale 
-asi no sea factorizable} 
-
-
-Entonces, al llevar a cabo una medición difusa de un observable cualquiera
-$\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar
-una medición proyectiva ideal, sin embargo, también es factible que la medición
-efectuada sea la de un observable distinto, en el cual los operadores de cada
-término de la superposición que conforma el observable original se intercambian
-de alguna manera.  De otra forma, al realizar una medición difusa, las
-partículas experimentan un intercambio difuminando los resultados de  la
-medición del observable original. Por lo tanto es posible utilizar la
-linealidad del operador difuso  para representar el valor esperado de cualquier
-observable, tal y como se presenta en el ecuación
-{\eqref{eq:expected-value-fm-general}}.
+asi no sea factorizable}   
 \cpnote{En este parrafo dices cosas que ya habías dicho y la ultima frase
 es algo como lo que esperaba que concluyeras en el parrafo anterior. Quizá
-mejora porfavor este parrafo}
+mejora porfavor este parrafo} \rrnote{ Quité las frases que se reptían y uní los párrafos para completar la frase que estaba como incompleta.}
+
+
+%Entonces, al llevar a cabo una medición difusa de un observable cualquiera $\mathcal{O}$, se puede encontrar que hay una probabilidad $p_1$ de realizar una medición proyectiva ideal, sin embargo, también es factible que la medición efectuada sea la de un observable distinto, las partículas experimentarán un cambio, difuminando los resultados de la medición. 
+
 % }}}
 \subsection{Medidas POVM y operadores de Kraus en sistemas de varias partículas} % {{{
 
@@ -759,17 +749,17 @@ esperado de la medición difusa puede escribirse también como
     \left \langle \mathcal{O}\right \rangle_{\mathcal{F}(\rho)} &=\sum_{\Pi_j \in S}p_j\tr \left(\Pi_j^\dagger{\mathcal{O}}\Pi_j\rho\right).\\
 \end{split}
 \end{equation} 
-De esta expresión es fácil ver \cpnote{Cambio sutil pero importante, puedes
-cambiar ``ver'' por ``interpretar'' que es justo el meollo del asunto} que se
+De esta expresión es fácil interpretar \cpnote{Cambio sutil pero importante, puedes
+cambiar ``ver'' por ``interpretar'' que es justo el meollo del asunto}\rrnote{De acuerdo, cambié la palabra.} que se
 está aplicando un operador al observable,
 sin embargo no es el mismo operador difuso que el de la ecuación
 {\eqref{eq:fuzzy-op-nparticles}} debido a que en cada término de la suma el
 operador aplicado por la izquierda es el adjunto del operador de permutación y
-por la derecha se aplica el operador de permutación, y debido a que los
-operadores de permutación no son hermíticos, aplicar un operador por la
-izquierda es distinto a aplicarlo por la derecha\cpnote{La frase está muy larga y contiene dos ideas. sugiero partirla}. También es importante aclarar
+por la derecha se aplica el operador de permutación. En este contexto, aplicar un operador por la
+izquierda es distinto a aplicarlo por la derecha, puesto que los
+operadores de permutación no son hermíticos\cpnote{La frase está muy larga y contiene dos ideas. sugiero partirla}\rrnote{La dividí en dos frases.}. También es importante aclarar
 que tampoco se le está aplicando el adjunto del operador difuso puesto que este
-es hermítico\footnote[2]{ver lema {\ref{lemma:op-difuso-hermiticidad} }}. 
+es hermítico\footnote[3]{ver lema {\ref{lemma:op-difuso-hermiticidad} }}. 
 
 
 Por lo tanto los efectos ya no pueden ser simplemente la aplicación del
@@ -785,8 +775,8 @@ vector propio que tiene asociado el valor propio $\lambda_i\in \Lambda$.  En el
 caso de un observable factorizable de $N$ partículas,  el valor propio
 $\lambda_i$ es el producto de los $a_{jk}$ valores propios, donde los
 subíndices indican que es $k-$ésimo valor propio correspondiente al observable
-que se desea medir en la $j-$ésima partícula. \cpnote{Que pasa si los observables
-no son degenerados, pero el producto es el mismo? Platicar con Rubi}
+que se desea medir en la $j-$ésima partícula.\cpnote{Que pasa si los observables
+no son degenerados, pero el producto es el mismo? Platicar con Rubi}\rrnote{ Sí, la verdad tengo un poco de duda con esa parte, porque en ese caso el observable $\mathcal{O}$ estaría degenerado y creeria que para obtener el mapeo de probabilidades, el operador de proyección cambia a una suma de los operadores de proyección de las salidas iguales }
 
  Luego, para obtener el estado posterior a la medición se requiere utilizar la
 descomposición de los efectos en operadores de Kraus $\{K_{\lambda_i}\}$. De
@@ -798,6 +788,9 @@ la raíz cuadrada de los efectos
    K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i} }},
 \end{equation} 
 esto se puede realizar debido a la positividad de los efectos.
+
+Finalmente, con el fin de mostrar el mapa de probabilidades y el estado resultante luego de la medición en un sistema de varias partículas, de forma práctica, se ha creado un programa. Éste utiliza como base los efectos y operadores Kraus descritos en esta sección  y está disponible en \href{https://github.com/Mohs9/Descripcion-completa-de-una-medicion-difusa.git}{\textit{este repositorio} }.
+
 
 % }}}
 \subsection{Instrumento cuántico en sistemas de varias partículas}  % {{{

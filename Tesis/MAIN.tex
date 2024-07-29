@@ -14,8 +14,12 @@
 % Inserting title page
 \import{./Sections/}{title}
 \includepdf[pages=-]{./Sections/imprimase.pdf}
-\import{./Sections/}{agradecimientos}
+\thispagestyle{empty}
+
 \onehalfspacing{
+\import{./Sections/}{agradecimientos}
+\textcolor[rgb]{1.00,1.00,1.00}{}
+\newpage
 \tableofcontents    % Índice general vinculado
 % Inserting list of figures & list of tables
 \newpage

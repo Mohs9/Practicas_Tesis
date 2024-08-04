@@ -1,0 +1,101 @@
+\documentclass[12pt,letterpaper]{book}\raggedbottom{}
+
+
+% Importing document settings from our file "packages.sty"
+\usepackage{../Tesis/packages}
+
+
+% Beginning of document
+\begin{document}
+\chapter{GUIÓN}
+\section{Introducción}
+\subsection{Motivación/Objetivo}
+En el transcurso de último siglo la medición se ha destacada como uno de los campos de studio más notables dentro de la mecánica cuántica. Sin embargo, la mayoría de literatura introductoria suele enfocarse en mediciones proyectivas ideales. No obstante, en la práctica  las mediciones que se realizan so imperfectas es por ello que es necesario emplear un formalismo más extenso para poder proporcionar una descripción completa de las mediciones no ideales. En particular en ete trabajo se estudia  la descripción completa de las mediciones difusas. Para ello es necesario un mapeo de probabilidad de obtener las posibles salidas y el estado posterior a la medición.
+
+\subsection{Introducción}
+A continuación se abordan algunas de la herramientas generales utilizadas para analizar el proceso de mediciones no ideales, en particular la mediciones difusas. Se inicia en un marco conceptual que contiene las herramientas más básicas  en la descripción de mediciones en sistemas cuánticos. Luego se presenta wl problema de las mediciones difusas de manera concreta. Y finalmente se tratan los resultados obtenidos para sistemas de dos partículas para posteriormente generalizarlos.
+
+
+\section{Revisión de literatura}
+
+
+\subsection{Operador difuso}
+Los operadores de densidad proporcionan un medio conveniente par describir los sistemas cuánticos generalizando los vectores dde estado. Incluso, en sistemas en los que no se tiene certeza estadística de su preparación. El operador de densidad que corresponde al ensamble de estados puros $ \{p_j,|\psi_j\rala\psi_j |\}$ es tal que \[\rho=\sum p_j |\psi_j\rala\psi_j|\]
+
+
+
+\subsection{Medidas POVM y operadores de Kraus}
+\begin{definition}[\textbf{POVM}] Una medida POVM (positive operator-valued measure) 
+Las medidas POVM son  un conjunto $\{E_{m}\}$ de operadores llamados <<efectos>> que satisfacen las siguientes condiciones:
+\begin{enumerate}
+    \item Positividad: $\la \psi |E_m|\psi \ra \ge 0 $ para cualquier vector $|\psi\ra$.
+    \item Hermiticidad: $E_m=E_{m}^\dagger$.
+    \item  Completitud: $\sum_m E_m =\mathds{1}$.
+\end{enumerate}
+\end{definition}
+
+las cuales se ajustan en el marco general del postulado de la medición cuántica y brindan el mapeo de probabilidades \begin{equation}\begin{split}
+    E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
+    E(\alpha,\rho)=\tr(E_\alpha\rho).
+\end{split}\end{equation}Por otra parte los operadores de Kraus son un conjunto de operadores $\{K_i\} $ que representan una operación cuántica en forma de suma \begin{equation}
+    \E(\rho)=\sum_i K_i\rho K_i^\dagger 
+\end{equation}
+
+
+\section{Mediciones difusas}
+\subsection{Definición}
+\begin{definition}\label{def:medicion-difusa}Una medición difusa es un proceso no ideal en el cual, debido a ruido del entorno o a fallos en el dispositivo de detección, se presenta la probabilidad de una identificación errónea de las partículas del sistema.
+\end{definition}
+
+\textbf{*Agregar una imagen* }
+
+
+\subsection{Valor esperado y operador difuso}
+El valor esperado es una medida de tendencia central que puede caracterizar a la distribución de probabilidad que representa la información capturada por un estado cuántico.
+
+Para un sistema de dos partículas el valor esperado de un observable factorizable es 
+\begin{equation}\label{eq:Expected-Value-FM-2p}
+    \begin{split}
+         p\tr(\rho A\tensor B)+(1-p)\tr(\rho B\otimes A)=&\la {A\otimes B}\ra_{\mathcal{F}_{2\text{p}}(\rho)}.\\
+    \end{split}
+\end{equation}Lo que permite introducir al operador difuso que se define como \begin{equation}\label{eq:op_F2p}
+    \mathcal{F}_{2\text{p}}(\rho):=p\rho + (1-p)S_{12}\rho S_{12}^{\dagger}.
+\end{equation}Además, una vez se introdujo este operador, la generalización del valor esperado, para sistemas más grandes es 
+\begin{equation}\label{eq:expected-value-fm-general}
+    \la \mathcal{O}\ra_{\fuzzy{\rho}}=\sum_{\Pi_i\in S}p_i\tr(\permut{i}{\rho}\mathcal{O}) =\tr(\fuzzy{\rho}\mathcal{O}).
+\end{equation} donde \begin{equation}\label{eq:fuzzy-op-nparticles}
+    \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
+ \end{equation} con $\Pi_i$ son los operadores de permutación.
+
+
+\subsection{Instrumentos cuánticos}
+SOn un ensamble que correlaciona un sistema clásico y que contiene la salida de la medición y un sistema cuántico que contiene el estado posterior a la medición \begin{equation}
+    \begin{split}
+        \mathcal{I}: \mathcal{B(H)}\rightarrow\mathcal{B(H)}_{\text{cl}}\otimes \mathcal{B(H)}_{\text{qu}},\\
+    \mathcal{I}(\rho)=\sum_\alpha |\alpha\rala\alpha|\otimes \E_\alpha(\rho).
+    \end{split}
+\end{equation}sta herramienta es útil para aproximarse
+a describir completamente las mediciones difusas de forma resumida y sin necesidad de
+considerar mediciones selectivas. Además permiten analizarlas desde diferentes perspectivas.
+
+
+
+
+\section{Resultados}
+
+\subsection{POVM y operadores de Kraus para dos partículas}
+
+\subsection{Instrumento cuántico I}
+
+\subsection{Instrumento cuántico II}
+
+\subsection{Instrumento cuántico III}
+
+
+\subsection{Equivalencia}
+
+\subsection{Generalización}
+
+\section{Conclusiones}
+
+\end{document}

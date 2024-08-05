@@ -84,18 +84,125 @@ considerar mediciones selectivas. Además permiten analizarlas desde diferentes 
 \section{Resultados}
 
 \subsection{POVM y operadores de Kraus para dos partículas}
+Los efectos para una medición difusa son \[\{\mathcal{F}_{2\text{p}}(P_{a_j,b_k}\rho)\}\]los cuales proporciona el mapeo de probabilidades tal que \[   E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\rho).\] Sin embargo para obtener el estado posterior es la medición es necesario descomponer estos efectos, definiendo un conjunto de operadores de Kraus de manera que se cumpla que \[\mathcal{F}_{2\text{p}}(P_{a_j,b_k}\rho)=K_{a_j,b_k}^\dagger K_{a_j,b_k}.\] Por tanto se pueden considerar los siguientes operadores \[K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}(P_{a_j,b_k}\rho)}.\] Esta descomposición no es única y hay infinitas soluciones para la descomposición de los efectos.
+
+
 
 \subsection{Instrumento cuántico I}
 
+El primer instrumento consiste en considerar que debido a un error en el
+sistema cuántico, las partículas posiblemente experimenten un intercambio. Al
+medir un observable ${A \tensor B}$ en el sistema representado por el estado
+$\rho$, se obtiene un resultado  en el sistema clásico que puede ser cualquiera
+de los valores propios de este observable. Luego, con cierta probabilidad el
+estado posterior será la proyección del estado inicial del sistema al estado
+propio correspondiente a la salida proporcionada. Sin embargo también es
+posible que el estado inicial sufra una transformación, y sea este cambio del
+sistema el que se proyecte en el espacio propio correspondiente a la salida del
+observable $A\tensor B$.
+
 \subsection{Instrumento cuántico II}
 
+Este escenario involucra un error en la interpretación de los resultados. El segundo instrumento implica que, debido a un fallo en el sistema clásico, la lectura de las salidas sea incorrecta. Al medir un observable ${A \tensor B}$ en el sistema, con cierta probabilidad el estado posterior será la proyección del estado inicial del sistema al estado propio correspondiente a las salida proporcionada. No obstante, existe la posibilidad que el estado inicial sea proyectado a algún estado propio del observable pero al leer las salidas de la medición estas correspondan a salidas del observable $B\otimes A$.
+
 \subsection{Instrumento cuántico III}
+ En este instrumento se representa la posibilidad que al medirse el observable $A\otimes B$ se realice con cierta probabilidad una medición proyectiva ideal. Pero, también es verosímil que se realice una medición en la que no sea posible saber en que espacio se haya proyectado el sistema. Es igual de posible que se haya proyectado sobre un espacio propio del observable $A\otimes B$ como es posible que se haya proyectado en un espacio propio de $B\otimes A$,  condicionados ambos espacios por las salidas clásicas. 
 
 
 \subsection{Equivalencia}
 
+Dado el enfoque con el que fueron concebidos los tres instrumentos, se anticipaba que el valor esperado de cada uno sería el apropiado. Sin embargo, los instrumentos propuestos no son equivalentes y vale la pena preguntarse ¿bajo qué condiciones son equivalentes?
+\begin{proposition}\label{prop:Equivalencia-instruments1-2}
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas
+de los instrumentos cuánticos I y II son equivalentes si y solo si \begin{equation}\label{eq:Condicion-equivalencia1-2}
+    \la a_j
+b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.
+\end{equation}
+\end{proposition}
+
+\begin{proposition}
+    Si se satisface la condición  \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k', \]  entonces $[A\otimes B,B \otimes A]=0$  
+\end{proposition}
+
+
+\begin{proposition}\label{prop:Equivalencia-instruments-1-3}
+    Para todo estado inicial $\rho$, los valores esperados de las alternativas
+de instrumentos cuánticos I y III son equivalentes si y solo si
+$p=\dfrac{1+q}{2}$.
+\end{proposition}
+
+
 \subsection{Generalización}
+La clave para lograr los efectos de manera correcta es también emplear el valor
+esperado de una medición difusa. A pesar de ello, la diferencia de la
+generalización reside en el hecho que los operadores de permutación para $N>3$
+no son hermíticos, por lo que la aplicación del operador difuso debe llevarse a
+cabo con precaución.
+los efectos pueden escribirse como
+\begin{equation*}
+    {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
+\end{equation*}  
+
+Por lo tanto para este sistema se propone utilizar
+la raíz cuadrada de los efectos para los respectivos operadores de Kraus 
+\begin{equation}
+   K_{\lambda_i}=\sqrt{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i} }},
+\end{equation} 
+esto se puede realizar debido a la positividad de los efectos.
+
+\subsection{Generalización Instrumentos}
+La generalización de los primeros dos instrumentos es fácilmente realizable.
+Con cierta probabilidad la medición ocurre de manera ideal, y
+el estado posterior a la medición será la proyección del estado inicial al
+espacio propio correspondiente a la salida brinda por el sistema clásico. Sin
+embargo, también es verosímil que el estado posterior sea la proyección al
+espacio propio de la salida pero del estado inicial transformado, de forma que
+represente un sistema en el que las partículas se cambian
+\begin{equation*}
+    \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i}.
+\end{equation*} 
+
+
+Este instrumento representa una equivocación en el sistema clásico,
+y por esto al medir el observable $\mathcal{O}$, con alguna probabilidad el
+estado inicial se proyectará en el espacio propio de la salida correspondiente.
+Pero es probable que el estado inicial se proyecte de igual forma a un espacio
+propio del observable pero la lectura de los resultados de la medición sean las
+salidas de un observable distinto, el cual puede ser una transformación dada
+por el operador de permutación $\Pi_j\mathcal{O}\Pi_j$ para algún $\Pi_j\in
+\mathcal{S}$, lo que indica que las salidas corresponden a una medición en cada
+partícula, diferente a las que proporcionaría una medición ideal
+
+\begin{equation*}
+    \mathcal{I}_2(\rho)= \sum_{\lambda_i \in \Lambda } \fuzzy{P_{\lambda_i}}\tensor P_{\lambda_i}\rho P_{\lambda_i}.
+\end{equation*} 
+
+
+\begin{proposition}
+    Para todo estado inicial $\rho$, los valores esperados de estos dos instrumentos
+cuánticos son equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger
+\mathcal{O} \Pi_l\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y }
+\forall \Pi_l \in \mathcal{S}.\]
+\end{proposition} 
+
+
 
 \section{Conclusiones}
+
+Se llevó a cabo una discusión sobre ciertos conceptos y herramientas apropiadas para lograr una descripción completa de mediciones difusas en sistemas
+de dos o más partículas. En concreto, en esta tesis se emplearon dos enfoques
+principales que vale la pena enfatizar.
+
+
+En primer lugar, las medidas POVM junto con los operadores de Kraus, los cuales
+son la primera forma de aproximarse al problema. Los efectos de las medidas
+POVM  analizadas brindan una distribución de probabilidad de acuerdo a cada una
+de las posibles salidas que pueden ocurrir en una medición difusa. Estos
+efectos fueron originados a partir del valor esperado de la medición para
+asegurar su idoneidad.  Asimismo, los efectos también pueden descomponerse
+para dar origen a los operadores de Kraus, los cuales proporcionan el estado
+posterior a la medición.
+
+Como segundo enfoque, se han examinado tres diferentes instrumentos cuánticos.Estos instrumentos se utilizaron con el fin de analizar las mediciones difusas con distintas interpretaciones y para describir las mediciones de una forma sucinta, de modo que vinculan tanto las salidas clásicas como las salidas cuánticas de la medición. A pesar de que se esperaba que los instrumentos propuestos de manera intuitiva, modelaran correctamente la medición difusa, no resultó ser así. Solo uno de los tres instrumentos estudiados resultó brindar una especificación concisa y general de la medición difusa.
 
 \end{document}

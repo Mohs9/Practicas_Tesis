@@ -1,5 +1,7 @@
 # Archivos Latex que no son el .tex
 *.synctex*
+*.nav
+*.snm
 *.swp
 *.swo
 *.aux

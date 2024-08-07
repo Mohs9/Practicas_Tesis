@@ -16,7 +16,6 @@
 *.lot
 *.nlo
 *.out
-*.pdf
 *.toc
 *.vscode
 
@@ -27,7 +26,10 @@
 !burocracia/*
 !graphics/**
 
-
+MAIN.pdf
+example.pdf
+guion.pdf
+main.pdf
 burocracia/esbozo_proyecto.pdf
 burocracia/indice.pdf
 burocracia/plan_maestro.pdf

@@ -165,10 +165,10 @@ Para un sistema de dos partículas el valor esperado de un observable factorizab
 \end{equation*}
 Para sistemas más grandes es 
 \begin{equation*}\label{eq:expected-value-fm-general}
-    \la \mathcal{O}\ra_{\fuzzy{\rho}}=\sum_{\Pi_i\in S}p_i\tr(\permut{i}{\rho}\mathcal{O}) =\tr(\fuzzy{\rho}\mathcal{O}).
+    \la \mathcal{O}\ra_{\fuzzy{\rho}}=\sum_{i}p_i\tr(\permut{i}{\rho}\mathcal{O}) =\tr(\fuzzy{\rho}\mathcal{O}).
 \end{equation*} donde \begin{equation*}\label{eq:fuzzy-op-nparticles}
-    \fuzzy{\rho}=\sum_{\Pi_i\in S}p_{i}\permut{i}{\rho}
- \end{equation*} con $\Pi_i$ son los operadores de permutación.
+    \fuzzy{\rho}=\sum_{i}p_{i}\permut{i}{\rho}
+ \end{equation*} con $\Pi_i \in \mathcal{S}$ son los operadores de permutación.
 
 \end{frame}
 
@@ -263,7 +263,7 @@ $p=\dfrac{1+q}{2}$.
 \begin{frame}{Generalización}
   La clave para lograr los efectos de manera correcta es también emplear el valor esperado de una medición difusa. Los efectos pueden escribirse como
   \begin{equation*}
-      {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{\Pi_j \in S} p_j \permutdagger{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
+      {\{E_{\lambda_i}\}}_{\lambda_i \in \Lambda}={\left\{\sum_{j} p_{j} \permutdagger{j}{P_{\lambda_i}}\right\}}_{\lambda_i \in \Lambda},
   \end{equation*}  
   Los respectivos operadores de Kraus 
   \begin{equation*}

@@ -41,7 +41,7 @@
 Escuela de Ciencias Físicas y Matemática\\
 Universidad de San Carlos\\
 \textit{Asesorado por: \\ 
-Dr.\@ Carlos Pineda (IF-UNAM)}\\
+Dr\@. Carlos Pineda (IF-UNAM)}\\
 Ing. Rodolfo Samayoa (ECFM-USAC)
 }
 \date{14 de agosto de 2024}
@@ -66,39 +66,49 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
   %\item A mis amigos y amigas
   %\end{itemize}
 %\end{frame}
-
+\begin{frame}{Contenidos}
+  \tableofcontents
+\end{frame}
 
 \section{Introducción}
 
 \begin{frame}
   \frametitle{Motivación}
- En la práctica  las mediciones que se realizan son imperfectas es por ello que es necesario un formalismo más extenso para poder proporcionar una descripción completa de las mediciones no ideales. 
-
- Para describir apropiadamente las mediciones difusas es necesario un mapeo de probabilidad de obtener las posibles salidas y el estado posterior a la medición.
-
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Introducción}
 \begin{itemize}
-  \item  Se inicia con un marco conceptual que contiene las herramientas más básicas  en la descripción de mediciones en sistemas cuánticos.
-  \item Se presenta el problema de las mediciones difusas de manera concreta.
-  \item Se tratan los resultados obtenidos para sistemas de dos partículas para posteriormente generalizarlos.
+  \item En la práctica las mediciones que se realizan son imperfectas.
+  \item Es necesario un formalismo más extenso para estudiar mediciones no ideales.
+  \item  Para describir apropiadamente las mediciones difusas.
+  
+
+
+  
 \end{itemize}
 
+
+
+
 \end{frame}
 
+%\begin{frame}
+ %\frametitle{Introducción}
+%\begin{itemize}
+ % \item  Se inicia con un marco conceptual que contiene las herramientas más básicas  en la descripción de mediciones en sistemas cuánticos.
+  %\item Se presenta el problema de las mediciones difusas de manera concreta.
+  %\item Se tratan los resultados obtenidos para sistemas de dos partículas para posteriormente generalizarlos.
+%\end{itemize}
+
+%\end{frame}
 
 
 
 
 
-\section{Revisión de literatura}
+
+\section{Marco teórico}
 \begin{frame}
  \frametitle{Operador de densidad}
  
- \begin{block}{}
+ \begin{block}{Matrices de densidad}
   El operador de densidad que corresponde al ensamble de estados puros $ \{p_j,|\psi_j\rangle\}$ es tal que \[\rho=\sum_j p_j |\psi_j\rangle\langle\psi_j|.\]
 
  \end{block}
@@ -109,16 +119,14 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
 \begin{frame}
 \frametitle{Medidas POVM}
     \begin{block}{Medida POVM (positive operator-valued measure) }
-      
-Las medidas POVM son  un conjunto $\{E_{m}\}$ de operadores que satisfacen las siguientes condiciones:
 \begin{enumerate}
-    \item Positividad: $\langle \psi |E_m|\psi \rangle \ge 0 $ para cualquier vector $|\psi\rangle$.
-    \item Hermiticidad: $E_m=E_{m}^\dagger$.
-    \item  Completitud: $\sum_m E_m =\mathds{1}$.
+    \item Positividad.
+    \item Hermiticidad.
+    \item  Completitud.
 \end{enumerate}
     \end{block}
   Brindan el mapeo de probabilidades \begin{equation*}\begin{split}
-      E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
+      %E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
       E(m,\rho)=\text{Tr}(E_m\rho).
   \end{split}\end{equation*}
 
@@ -155,7 +163,7 @@ identificación errónea de las partículas del sistema.
 \begin{frame}{Valor esperado y operador difuso}
 
  
-Para un sistema de dos partículas el valor esperado de un observable factorizable es 
+Para un sistema de dos partículas el valor esperado de un observable factorizable es\footnote{C. Pineda, D. Davalos, C. Viviescas, and A. Rosado, ``Fuzzy measurements and coarse graining in quantum many-body systems,'' (2021).} 
 \begin{equation*}\label{eq:Expected-Value-FM-2p}
     \begin{split}
       \la {A\otimes B}\ra_{\mathcal{F}_{2\text{p}}(\rho)} =&p\tr(\rho A\tensor B)+(1-p)\tr(\rho B\otimes A).\\
@@ -163,6 +171,12 @@ Para un sistema de dos partículas el valor esperado de un observable factorizab
 \end{equation*}Lo que permite introducir al operador difuso que se define como \begin{equation*}\label{eq:op_F2p}
     \mathcal{F}_{2\text{p}}(\rho):=p\rho + (1-p)S_{12}\rho S_{12}^{\dagger}.
 \end{equation*}
+
+
+\end{frame}
+
+\begin{frame}
+  
 Para sistemas más grandes es 
 \begin{equation*}\label{eq:expected-value-fm-general}
     \la \mathcal{O}\ra_{\fuzzy{\rho}}=\sum_{i}p_i\tr(\permut{i}{\rho}\mathcal{O}) =\tr(\fuzzy{\rho}\mathcal{O}).
@@ -184,7 +198,8 @@ Para sistemas más grandes es
 
 \section{Resultados}
 \begin{frame}{POVM y operadores de Kraus para mediciones difusas en sistemas de dos partículas}
-  Los efectos para una medición difusa son \[\{\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\}\]los cuales proporciona el mapeo de probabilidades tal que \[   E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\rho).\] Es necesario descomponer estos efectos, definiendo un conjunto de operadores de Kraus de manera que se cumpla que \[\mathcal{F}_{2\text{p}}(P_{a_j,b_k})=K_{a_j,b_k}^\dagger K_{a_j,b_k}.\] Por tanto se pueden considerar los siguientes operadores \[K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}(P_{a_j,b_k}\rho)}.\]
+  Los efectos para una medición difusa son \[\{\mathcal{F}_{2\text{p}}(P_{a_j,b_k})\}\]los cuales proporciona el mapeo de probabilidades tal que \[   E(a_j b_k, \rho)= \tr(\mathcal{F}_{2\text{p}}({P_{a_j,b_k}})\rho).\] %Es necesario descomponer estos efectos, definiendo un conjunto de %peradores de Kraus de manera que se cumpla que \[\mathcal{F}_{2\text{p}}%(P_{a_j,b_k})=K_{a_j,b_k}^\dagger K_{a_j,b_k}.\] Por tanto 
+  Se pueden considerar los siguientes operadores \[K_{a_j,b_k}=\sqrt{\mathcal{F}_{2\text{p}}(P_{a_j,b_k})}.\]
 \end{frame}
 
 
@@ -276,19 +291,19 @@ $p=\dfrac{1+q}{2}$.
 \begin{frame}{Generalización de Instrumentos}
   La generalización de los primeros dos instrumentos es fácilmente realizable.
 \begin{equation*}
-    \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i}.
+    \mathcal{I}_1(\rho)=\sum_{\lambda_i \in \Lambda }P_{\lambda_i}\otimes P_{\lambda_i}\fuzzy{\rho}P_{\lambda_i}
 \end{equation*} 
 y
 \begin{equation*}
   \mathcal{I}_2(\rho)= \sum_{\lambda_i \in \Lambda } \fuzzy{P_{\lambda_i}}\tensor P_{\lambda_i}\rho P_{\lambda_i}.
 \end{equation*} 
 
-\begin{block}{Proposición: Equivalencia}
-  Para todo estado inicial $\rho$, los valores esperados de estos dos instrumentos
-cuánticos son equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger
-\mathcal{O} \Pi_l\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y }
-\forall \Pi_l \in \mathcal{S}.\]
-\end{block} 
+%\begin{block}{Proposición: Equivalencia}
+ % Para todo estado inicial $\rho$, los valores esperados de estos dos instrumentos
+%cuánticos son equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\dagger
+%\mathcal{O} \Pi_l\right|\lambda_k\right\rangle=0,\forall j\ne k \text{ y }
+%\forall \Pi_l \in \mathcal{S}.\]
+%\end{block} 
 
 
 
@@ -309,7 +324,7 @@ cuánticos son equivalentes si y solo si \[\left \langle \lambda_j \left|\Pi_l^\
       \item En primer lugar, las medidas POVM junto con los operadores de Kraus, los cuales son la primera forma de aproximarse al problema. 
       %Los efectos de las medidas POVM  brindan una distribución de probabilidad de acuerdo a cada una  de las posibles salidas que pueden ocurrir en una medición difusa. Asimismo, los efectos también pueden descomponerse para dar origen a los operadores de Kraus, los cuales proporcionan el estado posterior a la medición.
       
-      \item Como segundo enfoque, se han examinado tres diferentes instrumentos cuánticos con el fin de analizar las mediciones difusas con distintas interpretaciones y describir las mediciones de una forma sucinta, de modo que vinculan tanto las salidas clásicas como las salidas cuánticas de la medición.%A pesar de que se esperaba que los instrumentos propuestos de manera intuitiva, modelaran correctamente la medición difusa, no resultó ser así. Solo uno de los tres instrumentos estudiados resultó brindar una especificación concisa y general de la medición difusa.
+      \item Como segundo enfoque, se han examinado tres diferentes instrumentos cuánticos. %con el fin de analizar las mediciones difusas con distintas interpretaciones y describir las mediciones de una forma sucinta, de modo que vinculan tanto las salidas clásicas como las salidas cuánticas de la medición.%A pesar de que se esperaba que los instrumentos propuestos de manera intuitiva, modelaran correctamente la medición difusa, no resultó ser así. Solo uno de los tres instrumentos estudiados resultó brindar una especificación concisa y general de la medición difusa.
     \end{itemize}
 \end{frame}
 

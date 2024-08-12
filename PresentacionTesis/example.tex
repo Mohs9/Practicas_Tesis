@@ -10,7 +10,9 @@
 \usepackage{sty/BeamerLille}
 \usepackage{float}
 \usepackage{caption}
-\usepackage{subfigure} 
+\usepackage{subfigure}
+\usepackage{amsmath}
+
 \usepackage{quantikz}
 \usepackage{graphicx}
 \usepackage{dsfont}
@@ -42,7 +44,7 @@ Escuela de Ciencias Físicas y Matemática\\
 Universidad de San Carlos\\
 \textit{Asesorado por: \\ 
 Dr\@. Carlos Pineda (IF-UNAM)}\\
-Ing. Rodolfo Samayoa (ECFM-USAC)
+\textit{Ing. Rodolfo Samayoa (ECFM-USAC)}
 }
 \date{14 de agosto de 2024}
 \AtBeginSection[]
@@ -76,10 +78,15 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
   \frametitle{Motivación}
 \begin{itemize}
   \item En la práctica las mediciones que se realizan son imperfectas.
-  \item Es necesario un formalismo más extenso para estudiar mediciones no ideales.
-  \item  Para describir apropiadamente las mediciones difusas.
-  
-
+  %\item Es necesario un formalismo más extenso para mediciones no ideales.
+  \item  Describir apropiadamente las mediciones difusas.
+  \vspace*{0.7cm}
+  \begin{figure}[H]
+    \centering
+    \hspace*{-1cm}
+   \includegraphics[width=65mm]{images/fm0.png}
+    \caption*{}
+  \end{figure}
 
   
 \end{itemize}
@@ -112,13 +119,20 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
   El operador de densidad que corresponde al ensamble de estados puros $ \{p_j,|\psi_j\rangle\}$ es tal que \[\rho=\sum_j p_j |\psi_j\rangle\langle\psi_j|.\]
 
  \end{block}
- 
+ Valor esperado de un observable 
+ \begin{equation*}
+  \label{expectationvalue_traza}
+  \begin{split}
+    \langle \mathcal{O} \rangle &= \rm{Tr}(\rho \mathcal{O}).
+  \end{split}
+\end{equation*}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Medidas POVM}
     \begin{block}{Medida POVM (positive operator-valued measure) }
+      Es un conjunto de operadores llamados efectos $\{E_i\}$ que cumplen con 
 \begin{enumerate}
     \item Positividad.
     \item Hermiticidad.
@@ -126,8 +140,8 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
 \end{enumerate}
     \end{block}
   Brindan el mapeo de probabilidades \begin{equation*}\begin{split}
-      %E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
-      E(m,\rho)=\text{Tr}(E_m\rho).
+      E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
+      E (i,\rho)=\text{Tr}(E_i\rho).
   \end{split}\end{equation*}
 
 
@@ -136,6 +150,7 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
 \begin{frame}{Operadores de Kraus}
   Por otra parte los operadores de Kraus son un conjunto de operadores $\{K_i\} $ que representan una operación cuántica en forma de suma \begin{equation*}
     \E(\rho)=\sum_i K_i\rho K_i^\dagger \end{equation*}
+  donde $\sum_{i}K_i^\dagger K_i=\mathds{1}$. Además, \[E_i=K_i^\dagger K_i\]
 \end{frame}
 
 
@@ -147,15 +162,23 @@ Ing. Rodolfo Samayoa (ECFM-USAC)
 \section{Mediciones difusas}
 
 \begin{frame}{Mediciones difusas}
-Una medición difusa es un proceso no ideal en el cual, debido a ruido
-del entorno o a fallos en el dispositivo de detección, se presenta la probabilidad de una
-identificación errónea de las partículas del sistema.
-\vspace{1cm}
+Una medición difusa es un proceso no ideal 
+%en el cual, debido a ruido del entorno o a fallos en el dispositivo de detección, se presenta la probabilidad de una identificación errónea de las partículas del sistema.
+
 \begin{figure}[H]
   \centering
+  \hspace*{-1cm}
  \includegraphics[width=100mm]{images/fm1.png}
   \caption*{}
-\end{figure} 
+\end{figure}
+
+\vspace*{-0.7cm}
+\begin{figure}[H]
+  \centering
+  \subfigure[]{\includegraphics[width=60mm]{images/fmideal.png}}
+  \subfigure[]{\includegraphics[width=70mm]{images/fm-nonideal.png}}
+  \caption*{}
+  \end{figure} 
 \end{frame}
 
 
@@ -175,9 +198,8 @@ Para un sistema de dos partículas el valor esperado de un observable factorizab
 
 \end{frame}
 
-\begin{frame}
-  
-Para sistemas más grandes es 
+\begin{frame}{Para $N>2$}
+
 \begin{equation*}\label{eq:expected-value-fm-general}
     \la \mathcal{O}\ra_{\fuzzy{\rho}}=\sum_{i}p_i\tr(\permut{i}{\rho}\mathcal{O}) =\tr(\fuzzy{\rho}\mathcal{O}).
 \end{equation*} donde \begin{equation*}\label{eq:fuzzy-op-nparticles}
@@ -213,8 +235,8 @@ Para sistemas más grandes es
 \end{equation*}
 \begin{figure}[H]
 \centering
-\subfigure[]{\includegraphics[width=50mm]{images/fmideaqi.png}}
-\subfigure[]{\includegraphics[width=60mm]{images/fmqi1.png}}
+\subfigure[]{\includegraphics[width=60mm]{images/fmideaqi.png}}
+\subfigure[]{\includegraphics[width=70mm]{images/fmqi1.png}}
 \caption*{}
 \end{figure} 
 
@@ -247,14 +269,14 @@ Para sistemas más grandes es
 \end{equation*}
 \begin{figure}[H]
     \centering
-\subfigure[]{\includegraphics[width=55mm]{images/fmidealiq3.png}}
-\subfigure[]{\includegraphics[width=70mm]{images/fmqi3.png}}
+\subfigure[]{\includegraphics[width=57mm]{images/fmidealiq3.png}}
+\subfigure[]{\includegraphics[width=72mm]{images/fmqi3.png}}
 \caption*{} 
 \end{figure} 
 \end{frame}
 
-\begin{frame}{Equivalencia}
-  \begin{block}{Proposición: Equivalencia entre instrumentos I y II}
+\begin{frame}{Valores esperados de los instrumentos}
+  \begin{block}{Proposición: Instrumentos I y II}
     Para todo estado inicial $\rho$, los valores esperados de las alternativas
 de los instrumentos cuánticos I y II son equivalentes si y solo si \begin{equation*}\label{eq:Condicion-equivalencia1-2}
     \la a_j
@@ -264,10 +286,10 @@ b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k'.
 
 %\begin{proposition}
  %   Si se satisface la condición  \[\la a_j b_k|B\otimes A|a_{j'}b_{k'}\ra=0, \forall j,k\ne j',k', \]  entonces $[A\otimes B,B \otimes A]=0$  
-%end{proposition}
+%end{proposition} 
 
 
-\begin{block}{Proposición: Equivalencia entre instrumentos I y III}
+\begin{block}{Proposición: Instrumentos I y III}
     Para todo estado inicial $\rho$, los valores esperados de las alternativas
 de instrumentos cuánticos I y III son equivalentes si y solo si
 $p=\dfrac{1+q}{2}$.
@@ -317,14 +339,14 @@ y
 
 \begin{frame}{Conclusiones}
     \begin{itemize}
-      \item En concreto, en esta tesis se emplearon dos enfoques
-      principales que vale la pena enfatizar.
+      \item En esta tesis se emplearon dos enfoques
+      principales.
       
       
-      \item En primer lugar, las medidas POVM junto con los operadores de Kraus, los cuales son la primera forma de aproximarse al problema. 
+      \item En primer lugar, las medidas POVM junto con los operadores de Kraus. 
       %Los efectos de las medidas POVM  brindan una distribución de probabilidad de acuerdo a cada una  de las posibles salidas que pueden ocurrir en una medición difusa. Asimismo, los efectos también pueden descomponerse para dar origen a los operadores de Kraus, los cuales proporcionan el estado posterior a la medición.
       
-      \item Como segundo enfoque, se han examinado tres diferentes instrumentos cuánticos. %con el fin de analizar las mediciones difusas con distintas interpretaciones y describir las mediciones de una forma sucinta, de modo que vinculan tanto las salidas clásicas como las salidas cuánticas de la medición.%A pesar de que se esperaba que los instrumentos propuestos de manera intuitiva, modelaran correctamente la medición difusa, no resultó ser así. Solo uno de los tres instrumentos estudiados resultó brindar una especificación concisa y general de la medición difusa.
+      \item Como segundo enfoque, se han examinado diferentes instrumentos cuánticos. %con el fin de analizar las mediciones difusas con distintas interpretaciones y describir las mediciones de una forma sucinta, de modo que vinculan tanto las salidas clásicas como las salidas cuánticas de la medición.%A pesar de que se esperaba que los instrumentos propuestos de manera intuitiva, modelaran correctamente la medición difusa, no resultó ser así. Solo uno de los tres instrumentos estudiados resultó brindar una especificación concisa y general de la medición difusa.
     \end{itemize}
 \end{frame}
 

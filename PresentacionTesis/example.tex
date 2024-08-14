@@ -61,13 +61,13 @@ Dr\@. Carlos Pineda (IF-UNAM)}\\
   \titlepage{}
 \end{frame}
 
-%\begin{frame}{Agradecimientos}
- %    \begin{itemize}
-  %\item A mi familia
-  %\item A mis asesores
-  %\item A mis amigos y amigas
-  %\end{itemize}
-%\end{frame}
+\begin{frame}{Agradecimientos}
+   \begin{itemize}
+  \item A mi familia
+  \item A mis asesores
+  \item A mis amigos y amigas
+  \end{itemize}
+\end{frame}
 \begin{frame}{Contenidos}
   \tableofcontents
 \end{frame}
@@ -80,6 +80,12 @@ Dr\@. Carlos Pineda (IF-UNAM)}\\
   \item En la práctica las mediciones que se realizan son imperfectas.
   %\item Es necesario un formalismo más extenso para mediciones no ideales.
   \item  Describir apropiadamente las mediciones difusas.
+  \begin{itemize}
+    \item La probabilidad de obtener cada una de las salidas.
+    \item El estado posterior.
+  \end{itemize}
+
+
   \vspace*{0.7cm}
   \begin{figure}[H]
     \centering
@@ -130,19 +136,21 @@ Dr\@. Carlos Pineda (IF-UNAM)}\\
 \end{frame}
 
 \begin{frame}
+  Es un conjunto de operadores llamados efectos $\{E_i\}$.
+  \begin{equation*}\begin{split}
+    E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
+    E (i,\rho)=\text{Tr}(E_i\rho).
+\end{split}\end{equation*}
+
 \frametitle{Medidas POVM}
-    \begin{block}{Medida POVM (positive operator-valued measure) }
-      Es un conjunto de operadores llamados efectos $\{E_i\}$ que cumplen con 
+    \begin{block}{Medida POVM (positive operator-valued measure) } 
 \begin{enumerate}
     \item Positividad.
     \item Hermiticidad.
     \item  Completitud.
 \end{enumerate}
     \end{block}
-  Brindan el mapeo de probabilidades \begin{equation*}\begin{split}
-      E:S\times \mathcal{B(H)}\longrightarrow [0,1]\\
-      E (i,\rho)=\text{Tr}(E_i\rho).
-  \end{split}\end{equation*}
+
 
 
 \end{frame}
@@ -173,12 +181,8 @@ Una medición difusa es un proceso no ideal
 \end{figure}
 
 \vspace*{-0.7cm}
-\begin{figure}[H]
-  \centering
-  \subfigure[]{\includegraphics[width=60mm]{images/fmideal.png}}
-  \subfigure[]{\includegraphics[width=70mm]{images/fm-nonideal.png}}
-  \caption*{}
-  \end{figure} 
+\includegraphics[width=60mm]{images/fmideal.png}
+\hfill \includegraphics[width=70mm]{images/fm-nonideal.png}
 \end{frame}
 
 
@@ -233,16 +237,8 @@ Para un sistema de dos partículas el valor esperado de un observable factorizab
         &=\sum_{j,k}P_{a_j,b_k}\otimes P_{a_j,b_k} [p \bra{a_j b_k}\rho \ket{a_j,b_k}+(1-p)\bra{b_k a_j }\rho \ket {b_k a_j}],
 \end{split}
 \end{equation*}
-\begin{figure}[H]
-\centering
-\subfigure[]{\includegraphics[width=60mm]{images/fmideaqi.png}}
-\subfigure[]{\includegraphics[width=70mm]{images/fmqi1.png}}
-\caption*{}
-\end{figure} 
-
-
-
-
+\includegraphics[width=60mm]{images/fmideaqi.png}\hfill
+\includegraphics[width=70mm]{images/fmqi1.png}
 \end{frame}
 
 \begin{frame}{Instrumentos cuánticos para dos partículas II}
@@ -269,12 +265,8 @@ Para un sistema de dos partículas el valor esperado de un observable factorizab
         &+(1-q)\left[\sum_{(j,k)\in K}P_{a_j,b_k} \otimes P^{K}_{a_j,b_k}\rho P^{K}_{a_j,b_k}+\sum_{(i,l) \in L}P_{a_i,b_l} \otimes  \dfrac{1}{2}P^{L}_{a_i,b_l}\rho P^L_{a_i,b_l}\right]\\
     \end{split}
 \end{equation*}
-\begin{figure}[H]
-    \centering
-\subfigure[]{\includegraphics[width=57mm]{images/fmidealiq3.png}}
-\subfigure[]{\includegraphics[width=72mm]{images/fmqi3.png}}
-\caption*{} 
-\end{figure} 
+\includegraphics[width=57mm]{images/fmidealiq3.png}\hfill 
+\includegraphics[width=72mm]{images/fmqi3.png}
 \end{frame}
 
 \begin{frame}{Valores esperados de los instrumentos}
